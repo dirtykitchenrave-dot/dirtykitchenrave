@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { LINKS } from '@/lib/site'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 type Props = { params: Promise<{ lang: string }> }
 
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.demos.title, description: d.demos.lead, alternates: alternates(lang, '/demos') }
+  return pageMeta(lang, '/demos', d.demos.title, d.demos.lead)
 }
 
 export default async function DemosPage({ params }: Props) {

@@ -4,7 +4,7 @@ import ReleasesExplorer from '@/components/ReleasesExplorer'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { genres, getCatalog, sortedReleases } from '@/lib/catalog'
-import { alternates, chipGenre, toExplorerItem } from '@/lib/view'
+import { chipGenre, pageMeta, toExplorerItem } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.releases.title, description: d.releases.intro, alternates: alternates(lang, '/releases') }
+  return pageMeta(lang, '/releases', d.releases.title, d.releases.intro)
 }
 
 export default async function ReleasesPage({ params }: Props) {

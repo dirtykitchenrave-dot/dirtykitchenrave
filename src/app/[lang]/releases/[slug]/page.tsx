@@ -16,7 +16,7 @@ import {
 } from '@/lib/catalog'
 import { artworkAt, catalogNumber, formatDate, isUpcoming, joinNames, slugify } from '@/lib/format'
 import { SITE } from '@/lib/site'
-import { alternates, toCard, toTrackRow, trackListLabels } from '@/lib/view'
+import { pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -40,12 +40,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? `${r.title} de ${by} en Dirty Kitchen Rave. ${r.genres[0] || ''} ${formatDate(r.releaseDate, lang, 'long')}.`
       : `${r.title} by ${by} on Dirty Kitchen Rave. ${r.genres[0] || ''} ${formatDate(r.releaseDate, lang, 'long')}.`
   const image = artworkAt(r.artwork, 1000)
-  return {
-    title,
-    description,
-    alternates: alternates(lang, `/releases/${r.slug}`),
-    openGraph: { title, description, type: 'music.album', images: image ? [{ url: image, width: 1000, height: 1000 }] : undefined },
-  }
+  return pageMeta(lang, `/releases/${r.slug}`, title, description, {
+    type: 'music.album',
+    images: image ? [{ url: image, width: 1000, height: 1000, alt: `${r.title} – ${by}` }] : undefined,
+  })
 }
 
 export default async function ReleasePage({ params }: Props) {

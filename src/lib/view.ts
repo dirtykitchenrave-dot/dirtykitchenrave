@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import type { Lang } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { ReleaseCardData } from '@/components/ReleaseCard'
@@ -5,6 +6,7 @@ import type { TrackListLabels, TrackRow } from '@/components/TrackList'
 import type { PlayerTrack } from '@/components/Player'
 import { artistNames, artistsByIds, tracksFor } from './catalog'
 import { artworkAt, formatDate, isUpcoming, joinNames, slugify } from './format'
+import { SITE } from './site'
 import type { Catalog, Release, ReleaseType, Track } from './types'
 
 /** "Breaks / Breakbeat / UK Bass" -> "Breaks" (short label for cards). */
@@ -160,6 +162,36 @@ export function trackListLabels(d: Dictionary, count: number): TrackListLabels {
     searchSpotify: d.release.searchSpotify,
     openTidal: d.release.openTidal,
     openBeatport: d.release.openBeatport,
+  }
+}
+
+/**
+ * Page metadata with its own Open Graph. A page-level `openGraph` replaces the layout's one
+ * (no deep merge), so siteName, locale and url are set here for every page.
+ */
+export function pageMeta(
+  lang: Lang,
+  path: string,
+  title: string,
+  description: string,
+  og: { images?: { url: string; width?: number; height?: number; alt?: string }[]; type?: 'website' | 'music.album' | 'profile' } = {},
+): Metadata {
+  const ogTitle = `${title} | ${SITE.name}`
+  return {
+    title,
+    description,
+    alternates: alternates(lang, path),
+    openGraph: {
+      type: og.type ?? 'website',
+      siteName: SITE.name,
+      locale: lang === 'es' ? 'es_ES' : 'en_GB',
+      alternateLocale: lang === 'es' ? 'en_GB' : 'es_ES',
+      url: `/${lang}${path}`,
+      title: ogTitle,
+      description,
+      images: og.images ?? [{ url: `/${lang}/opengraph-image`, width: 1200, height: 630, alt: SITE.name }],
+    },
+    twitter: { card: 'summary_large_image', title: ogTitle, description },
   }
 }
 

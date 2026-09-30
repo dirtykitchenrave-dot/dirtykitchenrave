@@ -105,6 +105,11 @@ const en = {
   genres: {
     title: (g: string) => `${g} on Dirty Kitchen Rave`,
     intro: (n: number) => `${n} ${n === 1 ? 'release' : 'releases'} in this genre.`,
+    indexTitle: 'Genres',
+    indexDescription:
+      'Every genre on Dirty Kitchen Rave: breaks, UK bass, UK garage, bassline, drum & bass, electro, dubstep, techno and more.',
+    metaDescription: (g: string, n: number) =>
+      `${n} ${n === 1 ? 'release' : 'releases'} of ${g} on Dirty Kitchen Rave, the multi-genre bass label from London. Previews, tracklists and links to buy.`,
   },
   shop: {
     title: 'Shop',
@@ -147,6 +152,7 @@ const en = {
   links: {
     title: 'Links',
     latest: 'Latest release',
+    description: 'All Dirty Kitchen Rave links: latest release, Beatport, Bandcamp, podcast, merch, Discord and socials.',
   },
   channels: {
     beatport: 'Full catalogue',
@@ -331,6 +337,11 @@ const es: Dictionary = {
   genres: {
     title: (g: string) => `${g} en Dirty Kitchen Rave`,
     intro: (n: number) => `${n} ${n === 1 ? 'lanzamiento' : 'lanzamientos'} de este género.`,
+    indexTitle: 'Géneros',
+    indexDescription:
+      'Todos los géneros de Dirty Kitchen Rave: breaks, UK bass, UK garage, bassline, drum & bass, electro, dubstep, techno y más.',
+    metaDescription: (g: string, n: number) =>
+      `${n} ${n === 1 ? 'lanzamiento' : 'lanzamientos'} de ${g} en Dirty Kitchen Rave, el sello de bass multigénero de Londres. Previews, tracklists y dónde comprar.`,
   },
   shop: {
     title: 'Tienda',
@@ -373,6 +384,7 @@ const es: Dictionary = {
   links: {
     title: 'Enlaces',
     latest: 'Último lanzamiento',
+    description: 'Todos los enlaces de Dirty Kitchen Rave: último lanzamiento, Beatport, Bandcamp, podcast, merch, Discord y redes.',
   },
   channels: {
     beatport: 'Catálogo completo',

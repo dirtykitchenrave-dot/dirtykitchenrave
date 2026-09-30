@@ -7,7 +7,8 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { findArtist, getCatalog, releasesByArtist, remixesByArtist, tracksByArtist } from '@/lib/catalog'
 import { LABEL_MANAGER_SLUG, SITE } from '@/lib/site'
 import TrackList from '@/components/TrackList'
-import { alternates, toCard, toTrackRow, trackListLabels } from '@/lib/view'
+import { artworkAt } from '@/lib/format'
+import { pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -30,12 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     (lang === 'es'
       ? `${a.name} en Dirty Kitchen Rave: ${n} ${n === 1 ? 'lanzamiento' : 'lanzamientos'}.`
       : `${a.name} on Dirty Kitchen Rave: ${n} ${n === 1 ? 'release' : 'releases'}.`)
-  return {
-    title: a.name,
-    description,
-    alternates: alternates(lang, `/artists/${a.slug}`),
-    openGraph: { title: a.name, description, images: a.image ? [a.image] : undefined },
-  }
+  const image = artworkAt(a.image, 1000)
+  return pageMeta(lang, `/artists/${a.slug}`, a.name, description, {
+    type: 'profile',
+    images: image ? [{ url: image, width: 1000, height: 1000, alt: a.name }] : undefined,
+  })
 }
 
 export default async function ArtistPage({ params }: Props) {
@@ -65,7 +65,7 @@ export default async function ArtistPage({ params }: Props) {
     '@type': 'MusicGroup',
     name: a.name,
     url: `${SITE.url}/${lang}/artists/${a.slug}`,
-    image: a.image || undefined,
+    image: artworkAt(a.image, 1000) || undefined,
     sameAs: links.map((l) => l.href),
   }
 

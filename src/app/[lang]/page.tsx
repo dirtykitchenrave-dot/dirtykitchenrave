@@ -16,7 +16,7 @@ import {
   releasedReleases,
   upcomingReleases,
 } from '@/lib/catalog'
-import { GENRE_MARQUEE } from '@/lib/site'
+import { GENRE_MARQUEE, LINKS, SITE } from '@/lib/site'
 import { toCard } from '@/lib/view'
 
 export const revalidate = 3600
@@ -34,8 +34,44 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     .slice(0, 8)
   const crew = artistsWithCounts(c).slice(0, 24)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${SITE.url}/#label`,
+        name: SITE.name,
+        alternateName: SITE.short,
+        url: `${SITE.url}/${lang}`,
+        logo: `${SITE.url}/icon.svg`,
+        description: d.meta.description,
+        email: SITE.contactEmail || undefined,
+        address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
+        sameAs: [
+          LINKS.beatport,
+          LINKS.bandcamp,
+          LINKS.instagram,
+          LINKS.tiktok,
+          LINKS.youtube,
+          LINKS.facebook,
+          LINKS.soundcloud,
+          LINKS.spotify,
+        ].filter(Boolean),
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE.url}/#website`,
+        name: SITE.name,
+        url: `${SITE.url}/${lang}`,
+        inLanguage: lang,
+        publisher: { '@id': `${SITE.url}/#label` },
+      },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HeroDrop lang={lang} d={d} release={latest} artists={latest ? artistsByIds(c, latest.artistIds) : []} />
 
       <Marquee items={GENRE_MARQUEE} />

@@ -5,7 +5,7 @@ import ShopGrid from '@/components/ShopGrid'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { LINKS } from '@/lib/site'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 type Props = { params: Promise<{ lang: string }> }
 
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.shop.title, description: d.shop.intro, alternates: alternates(lang, '/shop') }
+  return pageMeta(lang, '/shop', d.shop.title, d.shop.intro)
 }
 
 export default async function ShopPage({ params }: Props) {

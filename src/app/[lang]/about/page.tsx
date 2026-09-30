@@ -5,7 +5,7 @@ import Channels from '@/components/Channels'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { LABEL_MANAGER_SLUG, LINKS, SITE } from '@/lib/site'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 type Props = { params: Promise<{ lang: string }> }
 
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.about.title, description: d.about.lead, alternates: alternates(lang, '/about') }
+  return pageMeta(lang, '/about', d.about.title, d.about.lead)
 }
 
 export default async function AboutPage({ params }: Props) {

@@ -1,9 +1,19 @@
+// On Vercel this is the production domain: *.vercel.app until the custom domain is added,
+// then that domain. It wins over NEXT_PUBLIC_SITE_URL so canonicals and share images never
+// point to a domain that does not serve this site yet (dirtykitchenrave.com -> Linktree today).
+const vercelProd = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+const siteUrl = (
+  vercelProd ? `https://${vercelProd}` : process.env.NEXT_PUBLIC_SITE_URL || 'https://dirtykitchenrave.com'
+).replace(/\/+$/, '')
+
 /** Fixed label links (from the label's Linktree). Empty strings are hidden in the UI. */
 export const SITE = {
   name: 'Dirty Kitchen Rave',
   short: 'DKR',
   city: 'London, UK',
-  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dirtykitchenrave.com').replace(/\/+$/, ''),
+  url: siteUrl,
+  /** Test deployments (*.vercel.app or Vercel previews) must not be indexed. */
+  indexable: !new URL(siteUrl).hostname.endsWith('.vercel.app') && process.env.VERCEL_ENV !== 'preview',
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'dirtykitchenrave@gmail.com',
   beatportLabelId: 112835,
 }

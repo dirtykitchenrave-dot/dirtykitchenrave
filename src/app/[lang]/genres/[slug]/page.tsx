@@ -4,7 +4,7 @@ import { PagedReleases } from '@/components/ReleasesExplorer'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { genres, getCatalog, releasesByGenre } from '@/lib/catalog'
-import { alternates, toCard } from '@/lib/view'
+import { pageMeta, toCard } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const g = genres(c).find((x) => x.slug === slug)
   if (!g) return {}
   const d = getDictionary(lang)
-  return { title: d.genres.title(g.name), description: d.genres.intro(g.count), alternates: alternates(lang, `/genres/${slug}`) }
+  return pageMeta(lang, `/genres/${slug}`, d.genres.title(g.name), d.genres.metaDescription(g.name, g.count))
 }
 
 export default async function GenrePage({ params }: Props) {

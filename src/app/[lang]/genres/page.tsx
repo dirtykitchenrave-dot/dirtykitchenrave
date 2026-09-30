@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { genres, getCatalog } from '@/lib/catalog'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -13,7 +13,8 @@ type Props = { params: Promise<{ lang: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
-  return { title: lang === 'es' ? 'Géneros' : 'Genres', alternates: alternates(lang, '/genres') }
+  const d = getDictionary(lang)
+  return pageMeta(lang, '/genres', d.genres.indexTitle, d.genres.indexDescription)
 }
 
 export default async function GenresPage({ params }: Props) {

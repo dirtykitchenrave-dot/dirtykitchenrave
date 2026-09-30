@@ -6,7 +6,7 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { artistNames, getCatalog, latestRelease } from '@/lib/catalog'
 import { joinNames } from '@/lib/format'
 import { LINKS, SITE } from '@/lib/site'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.links.title, alternates: alternates(lang, '/links') }
+  return pageMeta(lang, '/links', d.links.title, d.links.description)
 }
 
 /** Replacement for the label's Linktree: the URL to put in the Instagram / TikTok bio. */

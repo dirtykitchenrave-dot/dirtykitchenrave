@@ -5,7 +5,7 @@ import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { artistsWithCounts, getCatalog } from '@/lib/catalog'
 import { LABEL_MANAGER_SLUG } from '@/lib/site'
-import { alternates } from '@/lib/view'
+import { pageMeta } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return { title: d.artists.title, description: d.artists.intro, alternates: alternates(lang, '/artists') }
+  return pageMeta(lang, '/artists', d.artists.title, d.artists.intro)
 }
 
 export default async function ArtistsPage({ params }: Props) {
