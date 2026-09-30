@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DKR | Drop 0237</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;62..125,800;62..125,900&display=swap" rel="stylesheet">
+<style>
+/* 05 — DROP
+   The most forward labels today behave like streetwear brands: releases are "drops", merch is part of the identity.
+   Concrete, hi-vis orange and one variable typeface (Archivo) used from ultra-condensed to ultra-wide.
+   The big marquee speeds up and stretches with scroll velocity; the record on the hero spins in 3D. */
+:root{--hormigon:#C7C5C0;--hormigon-2:#B3B1AB;--tinta:#101113;--naranja:#FF5B14;--blanco:#FAFAF8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--hormigon);color:var(--tinta);line-height:1.5;font-size:1.0625rem;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+.cond{font-stretch:62%}.wide{font-stretch:125%}
+
+.nav{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(.8rem + env(safe-area-inset-top,0px)) clamp(1rem,3vw,2.5rem) .8rem;background:var(--hormigon);border-bottom:2px solid var(--tinta)}
+.nav nav{display:flex;gap:1.4rem;font-weight:600;font-size:.95rem}
+.nav nav a{text-decoration:none}
+.nav nav a:hover{color:var(--naranja)}
+.nav .logo{font-weight:900;font-stretch:125%;font-size:1.4rem;letter-spacing:-.02em;text-decoration:none}
+.nav .right{justify-self:end;display:flex;gap:.6rem}
+.pill{border:2px solid var(--tinta);border-radius:999px;padding:.35rem .9rem;font-weight:800;text-decoration:none;font-size:.85rem}
+.pill.fill{background:var(--tinta);color:var(--hormigon)}
+.pill:hover{background:var(--naranja);border-color:var(--naranja);color:var(--tinta)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:calc(100vh - 60px);border-bottom:2px solid var(--tinta)}
+.hero .l{padding:clamp(1.5rem,4vw,3rem);display:flex;flex-direction:column;justify-content:space-between;border-right:2px solid var(--tinta)}
+.drop-no{font-weight:900;font-stretch:62%;font-size:clamp(7rem,22vw,20rem);line-height:.8;letter-spacing:-.02em}
+.drop-no small{display:block;font-size:.16em;font-stretch:125%;letter-spacing:0;margin-bottom:.4em}
+.hero h1{font-weight:900;font-stretch:125%;font-size:clamp(1.8rem,3.6vw,3.2rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;margin-top:1.5rem}
+.hero .meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:.3rem 2rem;margin-top:1.2rem;font-weight:600}
+.hero .meta dt{font-weight:400;font-size:.8rem;opacity:.7}
+.hero .ctas{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem}
+.btn{display:inline-block;background:var(--naranja);color:var(--tinta);font-weight:900;font-stretch:125%;text-transform:uppercase;padding:1rem 1.4rem;text-decoration:none;border:2px solid var(--tinta)}
+.btn.ghost{background:transparent}
+.btn:hover{background:var(--tinta);color:var(--naranja)}
+.hero .r{background:var(--naranja);display:grid;place-items:center;perspective:1200px;position:relative;overflow:hidden}
+.sleeve{position:absolute;width:min(58%,420px);aspect-ratio:1;background:var(--tinta);color:var(--naranja);transform:translateX(-18%) rotate(-4deg);display:flex;flex-direction:column;justify-content:space-between;padding:1.2rem;font-weight:900;font-stretch:62%;font-size:clamp(2rem,4vw,3.4rem);line-height:.85;text-transform:uppercase;box-shadow:14px 14px 0 rgba(16,17,19,.25)}
+.sleeve span:last-child{font-stretch:125%;font-size:.3em;line-height:1.2}
+.disc{width:min(58%,420px);aspect-ratio:1;border-radius:50%;transform:translateX(22%);transform-style:preserve-3d;animation:spin 6s linear infinite;
+  background:radial-gradient(circle,var(--blanco) 0 3%,var(--naranja) 3.2% 17%,var(--tinta) 17.4% 18%,#1b1c1f 18.2%),repeating-radial-gradient(circle,#1b1c1f 0 2px,#26272b 2px 3px);
+  box-shadow:0 30px 60px rgba(16,17,19,.35)}
+@keyframes spin{from{transform:translateX(22%) rotateX(18deg) rotateZ(0)}to{transform:translateX(22%) rotateX(18deg) rotateZ(360deg)}}
+
+/* VELOCITY MARQUEE */
+.marquee{overflow:hidden;border-bottom:2px solid var(--tinta);background:var(--tinta);color:var(--hormigon);padding:.6rem 0}
+.marquee .track{display:flex;width:max-content;will-change:transform}
+.marquee span{font-weight:900;font-size:clamp(3rem,9vw,7.5rem);line-height:1;text-transform:uppercase;padding-right:3rem;white-space:nowrap;font-stretch:var(--w,100%)}
+.marquee span i{font-style:normal;color:var(--naranja)}
+
+section{border-bottom:2px solid var(--tinta)}
+.pad{padding:clamp(3rem,7vw,6rem) clamp(1rem,3vw,2.5rem)}
+h2{font-weight:900;font-stretch:125%;font-size:clamp(2.2rem,6vw,5rem);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:2rem}
+
+/* MANIFESTO */
+.mani{display:grid;grid-template-columns:1fr 1fr}
+.mani > div{padding:clamp(2rem,5vw,4rem) clamp(1rem,3vw,2.5rem)}
+.mani > div:first-child{border-right:2px solid var(--tinta);background:var(--blanco)}
+.mani .quote{font-weight:800;font-stretch:62%;font-size:clamp(2.6rem,6vw,5.5rem);line-height:.9;text-transform:uppercase}
+.mani p{max-width:52ch;margin-bottom:1rem;font-size:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
+.tags span{border:2px solid var(--tinta);padding:.2rem .7rem;font-weight:800;font-size:.85rem;text-transform:uppercase}
+
+/* DROPS GRID */
+.drops{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--tinta)}
+.drop{border-right:2px solid var(--tinta);border-bottom:2px solid var(--tinta);padding:1rem;display:flex;flex-direction:column;gap:.8rem;text-decoration:none;background:var(--hormigon)}
+.drop:nth-child(4n){border-right:0}
+.drop:hover{background:var(--blanco)}
+.drop .art{aspect-ratio:1;background:var(--c);display:flex;align-items:flex-end;padding:.8rem;position:relative;overflow:hidden}
+.drop .art b{font-weight:900;font-stretch:62%;font-size:clamp(1.8rem,3vw,2.6rem);line-height:.85;text-transform:uppercase;color:var(--tinta);position:relative;z-index:1}
+.drop .art::before{content:"";position:absolute;right:-25%;top:-25%;width:80%;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle,rgba(16,17,19,.9) 0 2px,rgba(16,17,19,.75) 2px 4px);transition:transform .5s}
+.drop:hover .art::before{transform:rotate(180deg) scale(1.05)}
+.drop .row{display:flex;justify-content:space-between;gap:.5rem;font-size:.85rem;font-weight:600}
+.drop h3{font-weight:800;font-size:1rem;line-height:1.2}
+
+/* SHOP */
+.shop{display:grid;grid-template-columns:repeat(3,1fr)}
+.item{padding:clamp(1.2rem,3vw,2rem);border-right:2px solid var(--tinta);display:flex;flex-direction:column;gap:1rem;text-decoration:none}
+.item:last-child{border-right:0}
+.item .img{aspect-ratio:4/5;background:var(--blanco);display:grid;place-items:center;border:2px solid var(--tinta)}
+.item:hover .img{background:var(--naranja)}
+.item h3{font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:1.2rem}
+.item p{font-size:.95rem}
+.tee{width:62%}
+
+/* CREW */
+.crew{font-weight:900;text-transform:uppercase;font-size:clamp(1.6rem,4.2vw,3.6rem);line-height:1;letter-spacing:-.02em}
+.crew span{display:inline-block;margin-right:.35em;transition:font-stretch .3s,color .2s;font-stretch:62%}
+.crew span:hover{font-stretch:125%;color:var(--naranja)}
+.crew .boss{font-stretch:125%}
+
+/* CHANNELS */
+.channels{display:grid;grid-template-columns:repeat(6,1fr)}
+.channels a{padding:1.4rem 1rem;border-right:2px solid var(--tinta);text-decoration:none;font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:.95rem;min-height:120px;display:flex;flex-direction:column;justify-content:space-between}
+.channels a:last-child{border-right:0}
+.channels a:hover{background:var(--tinta);color:var(--naranja)}
+.channels small{font-weight:400;font-stretch:100%;text-transform:none;font-size:.8rem}
+
+.demo{background:var(--naranja);text-align:center}
+.demo h2{font-stretch:62%;font-size:clamp(4rem,14vw,12rem);margin-bottom:1rem}
+.demo p{max-width:44ch;margin:0 auto 2rem;font-size:1.15rem;font-weight:600}
+.demo .btn{background:var(--tinta);color:var(--naranja)}
+
+footer{padding:1.5rem clamp(1rem,3vw,2.5rem) calc(1.5rem + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-weight:600;font-size:.9rem}
+footer nav{display:flex;flex-wrap:wrap;gap:1.2rem}
+footer a{text-decoration:none}
+
+@media (max-width:960px){
+  .nav{grid-template-columns:auto 1fr}.nav nav{display:none}.nav .logo{justify-self:start}
+  .hero,.mani{grid-template-columns:1fr}
+  .hero .l,.mani > div:first-child{border-right:0;border-bottom:2px solid var(--tinta)}
+  .hero .r{min-height:60vh}
+  .drops{grid-template-columns:1fr 1fr}.drop:nth-child(4n){border-right:2px solid var(--tinta)}.drop:nth-child(2n){border-right:0}
+  .shop{grid-template-columns:1fr}.item{border-right:0;border-bottom:2px solid var(--tinta)}
+  .channels{grid-template-columns:1fr 1fr}.channels a{border-bottom:2px solid var(--tinta)}.channels a:nth-child(2n){border-right:0}
+}
+@media (prefers-reduced-motion:reduce){.disc{animation:none;transform:translateX(22%) rotateX(18deg)}.drop .art::before{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <nav aria-label="Main"><a href="#drops">Drops</a><a href="#shop">Shop</a><a href="#crew">Crew</a><a href="#demo">Demos</a></nav>
+  <a class="logo" href="#">DKR</a>
+  <div class="right"><a class="pill" href="https://discord.gg/vXFj3tQkme">Discord</a><a class="pill fill" href="https://www.beatport.com/label/dirty-kitchen-rave/112835">Listen</a></div>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="l">
+    <div class="drop-no"><small>Latest catalogue number</small>0237</div>
+    <div>
+      <h1 id="h1">Dirty Kitchen Rave. Multi-genre bass, London.</h1>
+      <dl class="meta">
+        <div><dt>Drop</dt><dd>Romero</dd></div>
+        <div><dt>Artist</dt><dd>Afghan Headspin</dd></div>
+        <div><dt>Out</dt><dd>08.01.2026</dd></div>
+      </dl>
+      <div class="ctas">
+        <a class="btn" href="https://www.beatport.com/label/dirty-kitchen-rave/112835">Shop the catalogue</a>
+        <a class="btn ghost" href="#drops">All drops</a>
+      </div>
+    </div>
+  </div>
+  <div class="r" aria-hidden="true">
+    <div class="sleeve"><span>Dirty<br>Kitchen<br>Rave</span><span>DKR0237 / Romero</span></div>
+    <div class="disc"></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track">
+  <span>Breaks <i>✱</i> UK Bass <i>✱</i> UKG <i>✱</i> Bassline <i>✱</i> Rave <i>✱</i> Jungle <i>✱</i> DnB <i>✱</i> Breakbeat <i>✱</i> Dubstep <i>✱</i> Disco <i>✱</i></span>
+  <span>Breaks <i>✱</i> UK Bass <i>✱</i> UKG <i>✱</i> Bassline <i>✱</i> Rave <i>✱</i> Jungle <i>✱</i> DnB <i>✱</i> Breakbeat <i>✱</i> Dubstep <i>✱</i> Disco <i>✱</i></span>
+</div></div>
+
+<section class="mani" id="label">
+  <div><p class="quote">Not a label. A full-throttle kitchen rave.</p></div>
+  <div>
+    <p>DIRTY KITCHEN RAVE is a multi-genre bass label from London, made for bassheads, ravers and late-night misfits. It releases whatever hits hardest on a dancefloor and doesn't care which genre box it lands in.</p>
+    <p>Label manager Afghan Headspin runs a crew of UK and international producers with deep roots in the Spanish breaks scene. More than 230 drops in, DKR also streams on Twitch, hosts a podcast, runs a Discord and sells its own clothing and vinyl.</p>
+    <div class="tags"><span>London</span><span>230+ drops</span><span>10 genres</span><span>Demos open</span></div>
+  </div>
+</section>
+
+<section id="drops">
+  <div class="pad" style="padding-bottom:2rem"><h2>Drops</h2></div>
+  <div class="drops" id="dropsGrid"></div>
+</section>
+
+<section id="shop">
+  <div class="pad" style="padding-bottom:2rem"><h2>Wear the rave</h2></div>
+  <div class="shop" style="border-top:2px solid var(--tinta)">
+    <a class="item" href="https://afghan-headspin-shop.fourthwall.com/en-gbp/collections/all">
+      <div class="img"><svg class="tee" viewBox="0 0 200 200" aria-hidden="true"><path d="M60 20 L85 30 Q100 42 115 30 L140 20 L185 50 L165 85 L145 75 L145 185 L55 185 L55 75 L35 85 L15 50Z" fill="#101113"/><text x="100" y="118" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="26" fill="#FF5B14" style="font-stretch:62%">DKR</text></svg></div>
+      <h3>Official merch</h3><p>Tees and gear from the DKR shop.</p>
+    </a>
+    <a class="item" href="https://elasticstage.com/dirtykitchenrave/releases/tales-from-the-cowshed-singleep">
+      <div class="img"><svg class="tee" viewBox="0 0 200 200" aria-hidden="true"><rect x="20" y="20" width="130" height="160" fill="#101113"/><circle cx="130" cy="100" r="62" fill="#26272b"/><circle cx="130" cy="100" r="18" fill="#FF5B14"/><circle cx="130" cy="100" r="3" fill="#FAFAF8"/></svg></div>
+      <h3>Vinyl</h3><p>Afghan Headspin, Tales From The Cowshed, on wax.</p>
+    </a>
+    <a class="item" href="https://deejayskin.com/?s=dirty+kitchen+rave&post_type=product&et_search=true">
+      <div class="img"><svg class="tee" viewBox="0 0 200 200" aria-hidden="true"><rect x="30" y="40" width="140" height="120" rx="8" fill="#101113"/><circle cx="100" cy="100" r="42" fill="#26272b"/><text x="100" y="108" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="22" fill="#FF5B14">DKR</text></svg></div>
+      <h3>EU store</h3><p>DKR merch for Europe via Deejayskin, from Spain. Also on Amazon US and UK.</p>
+    </a>
+  </div>
+</section>
+
+<section id="crew" class="pad">
+  <h2>Crew</h2>
+  <p class="crew"><span class="boss">Afghan Headspin</span><span>Gruv42</span><span>DJ Brownie</span><span>Kid Ellipsis</span><span>PERCYBASS</span><span>The Push</span><span>HOLLO (UK)</span><span>Phrenetic</span><span>Danny Phr3ntic</span><span>J-Break</span><span>Prato</span><span>GODINO</span><span>AndrewFx</span><span>Squat Party</span><span>Evil Crew</span><span>Skin Teeth</span><span>Periko</span><span>BLOW (SP)</span><span>Anuschka</span><span>Shodan</span></p>
+</section>
+
+<section>
+  <div class="channels">
+    <a href="https://www.beatport.com/label/dirty-kitchen-rave/112835">Beatport<small>Full catalogue</small></a>
+    <a href="https://dirtykitchenrave.bandcamp.com/">Bandcamp<small>Buy direct</small></a>
+    <a href="https://podcasts.apple.com/us/podcast/the-dirty-kitchen-rave-podcast/id1895541519">Podcast<small>Apple Podcasts</small></a>
+    <a href="#">Twitch<small>Live streams</small></a>
+    <a href="#">Spotify<small>570+ tracks</small></a>
+    <a href="https://discord.gg/vXFj3tQkme">Discord<small>Free to join</small></a>
+  </div>
+</section>
+
+<section class="demo pad" id="demo">
+  <h2>Next drop: yours?</h2>
+  <p>Demos are open through LabelRadar. Every submission gets a listen.</p>
+  <a class="btn" href="https://www.labelradar.com/labels/dirtykitchenrave/portal">Submit a demo</a>
+</section>
+
+<footer>
+  <span>DIRTY KITCHEN RAVE, London UK</span>
+  <nav aria-label="Social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">YouTube</a><a href="https://www.facebook.com/dirtykitchenrave/">Facebook</a><a href="#">SoundCloud</a></nav>
+</footer>
+
+<script>
+/* Drops */
+const D=[
+  ['Ritual Pleasure','The Push','Jun 2026','Breaks','#FF5B14'],
+  ['Romero','Afghan Headspin','DKR0237','Breaks','#FAFAF8'],
+  ['Check It / Delusion','HOLLO (UK)','Latest','Bass','#9FA8FF'],
+  ['Blackout the Venue','Kid Ellipsis','Latest','UK Bass','#E6FF5B'],
+  ['Switch / Buck Rogers','Phrenetic','Latest','Breaks','#FF9ECF'],
+  ['Rave Jungle D&B 2','Various Artists','Jun 2025','Jungle / DnB','#5BE0FF'],
+  ['Housey McHouse Face','Shodan & K2T','Jun 2025','Liquid DnB','#B8F2C8'],
+  ['We Are Breakbeat','Afghan Headspin, Anuschka','DKR093','Breakbeat','#FF5B14']
+];
+const g=document.getElementById('dropsGrid');
+D.forEach(d=>{const a=document.createElement('a');a.className='drop';a.href='https://www.beatport.com/label/dirty-kitchen-rave/112835';a.style.setProperty('--c',d[4]);
+  a.innerHTML=`<div class="art"><b>${d[0]}</b></div><div class="row"><span>${d[2]}</span><span>${d[3]}</span></div><h3>${d[1]}</h3>`;g.appendChild(a)});
+
+/* Velocity marquee: moves on its own, speeds up and stretches with scroll speed */
+(function(){
+  const tr=document.getElementById('track');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let x=0,last=scrollY,v=0;
+  (function loop(){
+    const dy=scrollY-last;last=scrollY;v+= (dy-v)*.1;
+    x-=1.2+Math.abs(v)*.6;
+    const half=tr.scrollWidth/2;if(-x>half)x+=half;
+    tr.style.transform=`translateX(${x}px)`;
+    const w=Math.min(125,Math.max(62,100+v*2.2));
+    tr.querySelectorAll('span').forEach(s=>s.style.setProperty('--w',w+'%'));
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
