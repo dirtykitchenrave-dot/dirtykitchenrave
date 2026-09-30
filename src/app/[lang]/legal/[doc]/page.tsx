@@ -35,7 +35,7 @@ export default async function LegalPage({ params }: Props) {
         <h1 className="page-title">{d.legal[doc]}</h1>
       </header>
       <section className="pad prose">
-        <p>{doc === 'cookies' ? d.legal.cookiesText : d.legal.pending}</p>
+        {doc === 'cookies' ? d.legal.cookiesText.map((p) => <p key={p}>{p}</p>) : <p>{d.legal.pending}</p>}
       </section>
     </>
   )

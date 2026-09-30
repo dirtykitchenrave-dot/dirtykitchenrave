@@ -2,6 +2,7 @@ import '@fontsource-variable/archivo/wdth.css'
 import '../globals.css'
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
+import CookieBanner from '@/components/CookieBanner'
 import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
 import { PlayerProvider } from '@/components/Player'
@@ -79,6 +80,7 @@ export default async function LangLayout({
           />
           <main id="main">{children}</main>
           <Footer lang={lang} d={d} />
+          <CookieBanner lang={lang} t={d.cookieBanner} />
         </PlayerProvider>
       </body>
     </html>
