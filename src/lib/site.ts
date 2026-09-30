@@ -21,6 +21,83 @@ export const SITE = {
 /** Slug of the label manager (shown with that role on artist pages). */
 export const LABEL_MANAGER_SLUG = 'afghan-headspin'
 
+/**
+ * Artist bios live on Optimal Breaks, not here. Only slugs that already have a
+ * page there (matched 30 sep 2026). A miss would be a 404, so those artists
+ * stay without the link.
+ */
+const OPTIMAL_BREAKS_ARTISTS = new Set([
+  'acenoise',
+  'afghan-headspin',
+  'andrewfx',
+  'anuschka',
+  'blow-sp',
+  'bosketta',
+  'brothers-bud',
+  'citybox',
+  'cude',
+  'curly-ch',
+  'danny-phr3ntic',
+  'datafunk',
+  'dexterbeat',
+  'dilos',
+  'dj-brownie',
+  'dj-guanxe',
+  'dj-justin-johnson',
+  'dub-elements',
+  'eskila',
+  'evil-crew',
+  'fm-3',
+  'fran-break',
+  'godino',
+  'gruv42',
+  'hankook',
+  'hatstandy',
+  'huda-hudia',
+  'inner-realms',
+  'ismabreakz',
+  'j-break',
+  'jan-b',
+  'jem-haynes',
+  'jormek',
+  'khaine',
+  'kid-ellipsis',
+  'lucas',
+  'manxito',
+  'menges',
+  'mixedup-mike',
+  'mizzo',
+  'nitro-esp',
+  'obsidian-wave',
+  'paket',
+  'periko',
+  'phrenetic',
+  'playbass',
+  'prato',
+  'ral',
+  'rennie-pilgrem',
+  'ryan-blake',
+  'sans',
+  'seekflow',
+  'sl-83',
+  'slug-fl',
+  'specimen-a',
+  'swankout',
+  'swarov',
+  'the-push',
+  'vazteria-x',
+  'vkyng',
+  'wez-whatevr',
+  'woter',
+  'xana',
+])
+
+/** Optimal Breaks artist page, or null when that artist has no page there. */
+export function optimalBreaksArtistUrl(slug: string, lang: 'en' | 'es'): string | null {
+  if (!OPTIMAL_BREAKS_ARTISTS.has(slug)) return null
+  return `https://www.optimalbreaks.com/${lang}/artists/${slug}`
+}
+
 export const LINKS = {
   beatport: 'https://www.beatport.com/label/dirty-kitchen-rave/112835',
   bandcamp: 'https://dirtykitchenrave.bandcamp.com/',

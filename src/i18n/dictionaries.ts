@@ -100,6 +100,8 @@ const en = {
     remixesOn: 'Remixes on DKR',
     links: 'Links',
     noBio: 'Biography coming soon.',
+    bioElsewhere: 'The biography is on Optimal Breaks.',
+    bioLink: 'Bio',
     tracksTitle: 'Listen',
   },
   genres: {
@@ -339,6 +341,8 @@ const es: Dictionary = {
     remixesOn: 'Remezclas en DKR',
     links: 'Enlaces',
     noBio: 'Biografía próximamente.',
+    bioElsewhere: 'La biografía está en Optimal Breaks.',
+    bioLink: 'Bio',
     tracksTitle: 'Escuchar',
   },
   genres: {

@@ -5,7 +5,7 @@ import ReleaseCard from '@/components/ReleaseCard'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { findArtist, getCatalog, releasesByArtist, remixesByArtist, tracksByArtist } from '@/lib/catalog'
-import { LABEL_MANAGER_SLUG, SITE } from '@/lib/site'
+import { LABEL_MANAGER_SLUG, SITE, optimalBreaksArtistUrl } from '@/lib/site'
 import TrackList from '@/components/TrackList'
 import { artworkAt } from '@/lib/format'
 import { pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
@@ -52,8 +52,10 @@ export default async function ArtistPage({ params }: Props) {
     ...toTrackRow(c, track, release, lang, true),
     position: i + 1,
   }))
+  const bioHref = optimalBreaksArtistUrl(a.slug, lang)
   const links = [
     { label: 'Beatport', href: a.links.beatport },
+    { label: d.artists.bioLink, href: bioHref },
     { label: 'Bandcamp', href: a.links.bandcamp },
     { label: 'Spotify', href: a.links.spotify },
     { label: 'SoundCloud', href: a.links.soundcloud },
@@ -79,7 +81,7 @@ export default async function ArtistPage({ params }: Props) {
             {d.artists.releasesCount(releases.length)}
           </span>
           <h1>{a.name}</h1>
-          <p className="lead">{a.bio?.[lang] || d.artists.noBio}</p>
+          <p className="lead">{a.bio?.[lang] || (bioHref ? d.artists.bioElsewhere : d.artists.noBio)}</p>
           {links.length > 0 && (
             <div className="tags" aria-label={d.artists.links}>
               {links.map((l) => (

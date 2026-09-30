@@ -91,3 +91,7 @@ curl -H "Authorization: Bearer $CRON_SECRET" https://<dominio>/api/cron/beatport
   3. Carga manual periódica desde el navegador, como la del 30 sep, con el mismo `CatalogBuilder`.
 
 Referencia: Optimal Breaks hace scraping de Beatport desde el servidor. Si allí funciona en Vercel, lo esperable es `ok`.
+
+## Biografías: no se escriben aquí
+
+Las fichas de artista no llevan bio propia. Si el slug existe en Optimal Breaks, al lado de Beatport hay un enlace **Bio** a `https://www.optimalbreaks.com/{idioma}/artists/{slug}` (sin `nofollow`: el sello enlaza hacia la bio). Lista fija en `src/lib/site.ts` (`OPTIMAL_BREAKS_ARTISTS`), cruzada el 30 sep 2026: 63 de 175. Quien no tiene página allí (por ejemplo -Urbano-) sigue con «Biografía próximamente» y sin ese enlace, para no mandar a un 404.

@@ -120,7 +120,7 @@ button {
   gap: 0.65rem;
   font-weight: 900;
   font-stretch: 125%;
-  font-size: 1.4rem;
+  font-size: 3.5rem;
   letter-spacing: -0.02em;
   line-height: 1;
   text-decoration: none;
@@ -1650,6 +1650,13 @@ h2.big {
   .nav {
     grid-template-columns: auto 1fr;
   }
+  .logo {
+    font-size: 2.1rem;
+    gap: 0.4rem;
+  }
+  .logo img {
+    height: 2.35rem;
+  }
   .nav-links,
   .nav-right .pill:not(.menu-btn) {
     display: none;
@@ -1660,7 +1667,7 @@ h2.big {
   .sheet[data-open='true'] {
     display: grid;
     position: fixed;
-    inset: calc(4.75rem + env(safe-area-inset-top, 0px)) 0 0 0;
+    inset: calc(4.15rem + env(safe-area-inset-top, 0px)) 0 0 0;
     background: var(--hormigon);
     z-index: 39;
     padding: 2rem var(--pad) 3rem;
