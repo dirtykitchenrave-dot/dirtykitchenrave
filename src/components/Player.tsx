@@ -326,7 +326,6 @@ export function PlayerProvider({
               tidalUrl={current.tidalUrl}
               beatportUrl={current.beatportUrl}
               labels={labels}
-              allowTidalSearch
             />
           </div>
           <button className="x" onClick={stop} aria-label={labels.close}>
