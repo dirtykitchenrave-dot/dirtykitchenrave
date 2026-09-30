@@ -1,4 +1,4 @@
-import { spotifyHref } from '@/lib/audio-url'
+import { spotifyHref, tidalHref } from '@/lib/audio-url'
 
 /**
  * Round platform buttons with brand logos (ported from Optimal Breaks, TrackShareButton.tsx).
@@ -18,6 +18,7 @@ export interface PlatformLabels {
   openSpotify: string
   searchSpotify: string
   openTidal: string
+  searchTidal?: string
   openBeatport: string
 }
 
@@ -38,6 +39,7 @@ export default function PlatformLinks({
   tidalUrl,
   beatportUrl,
   labels,
+  allowTidalSearch = false,
 }: {
   title: string
   artists: string[]
@@ -45,12 +47,17 @@ export default function PlatformLinks({
   tidalUrl?: string | null
   beatportUrl?: string | null
   labels: PlatformLabels
+  /** Player bar: show TIDAL even without a verified link (opens a search). Track rows stay hidden. */
+  allowTidalSearch?: boolean
 }) {
   const sp = spotifyHref(spotifyUrl, title, artists)
+  const td = tidalHref(tidalUrl, title, artists)
   return (
     <span className="plats">
       <Btn href={sp.href} cls="sp" label={sp.direct ? labels.openSpotify : labels.searchSpotify} path={SPOTIFY} />
-      {tidalUrl ? <Btn href={tidalUrl} cls="td" label={labels.openTidal} path={TIDAL} /> : null}
+      {td.direct || allowTidalSearch ? (
+        <Btn href={td.href} cls="td" label={td.direct ? labels.openTidal : labels.searchTidal || labels.openTidal} path={TIDAL} />
+      ) : null}
       {beatportUrl ? <Btn href={beatportUrl} cls="bp" label={labels.openBeatport} path={BEATPORT} /> : null}
     </span>
   )

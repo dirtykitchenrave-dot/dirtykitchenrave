@@ -18,3 +18,11 @@ export function spotifyHref(url: string | null | undefined, title: string, artis
   const q = `${artists.join(' ')} ${title}`.trim()
   return { href: `https://open.spotify.com/search/${encodeURIComponent(q)}`, direct: false }
 }
+
+/** TIDAL link: verified track URL when we have it, otherwise a search. */
+export function tidalHref(url: string | null | undefined, title: string, artists: string[]): { href: string; direct: boolean } {
+  const direct = (url || '').trim()
+  if (direct) return { href: direct, direct: true }
+  const q = `${artists.join(' ')} ${title}`.trim()
+  return { href: `https://listen.tidal.com/search?q=${encodeURIComponent(q)}`, direct: false }
+}

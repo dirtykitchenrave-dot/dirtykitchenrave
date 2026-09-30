@@ -9,12 +9,7 @@ import { artworkAt, formatDate, isUpcoming, joinNames, slugify } from './format'
 import { SITE } from './site'
 import type { Catalog, Release, ReleaseType, Track } from './types'
 
-/** "Breaks / Breakbeat / UK Bass" -> "Breaks" (short label for cards). */
-export function shortGenre(g: string | undefined): string {
-  return g ? g.split(' / ')[0] : ''
-}
-
-/** Short, distinct names for the genre filter. Beatport strings are too long for chips. */
+/** Short, distinct names for cards and the genre filter. Beatport strings are too long. */
 const CHIP_GENRE: Record<string, string> = {
   'Breaks / Breakbeat / UK Bass': 'Breaks',
   'UK Garage / Bassline': 'UK Garage',
@@ -79,6 +74,9 @@ export function toPlayerTrack(c: Catalog, t: Track, r: Release, lang: Lang): Pla
     artwork: artworkAt(r.artwork, 250),
     sampleUrl: t.sampleUrl,
     beatportUrl: t.beatportUrl,
+    spotifyUrl: t.spotifyUrl,
+    tidalUrl: t.tidalUrl ?? null,
+    artistNames: people.map((a) => a.name),
     href: `/${lang}/releases/${r.slug}#t-${t.id}`,
   }
 }
@@ -92,7 +90,7 @@ export function toCard(c: Catalog, r: Release, lang: Lang): ReleaseCardData {
     artwork: r.artwork,
     artists: joinNames(artistNames(c, r), lang),
     artistLinks: cardPeople(c, r).map((a) => ({ name: a.name, slug: a.slug })),
-    genre: shortGenre(r.genres[0]),
+    genre: chipGenre(r.genres[0] || ''),
     genreHref: r.genres[0] ? `/${lang}/genres/${slugify(r.genres[0])}` : undefined,
     lang,
     date: formatDate(r.releaseDate, lang),

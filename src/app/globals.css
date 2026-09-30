@@ -1326,13 +1326,17 @@ h2.big {
   color: var(--hormigon);
   border-top: 2px solid var(--naranja);
   display: grid;
-  grid-template-columns: auto auto 1fr auto auto;
-  gap: 1rem;
+  grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    'bar bar bar bar bar'
+    'art ctrls who out x';
+  gap: 0.55rem 0.85rem;
   align-items: center;
   padding: 0.6rem var(--pad) calc(0.6rem + env(safe-area-inset-bottom, 0px));
 }
 .player img,
 .player .ph {
+  grid-area: art;
   width: 48px;
   height: 48px;
   object-fit: cover;
@@ -1347,8 +1351,17 @@ h2.big {
   color: var(--tinta);
   cursor: pointer;
   font-weight: 900;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  line-height: 1;
+  font-size: 0.85rem;
+}
+.player .ctrls {
+  grid-area: ctrls;
 }
 .player .who {
+  grid-area: who;
   min-width: 0;
 }
 .player .who b {
@@ -1356,8 +1369,11 @@ h2.big {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 700;
 }
-.player .who span {
+/* Only the artist line. A span inside the title (the mix name) must stay inline,
+   or "(Original Mix)" breaks and the closing paren drops onto its own line. */
+.player .who > span {
   font-size: 0.85rem;
   opacity: 0.8;
   white-space: nowrap;
@@ -1365,11 +1381,15 @@ h2.big {
   text-overflow: ellipsis;
   display: block;
 }
+.player .who b span {
+  display: inline;
+  font-size: inherit;
+  opacity: 1;
+}
 .player .bar {
-  grid-column: 1 / -1;
+  grid-area: bar;
   height: 4px;
   background: #2a2b30;
-  order: -1;
   margin: -0.6rem calc(var(--pad) * -1) 0;
   cursor: pointer;
 }
@@ -1379,19 +1399,58 @@ h2.big {
   background: var(--naranja);
   width: var(--p, 0%);
 }
-.player a.buy {
-  font-weight: 900;
-  font-stretch: 125%;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  color: var(--naranja);
+.player .out {
+  grid-area: out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+.player .out .plats {
+  gap: 0.35rem;
+}
+.player .plat {
+  width: 30px;
+  height: 30px;
+  border-color: #3a3c42;
+  flex: 0 0 auto;
+}
+.player .plat.sh {
+  background: transparent;
+  color: var(--hormigon);
+  cursor: pointer;
+  padding: 0;
+}
+.player .plat.sh svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.player .plat.sh.ok {
+  background: var(--naranja);
+  color: var(--tinta);
+  border-color: var(--naranja);
+}
+.player .plat.bp {
+  background: #16181c;
+  color: #01ff95;
+  border-color: #01ff95;
 }
 .player .x {
+  grid-area: x;
   background: none;
   border: 0;
   color: var(--hormigon);
-  font-size: 1.3rem;
+  font-size: 1.45rem;
+  line-height: 1;
   cursor: pointer;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
 }
 
 /* ------------------------------------------------------------------ LISTENING (Optimal Breaks-style) */
@@ -1661,13 +1720,49 @@ h2.big {
   }
   .trk {
     display: grid;
-    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.7rem;
     row-gap: 0.35rem;
   }
-  .trk .chips-m,
+  .trk .playbtn {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .trk .t {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    min-width: 0;
+  }
+  .trk .chips-m {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: stretch;
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
   .trk .acts {
     grid-column: 3;
+    grid-row: 2;
     justify-self: end;
+  }
+  .trk:has(.trk-art) {
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+  }
+  .trk:has(.trk-art) > a:has(.trk-art),
+  .trk:has(.trk-art) > .trk-art {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .trk:has(.trk-art) .t {
+    grid-column: 3 / -1;
+  }
+  .trk:has(.trk-art) .chips-m {
+    grid-column: 3;
+  }
+  .trk:has(.trk-art) .acts {
+    grid-column: 4;
   }
   .trk .pos,
   .trk .m.opt {
@@ -1683,12 +1778,49 @@ h2.big {
     flex: 1 1 auto;
   }
   .player {
-    grid-template-columns: auto 1fr auto;
+    gap: 0.35rem 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.55rem;
   }
   .player img,
-  .player .ph,
-  .player a.buy {
+  .player .ph {
+    width: 40px;
+    height: 40px;
+  }
+  .player .pb {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .player .plat {
+    width: 28px;
+    height: 28px;
+  }
+  .player .plat svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .meta {
+    grid-template-columns: 1fr;
+    gap: 0.45rem 0;
+  }
+  .player {
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'bar bar bar bar'
+      'art ctrls who x'
+      'out out out out';
+  }
+  .player .sk {
     display: none;
+  }
+  .player .out {
+    justify-content: flex-end;
+  }
+  .player .who b,
+  .player .who > span {
+    font-size: 0.8rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

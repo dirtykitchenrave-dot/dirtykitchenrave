@@ -5,6 +5,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import type { Lang } from '@/i18n/config'
 import { splitLinkedNames } from '@/lib/format'
 import { proxiedAudioUrl } from '@/lib/audio-url'
+import PlatformLinks from './PlatformLinks'
 
 export interface PlayerTrack {
   id: number
@@ -17,6 +18,10 @@ export interface PlayerTrack {
   artwork: string | null
   sampleUrl: string
   beatportUrl: string | null
+  spotifyUrl?: string | null
+  tidalUrl?: string | null
+  /** Names used to search Spotify / TIDAL when there is no direct link. */
+  artistNames?: string[]
   /** Page to go back to from the player bar (release page, with #t-<id>). */
   href?: string
 }
@@ -26,6 +31,13 @@ interface PlayerLabels {
   pause: string
   close: string
   buy: string
+  share: string
+  copied: string
+  openSpotify: string
+  searchSpotify: string
+  openTidal: string
+  searchTidal: string
+  openBeatport: string
   nowPlaying: string
   next: string
   prev: string
@@ -65,11 +77,14 @@ export function PlayerProvider({
   lang: Lang
 }) {
   const audio = useRef<HTMLAudioElement | null>(null)
+  const shell = useRef<HTMLDivElement | null>(null)
   const [queue, setQueue] = useState<PlayerTrack[]>([])
   const [index, setIndex] = useState(0)
   const [queueKey, setQueueKey] = useState<string | null>(null)
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [copied, setCopied] = useState(false)
+  const copiedTimer = useRef<number | null>(null)
   const current = queue[index] || null
 
   // refs so audio event handlers always see the latest queue
@@ -162,9 +177,22 @@ export function PlayerProvider({
     setPlaying(false)
   }, [])
 
-  // reserve space at the bottom for the bar
+  // reserve exactly the bar's height so the cards don't sit underneath it
   useEffect(() => {
-    document.body.style.setProperty('--player-h', current ? '76px' : '0px')
+    const el = shell.current
+    if (!current || !el) {
+      document.body.style.setProperty('--player-h', '0px')
+      return
+    }
+    const apply = () =>
+      document.body.style.setProperty('--player-h', `${Math.ceil(el.getBoundingClientRect().height)}px`)
+    apply()
+    const ro = new ResizeObserver(apply)
+    ro.observe(el)
+    return () => {
+      ro.disconnect()
+      document.body.style.setProperty('--player-h', '0px')
+    }
   }, [current])
 
   // lock screen / hardware keys
@@ -189,6 +217,22 @@ export function PlayerProvider({
     a.currentTime = ((e.clientX - r.left) / r.width) * a.duration
   }
 
+  const copyLink = async () => {
+    if (!current) return
+    const path = (current.href || window.location.pathname).split('#')[0]
+    const url = new URL(path, window.location.origin)
+    url.searchParams.set('play', `beatport:${current.id}`)
+    const text = url.toString()
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      if (copiedTimer.current) window.clearTimeout(copiedTimer.current)
+      copiedTimer.current = window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      window.prompt(labels.share, text)
+    }
+  }
+
   const toggleCurrent = () => {
     const a = audio.current
     if (!a) return
@@ -200,7 +244,7 @@ export function PlayerProvider({
     <Ctx.Provider value={{ current, playing, queueKey, playQueue, toggleTrack, stop }}>
       {children}
       {current && (
-        <div className="player" role="region" aria-label={labels.nowPlaying}>
+        <div className="player" role="region" aria-label={labels.nowPlaying} ref={shell}>
           <div className="bar" onClick={seek} aria-hidden="true">
             <i style={{ ['--p' as string]: `${progress}%` }} />
           </div>
@@ -252,13 +296,39 @@ export function PlayerProvider({
               {queue.length > 1 ? `  ${index + 1}/${queue.length}` : ''}
             </span>
           </div>
-          {current.beatportUrl ? (
-            <a className="buy" href={current.beatportUrl} target="_blank" rel="noopener noreferrer">
-              {labels.buy}
-            </a>
-          ) : (
-            <span />
-          )}
+          <div className="out">
+            <button
+              type="button"
+              className={copied ? 'plat sh ok' : 'plat sh'}
+              onClick={() => void copyLink()}
+              title={copied ? labels.copied : labels.share}
+              aria-label={copied ? labels.copied : labels.share}
+            >
+              {copied ? (
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+              )}
+            </button>
+            <PlatformLinks
+              title={current.mix ? `${current.title.trim()} (${current.mix.trim()})` : current.title.trim()}
+              artists={
+                current.artistNames && current.artistNames.length
+                  ? current.artistNames
+                  : current.artistLinks?.map((a) => a.name) || (current.artists ? [current.artists] : [])
+              }
+              spotifyUrl={current.spotifyUrl}
+              tidalUrl={current.tidalUrl}
+              beatportUrl={current.beatportUrl}
+              labels={labels}
+              allowTidalSearch
+            />
+          </div>
           <button className="x" onClick={stop} aria-label={labels.close}>
             ×
           </button>
