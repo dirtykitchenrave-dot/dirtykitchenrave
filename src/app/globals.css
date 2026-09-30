@@ -117,11 +117,16 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 0;
+  gap: 0.65rem;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
   text-decoration: none;
 }
 .logo img {
-  height: 4.25rem;
+  height: 3.15rem;
   width: auto;
 }
 .nav-right {
@@ -1655,7 +1660,7 @@ h2.big {
   .sheet[data-open='true'] {
     display: grid;
     position: fixed;
-    inset: calc(5.85rem + env(safe-area-inset-top, 0px)) 0 0 0;
+    inset: calc(4.75rem + env(safe-area-inset-top, 0px)) 0 0 0;
     background: var(--hormigon);
     z-index: 39;
     padding: 2rem var(--pad) 3rem;

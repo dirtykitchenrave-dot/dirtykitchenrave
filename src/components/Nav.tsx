@@ -111,7 +111,8 @@ export default function Nav({ lang, t }: { lang: Lang; t: NavLabels }) {
             </Link>
           ))}
         </nav>
-        <Link className="logo" href={`/${lang}`} aria-label="Dirty Kitchen Rave">
+        <Link className="logo" href={`/${lang}`}>
+          <span>DKR</span>
           <img src="/images/logo%20copia.png" alt="" width={720} height={476} />
         </Link>
         <div className="nav-right">
