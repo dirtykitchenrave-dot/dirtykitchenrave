@@ -246,10 +246,23 @@ button {
   letter-spacing: 0;
   margin-bottom: 0.4em;
 }
+.hero-copy {
+  container-type: inline-size;
+}
 .hero h1 {
+  /* Same condensed cut as the footer wordmark, sized to the column. */
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: clamp(2.15rem, 10.6cqi, 5.6rem);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.hero .hero-tag {
+  margin-top: 0.55rem;
   font-weight: 900;
   font-stretch: 125%;
-  font-size: clamp(1.35rem, min(3vw, 4vh), 2.8rem);
+  font-size: clamp(1.05rem, min(2.2vw, 3.2vh), 1.7rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
   text-transform: uppercase;

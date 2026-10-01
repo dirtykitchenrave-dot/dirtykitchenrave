@@ -26,8 +26,9 @@ export default function HeroDrop({
           <small>{d.home.latestNumber}</small>
           {catalogNumber(release?.catalog ?? null)}
         </div>
-        <div>
+        <div className="hero-copy">
           <h1 id="hero-title">{d.home.h1}</h1>
+          <p className="hero-tag">{d.home.tagline}</p>
           {release && (
             <dl className="meta">
               <div>

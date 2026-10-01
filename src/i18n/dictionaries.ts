@@ -28,7 +28,8 @@ const en = {
   },
   home: {
     latestNumber: 'Latest catalogue number',
-    h1: 'Dirty Kitchen Rave. Multi-genre bass, London.',
+    h1: 'Dirty Kitchen Rave',
+    tagline: 'Multi-genre bass, London.',
     drop: 'Drop',
     artist: 'Artist',
     out: 'Out',
@@ -275,7 +276,8 @@ const es: Dictionary = {
   },
   home: {
     latestNumber: 'Último número de catálogo',
-    h1: 'Dirty Kitchen Rave. Bass multigénero, Londres.',
+    h1: 'Dirty Kitchen Rave',
+    tagline: 'Bass multigénero, Londres.',
     drop: 'Drop',
     artist: 'Artista',
     out: 'Sale',
