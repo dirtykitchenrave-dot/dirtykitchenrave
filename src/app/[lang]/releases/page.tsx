@@ -48,6 +48,7 @@ export default async function ReleasesPage({ params }: Props) {
           upcoming: d.releases.upcoming,
           play: d.release.play,
           more: d.releases.more,
+          views: d.views,
         }}
       />
     </>

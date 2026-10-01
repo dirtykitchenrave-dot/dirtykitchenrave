@@ -20,6 +20,12 @@ const en = {
     skip: 'Skip to content',
     langLabel: 'Language',
   },
+  views: {
+    label: 'Catalogue view',
+    large: 'Large',
+    compact: 'Compact',
+    list: 'List',
+  },
   home: {
     latestNumber: 'Latest catalogue number',
     h1: 'Dirty Kitchen Rave. Multi-genre bass, London.',
@@ -260,6 +266,12 @@ const es: Dictionary = {
     close: 'Cerrar',
     skip: 'Saltar al contenido',
     langLabel: 'Idioma',
+  },
+  views: {
+    label: 'Vista del catálogo',
+    large: 'Grande',
+    compact: 'Compacto',
+    list: 'Lista',
   },
   home: {
     latestNumber: 'Último número de catálogo',

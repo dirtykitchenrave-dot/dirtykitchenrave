@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { Lang } from '@/i18n/config'
 import Artwork from './Artwork'
+import ViewToggle, { useCatalogView } from './ViewToggle'
 
 export interface ArtistCardItem {
   id: number
@@ -20,6 +21,7 @@ interface Labels {
   many: string
   empty: string
   clear: string
+  views: { label: string; large: string; compact: string; list: string }
 }
 
 function fold(s: string) {
@@ -40,6 +42,7 @@ export default function ArtistsExplorer({
   labels: Labels
 }) {
   const [q, setQ] = useState('')
+  const [view, setView] = useCatalogView()
   const needle = fold(q.trim())
   const shown = useMemo(
     () => (needle ? artists.filter((a) => fold(a.name).includes(needle)) : artists),
@@ -60,14 +63,17 @@ export default function ArtistsExplorer({
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
-          <span className="count" aria-live="polite">
-            {shown.length} {shown.length === 1 ? labels.one : labels.many}
-          </span>
+          <div className="filter-tools">
+            <span className="count" aria-live="polite">
+              {shown.length} {shown.length === 1 ? labels.one : labels.many}
+            </span>
+            <ViewToggle view={view} setView={setView} labels={labels.views} />
+          </div>
         </div>
       </div>
 
       {shown.length ? (
-        <div className="artist-grid" style={{ borderTop: 0 }}>
+        <div className={`artist-grid view-${view}`} style={{ borderTop: 0 }}>
           {shown.map((a) => (
             <Link key={a.id} className="artist-card" href={`/${lang}/artists/${a.slug}`}>
               <Artwork src={a.image} title={a.name} size={500} />

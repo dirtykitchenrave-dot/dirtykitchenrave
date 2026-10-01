@@ -5,6 +5,7 @@ import type { Lang } from '@/i18n/config'
 import type { ExplorerItem } from '@/lib/view'
 import type { ReleaseType } from '@/lib/types'
 import ReleaseCard, { type ReleaseCardData } from './ReleaseCard'
+import ViewToggle, { useCatalogView, type ViewMode } from './ViewToggle'
 
 const PAGE = 24
 
@@ -15,12 +16,15 @@ export function PagedReleases({
   upcomingLabel,
   playLabel,
   moreLabel,
+  view,
 }: {
   items: ReleaseCardData[]
   lang: Lang
   upcomingLabel: string
   playLabel: string
   moreLabel: string
+  /** Omit on genre pages so they keep the regular four-column grid. */
+  view?: ViewMode
 }) {
   const [limit, setLimit] = useState(PAGE)
   useEffect(() => setLimit(PAGE), [items])
@@ -28,7 +32,7 @@ export function PagedReleases({
   const visible = items.slice(0, limit)
   return (
     <>
-      <div className="drops" style={{ borderTop: 0 }}>
+      <div className={view ? `drops view-${view}` : 'drops'} style={{ borderTop: 0 }}>
         {visible.map((r) => (
           <ReleaseCard
             key={r.slug}
@@ -63,6 +67,7 @@ interface Labels {
   upcoming: string
   play: string
   more: string
+  views: { label: string; large: string; compact: string; list: string }
 }
 
 /** Full catalogue with client-side search and filters (genre chips, year, format). */
@@ -81,6 +86,7 @@ export default function ReleasesExplorer({
   const [genre, setGenre] = useState('')
   const [year, setYear] = useState('')
   const [type, setType] = useState('')
+  const [view, setView] = useCatalogView()
 
   const years = useMemo(() => [...new Set(items.map((i) => i.year))].sort().reverse(), [items])
   const types = useMemo(() => [...new Set(items.map((i) => i.type))], [items])
@@ -127,9 +133,12 @@ export default function ReleasesExplorer({
               ))}
             </select>
           )}
-          <span className="count" aria-live="polite">
-            {shown.length} {shown.length === 1 ? labels.one : labels.many}
-          </span>
+          <div className="filter-tools">
+            <span className="count" aria-live="polite">
+              {shown.length} {shown.length === 1 ? labels.one : labels.many}
+            </span>
+            <ViewToggle view={view} setView={setView} labels={labels.views} />
+          </div>
         </div>
         {years.length > 1 && (
           <div className="chips" role="group" aria-label={labels.allYears}>
@@ -164,6 +173,7 @@ export default function ReleasesExplorer({
           upcomingLabel={labels.upcoming}
           playLabel={labels.play}
           moreLabel={labels.more}
+          view={view}
         />
       ) : (
         <div className="empty">

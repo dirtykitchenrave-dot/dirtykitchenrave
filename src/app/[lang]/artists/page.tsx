@@ -49,6 +49,7 @@ export default async function ArtistsPage({ params }: Props) {
           many: lang === 'es' ? 'artistas' : 'artists',
           empty: d.artists.empty,
           clear: d.artists.clear,
+          views: d.views,
         }}
       />
     </>

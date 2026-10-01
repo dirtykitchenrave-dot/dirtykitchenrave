@@ -150,6 +150,14 @@ Proyecto `qsfynssmtuwufwqtbmra`. `001_init.sql` está aplicada. La clave anónim
 
 Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` deja el JSON y lee Postgres. Las páginas se generan en el build (`revalidate` 3600): un deploy arrancado con las tablas vacías publica un catálogo vacío hasta el siguiente deploy.
 
+## Vistas del catálogo (1 oct 2026)
+
+En `/releases` y `/artists` las cards abren en **compacto**. Al lado del buscador hay Grande, Compacto y Lista (en español: Grande, Compacto, Lista). La elección se guarda en `localStorage` (`dkr-catalog-view`) y vale para las dos páginas. La home y las páginas de género siguen con la rejilla de siempre, sin ese control.
+
 ## Analítica (1 oct 2026)
 
 GA4 `G-5J2B7LM2K9` en `NEXT_PUBLIC_GA_MEASUREMENT_ID`. Molde Optimal: Consent Mode v2 en el primer HTML (default `denied`, lee `dkr_cookie_preferences`) y `<GoogleAnalytics>` de `@next/third-parties`. En local (`next dev`) el tag no se carga. En Vercel hay que pegar la variable a mano; si no está, el deploy sale sin medir. Al aceptar, el banner manda `page_view` (el del primer paint salió denegado).
+
+## Search Console (1 oct 2026)
+
+Verificación HTML en `public/googlecd8334c6f7400874.html`, servida en la raíz del dominio. Search Console la pide en `https://…/googlecd8334c6f7400874.html`.

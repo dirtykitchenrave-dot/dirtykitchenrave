@@ -49,6 +49,7 @@ export default function ReleaseCard({
         {r.preview ? <CardPlay track={r.preview} label={playLabel} /> : null}
       </div>
       <div className="row">
+        {r.upcoming ? <span className="pre">{upcomingLabel}</span> : null}
         {r.catalog ? <span>{r.catalog}</span> : <span />}
         {r.genre ? (
           <span className="genre">{r.genreHref ? <Link href={r.genreHref}>{r.genre}</Link> : r.genre}</span>
