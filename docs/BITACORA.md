@@ -12,7 +12,7 @@ Esa pestaña de lanzamientos solo deja en el HTML los **preorders** (11). El res
 
 ## Catálogo real
 
-`data/catalog.seed.json`. No hay `.env.local`, así que la web lee ese archivo.
+`data/catalog.seed.json`. El 1 oct 2026 ese archivo se volcó a Supabase; con las variables puestas, la web lee Postgres (ver más abajo).
 
 | | |
 |---|---|
@@ -54,7 +54,7 @@ Arreglo, en `src/app/globals.css` y `src/components/Marquee.tsx`:
 - El botón Listen/Escuchar tiene `min-width: 6.4rem`, el mismo hueco en los dos idiomas.
 - La marquesina ignora saltos de más de 120 px por frame y guarda la posición al remontar (`useLayoutEffect`), para no volver a cero ni dispararse.
 
-Comprobado en la home y en Lanzamientos: el scroll se queda en 0 y EN/ES no se mueve. El logo sigue en el centro de la rejilla; no va en posición absoluta, porque en anchos justos tapaba Discord.
+Comprobado en la home y en Lanzamientos: el scroll se queda en 0 y EN/ES no se mueve. El bloque del logo sigue en la celda central de la rejilla; no va en posición absoluta, porque en anchos justos tapaba Discord. Qué lleva ese bloque (iniciales + gráfico) está más abajo.
 
 ## Reproductor
 
@@ -94,4 +94,58 @@ Referencia: Optimal Breaks hace scraping de Beatport desde el servidor. Si allí
 
 ## Biografías: no se escriben aquí
 
-Las fichas de artista no llevan bio propia. Si el slug existe en Optimal Breaks, al lado de Beatport hay un enlace **Bio** a `https://www.optimalbreaks.com/{idioma}/artists/{slug}` (sin `nofollow`: el sello enlaza hacia la bio). Lista fija en `src/lib/site.ts` (`OPTIMAL_BREAKS_ARTISTS`), cruzada el 30 sep 2026: 63 de 175. Quien no tiene página allí (por ejemplo -Urbano-) sigue con «Biografía próximamente» y sin ese enlace, para no mandar a un 404.
+Las fichas de artista no llevan bio propia. Si el slug existe en Optimal Breaks, al lado de Beatport hay un enlace **Bio** a `https://www.optimalbreaks.com/{idioma}/artists/{slug}` (sin `nofollow`: el sello enlaza hacia la bio). Lista fija en `src/lib/site.ts` (`OPTIMAL_BREAKS_ARTISTS`), cruzada el 30 sep 2026: 66 de 175. El cruce de JSON se quedó en 63; Ondamike, Devis Hard y TT Beats tienen ficha viva en la base de Optimal Breaks (sin archivo en `data/artists/`) y también van en la lista. Quien no tiene página allí (por ejemplo -Urbano-) sigue con «Biografía próximamente» y sin ese enlace, para no mandar a un 404.
+
+Si hay bio en Optimal, el texto bajo el nombre dice «La biografía está en Optimal Breaks» (`bioElsewhere`). Si no, «Biografía próximamente» (`noBio`). Commit `7a9417c`.
+
+## Barra: iniciales DKR y el logo gráfico
+
+Decisión del cliente, 30 sep noche. Probamos el nombre completo «Dirty Kitchen Rave» con la misma tipografía ancha de las iniciales, al lado del gráfico. No funciona: en la celda central choca con «Demos» y «El sello», y el nombre largo no gustó. Se queda **DKR** y el gráfico, los dos, en escritorio y en móvil.
+
+- Tipografía: Archivo, peso 900, `font-stretch: 125%`, `letter-spacing: -0.02em`.
+- Escritorio: `font-size: 3.5rem`. Las letras quedan más altas que el bloque de letras del gráfico (el gráfico mide `3.15rem` de alto; los chorreos de abajo no cuentan).
+- Móvil (hasta 960 px): `2.1rem` y el gráfico a `2.35rem`. A 3.5rem el conjunto tapa EN/ES. El menú móvil arranca en `4.15rem` bajo la barra.
+- Imagen: `public/images/logo copia.png` (720×476, PNG con transparencia). En el `src` va codificada: `/images/logo%20copia.png`. Las letras blancas van dentro de una forma negra: `mix-blend-mode: multiply` las borraría. No usarlo.
+- Commits: `e500d96` (DKR junto al gráfico), `7a9417c` (el tamaño).
+
+## Enlaces internos
+
+Nombre de artista, título de lanzamiento o álbum, y género que llevan a una página nuestra son enlace interno. Beatport, Spotify, Bandcamp y el resto siguen fuera.
+
+Rutas: `/{lang}/artists/{slug}`, `/{lang}/releases/{slug}`, `/{lang}/genres/{slug}`. En español los nombres van con « y »; en inglés con « & ».
+
+La tarjeta de lanzamiento tiene una capa `.drop-link` encima (`z-index: 1`) para que el resto de la tarjeta abra el drop. Artista, título y género van con `position: relative; z-index: 2` para poder pulsarlos. En la ficha, el título del tema enlaza al lanzamiento (`#t-id`); en la página del propio lanzamiento el título no se enlaza a sí mismo. «Various Artists» en recopilatorios se queda en texto plano (no hay slug). En el crédito de remezcla («Gruv42 Remix», «Gruv42 & Madam Bliss Remix») cada nombre con ficha es enlace (`splitLinkedNames` en `src/lib/format.ts`).
+
+## Rejilla de artistas
+
+Las fotos de `/artists` son cuadradas e iguales. `repeat(4, 1fr)` dejaba columnas distintas: un nombre largo (Habitfromthelot) y el `border-right` solo en tres de las cuatro ensanchaban unas fotos. Ahora es `minmax(0, 1fr)`, la tarjeta tiene `min-width: 0`, la foto es `aspect-ratio: 1`, y el separador es `box-shadow: inset -2px` (la última columna no lo lleva). En móvil, dos columnas. Las fotos de Beatport suelen ser apaisadas y se recortan con `object-fit: cover`.
+
+## El «0350» de la home
+
+No es el tema número 350. `catalogNumber()` quita el prefijo `DKR`: **DKR0350** se ve como **0350**. Es el último lanzamiento ya publicado (30 sep 2026, Switch / Buck Rogers, Phrenetic). El anterior es DKR0349. Los de octubre, con fecha futura, van a «Próximamente». Un código `DKRLP…` se muestra como `LP055`.
+
+## TIDAL
+
+El botón de TIDAL solo sale si hay URL verificada (`tidalUrl`). No hay búsqueda de reserva. Commit `bae45fd`.
+
+## Consola en `/artists` (no es un fallo de la web)
+
+En el navegador de Cursor, React avisa de hidratación en el nombre del artista (`data-cursor-ref` en el HTML del servidor, que el cliente no pinta). Lo inyecta el navegador del editor. En Chrome o Safari normal no pasa. No poner `suppressHydrationWarning`.
+
+## Git
+
+El 30 sep noche el código estaba en **Eskaladigital** / `dirtykitchenravetest` (público), HEAD `7a9417c`.
+
+El 1 oct 2026 el remoto `origin` pasó a la cuenta del cliente: [github.com/dirtykitchenrave-dot/dirtykitchenrave](https://github.com/dirtykitchenrave-dot/dirtykitchenrave), rama `main`, el mismo `7a9417c`. El repo del cliente estaba vacío; se subió el historial, sin force. El repo de Eskaladigital sigue en GitHub, pero este clon ya no apunta ahí.
+
+El 1 oct por la noche el repo del cliente quedó conectado a un proyecto de Vercel (Create Deployment sobre `main`). El de pruebas [dirtykitchenravetest.vercel.app](https://dirtykitchenravetest.vercel.app) sigue en el equipo **ESKALADIGITAL**, ligado al repo antiguo. El dominio `dirtykitchenrave.com` sigue en Linktree.
+
+`.env.local` no se sube. Conectar GitHub a Vercel no copia Supabase. En Vercel hay que pegar a mano `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` y `SUPABASE_SERVICE_ROLE_KEY`. Si no están, el deploy lee `data/catalog.seed.json` (el mismo catálogo). Si están y el build pilló las tablas vacías, hace falta otro deploy ahora que ya hay 175 / 413 / 1.571.
+
+## Supabase (1 oct 2026)
+
+Proyecto `qsfynssmtuwufwqtbmra`. `001_init.sql` está aplicada. La clave anónima lee las cinco tablas y no puede insertar.
+
+`002_tidal_links.sql` no está: faltan `releases.tidal_url` y `tracks.tidal_url`. El JSON no trae URLs de TIDAL ni de Spotify, así que la web no las usa todavía.
+
+Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` deja el JSON y lee Postgres. Las páginas se generan en el build (`revalidate` 3600): un deploy arrancado con las tablas vacías publica un catálogo vacío hasta el siguiente deploy.

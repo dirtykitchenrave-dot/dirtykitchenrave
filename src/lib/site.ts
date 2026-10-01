@@ -24,7 +24,8 @@ export const LABEL_MANAGER_SLUG = 'afghan-headspin'
 /**
  * Artist bios live on Optimal Breaks, not here. Only slugs that already have a
  * page there (matched 30 sep 2026). A miss would be a 404, so those artists
- * stay without the link.
+ * stay without the link. Ondamike, Devis Hard and TT Beats are live in the
+ * Optimal Breaks database without a JSON file in that repo.
  */
 const OPTIMAL_BREAKS_ARTISTS = new Set([
   'acenoise',
@@ -39,6 +40,7 @@ const OPTIMAL_BREAKS_ARTISTS = new Set([
   'curly-ch',
   'danny-phr3ntic',
   'datafunk',
+  'devis-hard',
   'dexterbeat',
   'dilos',
   'dj-brownie',
@@ -69,6 +71,7 @@ const OPTIMAL_BREAKS_ARTISTS = new Set([
   'mizzo',
   'nitro-esp',
   'obsidian-wave',
+  'ondamike',
   'paket',
   'periko',
   'phrenetic',
@@ -85,6 +88,7 @@ const OPTIMAL_BREAKS_ARTISTS = new Set([
   'swankout',
   'swarov',
   'the-push',
+  'tt-beats',
   'vazteria-x',
   'vkyng',
   'wez-whatevr',

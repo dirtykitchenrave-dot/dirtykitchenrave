@@ -109,7 +109,7 @@ scripts/import-beatport.ts   CLI for the importer
 data/catalog.seed.json       Catalogue used when Supabase is not configured
 supabase/migrations/         001_init.sql
 docs/IMPORTER.md             Beatport findings, field mapping, 30 Sept load
-docs/BITACORA.md             What changed on 30 Sept 2026 (catalogue + language switch)
+docs/BITACORA.md             Session notes (catalogue, navbar, internal links, bios)
 vercel.json                  Cron schedule
 ```
 
