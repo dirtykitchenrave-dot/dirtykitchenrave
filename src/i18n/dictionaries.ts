@@ -197,7 +197,7 @@ const en = {
   cookieBanner: {
     bannerLabel: 'Cookie consent banner',
     title: 'We use cookies',
-    text: 'We use our own cookies so the site works and remembers your language. With your consent we could also use analytics or marketing cookies. You can accept them, reject them or choose.',
+    text: 'We use our own cookies so the site works and remembers your language. With your consent we also use Google Analytics. You can accept them, reject them or choose.',
     policy: 'Cookie policy',
     configure: 'Settings',
     rejectAll: 'Reject all',
@@ -211,7 +211,7 @@ const en = {
     necessary: 'Necessary cookies',
     necessaryText: 'Essential for the site to work: your language and this cookie choice.',
     analytics: 'Analytics cookies',
-    analyticsText: 'Let us count visits and see how people use the site in order to improve it.',
+    analyticsText: 'Google Analytics counts visits and how people use the site, so we can improve it. It only runs if you turn this on.',
     functional: 'Functional cookies',
     functionalText: 'Remember your preferences for a more personal experience.',
     marketing: 'Marketing cookies',
@@ -227,7 +227,7 @@ const en = {
     cookiesText: [
       'Cookies are small files a website stores in your browser. This site uses them as follows.',
       'Necessary (always on): NEXT_LOCALE keeps the language you chose for one year. Your cookie choice is kept in your browser (local storage, dkr_cookie_preferences) so we don\u2019t ask again.',
-      'Analytics, functional and marketing: this site does not use any today. If they are added, they will only load after you accept them in the banner.',
+      'Analytics: with your consent, Google Analytics 4 counts visits and how the site is used. It sets first-party cookies (_ga, _ga_*) and only loads after you accept them in the banner. Functional and marketing cookies are not used.',
       'Audio previews are streamed from Beatport through our own server; Beatport does not set cookies on this site.',
       'You can change or withdraw your consent at any time with \u201cCookie settings\u201d in the footer, or delete cookies from your browser settings.',
     ],
@@ -438,7 +438,7 @@ const es: Dictionary = {
   cookieBanner: {
     bannerLabel: 'Banner de consentimiento de cookies',
     title: 'Utilizamos cookies',
-    text: 'Usamos cookies propias para que la web funcione y recuerde tu idioma. Con tu consentimiento podríamos usar también cookies de analítica o marketing. Puedes aceptarlas, rechazarlas o elegir.',
+    text: 'Usamos cookies propias para que la web funcione y recuerde tu idioma. Con tu consentimiento también usamos Google Analytics. Puedes aceptarlas, rechazarlas o elegir.',
     policy: 'Política de cookies',
     configure: 'Configurar',
     rejectAll: 'Rechazar todas',
@@ -452,7 +452,7 @@ const es: Dictionary = {
     necessary: 'Cookies necesarias',
     necessaryText: 'Imprescindibles para que la web funcione: tu idioma y esta elección de cookies.',
     analytics: 'Cookies analíticas',
-    analyticsText: 'Nos permiten contar las visitas y ver cómo se usa la web para mejorarla.',
+    analyticsText: 'Google Analytics cuenta las visitas y cómo se usa la web, para poder mejorarla. Solo se activa si lo enciendes.',
     functional: 'Cookies funcionales',
     functionalText: 'Recuerdan tus preferencias para una experiencia más personal.',
     marketing: 'Cookies de marketing',
@@ -468,7 +468,7 @@ const es: Dictionary = {
     cookiesText: [
       'Las cookies son pequeños archivos que una web guarda en tu navegador. Esta web las usa así.',
       'Necesarias (siempre activas): NEXT_LOCALE guarda durante un año el idioma que elegiste. Tu elección de cookies se guarda en tu navegador (almacenamiento local, dkr_cookie_preferences) para no volver a preguntarte.',
-      'Analíticas, funcionales y de marketing: hoy esta web no usa ninguna. Si se añaden, solo se cargarán después de que las aceptes en el banner.',
+      'Analíticas: con tu consentimiento, Google Analytics 4 cuenta las visitas y cómo se usa la web. Instala cookies propias (_ga, _ga_*) y solo se carga después de que las aceptes en el banner. Las funcionales y de marketing no se usan.',
       'Los fragmentos de audio llegan de Beatport a través de nuestro propio servidor; Beatport no instala cookies en esta web.',
       'Puedes cambiar o retirar tu consentimiento cuando quieras con «Configurar cookies» en el pie de página, o borrar las cookies desde tu navegador.',
     ],

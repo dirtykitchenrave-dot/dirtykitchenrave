@@ -16,9 +16,9 @@ type Labels = Dictionary['cookieBanner']
 const ALL_ON: Prefs = { necessary: true, analytics: true, functional: true, marketing: true }
 const ONLY_NECESSARY: Prefs = { necessary: true, analytics: false, functional: false, marketing: false }
 
-function updateGtag(prefs: Prefs) {
+function updateGtag(prefs: Prefs, pageView: boolean) {
   const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
-  if (!gtag) return
+  if (!gtag) return false
   const ads = prefs.marketing ? 'granted' : 'denied'
   gtag('consent', 'update', {
     analytics_storage: prefs.analytics ? 'granted' : 'denied',
@@ -26,6 +26,14 @@ function updateGtag(prefs: Prefs) {
     ad_user_data: ads,
     ad_personalization: ads,
   })
+  // The first paint went out denied. Without this page_view, Realtime stays empty after accept.
+  if (pageView && prefs.analytics) {
+    gtag('event', 'page_view', {
+      page_location: window.location.href,
+      page_title: document.title,
+    })
+  }
+  return true
 }
 
 function persist(prefs: Prefs) {
@@ -35,7 +43,15 @@ function persist(prefs: Prefs) {
   } catch {
     /* private mode */
   }
-  updateGtag(prefs)
+  let sent = false
+  const trySend = () => {
+    if (sent) return
+    if (updateGtag(prefs, true)) sent = true
+  }
+  trySend()
+  if (sent) return
+  window.setTimeout(trySend, 400)
+  window.setTimeout(trySend, 1500)
 }
 
 function readPrefs(): Prefs | null {
@@ -83,7 +99,7 @@ export default function CookieBanner({ lang, t }: { lang: Lang; t: Labels }) {
     const stored = readPrefs()
     if (stored) {
       setPrefs(stored)
-      updateGtag(stored)
+      updateGtag(stored, false)
     } else {
       setView('banner')
     }

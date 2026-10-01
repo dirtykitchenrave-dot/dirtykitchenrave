@@ -149,3 +149,7 @@ Proyecto `qsfynssmtuwufwqtbmra`. `001_init.sql` está aplicada. La clave anónim
 `002_tidal_links.sql` no está: faltan `releases.tidal_url` y `tracks.tidal_url`. El JSON no trae URLs de TIDAL ni de Spotify, así que la web no las usa todavía.
 
 Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` deja el JSON y lee Postgres. Las páginas se generan en el build (`revalidate` 3600): un deploy arrancado con las tablas vacías publica un catálogo vacío hasta el siguiente deploy.
+
+## Analítica (1 oct 2026)
+
+GA4 `G-5J2B7LM2K9` en `NEXT_PUBLIC_GA_MEASUREMENT_ID`. Molde Optimal: Consent Mode v2 en el primer HTML (default `denied`, lee `dkr_cookie_preferences`) y `<GoogleAnalytics>` de `@next/third-parties`. En local (`next dev`) el tag no se carga. En Vercel hay que pegar la variable a mano; si no está, el deploy sale sin medir. Al aceptar, el banner manda `page_view` (el del primer paint salió denegado).
