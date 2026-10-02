@@ -280,6 +280,10 @@ En la barra del reproductor, delante de Spotify, TIDAL y Beatport, va el texto �
 
 En el hero de cada ficha salen tres botones: Comprar en Beatport (el enlace del disco), Comprar en TIDAL y Escuchar en Spotify. Si el catálogo no tiene el álbum en TIDAL o Spotify, el botón abre la búsqueda del lanzamiento. En un single, si el tema ya tiene enlace directo, se usa ese. Bandcamp y Apple Music siguen saliendo solo cuando hay URL.
 
+## Fecha en la lista del artista (2 oct 2026)
+
+En la lista de temas de cada artista, detrás del título del lanzamiento, sale la fecha de ese release. En la ficha del disco no se repite: ahí ya está en la cabecera.
+
 ## Tienda Volumo (2 oct 2026)
 
 El cliente pidió quitar Juno Download de la fila de tiendas de la home. El hueco es Volumo: el texto dice Volumo y el enlace es `https://volumo.com/label/757941-dirty-kitchen-rave`. El subtítulo sigue siendo MP3, WAV, FLAC, en inglés y en español.
