@@ -56,6 +56,22 @@ interface PlayerState {
 
 const Ctx = createContext<PlayerState | null>(null)
 
+/** One row per preview start. Pause and resume of the same clip do not count. */
+function reportPlay(trackId: number) {
+  const body = JSON.stringify({ trackId })
+  try {
+    if (navigator.sendBeacon('/api/plays', new Blob([body], { type: 'application/json' }))) return
+  } catch {
+    /* fetch below */
+  }
+  void fetch('/api/plays', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body,
+    keepalive: true,
+  }).catch(() => {})
+}
+
 export function usePlayer(): PlayerState {
   const v = useContext(Ctx)
   if (!v) throw new Error('usePlayer must be used inside <PlayerProvider>')
@@ -85,6 +101,8 @@ export function PlayerProvider({
   const [progress, setProgress] = useState(0)
   const [copied, setCopied] = useState(false)
   const copiedTimer = useRef<number | null>(null)
+  /** Set just before a fresh start (new track, auto-advance, or replay after the clip ends). */
+  const countOnPlay = useRef(false)
   const current = queue[index] || null
 
   // refs so audio event handlers always see the latest queue
@@ -97,6 +115,7 @@ export function PlayerProvider({
     const a = audio.current
     const t = q[i]
     if (!a || !t) return
+    countOnPlay.current = true
     a.src = proxiedAudioUrl(t.sampleUrl)
     setProgress(0)
     void a.play().catch(() => setPlaying(false))
@@ -117,12 +136,20 @@ export function PlayerProvider({
     a.preload = 'none'
     audio.current = a
     const onTime = () => setProgress(a.duration ? (a.currentTime / a.duration) * 100 : 0)
-    const onPlay = () => setPlaying(true)
+    const onPlay = () => {
+      setPlaying(true)
+      if (!countOnPlay.current) return
+      countOnPlay.current = false
+      const id = qRef.current[iRef.current]?.id
+      if (id) reportPlay(id)
+    }
     const onPause = () => setPlaying(false)
     const onEnd = () => {
       const next = iRef.current + 1
       if (next < qRef.current.length) {
+        iRef.current = next
         setIndex(next)
+        countOnPlay.current = true
         a.src = proxiedAudioUrl(qRef.current[next].sampleUrl)
         void a.play().catch(() => setPlaying(false))
       } else {
@@ -159,8 +186,10 @@ export function PlayerProvider({
     (t: PlayerTrack, q: PlayerTrack[], key: string) => {
       const a = audio.current
       if (a && current?.id === t.id) {
-        if (a.paused) void a.play().catch(() => setPlaying(false))
-        else a.pause()
+        if (a.paused) {
+          if (a.ended) countOnPlay.current = true
+          void a.play().catch(() => setPlaying(false))
+        } else a.pause()
         return
       }
       const i = Math.max(0, q.findIndex((x) => x.id === t.id))
@@ -204,7 +233,12 @@ export function PlayerProvider({
       album: 'Dirty Kitchen Rave',
       artwork: current.artwork ? [{ src: current.artwork, sizes: '250x250', type: 'image/jpeg' }] : [],
     })
-    navigator.mediaSession.setActionHandler('play', () => void audio.current?.play())
+    navigator.mediaSession.setActionHandler('play', () => {
+      const a = audio.current
+      if (!a) return
+      if (a.ended) countOnPlay.current = true
+      void a.play()
+    })
     navigator.mediaSession.setActionHandler('pause', () => audio.current?.pause())
     navigator.mediaSession.setActionHandler('nexttrack', () => goTo(iRef.current + 1))
     navigator.mediaSession.setActionHandler('previoustrack', () => goTo(iRef.current - 1))
@@ -236,8 +270,10 @@ export function PlayerProvider({
   const toggleCurrent = () => {
     const a = audio.current
     if (!a) return
-    if (a.paused) void a.play().catch(() => setPlaying(false))
-    else a.pause()
+    if (a.paused) {
+      if (a.ended) countOnPlay.current = true
+      void a.play().catch(() => setPlaying(false))
+    } else a.pause()
   }
 
   return (

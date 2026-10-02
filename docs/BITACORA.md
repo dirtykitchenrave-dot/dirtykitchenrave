@@ -239,3 +239,9 @@ El puerto 3000 lo tenía otra web (Serveco). Esta arrancó en `http://localhost:
 La ficha de Beatport (id 4092) es un homónimo: la foto que salía no es la de este Lucas. Se usa el mismo retrato que [optimalbreaks.com/es/artists/lucas](https://www.optimalbreaks.com/es/artists/lucas): `public/images/artists/lucas.webp`. En el JSON y en Supabase (`artists.image_url` del id 4092) la URL es `/images/artists/lucas.webp`.
 
 El cron de Beatport, al reimportar, volvía a escribir `image_url` con la de Beatport. Ahora, si la foto guardada no es de `beatport.com`, se queda (`src/lib/beatport/sinks.ts`).
+
+## Reproducciones (2 oct 2026)
+
+Cada vez que alguien **empieza** un preview se guarda una fila en `track_play_events` (`supabase/migrations/003_track_play_events.sql`, aplicada). Pausar y seguir el mismo clip no cuenta. Tampoco se enseña en la web: la clave anónima no puede leer la tabla. Escribe `/api/plays` con la clave de servicio (`src/components/Player.tsx`, `src/app/api/plays/route.ts`). El importador de Beatport no toca esa tabla.
+
+Sirve para un top más adelante (temas o artistas), agrupando por `track_id` y la fecha `played_at`. En la web publicada no cuenta hasta que este código esté desplegado.
