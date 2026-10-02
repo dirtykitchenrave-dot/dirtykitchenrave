@@ -1,0 +1,32 @@
+# Dirty Kitchen Rave
+
+> Dirty Kitchen Rave (DKR) is a multi-genre bass label from London, run by Afghan Headspin. It releases breaks, UK bass, UK garage, bassline, rave, jungle, drum & bass, breakbeat, dubstep and disco.
+
+The website is bilingual. English lives under /en and Spanish under /es. English is the default language.
+
+## Pages
+
+- /en — home, latest drop
+- /en/releases — full catalogue, newest first
+- /en/artists — artists with a release or remix on the label
+- /en/genres — genres, each with its own catalogue page
+- /en/shop — official clothing, vinyl and the digital catalogue
+- /en/demos — demo submissions, received only through LabelRadar
+- /en/about — the label
+- /en/podcast — the Dirty Kitchen Rave podcast
+- /en/links — link-in-bio (Beatport, Bandcamp, socials, merch)
+
+The same paths exist in Spanish under /es.
+
+## Elsewhere
+
+- Beatport: https://www.beatport.com/label/dirty-kitchen-rave/112835
+- Bandcamp: https://dirtykitchenrave.bandcamp.com/
+- Instagram: https://www.instagram.com/dirtykitchenrave/
+- SoundCloud: https://soundcloud.com/dirtykitchenrave
+- Podcast: https://podcasts.apple.com/us/podcast/the-dirty-kitchen-rave-podcast/id1895541519
+
+## Machines
+
+- Sitemap: /sitemap.xml
+- RSS (latest releases, English): /feed.xml

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params
   if (!isLang(lang)) return {}
   const d = getDictionary(lang)
-  return pageMeta(lang, '/artists', d.artists.title, d.artists.intro)
+  return pageMeta(lang, '/artists', d.artists.title, d.artists.metaDescription)
 }
 
 export default async function ArtistsPage({ params }: Props) {

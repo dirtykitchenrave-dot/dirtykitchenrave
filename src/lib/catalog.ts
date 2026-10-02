@@ -1,5 +1,5 @@
 import seed from '../../data/catalog.seed.json'
-import { isSupabaseEnabled, loadCatalogFromSupabase } from './supabase'
+import { isSupabaseEnabled, loadCatalogFromSupabase, loadPlayTrackIds } from './supabase'
 import { isUpcoming, slugify } from './format'
 import type { Artist, Catalog, Genre, Release, Track } from './types'
 
@@ -168,6 +168,66 @@ export function releasesByGenre(c: Catalog, genreSlug: string): Release[] {
 }
 
 /* ------------------------------------------------------------------ labels */
+
+export interface PlayedArtist {
+  artist: Artist
+  plays: number
+}
+
+export interface PlayedTrack {
+  track: Track
+  release: Release
+  /** Credited names, main artists first. */
+  artistNames: string[]
+  plays: number
+}
+
+/** Top artists and tracks by preview starts on this site. A play counts for every credited artist. */
+export async function mostPlayed(limit = 10): Promise<{ artists: PlayedArtist[]; tracks: PlayedTrack[] }> {
+  const catalog = await getCatalog()
+  let ids: number[] = []
+  try {
+    ids = await loadPlayTrackIds()
+  } catch {
+    ids = []
+  }
+
+  const trackCounts = new Map<number, number>()
+  for (const id of ids) trackCounts.set(id, (trackCounts.get(id) || 0) + 1)
+
+  const byTrack = new Map(catalog.tracks.map((t) => [t.id, t]))
+  const byRelease = new Map(catalog.releases.map((r) => [r.id, r]))
+  const byArtist = artistMap(catalog)
+
+  const tracks = [...trackCounts.entries()]
+    .flatMap(([id, plays]) => {
+      const track = byTrack.get(id)
+      const release = track ? byRelease.get(track.releaseId) : undefined
+      if (!track || !release) return []
+      const credited = track.artistIds.length ? track.artistIds : track.remixerIds
+      return [{ track, release, plays, artistNames: artistsByIds(catalog, credited).map((a) => a.name) }]
+    })
+    .sort((a, b) => b.plays - a.plays || a.track.title.localeCompare(b.track.title))
+    .slice(0, limit)
+
+  const artistCounts = new Map<number, number>()
+  for (const [id, plays] of trackCounts) {
+    const track = byTrack.get(id)
+    if (!track) continue
+    for (const artistId of new Set([...track.artistIds, ...track.remixerIds])) {
+      artistCounts.set(artistId, (artistCounts.get(artistId) || 0) + plays)
+    }
+  }
+  const artists = [...artistCounts.entries()]
+    .flatMap(([id, plays]) => {
+      const artist = byArtist.get(id)
+      return artist ? [{ artist, plays }] : []
+    })
+    .sort((a, b) => b.plays - a.plays || a.artist.name.localeCompare(b.artist.name))
+    .slice(0, limit)
+
+  return { artists, tracks }
+}
 
 export function artistNames(c: Catalog, r: Release): string[] {
   const names = artistsByIds(c, r.artistIds).map((a) => a.name)

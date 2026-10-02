@@ -1,4 +1,5 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import { serviceClient } from './beatport/sinks'
 import type { Artist, Catalog, Release, ReleaseType, Track } from './types'
 
 /**
@@ -138,4 +139,19 @@ export async function loadCatalogFromSupabase(): Promise<Catalog> {
     releases: releases.map(mapRelease),
     tracks: tracks.map(mapTrack),
   }
+}
+
+/** Track ids of every preview start, oldest first. Empty if the service role is not configured. */
+export async function loadPlayTrackIds(): Promise<number[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return []
+  const sb = serviceClient()
+  const PAGE = 1000
+  const ids: number[] = []
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await sb.from('track_play_events').select('track_id').range(from, from + PAGE - 1)
+    if (error) throw new Error(`Supabase track_play_events: ${error.message}`)
+    ids.push(...(data || []).map((row) => Number(row.track_id)))
+    if (!data || data.length < PAGE) break
+  }
+  return ids
 }

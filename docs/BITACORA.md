@@ -2,6 +2,12 @@
 
 30 sep 2026. Lo que se hizo en la web y por qué.
 
+## SEO (2 oct 2026)
+
+`https://dirtykitchenrave.com` hace **308** a `https://www.dirtykitchenrave.com`, y www ya sirve esta web (ya no es Linktree). La canónica es `https://www.dirtykitchenrave.com`. Un `*.vercel.app` sigue en noindex.
+
+En local: favicon de pestaña `DK` a 192 px (Google pide múltiplo de 48); el wordmark queda como icono de Apple y en `/logo.png`. Metadescripciones propias por sección, títulos sin la marca duplicada, sitemap con `x-default` e imágenes de portada, `robots.txt` con los crawlers de IA y `public/llms.txt`.
+
 ## Fuente
 
 Sello en Beatport, id **112835**:
@@ -239,6 +245,10 @@ El puerto 3000 lo tenía otra web (Serveco). Esta arrancó en `http://localhost:
 La ficha de Beatport (id 4092) es un homónimo: la foto que salía no es la de este Lucas. Se usa el mismo retrato que [optimalbreaks.com/es/artists/lucas](https://www.optimalbreaks.com/es/artists/lucas): `public/images/artists/lucas.webp`. En el JSON y en Supabase (`artists.image_url` del id 4092) la URL es `/images/artists/lucas.webp`.
 
 El cron de Beatport, al reimportar, volvía a escribir `image_url` con la de Beatport. Ahora, si la foto guardada no es de `beatport.com`, se queda (`src/lib/beatport/sinks.ts`).
+
+## Top en El sello (2 oct 2026)
+
+En `/about`, encima de Contacto, hay dos listas: los 10 artistas y los 10 temas con más inicios de preview. El número de la derecha es el recuento. Cada play suma a todos los artistas acreditados en el tema (principal y remezcla). La página se regenera como mucho cada hora (`revalidate = 3600`). Si todavía no hay escuchas, sale «Todavía no hay escuchas».
 
 ## Reproducciones (2 oct 2026)
 

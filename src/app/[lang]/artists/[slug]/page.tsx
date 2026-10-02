@@ -8,7 +8,7 @@ import { findArtist, getCatalog, releasesByArtist, remixesByArtist, tracksByArti
 import { LABEL_MANAGER_SLUG, SITE, optimalBreaksArtistUrl } from '@/lib/site'
 import TrackList from '@/components/TrackList'
 import { artworkAt } from '@/lib/format'
-import { pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
+import { breadcrumbJsonLd, pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -25,12 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCatalog()
   const a = findArtist(c, slug)
   if (!a) return {}
-  const n = releasesByArtist(c, a.id).length
+  const rels = releasesByArtist(c, a.id)
+  const n = rels.length
+  const genre = rels.find((r) => r.genres[0])?.genres[0]
   const description =
     a.bio?.[lang] ||
     (lang === 'es'
-      ? `${a.name} en Dirty Kitchen Rave: ${n} ${n === 1 ? 'lanzamiento' : 'lanzamientos'}.`
-      : `${a.name} on Dirty Kitchen Rave: ${n} ${n === 1 ? 'release' : 'releases'}.`)
+      ? `${a.name} en Dirty Kitchen Rave${n ? `: ${n} ${n === 1 ? 'lanzamiento' : 'lanzamientos'}` : ''}${genre ? `, ${genre}` : ''}. Previews y tracklists del sello de bass de Londres.`
+      : `${a.name} on Dirty Kitchen Rave${n ? `: ${n} ${n === 1 ? 'release' : 'releases'}` : ''}${genre ? `, ${genre}` : ''}. Previews and tracklists from the London bass label.`)
   const image = artworkAt(a.image, 1000)
   return pageMeta(lang, `/artists/${a.slug}`, a.name, description, {
     type: 'profile',
@@ -64,11 +66,21 @@ export default async function ArtistPage({ params }: Props) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MusicGroup',
-    name: a.name,
-    url: `${SITE.url}/${lang}/artists/${a.slug}`,
-    image: artworkAt(a.image, 1000) || undefined,
-    sameAs: links.map((l) => l.href),
+    '@graph': [
+      {
+        '@type': 'MusicGroup',
+        name: a.name,
+        url: `${SITE.url}/${lang}/artists/${a.slug}`,
+        image: artworkAt(a.image, 1000) || undefined,
+        description: a.bio?.[lang] || undefined,
+        sameAs: links.map((l) => l.href).filter(Boolean),
+      },
+      breadcrumbJsonLd(lang, [
+        { name: SITE.name, path: '' },
+        { name: d.artists.title, path: '/artists' },
+        { name: a.name, path: `/artists/${a.slug}` },
+      ]),
+    ],
   }
 
   return (

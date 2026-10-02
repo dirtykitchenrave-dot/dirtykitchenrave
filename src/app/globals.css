@@ -735,6 +735,7 @@ h2.big {
   background: var(--naranja);
   text-align: center;
 }
+.demo h1,
 .demo h2 {
   font-weight: 900;
   font-stretch: 62%;
@@ -911,6 +912,58 @@ h2.big {
 .note {
   font-size: 1.1rem;
   max-width: 55ch;
+}
+
+/* about: most played */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.charts h2 {
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.charts > div > p {
+  max-width: 36ch;
+  font-weight: 600;
+}
+.chart {
+  list-style: none;
+}
+.chart li {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(16, 17, 19, 0.3);
+}
+.chart .n {
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.chart a {
+  font-weight: 800;
+  line-height: 1.2;
+}
+.chart .who {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+.chart .cnt {
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: 1.15rem;
 }
 
 /* tracklist */
@@ -1727,7 +1780,8 @@ h2.big {
   .hero,
   .mani,
   .rel-hero,
-  .artist-hero {
+  .artist-hero,
+  .charts {
     grid-template-columns: 1fr;
   }
   .hero .l,

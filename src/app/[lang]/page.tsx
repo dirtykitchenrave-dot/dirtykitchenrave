@@ -45,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         name: SITE.name,
         alternateName: SITE.short,
         url: `${SITE.url}/${lang}`,
-        logo: `${SITE.url}/icon.png`,
+        logo: `${SITE.url}/logo.png`,
         description: d.meta.description,
         email: SITE.contactEmail || undefined,
         address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
@@ -58,6 +58,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           LINKS.facebook,
           LINKS.soundcloud,
           LINKS.spotify,
+          LINKS.twitch,
         ].filter(Boolean),
       },
       {

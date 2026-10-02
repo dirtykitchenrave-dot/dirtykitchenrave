@@ -54,6 +54,8 @@ const en = {
   releases: {
     title: 'Releases',
     intro: 'The full Dirty Kitchen Rave catalogue, newest first.',
+    metaDescription:
+      'The full Dirty Kitchen Rave catalogue, newest first: breaks, UK bass, UK garage, bassline, jungle and drum & bass. Previews and where to buy.',
     search: 'Search title, artist or catalogue number',
     allGenres: 'All genres',
     allYears: 'All years',
@@ -99,6 +101,8 @@ const en = {
   artists: {
     title: 'Artists',
     intro: 'Everyone who has cooked in the DKR kitchen.',
+    metaDescription:
+      'Artists on Dirty Kitchen Rave, the multi-genre bass label from London. Releases, remixes and previews from the DKR roster.',
     search: 'Search by name',
     empty: 'No artist matches that search.',
     clear: 'Clear search',
@@ -124,6 +128,8 @@ const en = {
   shop: {
     title: 'Shop',
     intro: 'Official DKR clothing, vinyl and the full digital catalogue.',
+    metaDescription:
+      'Official Dirty Kitchen Rave shop: clothing, vinyl and the digital catalogue. Tees, Tales From The Cowshed on wax, and every release.',
     merch: 'Official merch',
     merchText: 'Tees and gear from the DKR shop.',
     vinyl: 'Vinyl',
@@ -136,6 +142,8 @@ const en = {
   demos: {
     title: 'Demos',
     lead: 'Making breaks, UK bass, garage, bassline or jungle? We want to hear it.',
+    metaDescription:
+      'Send a demo to Dirty Kitchen Rave. The London bass label listens to every submission of breaks, UK bass, garage, bassline or jungle via LabelRadar.',
     body: [
       'Dirty Kitchen Rave listens to every submission. Send unreleased music only, with the tracks you think fit the label best.',
       'Tell us who you are, where you\u2019re from and anything you\u2019ve released before. Links to a private stream are fine.',
@@ -146,6 +154,8 @@ const en = {
   about: {
     title: 'The label',
     lead: 'A full-throttle kitchen rave for bassheads, ravers and late-night misfits.',
+    metaDescription:
+      'About Dirty Kitchen Rave, a multi-genre bass label from London run by Afghan Headspin. Breaks, UK garage, jungle, drum & bass, podcast and crew.',
     body: [
       'DIRTY KITCHEN RAVE is a multi-genre bass label based in London. Breaks, UK bass, UK garage, bassline, rave, jungle, drum & bass, breakbeat, dubstep and disco all come out of the same kitchen.',
       'The label is run by Afghan Headspin, who manages releases, signings and the wider DKR community: the podcast, Twitch streams, Discord server, merch and vinyl.',
@@ -153,16 +163,23 @@ const en = {
     ],
     contact: 'Contact',
     contactText: 'For bookings, press or anything else, write to the label by email, WhatsApp, Instagram or Discord.',
+    topArtists: 'Most played artists',
+    topTracks: 'Most played tracks',
+    plays: (n: number) => `${n} ${n === 1 ? 'play' : 'plays'}`,
+    noPlays: 'No plays yet.',
   },
   podcast: {
     title: 'Podcast',
     lead: 'The DIRTY KITCHEN RAVE podcast: label mixes and selections, episode by episode.',
+    metaDescription:
+      'The Dirty Kitchen Rave podcast: mixes and selections from the London bass label, episode by episode. Listen on Apple Podcasts.',
     cta: 'Listen on Apple Podcasts',
   },
   links: {
     title: 'Links',
     latest: 'Latest release',
-    description: 'All Dirty Kitchen Rave links: latest release, Beatport, Bandcamp, podcast, merch, Discord and socials.',
+    description:
+      'All Dirty Kitchen Rave links in one place: latest release, Beatport, Bandcamp, podcast, merch, Discord, Instagram and the rest of the socials.',
   },
   channels: {
     beatport: 'Full catalogue',
@@ -230,6 +247,11 @@ const en = {
     notice: 'Legal notice',
     privacy: 'Privacy policy',
     cookies: 'Cookie policy',
+    meta: {
+      notice: 'Legal notice for Dirty Kitchen Rave, the multi-genre bass label from London.',
+      privacy: 'Privacy policy for the Dirty Kitchen Rave website: what the label stores and why.',
+      cookies: 'How Dirty Kitchen Rave uses cookies: language, your consent choice and Google Analytics.',
+    },
     pending:
       'This text is pending. The label will publish its legal information here before launch.',
     cookiesText: [
@@ -303,6 +325,8 @@ const es: Dictionary = {
   releases: {
     title: 'Lanzamientos',
     intro: 'El catálogo completo de Dirty Kitchen Rave, del más nuevo al más antiguo.',
+    metaDescription:
+      'El catálogo de Dirty Kitchen Rave, del más nuevo al más antiguo: breaks, UK bass, UK garage, bassline, jungle y drum & bass. Previews y dónde comprar.',
     search: 'Busca por título, artista o número de catálogo',
     allGenres: 'Todos los géneros',
     allYears: 'Todos los años',
@@ -348,6 +372,8 @@ const es: Dictionary = {
   artists: {
     title: 'Artistas',
     intro: 'Todos los que han cocinado en la cocina de DKR.',
+    metaDescription:
+      'Artistas de Dirty Kitchen Rave, el sello de bass multigénero de Londres. Lanzamientos, remezclas y previews del roster de DKR.',
     search: 'Busca por nombre',
     empty: 'Ningún artista coincide con esa búsqueda.',
     clear: 'Borrar búsqueda',
@@ -373,6 +399,8 @@ const es: Dictionary = {
   shop: {
     title: 'Tienda',
     intro: 'Ropa oficial de DKR, vinilos y el catálogo digital completo.',
+    metaDescription:
+      'Tienda oficial de Dirty Kitchen Rave: ropa, vinilo y el catálogo digital. Camisetas, Tales From The Cowshed en cera y todos los lanzamientos.',
     merch: 'Merch oficial',
     merchText: 'Camisetas y material de la tienda de DKR.',
     vinyl: 'Vinilo',
@@ -385,6 +413,8 @@ const es: Dictionary = {
   demos: {
     title: 'Demos',
     lead: '¿Produces breaks, UK bass, garage, bassline o jungle? Queremos escucharlo.',
+    metaDescription:
+      'Envía una demo a Dirty Kitchen Rave. El sello de bass de Londres escucha cada envío de breaks, UK bass, garage, bassline o jungle a través de LabelRadar.',
     body: [
       'Dirty Kitchen Rave escucha todas las demos. Envía solo música inédita, con los temas que creas que mejor encajan en el sello.',
       'Cuéntanos quién eres, de dónde vienes y qué has publicado antes. Puedes enviar enlaces a una escucha privada.',
@@ -395,6 +425,8 @@ const es: Dictionary = {
   about: {
     title: 'El sello',
     lead: 'Una rave en la cocina a toda máquina para bassheads, ravers y noctámbulos.',
+    metaDescription:
+      'Sobre Dirty Kitchen Rave, sello de bass multigénero de Londres dirigido por Afghan Headspin. Breaks, UK garage, jungle, drum & bass, podcast y crew.',
     body: [
       'DIRTY KITCHEN RAVE es un sello de bass multigénero con base en Londres. Breaks, UK bass, UK garage, bassline, rave, jungle, drum & bass, breakbeat, dubstep y disco salen de la misma cocina.',
       'Lo dirige Afghan Headspin, que se encarga de los lanzamientos, los fichajes y toda la comunidad DKR: el podcast, los directos en Twitch, el servidor de Discord, la ropa y los vinilos.',
@@ -402,16 +434,23 @@ const es: Dictionary = {
     ],
     contact: 'Contacto',
     contactText: 'Para bookings, prensa o cualquier otra cosa, escribe al sello por email, WhatsApp, Instagram o Discord.',
+    topArtists: 'Artistas más escuchados',
+    topTracks: 'Temas más escuchados',
+    plays: (n: number) => `${n} ${n === 1 ? 'escucha' : 'escuchas'}`,
+    noPlays: 'Todavía no hay escuchas.',
   },
   podcast: {
     title: 'Podcast',
     lead: 'El podcast de DIRTY KITCHEN RAVE: sesiones y selecciones del sello, episodio a episodio.',
+    metaDescription:
+      'El podcast de Dirty Kitchen Rave: sesiones y selecciones del sello de bass de Londres, episodio a episodio. Escúchalo en Apple Podcasts.',
     cta: 'Escuchar en Apple Podcasts',
   },
   links: {
     title: 'Enlaces',
     latest: 'Último lanzamiento',
-    description: 'Todos los enlaces de Dirty Kitchen Rave: último lanzamiento, Beatport, Bandcamp, podcast, merch, Discord y redes.',
+    description:
+      'Todos los enlaces de Dirty Kitchen Rave en un solo sitio: último lanzamiento, Beatport, Bandcamp, podcast, merch, Discord, Instagram y el resto de redes.',
   },
   channels: {
     beatport: 'Catálogo completo',
@@ -479,6 +518,11 @@ const es: Dictionary = {
     notice: 'Aviso legal',
     privacy: 'Política de privacidad',
     cookies: 'Política de cookies',
+    meta: {
+      notice: 'Aviso legal de Dirty Kitchen Rave, el sello de bass multigénero de Londres.',
+      privacy: 'Política de privacidad de la web de Dirty Kitchen Rave: qué guarda el sello y por qué.',
+      cookies: 'Cómo usa las cookies Dirty Kitchen Rave: idioma, tu elección de consentimiento y Google Analytics.',
+    },
     pending:
       'Este texto está pendiente. El sello publicará aquí su información legal antes del lanzamiento.',
     cookiesText: [

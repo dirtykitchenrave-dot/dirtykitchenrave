@@ -164,9 +164,20 @@ export function trackListLabels(d: Dictionary, count: number): TrackListLabels {
   }
 }
 
+/** Meta descriptions Google shows are about 155–160 characters. */
+export function clipMeta(text: string, max = 158): string {
+  const clean = text.replace(/\s+/g, ' ').trim()
+  if (clean.length <= max) return clean
+  const cut = clean.slice(0, max - 1)
+  const sp = cut.lastIndexOf(' ')
+  const base = (sp > 80 ? cut.slice(0, sp) : cut).replace(/[.,;:–—\s]+$/, '')
+  return `${base}…`
+}
+
 /**
  * Page metadata with its own Open Graph. A page-level `openGraph` replaces the layout's one
  * (no deep merge), so siteName, locale and url are set here for every page.
+ * Titles are absolute: the layout template must not append the brand a second time.
  */
 export function pageMeta(
   lang: Lang,
@@ -175,10 +186,12 @@ export function pageMeta(
   description: string,
   og: { images?: { url: string; width?: number; height?: number; alt?: string }[]; type?: 'website' | 'music.album' | 'profile' } = {},
 ): Metadata {
-  const ogTitle = `${title} | ${SITE.name}`
+  const fullTitle = `${title} | ${SITE.name}`
+  const text = clipMeta(description)
+  const images = og.images ?? [{ url: `/${lang}/opengraph-image`, width: 1200, height: 630, alt: SITE.name }]
   return {
-    title,
-    description,
+    title: { absolute: fullTitle },
+    description: text,
     alternates: alternates(lang, path),
     openGraph: {
       type: og.type ?? 'website',
@@ -186,11 +199,24 @@ export function pageMeta(
       locale: lang === 'es' ? 'es_ES' : 'en_GB',
       alternateLocale: lang === 'es' ? 'en_GB' : 'es_ES',
       url: `/${lang}${path}`,
-      title: ogTitle,
-      description,
-      images: og.images ?? [{ url: `/${lang}/opengraph-image`, width: 1200, height: 630, alt: SITE.name }],
+      title: { absolute: fullTitle },
+      description: text,
+      images,
     },
-    twitter: { card: 'summary_large_image', title: ogTitle, description },
+    twitter: { card: 'summary_large_image', title: { absolute: fullTitle }, description: text, images },
+  }
+}
+
+/** BreadcrumbList for a page that exists in both languages. `path` is "" or starts with "/". */
+export function breadcrumbJsonLd(lang: Lang, items: { name: string; path: string }[]) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${SITE.url}/${lang}${item.path}`,
+    })),
   }
 }
 

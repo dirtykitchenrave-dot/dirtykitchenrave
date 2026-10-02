@@ -42,17 +42,23 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: d.meta.description,
     applicationName: SITE.name,
     alternates: alternates(lang, ''),
-    robots: SITE.indexable ? { index: true, follow: true } : { index: false, follow: false },
+    robots: SITE.indexable
+      ? {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+        }
+      : { index: false, follow: false },
     openGraph: {
       type: 'website',
       siteName: SITE.name,
       locale: lang === 'es' ? 'es_ES' : 'en_GB',
       alternateLocale: lang === 'es' ? 'en_GB' : 'es_ES',
       url: `/${lang}`,
-      title: d.meta.title,
+      title: { absolute: d.meta.title },
       description: d.meta.description,
     },
-    twitter: { card: 'summary_large_image' },
+    twitter: { card: 'summary_large_image', title: { absolute: d.meta.title }, description: d.meta.description },
   }
 }
 

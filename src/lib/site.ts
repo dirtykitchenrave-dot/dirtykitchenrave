@@ -1,9 +1,8 @@
-// On Vercel this is the production domain: *.vercel.app until the custom domain is added,
-// then that domain. It wins over NEXT_PUBLIC_SITE_URL so canonicals and share images never
-// point to a domain that does not serve this site yet (dirtykitchenrave.com -> Linktree today).
+// On Vercel this is the production domain (www.dirtykitchenrave.com). It wins over
+// NEXT_PUBLIC_SITE_URL. Apex dirtykitchenrave.com 308s to www, so canonicals use www.
 const vercelProd = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
 const siteUrl = (
-  vercelProd ? `https://${vercelProd}` : process.env.NEXT_PUBLIC_SITE_URL || 'https://dirtykitchenrave.com'
+  vercelProd ? `https://${vercelProd}` : process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dirtykitchenrave.com'
 ).replace(/\/+$/, '')
 
 /** Fixed label links (from the label's Linktree). Empty strings are hidden in the UI. */

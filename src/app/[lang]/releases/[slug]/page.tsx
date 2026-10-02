@@ -16,7 +16,7 @@ import {
 } from '@/lib/catalog'
 import { artworkAt, catalogNumber, formatDate, isUpcoming, joinNames, slugify } from '@/lib/format'
 import { SITE } from '@/lib/site'
-import { pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
+import { breadcrumbJsonLd, pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
 
 export const revalidate = 3600
 
@@ -33,12 +33,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCatalog()
   const r = findRelease(c, slug)
   if (!r) return {}
+  const d = getDictionary(lang)
   const by = joinNames(artistNames(c, r), lang)
   const title = `${r.title} – ${by}${r.catalog ? ` [${r.catalog}]` : ''}`
+  const kind = d.releases.types[r.type]
+  const when = formatDate(r.releaseDate, lang, 'long')
+  const genre = r.genres[0]
   const description =
     lang === 'es'
-      ? `${r.title} de ${by} en Dirty Kitchen Rave. ${r.genres[0] || ''} ${formatDate(r.releaseDate, lang, 'long')}.`
-      : `${r.title} by ${by} on Dirty Kitchen Rave. ${r.genres[0] || ''} ${formatDate(r.releaseDate, lang, 'long')}.`
+      ? `${r.title} de ${by}. ${kind}${r.catalog ? ` ${r.catalog}` : ''} en Dirty Kitchen Rave${genre ? `, ${genre}` : ''}. Sale el ${when}. Preview y compra.`
+      : `${r.title} by ${by}. ${kind}${r.catalog ? ` ${r.catalog}` : ''} on Dirty Kitchen Rave${genre ? `, ${genre}` : ''}. Out ${when}. Preview and buy links.`
   const image = artworkAt(r.artwork, 1000)
   return pageMeta(lang, `/releases/${r.slug}`, title, description, {
     type: 'music.album',
@@ -78,22 +82,32 @@ export default async function ReleasePage({ params }: Props) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MusicAlbum',
-    name: r.title,
-    url: `${SITE.url}/${lang}/releases/${r.slug}`,
-    image: artworkAt(r.artwork, 1000) || undefined,
-    datePublished: r.releaseDate,
-    genre: r.genres,
-    catalogNumber: r.catalog || undefined,
-    recordLabel: { '@type': 'Organization', name: 'Dirty Kitchen Rave' },
-    byArtist: artists.map((a) => ({ '@type': 'MusicGroup', name: a.name, url: `${SITE.url}/${lang}/artists/${a.slug}` })),
-    numTracks: tracks.length || undefined,
-    track: tracks.map((t) => ({
-      '@type': 'MusicRecording',
-      name: t.mix ? `${t.title} (${t.mix})` : t.title,
-      isrcCode: t.isrc || undefined,
-      url: t.beatportUrl || undefined,
-    })),
+    '@graph': [
+      {
+        '@type': 'MusicAlbum',
+        name: r.title,
+        url: `${SITE.url}/${lang}/releases/${r.slug}`,
+        image: artworkAt(r.artwork, 1000) || undefined,
+        datePublished: r.releaseDate,
+        genre: r.genres,
+        inLanguage: lang,
+        catalogNumber: r.catalog || undefined,
+        recordLabel: { '@type': 'Organization', name: SITE.name, url: `${SITE.url}/${lang}` },
+        byArtist: artists.map((a) => ({ '@type': 'MusicGroup', name: a.name, url: `${SITE.url}/${lang}/artists/${a.slug}` })),
+        numTracks: tracks.length || undefined,
+        track: tracks.map((t) => ({
+          '@type': 'MusicRecording',
+          name: t.mix ? `${t.title} (${t.mix})` : t.title,
+          isrcCode: t.isrc || undefined,
+          url: t.beatportUrl || undefined,
+        })),
+      },
+      breadcrumbJsonLd(lang, [
+        { name: SITE.name, path: '' },
+        { name: d.releases.title, path: '/releases' },
+        { name: r.title, path: `/releases/${r.slug}` },
+      ]),
+    ],
   }
 
   return (

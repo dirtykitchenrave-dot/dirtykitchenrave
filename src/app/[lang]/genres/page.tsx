@@ -27,8 +27,8 @@ export default async function GenresPage({ params }: Props) {
   return (
     <>
       <header className="page-head">
-        <h1 className="page-title">{lang === 'es' ? 'Géneros' : 'Genres'}</h1>
-        <p className="lead">{d.releases.intro}</p>
+        <h1 className="page-title">{d.genres.indexTitle}</h1>
+        <p className="lead">{d.genres.indexDescription}</p>
       </header>
       <section className="pad">
         <p className="crew">
