@@ -250,8 +250,28 @@ El cron de Beatport, al reimportar, volvía a escribir `image_url` con la de Bea
 
 En `/about`, encima de Contacto, hay dos listas: los 10 artistas y los 10 temas con más inicios de preview. El número de la derecha es el recuento. Cada play suma a todos los artistas acreditados en el tema (principal y remezcla). No van en el HTML cacheado de la página: el navegador pide `/api/charts` al abrirla, otra vez al dar al play y cada 15 s mientras la pestaña está visible (`cache: no-store`), como el top 100 de Optimal Breaks. Si todavía no hay escuchas, sale «Todavía no hay escuchas».
 
+## Marquesina de la home (2 oct 2026)
+
+La franja de géneros se deslizaba bien en reposo. Al mover la rueda del ratón leía el salto de scroll de ese frame, aceleraba y cambiaba el `font-stretch`. El texto cambiaba de ancho, el punto donde la cinta vuelve al inicio se movía, y se veía un tirón. Ahora avanza a velocidad fija (`src/components/Marquee.tsx`) y el ancho no depende del scroll.
+
 ## Reproducciones (2 oct 2026)
 
 Cada vez que alguien **empieza** un preview se guarda una fila en `track_play_events` (`supabase/migrations/003_track_play_events.sql`, aplicada). Pausar y seguir el mismo clip no cuenta. Tampoco se enseña en la web: la clave anónima no puede leer la tabla. Escribe `/api/plays` con la clave de servicio (`src/components/Player.tsx`, `src/app/api/plays/route.ts`). El importador de Beatport no toca esa tabla.
 
-Sirve para un top más adelante (temas o artistas), agrupando por `track_id` y la fecha `played_at`. En la web publicada no cuenta hasta que este código esté desplegado.
+Sirve para el top de El sello, agrupando por `track_id` y la fecha `played_at`. El contador está en `main` desde `e4f199a`. El top en vivo, desde `97cf1d5`.
+
+## Qué no es un royalty (2 oct 2026)
+
+El sello preguntó si las reproducciones de la web pueden acabar en royalties de Beatport, Spotify, TIDAL o la entidad de gestión. No.
+
+El reproductor no pone el tema entero. Pide el preview de Beatport (`geo-samples.beatport.com`, vía `/api/audio-proxy`): un corte de 30 a 120 segundos, en baja calidad, el que Beatport deja oír gratis antes de comprar. Sus servidores ven que alguien se ha bajado el sample. Eso no entra en Greenroom y no paga.
+
+Lo que Beatport llama **DJ Stream**, y lo que sí paga, es otra cosa: más de 30 segundos del tema entero, con una suscripción de pago a Beatport Streaming, dentro de Beatport o de un programa de DJ. Los charts de Beatport van por ventas, no por reproducciones. Fuente: [Beatport, por qué hace falta Streaming para oír el tema entero](https://support.beatport.com/hc/en-us/articles/26219368576404-Why-is-a-Beatport-Streaming-subscription-necessary-for-full-track-playback) y [analítica de Greenroom](https://www.beatportal.com/articles/1490290-how-to-use-beatport-analytics-for-artists-labels) (DJ Streams = plays de más de 30 segundos de suscriptores).
+
+Spotify paga streams que ocurren en Spotify. TIDAL, los que ocurren en TIDAL. La entidad (PRS, PPL u otra) paga cuando una radio, una sala, una tienda o una plataforma con licencia declara el uso. El play de la web no se reporta a ninguno. Dar al play aquí no suma un stream ni genera un royalty.
+
+La cuenta de Beatport Streaming del sello es suya. Le deja oír el tema entero a él, y esas escuchas suyas sí pueden contar en Greenroom. No se puede enganchar a la web para que cada visitante oiga el tema completo. Beatport no lo permite, y no saldría un royalty por visitante.
+
+Intentar que las escuchas de la web cuenten en Spotify o en TIDAL es inflar streams. Esas plataformas lo quitan y pueden retirar la música. No hay un camino legal de «la web suma y la plataforma paga».
+
+Lo que sí cobra es que el oyente le dé al play dentro del servicio, con su propia cuenta: el botón de Spotify, el de TIDAL o el de Beatport de cada tema. El contador de la web (`track_play_events` y el top de `/about`) dice qué se escucha en dirtykitchenrave.com. No es una fuente de royalties.
