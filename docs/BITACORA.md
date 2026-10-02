@@ -231,3 +231,9 @@ Esos dos cambios van en el mismo commit que el favicon: `src/components/HeroDrop
 ### Cómo se miró en local
 
 El puerto 3000 lo tenía otra web (Serveco). Esta arrancó en `http://localhost:3001`. El `fetch` a Supabase cae por el proxy de Acttax; ese `next dev` llevó `NODE_TLS_REJECT_UNAUTHORIZED=0`. El primer intento chocó con un `EPERM` al renombrar archivos de `.next` (Dropbox). El segundo servidor sí sirvió la home.
+
+## Foto de Lucas (2 oct 2026)
+
+La ficha de Beatport (id 4092) es un homónimo: la foto que salía no es la de este Lucas. Se usa el mismo retrato que [optimalbreaks.com/es/artists/lucas](https://www.optimalbreaks.com/es/artists/lucas): `public/images/artists/lucas.webp`. En el JSON y en Supabase (`artists.image_url` del id 4092) la URL es `/images/artists/lucas.webp`.
+
+El cron de Beatport, al reimportar, volvía a escribir `image_url` con la de Beatport. Ahora, si la foto guardada no es de `beatport.com`, se queda (`src/lib/beatport/sinks.ts`).

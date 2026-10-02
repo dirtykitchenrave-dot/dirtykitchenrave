@@ -40,10 +40,28 @@ async function upsert(sb: SupabaseClient, table: string, rows: Record<string, un
 export async function writeCatalogToSupabase(sb: SupabaseClient, c: Catalog, log: (m: string) => void = () => {}) {
   const now = new Date().toISOString()
 
+  // A portrait that is not Beatport's (manual file, other site) stays. The daily sync
+  // would otherwise put the Beatport homonym photo back.
+  const keptImages = new Map<number, string>()
+  for (const part of chunks(c.artists.map((a) => a.id), 200)) {
+    const { data, error } = await sb.from('artists').select('id, image_url').in('id', part)
+    if (error) throw new Error(`artists images: ${error.message}`)
+    for (const row of data || []) {
+      const url = row.image_url ? String(row.image_url) : ''
+      if (url && !url.includes('beatport.com')) keptImages.set(Number(row.id), url)
+    }
+  }
+
   await upsert(
     sb,
     'artists',
-    c.artists.map((a) => ({ id: a.id, slug: a.slug, name: a.name, image_url: a.image, beatport_url: a.links.beatport || null })),
+    c.artists.map((a) => ({
+      id: a.id,
+      slug: a.slug,
+      name: a.name,
+      image_url: keptImages.get(a.id) || a.image,
+      beatport_url: a.links.beatport || null,
+    })),
   )
   log(`artists: ${c.artists.length}`)
 
