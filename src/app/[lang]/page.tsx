@@ -29,9 +29,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   const latest = latestRelease(c)
   const upcoming = upcomingReleases(c).slice(0, 4)
-  const drops = releasedReleases(c)
-    .filter((r) => r.id !== latest?.id)
-    .slice(0, 8)
+  const released = releasedReleases(c)
+  const drops = [
+    ...(latest && released.some((r) => r.id === latest.id) ? [latest] : []),
+    ...released.filter((r) => r.id !== latest?.id),
+  ].slice(0, 8)
   const crew = artistsWithCounts(c).slice(0, 24)
 
   const jsonLd = {
@@ -43,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         name: SITE.name,
         alternateName: SITE.short,
         url: `${SITE.url}/${lang}`,
-        logo: `${SITE.url}/icon.svg`,
+        logo: `${SITE.url}/icon.png`,
         description: d.meta.description,
         email: SITE.contactEmail || undefined,
         address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },

@@ -323,7 +323,34 @@ button {
   height: 100%;
   object-fit: cover;
 }
-.sleeve span:last-child {
+.hero-open {
+  position: absolute;
+  z-index: 2;
+  /* Left of centre: the record covers the right side of the sleeve. */
+  left: 34%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4.75rem;
+  height: 4.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--naranja);
+  color: var(--tinta);
+  border: var(--borde);
+  box-shadow: 4px 4px 0 rgba(16, 17, 19, 0.35);
+  font-weight: 900;
+  font-stretch: 100%;
+  font-size: 1.35rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.hero .r:hover .hero-open {
+  background: var(--tinta);
+  color: var(--naranja);
+}
+.sleeve .sleeve-meta {
   font-stretch: 125%;
   font-size: 0.3em;
   line-height: 1.2;

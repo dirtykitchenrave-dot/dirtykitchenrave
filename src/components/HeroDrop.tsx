@@ -79,11 +79,16 @@ export default function HeroDrop({
                 <br />
                 Rave
               </span>
-              <span>
+              <span className="sleeve-meta">
                 {release?.catalog || 'DKR'} / {release?.title}
               </span>
             </>
           )}
+          {release ? (
+            <span className="hero-open" aria-hidden="true">
+              ▶
+            </span>
+          ) : null}
         </div>
         <div className="disc" aria-hidden="true" />
       </Link>

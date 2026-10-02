@@ -106,6 +106,7 @@ Decisión del cliente, 30 sep noche. Probamos el nombre completo «Dirty Kitchen
 - Escritorio: `font-size: 3.5rem`. Las letras quedan más altas que el bloque de letras del gráfico (el gráfico mide `3.15rem` de alto; los chorreos de abajo no cuentan).
 - Móvil (hasta 960 px): `2.1rem` y el gráfico a `2.35rem`. A 3.5rem el conjunto tapa EN/ES. El menú móvil arranca en `4.15rem` bajo la barra.
 - Imagen: `public/images/logo copia.png` (720×476, PNG con transparencia). En el `src` va codificada: `/images/logo%20copia.png`. Las letras blancas van dentro de una forma negra: `mix-blend-mode: multiply` las borraría. No usarlo.
+- Favicon (2 oct): el de antes era un SVG con «DKR» y un disco (`icon.svg`). Ahora es el mismo logo, centrado en un PNG cuadrado de 512 px con fondo transparente: `src/app/icon.png`. Next lo sirve en `/icon.png`. El JSON-LD de la home apunta ahí.
 - Commits: `e500d96` (DKR junto al gráfico), `7a9417c` (el tamaño).
 
 ## Enlaces internos
@@ -122,7 +123,9 @@ Las fotos de `/artists` son cuadradas e iguales. `repeat(4, 1fr)` dejaba columna
 
 ## El «0350» de la home
 
-No es el tema número 350. `catalogNumber()` quita el prefijo `DKR`: **DKR0350** se ve como **0350**. Es el último lanzamiento ya publicado (30 sep 2026, Switch / Buck Rogers, Phrenetic). El anterior es DKR0349. Los de octubre, con fecha futura, van a «Próximamente». Un código `DKRLP…` se muestra como `LP055`.
+No es el tema número 350. `catalogNumber()` quita el prefijo `DKR`: **DKR0350** se ve como **0350**. El 30 sep era el último ya publicado (Switch / Buck Rogers, Phrenetic). El anterior es DKR0349. Los de octubre, con fecha futura, van a «Próximamente». Un código `DKRLP…` se muestra como `LP055`.
+
+El 1 oct por la noche el hero ya muestra **0351**: Roller Coaster Hands In The Air, Afghan Headspin, salida 01 oct 2026.
 
 ## TIDAL
 
@@ -148,11 +151,46 @@ Proyecto `qsfynssmtuwufwqtbmra`. `001_init.sql` está aplicada. La clave anónim
 
 `002_tidal_links.sql` no está: faltan `releases.tidal_url` y `tracks.tidal_url`. El JSON no trae URLs de TIDAL ni de Spotify, así que la web no las usa todavía.
 
-Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` deja el JSON y lee Postgres. Las páginas se generan en el build (`revalidate` 3600): un deploy arrancado con las tablas vacías publica un catálogo vacío hasta el siguiente deploy.
+Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` (`src/lib/catalog.ts`) deja el JSON y lee Postgres (`src/lib/supabase.ts`).
 
-## Vistas del catálogo (1 oct 2026)
+## Un cambio en Supabase no sale al momento (1 oct 2026, noche)
 
-En `/releases` y `/artists` las cards abren en **compacto**. Al lado del buscador hay Grande, Compacto y Lista (en español: Grande, Compacto, Lista). La elección se guarda en `localStorage` (`dkr-catalog-view`) y vale para las dos páginas. La home y las páginas de género siguen con la rejilla de siempre, sin ese control.
+La base está conectada. La web publicada no la lee en cada visita.
+
+Las páginas del catálogo (home, releases, artists, géneros, ficha, sitemap, feed) llevan `export const revalidate = 3600`. Next las genera en el build y las guarda **una hora**. Un insert o un update en Supabase no aparece en dirtykitchenrave.com en el acto.
+
+Sale solo cuando pasa una de estas tres cosas:
+
+1. **Pasa hasta una hora** y entra alguien: Next regenera esa página con lo que haya entonces en Postgres.
+2. **El cron de Beatport** termina bien. `vercel.json` llama a `/api/cron/beatport-sync` a las **06:00 UTC** cada día. Si escribe releases nuevos, al final hace `revalidatePath('/', 'layout')` y vacía la caché sin deploy (`src/app/api/cron/beatport-sync/route.ts`). Hace falta `CRON_SECRET` y que Vercel lo mande como `Authorization: Bearer …`.
+3. **Un deploy nuevo.** El build vuelve a leer Supabase y publica ese catálogo.
+
+Hace falta deploy, y no basta con esperar la hora, en dos casos:
+
+- En Vercel **no** están `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Entonces `getCatalog()` no toca Postgres y la web sirve `data/catalog.seed.json`, el que se horneó en el build. Un cambio en la base no se entera nunca.
+- El deploy se hizo con las tablas vacías. Ese HTML vacío se queda hasta el siguiente deploy (o hasta que el cron o la hora regeneren, si las claves sí estaban).
+
+En local (`next dev`) cada recarga lee Supabase al momento. El `revalidate` no congela el dev.
+
+Optimal Breaks no es el mismo circuito. Allí el listado público también va cacheado, pero **5 minutos** (`createCachedSupabase(300)` con la etiqueta `public-catalog`). Al guardar un artista desde el admin se llama `revalidatePublicCatalog()` / `revalidateArtistSlug()` y la web pública se entera en ese instante, sin deploy. Dirty Kitchen no tiene admin ni ese «guardar y refrescar». El único vaciado a propósito es el cron de Beatport.
+
+## Vistas del catálogo (1 oct 2026, noche)
+
+Pedido: el mismo control que Optimal Breaks en `/en/artists`. En Dirty Kitchen va en **`/{lang}/releases` y `/{lang}/artists`**. La home y las páginas de género no lo tienen: siguen con la rejilla de cuatro columnas de `.drops`.
+
+Abre en **compacto**. Al lado del buscador hay tres botones (icono + texto; en móvil, solo icono):
+
+| | Inglés | Español | Lanzamientos (ancho) | Artistas (ancho) |
+|---|---|---|---|---|
+| Compacto (defecto) | Compact | Compacto | 5 columnas | 6 columnas |
+| Grande | Large | Grande | 2 columnas | 3 columnas |
+| Lista | List | Lista | una fila: carátula, título, catálogo, género, fecha | una fila: foto, nombre, nº de releases |
+
+En la lista de lanzamientos el sello «Pre-order» / «Preventa» no va encima de la carátula pequeña: va en la fila de datos (`.pre`). El ▶ de la preview sigue sonando en las tres vistas.
+
+La elección se guarda en `localStorage` (`dkr-catalog-view`) y vale para las dos páginas. Archivos: `src/components/ViewToggle.tsx`, `ReleasesExplorer.tsx`, `ArtistsExplorer.tsx`, `ReleaseCard.tsx`, `src/app/globals.css`, textos en `src/i18n/dictionaries.ts` (`views`).
+
+Commit `8236ece`. La sección «Rejilla de artistas» de arriba describe el arreglo del 30 sep (fotos cuadradas). En `/artists` esa rejilla de 4 ya no es la que se ve: la página siempre añade `view-compact`, `view-large` o `view-list`.
 
 ## Analítica (1 oct 2026)
 
@@ -161,3 +199,35 @@ GA4 `G-5J2B7LM2K9` en `NEXT_PUBLIC_GA_MEASUREMENT_ID`. Molde Optimal: Consent Mo
 ## Search Console (1 oct 2026)
 
 Verificación HTML en `public/googlecd8334c6f7400874.html`, servida en la raíz del dominio. Search Console la pide en `https://…/googlecd8334c6f7400874.html`.
+
+## Home, noche del 1 oct 2026
+
+Tres cambios de la home. El primero salió en `a66d1c2`. El play de la carátula y el drop repetido al principio de Drops salen en el commit siguiente, junto con el favicon del logo.
+
+### Nombre del sello en el hero
+
+El titular era una sola línea ancha: «Dirty Kitchen Rave. Multi-genre bass, London.» Pedido: el nombre del sello un poco más grande, en su propia línea, como H1, con la Archivo condensada del wordmark del pie, y un tamaño que se vea en móvil y en escritorio.
+
+Quedó así:
+
+- H1: «Dirty Kitchen Rave». Archivo, peso 900, `font-stretch: 62%`, mayúsculas. El tamaño es `clamp(2.15rem, 10.6cqi, 5.6rem)`: llena la columna del hero (en 1440 px sale a una línea, unos 71 px; en un móvil de 390 px también, unos 37 px).
+- Debajo, el lema en la tipo ancha de antes (`font-stretch: 125%`): «Multi-genre bass, London.» / «Bass multigénero, Londres.»
+- Textos en `src/i18n/dictionaries.ts` (`home.h1` y `home.tagline`). Maquetación en `src/components/HeroDrop.tsx` y `src/app/globals.css` (`.hero-copy`, `.hero h1`, `.hero-tag`).
+
+Gustó. Commit `a66d1c2` en [github.com/dirtykitchenrave-dot/dirtykitchenrave](https://github.com/dirtykitchenrave-dot/dirtykitchenrave), rama `main`. Si el push pide cuenta, es **dirtykitchenrave-dot**, no Eskaladigital. Las dos fotos sueltas de la raíz (`Foto 30-9-26, …png`) no entraron en el commit.
+
+### El play de la carátula
+
+La mitad naranja del hero ya era un enlace al último drop, pero no se veía: ni botón ni play. Se probó una pastilla naranja con el título encima de la foto; el título es largo, se salía de la carátula y pisaba el vinilo. Se dejó un círculo naranja con ▶ (`.hero-open`), a la izquierda del centro de la funda para no caer sobre el disco.
+
+El círculo no reproduce el audio. Es parte del mismo enlace: pulsarlo, o pulsar la imagen, abre la ficha. Comprobado en escritorio y en móvil; el clic fue a `/en/releases/dkr0351-roller-coaster-hands-in-the-air`. El play que sí suena sigue siendo el de las tarjetas de Drops.
+
+### El mismo drop, el primero de Drops
+
+La rejilla de Drops quitaba el del hero (`r.id !== latest.id`) para no repetirlo. Pedido: que salga también abajo, el primero. Ahora va el primero y la lista sigue en ocho. «Próximamente» no cambia. El 1 oct por la noche el primero es Roller Coaster Hands In The Air.
+
+Esos dos cambios van en el mismo commit que el favicon: `src/components/HeroDrop.tsx`, `src/app/globals.css`, `src/app/[lang]/page.tsx`. Las dos fotos sueltas de la raíz siguen fuera del repo.
+
+### Cómo se miró en local
+
+El puerto 3000 lo tenía otra web (Serveco). Esta arrancó en `http://localhost:3001`. El `fetch` a Supabase cae por el proxy de Acttax; ese `next dev` llevó `NODE_TLS_REJECT_UNAUTHORIZED=0`. El primer intento chocó con un `EPERM` al renombrar archivos de `.next` (Dropbox). El segundo servidor sí sirvió la home.

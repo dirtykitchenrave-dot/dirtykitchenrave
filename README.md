@@ -74,9 +74,9 @@ Manual run: `curl -H "Authorization: Bearer $CRON_SECRET" https://<site>/api/cro
 |---|---|
 | `/` | Redirects to `/en` or `/es` (cookie `NEXT_LOCALE` → `Accept-Language` → English) |
 | `/{lang}` | Home: latest drop, coming soon, drops, merch, crew, channels, demos |
-| `/{lang}/releases` | Full catalogue with search and filters (genre, year, format) |
+| `/{lang}/releases` | Full catalogue with search, filters (genre, year, format) and compact / large / list views |
 | `/{lang}/releases/{slug}` | Release: artwork, tracklist with Beatport previews, buy links, more from the artist |
-| `/{lang}/artists` · `/{lang}/artists/{slug}` | Roster and artist page (releases + remixes on DKR) |
+| `/{lang}/artists` · `/{lang}/artists/{slug}` | Roster (same three views as releases) and artist page (releases + remixes on DKR) |
 | `/{lang}/genres` · `/{lang}/genres/{slug}` | Genre index and releases per genre |
 | `/{lang}/shop` · `/demos` · `/about` · `/podcast` | Content pages |
 | `/{lang}/links` | Linktree replacement for the Instagram/TikTok bio |
@@ -94,7 +94,7 @@ Track sharing: `/{lang}/releases/{slug}?play=beatport:{trackId}` highlights the 
 src/
   proxy.ts                   Language redirect + short links (Next 16 "proxy", formerly middleware)
   app/
-    globals.css icon.svg     Design system from proposal 05, favicon
+    globals.css icon.png     Design system from proposal 05; favicon is the logo
     [lang]/                  All pages + layout (root <html lang>), error, 404, OG image
     api/cron/beatport-sync/  Daily incremental import
     sitemap.ts robots.ts feed.xml/route.ts
@@ -107,6 +107,8 @@ src/
     types.ts view.ts format.ts site.ts
 scripts/import-beatport.ts   CLI for the importer
 data/catalog.seed.json       Catalogue used when Supabase is not configured
+
+Published pages cache the catalogue for one hour (`revalidate = 3600`). A Supabase edit does not show on the live site until that hour passes, the daily Beatport cron calls `revalidatePath`, or a new deploy runs. Without the two `NEXT_PUBLIC_SUPABASE_*` vars on Vercel, the site keeps serving this JSON. Detail: `docs/BITACORA.md`, section «Un cambio en Supabase no sale al momento».
 supabase/migrations/         001_init.sql
 docs/IMPORTER.md             Beatport findings, field mapping, 30 Sept load
 docs/BITACORA.md             Session notes (catalogue, navbar, internal links, bios)

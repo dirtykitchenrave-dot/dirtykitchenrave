@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#101113"/>
-  <circle cx="44" cy="40" r="20" fill="#26272b"/>
-  <circle cx="44" cy="40" r="6" fill="#FF5B14"/>
-  <text x="6" y="30" font-family="Arial Narrow, Arial, sans-serif" font-weight="900" font-size="24" fill="#FF5B14">DKR</text>
-</svg>
