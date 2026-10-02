@@ -184,7 +184,7 @@ const en = {
   channels: {
     beatport: 'Full catalogue',
     bandcamp: 'Buy direct',
-    juno: 'MP3, WAV, FLAC',
+    volumo: 'MP3, WAV, FLAC',
     podcast: 'Apple Podcasts',
     discord: 'Free to join',
     twitch: 'Live with Afghan Headspin',
@@ -203,6 +203,7 @@ const en = {
     openTidal: 'Open on TIDAL',
     searchTidal: 'Search on TIDAL',
     openBeatport: 'View on Beatport',
+    fullTrack: 'Listen to the full track',
     nowPlaying: 'Now playing',
     next: 'Next track',
     prev: 'Previous track',
@@ -455,7 +456,7 @@ const es: Dictionary = {
   channels: {
     beatport: 'Catálogo completo',
     bandcamp: 'Compra directa',
-    juno: 'MP3, WAV, FLAC',
+    volumo: 'MP3, WAV, FLAC',
     podcast: 'Apple Podcasts',
     discord: 'Entrada libre',
     twitch: 'Directos con Afghan Headspin',
@@ -474,6 +475,7 @@ const es: Dictionary = {
     openTidal: 'Abrir en TIDAL',
     searchTidal: 'Buscar en TIDAL',
     openBeatport: 'Ver en Beatport',
+    fullTrack: 'Escuchar el tema completo',
     nowPlaying: 'Sonando',
     next: 'Siguiente tema',
     prev: 'Tema anterior',

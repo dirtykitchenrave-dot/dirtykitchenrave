@@ -275,3 +275,9 @@ La cuenta de Beatport Streaming del sello es suya. Le deja oír el tema entero a
 Intentar que las escuchas de la web cuenten en Spotify o en TIDAL es inflar streams. Esas plataformas lo quitan y pueden retirar la música. No hay un camino legal de «la web suma y la plataforma paga».
 
 Lo que sí cobra es que el oyente le dé al play dentro del servicio, con su propia cuenta: el botón de Spotify, el de TIDAL o el de Beatport de cada tema. El contador de la web (`track_play_events` y el top de `/about`) dice qué se escucha en dirtykitchenrave.com. No es una fuente de royalties.
+
+En la barra del reproductor, delante de Spotify, TIDAL y Beatport, va el texto «Escuchar el tema completo» (en inglés «Listen to the full track») y una flecha hacia esos tres botones. El enlace de compartir no entra en ese grupo.
+
+## Tienda Volumo (2 oct 2026)
+
+El cliente pidió quitar Juno Download de la fila de tiendas de la home. El hueco es Volumo: el texto dice Volumo y el enlace es `https://volumo.com/label/757941-dirty-kitchen-rave`. El subtítulo sigue siendo MP3, WAV, FLAC, en inglés y en español.

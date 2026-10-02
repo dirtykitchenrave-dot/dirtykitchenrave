@@ -6,7 +6,7 @@ export default function Channels({ d }: { d: Dictionary }) {
   const items = [
     { label: 'Beatport', sub: d.channels.beatport, href: LINKS.beatport },
     { label: 'Bandcamp', sub: d.channels.bandcamp, href: LINKS.bandcamp },
-    { label: 'Juno', sub: d.channels.juno, href: LINKS.juno },
+    { label: 'Volumo', sub: d.channels.volumo, href: LINKS.volumo },
     { label: 'Podcast', sub: d.channels.podcast, href: LINKS.podcast },
     { label: 'Spotify', sub: d.channels.spotify, href: LINKS.spotify },
     { label: 'SoundCloud', sub: d.channels.soundcloud, href: LINKS.soundcloud },

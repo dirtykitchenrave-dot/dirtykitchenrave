@@ -104,7 +104,7 @@ export function optimalBreaksArtistUrl(slug: string, lang: 'en' | 'es'): string 
 export const LINKS = {
   beatport: 'https://www.beatport.com/label/dirty-kitchen-rave/112835',
   bandcamp: 'https://dirtykitchenrave.bandcamp.com/',
-  juno: 'https://www.junodownload.com/labels/Dirty+Kitchen+Rave/',
+  volumo: 'https://volumo.com/label/757941-dirty-kitchen-rave',
   podcast: 'https://podcasts.apple.com/us/podcast/the-dirty-kitchen-rave-podcast/id1895541519',
   discord: 'https://discord.gg/vXFj3tQkme',
   demos: 'https://www.labelradar.com/labels/dirtykitchenrave/portal',

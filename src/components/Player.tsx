@@ -38,6 +38,7 @@ interface PlayerLabels {
   openTidal: string
   searchTidal: string
   openBeatport: string
+  fullTrack: string
   nowPlaying: string
   next: string
   prev: string
@@ -357,18 +358,26 @@ export function PlayerProvider({
                 </svg>
               )}
             </button>
-            <PlatformLinks
-              title={current.mix ? `${current.title.trim()} (${current.mix.trim()})` : current.title.trim()}
-              artists={
-                current.artistNames && current.artistNames.length
-                  ? current.artistNames
-                  : current.artistLinks?.map((a) => a.name) || (current.artists ? [current.artists] : [])
-              }
-              spotifyUrl={current.spotifyUrl}
-              tidalUrl={current.tidalUrl}
-              beatportUrl={current.beatportUrl}
-              labels={labels}
-            />
+            <span className="full">
+              <span className="fullcue">
+                {labels.fullTrack}
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h12M13 6l6 6-6 6" />
+                </svg>
+              </span>
+              <PlatformLinks
+                title={current.mix ? `${current.title.trim()} (${current.mix.trim()})` : current.title.trim()}
+                artists={
+                  current.artistNames && current.artistNames.length
+                    ? current.artistNames
+                    : current.artistLinks?.map((a) => a.name) || (current.artists ? [current.artists] : [])
+                }
+                spotifyUrl={current.spotifyUrl}
+                tidalUrl={current.tidalUrl}
+                beatportUrl={current.beatportUrl}
+                labels={labels}
+              />
+            </span>
           </div>
           <button className="x" onClick={stop} aria-label={labels.close}>
             ×

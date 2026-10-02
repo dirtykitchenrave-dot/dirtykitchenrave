@@ -1511,6 +1511,35 @@ h2.big {
 .player .out .plats {
   gap: 0.35rem;
 }
+.player .full {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+.player .fullcue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: var(--naranja);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.player .fullcue svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .player .plat {
   width: 30px;
   height: 30px;
@@ -1926,7 +1955,16 @@ h2.big {
     display: none;
   }
   .player .out {
+    justify-content: space-between;
+    gap: 0.45rem;
+  }
+  .player .full {
+    flex: 1;
     justify-content: flex-end;
+  }
+  .player .fullcue {
+    font-size: 0.62rem;
+    letter-spacing: 0;
   }
   .player .who b,
   .player .who > span {
