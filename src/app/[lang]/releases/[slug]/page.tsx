@@ -14,6 +14,7 @@ import {
   releasesByArtist,
   tracksFor,
 } from '@/lib/catalog'
+import { spotifyHref, tidalHref } from '@/lib/audio-url'
 import { artworkAt, catalogNumber, formatDate, isUpcoming, joinNames, slugify } from '@/lib/format'
 import { SITE } from '@/lib/site'
 import { breadcrumbJsonLd, pageMeta, toCard, toTrackRow, trackListLabels } from '@/lib/view'
@@ -72,11 +73,15 @@ export default async function ReleasePage({ params }: Props) {
         .slice(0, 4)
     : []
 
+  const byArtist = artists.map((a) => a.name)
+  const onlyTrack = tracks.length === 1 ? tracks[0] : undefined
+  const tidal = tidalHref(r.links.tidal || onlyTrack?.tidalUrl, r.title, byArtist)
+  const spotify = spotifyHref(r.links.spotify || onlyTrack?.spotifyUrl, r.title, byArtist)
   const buy = [
     { label: d.release.buy, href: r.links.beatport, main: true },
+    { label: d.release.buyTidal, href: tidal.href },
+    { label: d.release.listenSpotify, href: spotify.href },
     { label: 'Bandcamp', href: r.links.bandcamp },
-    { label: 'Spotify', href: r.links.spotify },
-    { label: 'TIDAL', href: r.links.tidal },
     { label: 'Apple Music', href: r.links.apple },
   ].filter((b) => b.href)
 

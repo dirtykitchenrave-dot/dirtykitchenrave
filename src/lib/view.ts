@@ -140,6 +140,8 @@ export function toTrackRow(c: Catalog, t: Track, r: Release, lang: Lang, withRel
     tidalUrl: t.tidalUrl ?? null,
     artwork: artworkAt(r.artwork, 250),
     releaseTitle: withRelease ? r.title : undefined,
+    releaseDate: withRelease ? formatDate(r.releaseDate, lang) : undefined,
+    releaseDateIso: withRelease ? r.releaseDate : undefined,
     releaseHref: `/${lang}/releases/${r.slug}`,
   }
 }

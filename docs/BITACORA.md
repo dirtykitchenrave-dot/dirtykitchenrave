@@ -278,6 +278,8 @@ Lo que sí cobra es que el oyente le dé al play dentro del servicio, con su pro
 
 En la barra del reproductor, delante de Spotify, TIDAL y Beatport, va el texto «Escuchar el tema completo» (en inglés «Listen to the full track») y una flecha hacia esos tres botones. El enlace de compartir no entra en ese grupo.
 
+En el hero de cada ficha salen tres botones: Comprar en Beatport (el enlace del disco), Comprar en TIDAL y Escuchar en Spotify. Si el catálogo no tiene el álbum en TIDAL o Spotify, el botón abre la búsqueda del lanzamiento. En un single, si el tema ya tiene enlace directo, se usa ese. Bandcamp y Apple Music siguen saliendo solo cuando hay URL.
+
 ## Tienda Volumo (2 oct 2026)
 
 El cliente pidió quitar Juno Download de la fila de tiendas de la home. El hueco es Volumo: el texto dice Volumo y el enlace es `https://volumo.com/label/757941-dirty-kitchen-rave`. El subtítulo sigue siendo MP3, WAV, FLAC, en inglés y en español.

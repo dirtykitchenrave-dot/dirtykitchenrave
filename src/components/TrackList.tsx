@@ -30,6 +30,9 @@ export interface TrackRow {
   /** Small cover (250px). Shown per row when `showArtwork` is on (artist pages). */
   artwork: string | null
   releaseTitle?: string
+  /** Formatted release date. Artist pages only. */
+  releaseDate?: string
+  releaseDateIso?: string
   releaseHref: string
 }
 
@@ -189,6 +192,15 @@ export default function TrackList({
                     <>
                       {' '}
                       <span className="sep">|</span> <Link href={t.releaseHref}>{t.releaseTitle}</Link>
+                    </>
+                  ) : null}
+                  {t.releaseDate ? (
+                    <>
+                      {' '}
+                      <span className="sep">·</span>{' '}
+                      <time className="trk-date" dateTime={t.releaseDateIso}>
+                        {t.releaseDate}
+                      </time>
                     </>
                   ) : null}
                 </span>

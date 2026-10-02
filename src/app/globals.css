@@ -891,6 +891,10 @@ h2.big {
 .rel-hero .by a:hover {
   color: var(--naranja);
 }
+.rel-hero .btns .btn {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
 .spec {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -1666,6 +1670,11 @@ h2.big {
 }
 .trk .sep {
   opacity: 0.35;
+}
+.trk .trk-date {
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0.72;
 }
 .trk > a:has(.trk-art) {
   flex: 0 0 auto;
