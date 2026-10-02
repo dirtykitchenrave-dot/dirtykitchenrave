@@ -6,7 +6,7 @@
 
 `https://dirtykitchenrave.com` hace **308** a `https://www.dirtykitchenrave.com`, y www ya sirve esta web (ya no es Linktree). La canónica es `https://www.dirtykitchenrave.com`. Un `*.vercel.app` sigue en noindex.
 
-En local: favicon de pestaña `DK` a 192 px (Google pide múltiplo de 48); el wordmark queda como icono de Apple y en `/logo.png`. Metadescripciones propias por sección, títulos sin la marca duplicada, sitemap con `x-default` e imágenes de portada, `robots.txt` con los crawlers de IA y `public/llms.txt`.
+En local: favicon de pestaña `DKR` a 192 px (Google pide múltiplo de 48); el wordmark queda como icono de Apple y en `/logo.png`. Metadescripciones propias por sección, títulos sin la marca duplicada, sitemap con `x-default` e imágenes de portada, `robots.txt` con los crawlers de IA y `public/llms.txt`.
 
 ## Fuente
 
@@ -248,7 +248,7 @@ El cron de Beatport, al reimportar, volvía a escribir `image_url` con la de Bea
 
 ## Top en El sello (2 oct 2026)
 
-En `/about`, encima de Contacto, hay dos listas: los 10 artistas y los 10 temas con más inicios de preview. El número de la derecha es el recuento. Cada play suma a todos los artistas acreditados en el tema (principal y remezcla). La página se regenera como mucho cada hora (`revalidate = 3600`). Si todavía no hay escuchas, sale «Todavía no hay escuchas».
+En `/about`, encima de Contacto, hay dos listas: los 10 artistas y los 10 temas con más inicios de preview. El número de la derecha es el recuento. Cada play suma a todos los artistas acreditados en el tema (principal y remezcla). No van en el HTML cacheado de la página: el navegador pide `/api/charts` al abrirla, otra vez al dar al play y cada 15 s mientras la pestaña está visible (`cache: no-store`), como el top 100 de Optimal Breaks. Si todavía no hay escuchas, sale «Todavía no hay escuchas».
 
 ## Reproducciones (2 oct 2026)
 

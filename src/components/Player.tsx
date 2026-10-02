@@ -59,8 +59,12 @@ const Ctx = createContext<PlayerState | null>(null)
 /** One row per preview start. Pause and resume of the same clip do not count. */
 function reportPlay(trackId: number) {
   const body = JSON.stringify({ trackId })
+  const ping = () => window.setTimeout(() => window.dispatchEvent(new Event('dkr-play')), 600)
   try {
-    if (navigator.sendBeacon('/api/plays', new Blob([body], { type: 'application/json' }))) return
+    if (navigator.sendBeacon('/api/plays', new Blob([body], { type: 'application/json' }))) {
+      ping()
+      return
+    }
   } catch {
     /* fetch below */
   }
@@ -69,7 +73,9 @@ function reportPlay(trackId: number) {
     headers: { 'content-type': 'application/json' },
     body,
     keepalive: true,
-  }).catch(() => {})
+  })
+    .catch(() => {})
+    .finally(ping)
 }
 
 export function usePlayer(): PlayerState {

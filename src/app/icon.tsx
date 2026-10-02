@@ -26,12 +26,12 @@ export default function Icon() {
             alignItems: 'center',
             justifyContent: 'center',
             color: '#f4f1ea',
-            fontSize: 108,
+            fontSize: 72,
             fontWeight: 800,
-            letterSpacing: -6,
+            letterSpacing: -3,
           }}
         >
-          DK
+          DKR
         </div>
         <div style={{ height: 22, background: '#ff5b14', display: 'flex' }} />
       </div>

@@ -141,7 +141,7 @@ export async function loadCatalogFromSupabase(): Promise<Catalog> {
   }
 }
 
-/** Track ids of every preview start, oldest first. Empty if the service role is not configured. */
+/** Track ids of every preview start. Empty if the service role is not configured. */
 export async function loadPlayTrackIds(): Promise<number[]> {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return []
   const sb = serviceClient()
@@ -154,4 +154,97 @@ export async function loadPlayTrackIds(): Promise<number[]> {
     if (!data || data.length < PAGE) break
   }
   return ids
+}
+
+export interface ChartArtist {
+  id: number
+  slug: string
+  name: string
+  plays: number
+}
+
+export interface ChartTrack {
+  id: number
+  releaseSlug: string
+  title: string
+  mix: string
+  artistNames: string[]
+  plays: number
+}
+
+type CreditArtist = { id: number; slug: string; name: string }
+type Credit = { role: string; position: number; artists: CreditArtist | CreditArtist[] | null }
+type PlayedRow = {
+  id: number
+  title: string
+  mix_name: string | null
+  releases: { slug: string } | { slug: string }[] | null
+  track_artists: Credit[] | null
+}
+
+const one = <T,>(v: T | T[] | null | undefined): T | null => (Array.isArray(v) ? v[0] || null : v || null)
+
+/** Top 10 by preview starts. Reads only the tracks that have plays, not the whole catalogue. */
+export async function loadPlayedChart(limit = 10): Promise<{ artists: ChartArtist[]; tracks: ChartTrack[] }> {
+  const ids = await loadPlayTrackIds()
+  if (!ids.length) return { artists: [], tracks: [] }
+
+  const counts = new Map<number, number>()
+  for (const id of ids) counts.set(id, (counts.get(id) || 0) + 1)
+
+  const sb = serviceClient()
+  const rows: PlayedRow[] = []
+  const trackIds = [...counts.keys()]
+  for (let i = 0; i < trackIds.length; i += 200) {
+    const part = trackIds.slice(i, i + 200)
+    const { data, error } = await sb
+      .from('tracks')
+      .select('id, title, mix_name, releases(slug), track_artists(role, position, artists(id, slug, name))')
+      .in('id', part)
+    if (error) throw new Error(`Supabase played chart: ${error.message}`)
+    rows.push(...((data || []) as PlayedRow[]))
+  }
+
+  const artistPlays = new Map<number, number>()
+  const artistInfo = new Map<number, CreditArtist>()
+  const tracks: ChartTrack[] = []
+
+  for (const row of rows) {
+    const plays = counts.get(Number(row.id)) || 0
+    const credits = [...(row.track_artists || [])].sort((a, b) => a.position - b.position)
+    const primary = credits.filter((c) => c.role !== 'remixer')
+    const named = (primary.length ? primary : credits)
+      .map((c) => one(c.artists))
+      .filter((a): a is CreditArtist => Boolean(a))
+    const releaseSlug = one(row.releases)?.slug
+    if (releaseSlug) {
+      tracks.push({
+        id: Number(row.id),
+        releaseSlug,
+        title: row.title.trim(),
+        mix: (row.mix_name || '').trim(),
+        artistNames: named.map((a) => a.name),
+        plays,
+      })
+    }
+    const seen = new Set<number>()
+    for (const credit of credits) {
+      const artist = one(credit.artists)
+      if (!artist || seen.has(artist.id)) continue
+      seen.add(artist.id)
+      artistInfo.set(artist.id, artist)
+      artistPlays.set(artist.id, (artistPlays.get(artist.id) || 0) + plays)
+    }
+  }
+
+  return {
+    artists: [...artistPlays.entries()]
+      .flatMap(([id, plays]) => {
+        const artist = artistInfo.get(id)
+        return artist ? [{ id: artist.id, slug: artist.slug, name: artist.name, plays }] : []
+      })
+      .sort((a, b) => b.plays - a.plays || a.name.localeCompare(b.name))
+      .slice(0, limit),
+    tracks: tracks.sort((a, b) => b.plays - a.plays || a.title.localeCompare(b.title)).slice(0, limit),
+  }
 }
