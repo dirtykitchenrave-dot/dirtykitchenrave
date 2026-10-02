@@ -205,6 +205,7 @@ export default function TrackList({
                 <PlatformLinks
                   title={t.title}
                   artists={t.artistNames}
+                  mix={t.mix}
                   spotifyUrl={t.spotifyUrl}
                   tidalUrl={t.tidalUrl}
                   beatportUrl={t.beatportUrl}

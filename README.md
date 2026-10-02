@@ -62,11 +62,12 @@ Manual run: `curl -H "Authorization: Bearer $CRON_SECRET" https://<site>/api/cro
   It keeps playing while you navigate.
 - Audio goes through **`/api/audio-proxy`** (Beatport hosts only, with HTTP Range support, required by iOS Safari),
   ported from Optimal Breaks.
-- Each track shows **Spotify** (direct link if verified, otherwise a Spotify search), **TIDAL** (only with a verified
-  link) and **Beatport** buttons, plus a share link `?play=beatport:<id>` (tap to play, never autoplay).
-- Verified links come from `npm run match:streaming` (Spotify) and `npm run match:streaming -- --service=tidal`,
-  which match **by ISRC / UPC** from Beatport (exact). Add `--supabase` to work on the database.
-  Supabase needs `supabase/migrations/002_tidal_links.sql`.
+- Each track shows **Spotify**, **TIDAL** and **Beatport**. Spotify and TIDAL open the verified track when
+  the matcher stored one, and a search otherwise, so every row has a link. Plus a share link
+  `?play=beatport:<id>` (tap to play, never autoplay).
+- Verified links come from `npm run match:streaming` (Spotify) and `npm run match:streaming -- --service=tidal`.
+  TIDAL tries the Beatport ISRC first, then the same title + artist search as Optimal Breaks. Add `--supabase`
+  to write the database. Supabase needs `supabase/migrations/002_tidal_links.sql`.
 
 ## URL map
 

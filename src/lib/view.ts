@@ -159,6 +159,7 @@ export function trackListLabels(d: Dictionary, count: number): TrackListLabels {
     openSpotify: d.release.openSpotify,
     searchSpotify: d.release.searchSpotify,
     openTidal: d.release.openTidal,
+    searchTidal: d.release.searchTidal,
     openBeatport: d.release.openBeatport,
   }
 }

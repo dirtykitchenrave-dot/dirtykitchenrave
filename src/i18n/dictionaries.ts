@@ -93,6 +93,7 @@ const en = {
     openSpotify: 'Open on Spotify',
     searchSpotify: 'Search on Spotify',
     openTidal: 'Open on TIDAL',
+    searchTidal: 'Search on TIDAL',
     openBeatport: 'View on Beatport',
   },
   artists: {
@@ -341,6 +342,7 @@ const es: Dictionary = {
     openSpotify: 'Abrir en Spotify',
     searchSpotify: 'Buscar en Spotify',
     openTidal: 'Abrir en TIDAL',
+    searchTidal: 'Buscar en TIDAL',
     openBeatport: 'Ver en Beatport',
   },
   artists: {

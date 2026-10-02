@@ -129,7 +129,9 @@ El 1 oct por la noche el hero ya muestra **0351**: Roller Coaster Hands In The A
 
 ## TIDAL
 
-El botón de TIDAL solo sale si hay URL verificada (`tidalUrl`). No hay búsqueda de reserva. Commit `bae45fd`.
+Para el sello, TIDAL es el canal que más compensa. De Beatport, Spotify y TIDAL, el retorno más alto está en TIDAL, y es donde se compran los temas de mayor calidad (los DJQ). Quien compra temas acaba en TIDAL. Por eso cada tema de la web tiene que llevar su enlace: no es un extra.
+
+El botón sale siempre. Si el matcher guardó la URL del tema, abre esa ficha (`https://tidal.com/browse/track/…`). Si no, abre la búsqueda en TIDAL con artista y título. El enlace verificado se busca como en Optimal Breaks: primero el ISRC de Beatport y, si no hay hit, búsqueda por artista + título (solo se guarda si título y artista cuadran). Script: `npm run match:streaming -- --service=tidal`. El 2 oct quedaron 1.542 de 1.571 temas con ficha directa en el JSON (Exotic, DKR0352, es `https://tidal.com/browse/track/563689368`). Las URLs van al JSON y, cuando exista la columna, a Supabase. `002_tidal_links.sql` sigue sin aplicar: faltan `tracks.tidal_url` y `releases.tidal_url`. Mientras tanto `getCatalog()` rellena el hueco con el JSON.
 
 ## Consola en `/artists` (no es un fallo de la web)
 
@@ -149,7 +151,7 @@ El 1 oct por la noche el repo del cliente quedó conectado a un proyecto de Verc
 
 Proyecto `qsfynssmtuwufwqtbmra`. `001_init.sql` está aplicada. La clave anónima lee las cinco tablas y no puede insertar.
 
-`002_tidal_links.sql` no está: faltan `releases.tidal_url` y `tracks.tidal_url`. El JSON no trae URLs de TIDAL ni de Spotify, así que la web no las usa todavía.
+`002_tidal_links.sql` no está: faltan `releases.tidal_url` y `tracks.tidal_url`. Las URLs de TIDAL que ya casó el matcher viven en el JSON y la web las usa encima de Postgres hasta que exista la columna.
 
 Carga desde `data/catalog.seed.json`: 175 artistas, 413 lanzamientos, 1.571 temas, 626 créditos de lanzamiento y 2.019 de tema. Afghan Headspin (30700) sigue en el roster y con la bio. Con `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `getCatalog()` (`src/lib/catalog.ts`) deja el JSON y lee Postgres (`src/lib/supabase.ts`).
 
