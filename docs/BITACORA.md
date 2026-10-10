@@ -287,3 +287,7 @@ En la lista de temas de cada artista, detrás del título del lanzamiento, sale 
 ## Tienda Volumo (2 oct 2026)
 
 El cliente pidió quitar Juno Download de la fila de tiendas de la home. El hueco es Volumo: el texto dice Volumo y el enlace es `https://volumo.com/label/757941-dirty-kitchen-rave`. El subtítulo sigue siendo MP3, WAV, FLAC, en inglés y en español.
+
+## Crear vídeo (10 oct 2026)
+
+En cada fila de las tracklists hay un botón 🎬 para cualquier visitante. Pide vertical (9:16, Reels, Stories, TikTok) u horizontal (16:9, Facebook, YouTube), dibuja en el navegador un MP4 de 15 s sin sonido con la marca DKR y luego deja compartir en Instagram, compartir en Facebook o descargar. Es la herramienta de los botones R y F de Optimal Breaks, abierta a todos. La carátula pasa por `/api/image-proxy` para que el canvas se pueda exportar. Todo el detalle: `docs/VIDEOS.md`.

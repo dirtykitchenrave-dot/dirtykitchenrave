@@ -163,6 +163,7 @@ export function trackListLabels(d: Dictionary, count: number): TrackListLabels {
     openTidal: d.release.openTidal,
     searchTidal: d.release.searchTidal,
     openBeatport: d.release.openBeatport,
+    video: d.release.video,
   }
 }
 

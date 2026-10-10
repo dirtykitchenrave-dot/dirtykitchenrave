@@ -2347,3 +2347,154 @@ h2.big {
     grid-column: 2;
   }
 }
+
+/* ------------------------------------------------------------------ CREATE VIDEO (VideoMaker) */
+.vm-trigger {
+  font-size: 1rem;
+}
+.vm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(16, 17, 19, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.vm {
+  background: var(--hormigon);
+  border: var(--borde);
+  box-shadow: 8px 8px 0 var(--naranja);
+  width: min(560px, 100%);
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1.2rem;
+  outline: none;
+}
+.vm-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.vm-kicker {
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+.vm-track {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+.vm-track span {
+  color: var(--gris);
+}
+.vm-x {
+  background: var(--tinta);
+  color: var(--hormigon);
+  border: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  flex: none;
+}
+.vm-x:disabled {
+  opacity: 0.4;
+  cursor: wait;
+}
+.vm-pick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.vm-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1rem 0.6rem;
+  background: var(--blanco);
+  border: var(--borde);
+  cursor: pointer;
+  text-align: center;
+}
+.vm-opt b {
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: uppercase;
+}
+.vm-opt small {
+  font-size: 0.78rem;
+  color: var(--gris);
+}
+.vm-opt:hover {
+  background: var(--naranja);
+}
+.vm-opt:hover small {
+  color: var(--tinta);
+}
+.vm-shape {
+  display: block;
+  border: 3px solid var(--tinta);
+  background: repeating-linear-gradient(45deg, var(--tinta) 0 4px, transparent 4px 10px);
+  margin-bottom: 0.3rem;
+}
+.vm-shape.v {
+  width: 45px;
+  height: 80px;
+}
+.vm-shape.h {
+  width: 96px;
+  height: 54px;
+  margin-top: 13px;
+  margin-bottom: calc(0.3rem + 13px);
+}
+.vm-busy p {
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+.vm-bar {
+  height: 14px;
+  border: var(--borde);
+  background: var(--blanco);
+}
+.vm-bar span {
+  display: block;
+  height: 100%;
+  background: var(--naranja);
+  transition: width 0.15s linear;
+}
+.vm-video {
+  display: block;
+  margin: 0 auto 0.8rem;
+  border: var(--borde);
+  background: var(--tinta);
+  max-width: 100%;
+}
+.vm-video.v {
+  height: min(52dvh, 420px);
+  aspect-ratio: 9 / 16;
+}
+.vm-video.h {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.vm-note {
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.vm-actions .btn {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+}
+@media (max-width: 480px) {
+  .vm-actions .btn {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}

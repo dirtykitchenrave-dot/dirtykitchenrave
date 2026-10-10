@@ -6,6 +6,7 @@ import type { Lang } from '@/i18n/config'
 import { splitLinkedNames } from '@/lib/format'
 import PlatformLinks, { type PlatformLabels } from './PlatformLinks'
 import { usePlayer, type PlayerTrack } from './Player'
+import VideoMaker, { type VideoLabels } from './VideoMaker'
 
 export interface TrackRow {
   id: number
@@ -47,18 +48,21 @@ export interface TrackListLabels extends PlatformLabels {
   playAll: string
   stop: string
   count: string
+  video: VideoLabels
 }
 
 /**
  * Listenable tracklist (release and artist pages), modelled on the Optimal Breaks Beatport lists:
  * Play all / Stop, per-row preview through the global queue, BPM + key, share link, Spotify / TIDAL / Beatport.
  * Shared links (?play=beatport:<id>) highlight the row and ask to tap play — never autoplay.
+ * 🎬 «Create video» per row (any visitor): vertical or horizontal MP4 to share — see `VideoMaker`.
  */
 export default function TrackList({
   tracks,
   queueKey,
   sharePath,
   showArtwork = false,
+  videoKicker,
   lang,
   labels,
 }: {
@@ -67,6 +71,8 @@ export default function TrackList({
   /** Page used for share links (current page). */
   sharePath: string
   showArtwork?: boolean
+  /** Label above the title in the video (release pages: catalogue · genre). Rows with a release title use it. */
+  videoKicker?: string
   lang: Lang
   labels: TrackListLabels
 }) {
@@ -211,6 +217,21 @@ export default function TrackList({
                 {t.length ? <span className="chip-len">{t.length}</span> : null}
               </span>
               <span className="acts">
+                <VideoMaker
+                  track={{
+                    id: t.id,
+                    title: t.title,
+                    mix: t.mix,
+                    artists: t.artists,
+                    bpm: t.bpm,
+                    key: t.key,
+                    length: t.length,
+                    artwork: t.artwork,
+                  }}
+                  kicker={t.releaseTitle || videoKicker || 'Dirty Kitchen Rave'}
+                  sharePath={`${sharePath}?play=beatport:${t.id}`}
+                  labels={labels.video}
+                />
                 <button className="iconbtn" onClick={() => share(t.id)} title={labels.share}>
                   {copied === t.id ? labels.copied : '🔗'}
                 </button>

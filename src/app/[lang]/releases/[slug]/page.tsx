@@ -203,6 +203,7 @@ export default async function ReleasePage({ params }: Props) {
             tracks={rows}
             queueKey={`release:${r.id}`}
             sharePath={`/${lang}/releases/${r.slug}`}
+            videoKicker={[r.catalog, r.genres[0]].filter(Boolean).join(' · ') || r.title}
             lang={lang}
             labels={trackListLabels(d, rows.length)}
           />
