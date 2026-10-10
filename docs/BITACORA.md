@@ -291,3 +291,7 @@ El cliente pidió quitar Juno Download de la fila de tiendas de la home. El huec
 ## Crear vídeo (10 oct 2026)
 
 En cada fila de las tracklists hay un botón 🎬 para cualquier visitante. Pide vertical (9:16, Reels, Stories, TikTok) u horizontal (16:9, Facebook, YouTube), dibuja en el navegador un MP4 de 15 s sin sonido con la marca DKR y luego deja compartir en Instagram, compartir en Facebook o descargar. Es la herramienta de los botones R y F de Optimal Breaks, abierta a todos. La carátula pasa por `/api/image-proxy` para que el canvas se pueda exportar. Todo el detalle: `docs/VIDEOS.md`.
+
+## Vídeo: diseño propio «DROP» (10 oct 2026)
+
+El sello pidió que el vídeo no se pareciera al de Optimal Breaks (fuera el brazo del tocadiscos). Nuevo diseño: cuenta atrás 3·2·1·DROP, hormigón, bandas de peligro, carátula que entra en tiras, título que se ensancha en cada golpe con el eje de anchura de Archivo, ficha KEY · BPM · TIME, osciloscopio y cortina negra con LISTEN NOW. Mismo motor y mismo botón 🎬. Detalle en `docs/VIDEOS.md`.
