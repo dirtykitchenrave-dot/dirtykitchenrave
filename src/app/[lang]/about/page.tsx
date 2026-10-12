@@ -40,7 +40,7 @@ export default async function AboutPage({ params }: Props) {
           <div className="tags">
             <Link href={`/${lang}/artists/${LABEL_MANAGER_SLUG}`}>Afghan Headspin</Link>
             <Link href={`/${lang}/releases`}>{d.nav.releases}</Link>
-            <Link href={`/${lang}/podcast`}>{d.nav.podcast}</Link>
+            <Link href={`/${lang}/channels`}>{d.nav.channels}</Link>
           </div>
         </div>
       </section>

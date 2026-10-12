@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry('/shop', 0.5, now, 'monthly'),
     entry('/demos', 0.5, now, 'monthly'),
     entry('/about', 0.5, now, 'monthly'),
-    entry('/podcast', 0.4, now, 'monthly'),
+    entry('/channels', 0.4, now, 'monthly'),
     entry('/links', 0.3, now, 'monthly'),
   ].flat()
 

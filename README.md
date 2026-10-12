@@ -66,7 +66,7 @@ Manual run: `curl -H "Authorization: Bearer $CRON_SECRET" https://<site>/api/cro
   the matcher stored one, and a search otherwise, so every row has a link. Plus a share link
   `?play=beatport:<id>` (tap to play, never autoplay).
 - **Create video (🎬)** on every track row, for any visitor: pick **vertical** (9:16, Reels/Stories/TikTok) or **horizontal** (16:9, Facebook/YouTube); the browser draws a 15 s MP4 with no audio in the DKR style (`src/lib/video-renderer.ts`, artwork through `/api/image-proxy`), then **Share to Instagram / Share to Facebook / Download**. The poster adds the track's music inside the app. Details: **`docs/VIDEOS.md`**.
-- **Podcast** (`/{lang}/podcast`): the episode list comes from the Podbean RSS. Play, pause and seek use the site's player. The MP3 stays on Podbean. Apple Podcasts stays as a button. The feed is cached for one hour.
+- **Channels** (`/{lang}/channels`): three matching lists (podcast, SoundCloud, YouTube). Each shows five rows and expands in place. Podcast and SoundCloud audio play in the site player; a YouTube row opens that video. Apple Podcasts, SoundCloud and YouTube stay as outbound links. `/podcast` redirects here. Feeds are cached for one hour.
 - Verified links come from `npm run match:streaming` (Spotify) and `npm run match:streaming -- --service=tidal`.
   TIDAL tries the Beatport ISRC first, then the same title + artist search as Optimal Breaks. Add `--supabase`
   to write the database. Supabase needs `supabase/migrations/002_tidal_links.sql`.
@@ -81,7 +81,7 @@ Manual run: `curl -H "Authorization: Bearer $CRON_SECRET" https://<site>/api/cro
 | `/{lang}/releases/{slug}` | Release: artwork, tracklist with Beatport previews, buy links, more from the artist |
 | `/{lang}/artists` · `/{lang}/artists/{slug}` | Roster (same three views as releases) and artist page (releases + remixes on DKR) |
 | `/{lang}/genres` · `/{lang}/genres/{slug}` | Genre index and releases per genre |
-| `/{lang}/shop` · `/demos` · `/about` · `/podcast` | Content pages |
+| `/{lang}/shop` · `/demos` · `/about` · `/channels` | Content pages |
 | `/{lang}/links` | Linktree replacement for the Instagram/TikTok bio |
 | `/{lang}/legal/{notice,privacy,cookies}` | Legal (placeholder texts, noindex) |
 | `/dkr0237` | Short link by catalogue number → release page |

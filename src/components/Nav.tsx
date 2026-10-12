@@ -12,7 +12,7 @@ interface NavLabels {
   shop: string
   demos: string
   about: string
-  podcast: string
+  channels: string
   listen: string
   discord: string
   menu: string
@@ -89,7 +89,7 @@ export default function Nav({ lang, t }: { lang: Lang; t: NavLabels }) {
     { href: `/${lang}/artists`, label: t.artists },
     { href: `/${lang}/shop`, label: t.shop },
     { href: `/${lang}/demos`, label: t.demos },
-    { href: `/${lang}/podcast`, label: t.podcast },
+    { href: `/${lang}/channels`, label: t.channels },
     { href: `/${lang}/about`, label: t.about },
   ]
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')

@@ -92,7 +92,7 @@ export default async function LangLayout({
               shop: d.nav.shop,
               demos: d.nav.demos,
               about: d.nav.about,
-              podcast: d.nav.podcast,
+              channels: d.nav.channels,
               listen: d.nav.listen,
               discord: d.nav.discord,
               menu: d.nav.menu,

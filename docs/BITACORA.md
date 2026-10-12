@@ -296,6 +296,16 @@ En cada fila de las tracklists hay un botón 🎬 para cualquier visitante. Pide
 
 El sello pidió que el vídeo no se pareciera al de Optimal Breaks (fuera el brazo del tocadiscos). Nuevo diseño: cuenta atrás 3·2·1·DROP, hormigón, bandas de peligro, carátula que entra en tiras, título que se ensancha en cada golpe con el eje de anchura de Archivo, ficha KEY · BPM · TIME, osciloscopio y cortina negra con LISTEN NOW. Mismo motor y mismo botón 🎬. Detalle en `docs/VIDEOS.md`.
 
+## El cron de Beatport no está trayendo lo nuevo (12 oct 2026, noche)
+
+Solo hubo un import: el del navegador del 30 sep, volcado a Supabase el 1 oct y al JSON el 2 oct (`16dca16`). Nada posterior.
+
+En Beatport, por delante de Slam (DKR0360, 23 oct, que sigue siendo el más nuevo de la web), hay al menos Right Now (GODINO), On Repeat EP (Gruv42), Frogger (Prato), FUTC (Afghan Headspin, DJ Brownie), Shadow (Devis Hard), I Bet You Know Me (Loopcrashing, Vkyng) y A Friend Indeed (Ivan Oaks). En `https://www.dirtykitchenrave.com/es/releases` el primero sigue siendo Slam.
+
+El código del cron sí está en el repo (`vercel.json`, 06:00 UTC, `/api/cron/beatport-sync`) desde el primer commit. En Vercel (proyecto `dirtykitchenrave`, plan Hobby, captura del 12 oct) están las claves de Supabase. **No está `CRON_SECRET`.** Sin esa variable la ruta responde 401 y no escribe. `SUPABASE_SERVICE_ROLE_KEY` sale con «Needs Attention».
+
+No es el circuito de Optimal Breaks. Allí el cron de Vercel se quitó el 9 oct: la función moría a los 300 s y Cloudflare no dejaba pasar el `fetch`. El pase que sí carga es GitHub Actions con Chrome (`.github/workflows/beatport-daily.yml`), avisado por `pg_cron` en Supabase a las 12:05 de Madrid. Dirty Kitchen no tiene `.github/workflows`. El `fetch` de esta web, desde este PC, sigue en 403.
+
 ## Podcast en la web (12 oct 2026)
 
-En la barra, entre Demos y El sello, va **Podcast** (en el menú del móvil también). `/{lang}/podcast` deja de ser solo el botón de Apple Podcasts. La página lee el RSS de Podbean (`https://feed.podbean.com/dirtykitchenrave/feed.xml`, el mismo que usa Apple) y pinta la lista con el reproductor de la web: hormigón, tinta, naranja y Archivo. Play, pausa, salto y el episodio siguiente. El MP3 no se copia: el navegador lo pide a Podbean (sesiones de unas dos horas). El feed se guarda una hora (`revalidate = 3600`). Si Podbean no responde, queda el texto de aviso y el botón de Apple. Un preview de un tema y un episodio no suenan a la vez.
+En la barra, entre Demos y El sello, va **Canales** (en el menú del móvil también). `/{lang}/channels` junta tres listas iguales: podcast (RSS de Podbean), SoundCloud (RSS del perfil) y YouTube (feed del canal). Cada una enseña cinco filas y se abre la que pulses; el audio suena en el reproductor de la web y el vídeo solo cuando abres esa fila. `/podcast` redirige aquí. Los feeds se guardan una hora (`revalidate = 3600`). Si uno no responde, esa lista avisa y las otras siguen. Un preview de un tema y un canal no suenan a la vez. En el hero, tres sellos (Apple Podcasts, SoundCloud, YouTube) bajan a cada lista.

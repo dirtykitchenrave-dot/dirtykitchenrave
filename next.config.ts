@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [{ source: '/favicon.ico', destination: '/icon' }]
   },
+  async redirects() {
+    return [
+      { source: '/en/podcast', destination: '/en/channels', permanent: true },
+      { source: '/es/podcast', destination: '/es/channels', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig
