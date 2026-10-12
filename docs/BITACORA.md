@@ -295,3 +295,7 @@ En cada fila de las tracklists hay un botón 🎬 para cualquier visitante. Pide
 ## Vídeo: diseño propio «DROP» (10 oct 2026)
 
 El sello pidió que el vídeo no se pareciera al de Optimal Breaks (fuera el brazo del tocadiscos). Nuevo diseño: cuenta atrás 3·2·1·DROP, hormigón, bandas de peligro, carátula que entra en tiras, título que se ensancha en cada golpe con el eje de anchura de Archivo, ficha KEY · BPM · TIME, osciloscopio y cortina negra con LISTEN NOW. Mismo motor y mismo botón 🎬. Detalle en `docs/VIDEOS.md`.
+
+## Podcast en la web (12 oct 2026)
+
+En la barra, entre Demos y El sello, va **Podcast** (en el menú del móvil también). `/{lang}/podcast` deja de ser solo el botón de Apple Podcasts. La página lee el RSS de Podbean (`https://feed.podbean.com/dirtykitchenrave/feed.xml`, el mismo que usa Apple) y pinta la lista con el reproductor de la web: hormigón, tinta, naranja y Archivo. Play, pausa, salto y el episodio siguiente. El MP3 no se copia: el navegador lo pide a Podbean (sesiones de unas dos horas). El feed se guarda una hora (`revalidate = 3600`). Si Podbean no responde, queda el texto de aviso y el botón de Apple. Un preview de un tema y un episodio no suenan a la vez.
