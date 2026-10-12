@@ -1,14 +1,52 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ChannelsBoard, type ChannelSection } from '@/components/ChannelList'
+import { PodcastPlayer } from '@/components/PodcastPlayer'
+import { YouTubeShelf, type YouTubeClip } from '@/components/YouTubeShelf'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
-import { loadSoundCloud, loadYouTube, type ChannelTrack } from '@/lib/channels'
 import { loadPodcast } from '@/lib/podcast'
 import { LINKS } from '@/lib/site'
 import { pageMeta } from '@/lib/view'
 
 type Props = { params: Promise<{ lang: string }> }
+
+const YT_FEED = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCkDNqfxqe9wkus4Ni74kpcw'
+
+function ytTitle(raw: string): string {
+  return raw
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/** Latest clip in the player, three more in the strip. */
+async function loadYouTubeClips(): Promise<YouTubeClip[]> {
+  try {
+    const res = await fetch(YT_FEED, { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) })
+    if (!res.ok) return []
+    const xml = await res.text()
+    const clips: YouTubeClip[] = []
+    for (const m of xml.matchAll(/<entry>([\s\S]*?)<\/entry>/gi)) {
+      if (clips.length >= 4) break
+      const block = m[1]
+      const id = (block.match(/<yt:videoId>([^<]+)<\/yt:videoId>/i)?.[1] || '').trim()
+      const title = ytTitle(block.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || '')
+      if (!title || !/^[a-zA-Z0-9_-]{11}$/.test(id)) continue
+      clips.push({ id, title })
+    }
+    return clips
+  } catch (err) {
+    console.error('[channels] youtube', err)
+    return []
+  }
+}
 
 export const revalidate = 3600
 
@@ -23,47 +61,7 @@ export default async function ChannelsPage({ params }: Props) {
   const { lang } = await params
   if (!isLang(lang)) notFound()
   const d = getDictionary(lang)
-  const [show, soundcloud, youtube] = await Promise.all([loadPodcast(), loadSoundCloud(), loadYouTube()])
-
-  const podcast: ChannelTrack[] = show
-    ? show.episodes.map((ep) => ({
-        id: ep.id,
-        title: ep.title,
-        summary: ep.summary,
-        publishedAt: ep.publishedAt,
-        durationSec: ep.durationSec,
-        pageUrl: ep.pageUrl,
-        audioUrl: ep.audioUrl,
-        videoId: null,
-      }))
-    : []
-
-  const sections: ChannelSection[] = [
-    {
-      id: 'podcast',
-      title: d.podcast.title,
-      lead: d.podcast.lead,
-      href: LINKS.podcast,
-      cta: d.podcast.cta,
-      items: podcast,
-    },
-    {
-      id: 'soundcloud',
-      title: d.hub.soundcloud,
-      lead: d.hub.soundcloudLead,
-      href: LINKS.soundcloud,
-      cta: d.hub.openSoundcloud,
-      items: soundcloud,
-    },
-    {
-      id: 'youtube',
-      title: d.hub.youtube,
-      lead: d.hub.youtubeLead,
-      href: LINKS.youtube,
-      cta: d.hub.openYoutube,
-      items: youtube,
-    },
-  ]
+  const [show, clips] = await Promise.all([loadPodcast(), loadYouTubeClips()])
 
   return (
     <>
@@ -119,20 +117,84 @@ export default async function ChannelsPage({ params }: Props) {
           </a>
         </nav>
       </header>
-      <ChannelsBoard
-        lang={lang}
-        sections={sections}
-        labels={{
-          play: d.podcast.play,
-          pause: d.podcast.pause,
-          seek: d.podcast.seek,
-          error: d.hub.error,
-          showAll: d.hub.showAll,
-          showLess: d.hub.showLess,
-          empty: d.hub.empty,
-          open: d.hub.open,
-        }}
-      />
+
+      <section id="podcast">
+        <div className="ch-head">
+          <div>
+            <h2>{d.podcast.title}</h2>
+            <p>{d.podcast.lead}</p>
+          </div>
+          <a href={LINKS.podcast} target="_blank" rel="noopener noreferrer">
+            {d.podcast.cta}
+          </a>
+        </div>
+        {show ? (
+          <PodcastPlayer
+            lang={lang}
+            show={show}
+            labels={{
+              episodes: d.podcast.episodes,
+              play: d.podcast.play,
+              pause: d.podcast.pause,
+              nowPlaying: d.podcast.nowPlaying,
+              seek: d.podcast.seek,
+              error: d.podcast.error,
+              episode: d.podcast.episode,
+              openEpisode: d.podcast.openEpisode,
+            }}
+          />
+        ) : (
+          <div className="pad">
+            <p className="lead">{d.podcast.empty}</p>
+          </div>
+        )}
+      </section>
+
+      <section id="soundcloud">
+        <div className="ch-head">
+          <div>
+            <h2>{d.hub.soundcloud}</h2>
+            <p>{d.hub.soundcloudLead}</p>
+          </div>
+          <a href={LINKS.soundcloud} target="_blank" rel="noopener noreferrer">
+            {d.hub.openSoundcloud}
+          </a>
+        </div>
+        <div className="ch-embed sc">
+          <iframe
+            title={`${d.hub.soundcloud} — Dirty Kitchen Rave`}
+            src={LINKS.soundcloudEmbed}
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            scrolling="no"
+          />
+        </div>
+      </section>
+
+      <section id="youtube">
+        <div className="ch-head">
+          <div>
+            <h2>{d.hub.youtube}</h2>
+            <p>{d.hub.youtubeLead}</p>
+          </div>
+          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer">
+            {d.hub.openYoutube}
+          </a>
+        </div>
+        {clips.length > 0 ? (
+          <YouTubeShelf videos={clips} label={d.hub.moreVideos} />
+        ) : (
+          <div className="ch-embed yt">
+            <iframe
+              title={`${d.hub.youtube} — Dirty Kitchen Rave`}
+              src={LINKS.youtubeEmbed}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        )}
+      </section>
     </>
   )
 }

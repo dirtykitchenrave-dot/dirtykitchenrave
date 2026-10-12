@@ -18,6 +18,7 @@ interface NavLabels {
   menu: string
   close: string
   langLabel: string
+  toTop: string
 }
 
 const LANG_SCROLL_KEY = 'dkr-lang-scroll'
@@ -53,7 +54,24 @@ function clearStashedScroll() {
 export default function Nav({ lang, t }: { lang: Lang; t: NavLabels }) {
   const pathname = usePathname() || `/${lang}`
   const [open, setOpen] = useState(false)
+  const [showTop, setShowTop] = useState(false)
   const prevPath = useRef(pathname)
+
+  useEffect(() => {
+    const sentinel = document.createElement('div')
+    sentinel.setAttribute('aria-hidden', 'true')
+    sentinel.style.cssText = 'position:absolute;top:480px;left:0;width:1px;height:1px;pointer-events:none'
+    document.body.appendChild(sentinel)
+    const io = new IntersectionObserver(
+      ([entry]) => setShowTop(!entry.isIntersecting),
+      { threshold: 0 },
+    )
+    io.observe(sentinel)
+    return () => {
+      io.disconnect()
+      sentinel.remove()
+    }
+  }, [])
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -152,6 +170,21 @@ export default function Nav({ lang, t }: { lang: Lang; t: NavLabels }) {
           </button>
         </div>
       </header>
+      {showTop && !open ? (
+        <button
+          type="button"
+          className="to-top"
+          aria-label={t.toTop}
+          onClick={() => {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
+          }}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 3.2 20 12.2h-4.6V20.8H8.6v-8.6H4z" />
+          </svg>
+        </button>
+      ) : null}
       <nav id="mobile-menu" className="sheet" data-open={open} aria-label="Mobile">
         <Link href={`/${lang}`}>{lang === 'es' ? 'Inicio' : 'Home'}</Link>
         {items.map((i) => (

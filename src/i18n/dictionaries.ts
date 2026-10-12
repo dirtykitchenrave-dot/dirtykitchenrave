@@ -19,6 +19,7 @@ const en = {
     close: 'Close',
     skip: 'Skip to content',
     langLabel: 'Language',
+    toTop: 'Back to top',
   },
   views: {
     label: 'Catalogue view',
@@ -221,6 +222,7 @@ const en = {
     open: 'Open',
     error: 'This one could not be played. Try again.',
     jumps: 'On this page',
+    moreVideos: 'More videos',
   },
   links: {
     title: 'Links',
@@ -338,6 +340,7 @@ const es: Dictionary = {
     close: 'Cerrar',
     skip: 'Saltar al contenido',
     langLabel: 'Idioma',
+    toTop: 'Volver arriba',
   },
   views: {
     label: 'Vista del catálogo',
@@ -540,6 +543,7 @@ const es: Dictionary = {
     open: 'Abrir',
     error: 'No se ha podido reproducir. Prueba otra vez.',
     jumps: 'En esta página',
+    moreVideos: 'Más vídeos',
   },
   links: {
     title: 'Enlaces',

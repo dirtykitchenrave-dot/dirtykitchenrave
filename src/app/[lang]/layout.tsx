@@ -98,6 +98,7 @@ export default async function LangLayout({
               menu: d.nav.menu,
               close: d.nav.close,
               langLabel: d.nav.langLabel,
+              toTop: d.nav.toTop,
             }}
           />
           <main id="main">{children}</main>

@@ -117,8 +117,14 @@ export const LINKS = {
   instagram: 'https://www.instagram.com/dirtykitchenrave/',
   tiktok: 'https://www.tiktok.com/@dirtykitchenrave',
   youtube: 'https://www.youtube.com/channel/UCkDNqfxqe9wkus4Ni74kpcw',
+  /** Uploads playlist of that channel (UC… → UU…). */
+  youtubeEmbed:
+    'https://www.youtube-nocookie.com/embed/videoseries?list=UUkDNqfxqe9wkus4Ni74kpcw',
   twitch: 'https://www.twitch.tv/afghan_headspin',
   soundcloud: 'https://soundcloud.com/dirtykitchenrave',
+  /** Classic SoundCloud list. Accent is the label orange; buy, like, share and play counts stay off. */
+  soundcloudEmbed:
+    'https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Fusers%2F1130133241&color=%23ff5b14&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=true&show_playcount=false&liking=false&sharing=false&download=false&buying=false&visual=false',
   spotify: 'https://open.spotify.com/playlist/19bJxmaL0eG3KjSVZFGsHY',
   whatsapp: 'https://api.whatsapp.com/send?phone=447590630773',
   amazonStore: 'https://www.amazon.co.uk/Clothing-Dirty-Kitchen-Rave/s?rh=n%3A83450031%2Cp_4%3ADirty%2BKitchen%2BRave',
