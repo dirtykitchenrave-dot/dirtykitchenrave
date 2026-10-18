@@ -2968,7 +2968,8 @@ h2.big {
 .book-form {
   display: grid;
   gap: 1.15rem;
-  max-width: 42rem;
+  width: 100%;
+  margin-inline: auto;
 }
 .book-form label {
   display: grid;
