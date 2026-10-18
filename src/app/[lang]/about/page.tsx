@@ -56,6 +56,9 @@ export default async function AboutPage({ params }: Props) {
           {d.about.contactText}
         </p>
         <div className="btns">
+          <Link className="btn" href={`/${lang}/booking`}>
+            {d.booking.cta}
+          </Link>
           {SITE.contactEmail && (
             <a className="btn" href={`mailto:${SITE.contactEmail}`}>
               {SITE.contactEmail}

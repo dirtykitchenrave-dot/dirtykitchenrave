@@ -10,6 +10,10 @@ export function serviceClient(): SupabaseClient {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
   if (!url || !key) throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+  // Acttax proxy: Node rejects the inspected certificate. Only the local dev server, never Vercel.
+  if (!process.env.VERCEL && process.env.NODE_ENV === 'development') {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+  }
   return createClient(url, key, { auth: { persistSession: false } })
 }
 

@@ -309,3 +309,40 @@ No es el circuito de Optimal Breaks. Allí el cron de Vercel se quitó el 9 oct:
 ## Podcast en la web (12 oct 2026)
 
 En la barra, entre Demos y El sello, va **Canales** (en el menú del móvil también). `/{lang}/channels` junta tres bloques: el podcast con el reproductor de la web (portada, transporte y todos los episodios de golpe; el MP3 sigue en Podbean), y SoundCloud y YouTube con sus reproductores embebidos. El de SoundCloud sigue siendo el widget oficial, con el naranja del sello y sin contadores ni botones de compra. Debajo del vídeo de YouTube, tres miniaturas más; al pulsar una, entra en el reproductor. En el hero, tres sellos bajan a cada bloque. `/podcast` redirige aquí. El feed del podcast se guarda una hora (`revalidate = 3600`). Si Podbean no responde, queda el aviso y el enlace de Apple. Un preview de un tema y un episodio no suenan a la vez.
+
+## Catálogo a 18 oct 2026: faltan 10 lanzamientos
+
+La web (JSON, y lo publicado en dirtykitchenrave.com) sigue en la carga del 30 sep: **413 lanzamientos, 1.571 temas**. De esos, ninguno se quedó sin tracklist: los 1.571 tienen previa. Desde Slam (DKR0360, 23 oct) hacia atrás, el número de temas de cada disco cuadra con Beatport.
+
+Beatport, el 18 oct, tiene **1.607 temas**. Los 36 que faltan son 10 discos posteriores a esa carga. En `/es/releases` el primero sigue siendo Slam.
+
+| Fecha | Título | Artista | Temas |
+|---|---|---|---|
+| 11 nov 2026 | Out Of Time | SL 83 | 2 |
+| 6 nov 2026 | We Get Bun / 2 Raw | HOLLO (UK) | 2 |
+| 6 nov 2026 | UNIVERSAL BREAKS Vol 17 | varios | 20 |
+| 5 nov 2026 | Right Now | GODINO | 1 |
+| 4 nov 2026 | On Repeat EP | Gruv42 | 4 |
+| 3 nov 2026 | Frogger | Prato | 2 |
+| 30 oct 2026 | FUTC | Afghan Headspin, DJ Brownie | 1 |
+| 29 oct 2026 | Shadow | Devis Hard | 2 |
+| 28 oct 2026 | I Bet You Know Me | Loopcrashing, Vkyng | 1 |
+| 27 oct 2026 | A Friend Indeed | Ivan Oaks | 1 |
+
+El cron diario sigue sin traerlos (misma causa del 12 oct: sin `CRON_SECRET` y Cloudflare al `fetch` de Node).
+
+## Carga a mano (18 oct 2026, noche)
+
+Otra vez desde el navegador, que sí pasa Cloudflare. Primera página de `/tracks` (150) más la ficha `/release` de cada disco nuevo. El mismo `CatalogBuilder` que el importador. Escrito en `data/catalog.seed.json` y en Supabase (`qsfynssmtuwufwqtbmra`).
+
+| | Antes | Ahora |
+|---|---|---|
+| Lanzamientos | 413 | 423 |
+| Temas | 1.571 | 1.607 |
+| Artistas | 175 | 178 |
+
+Los tres artistas nuevos: Serpnt, Loopcrashing, Ivan Oaks. Los 36 temas tienen previa. Números: DKR0359 Shadow, DKR0361 A Friend Indeed, DKR0362 I Bet You Know Me, DKR0364 FUTC, DKR0366 On Repeat EP, DKR0367 Right Now, DKR0368 Frogger, DKR0369 We Get Bun / 2 Raw, DKR0370 Out Of Time, DKRLP056 UNIVERSAL BREAKS Vol 17. A 18 oct los diez siguen en preventa (el primero ya publicado no cambia). La web publicada lee Postgres con caché de una hora: no hace falta deploy para que salgan.
+
+## Booking (18 oct 2026)
+
+`/{lang}/booking` (y `/booking`, que el proxy manda al idioma) es el formulario para pedir una pinchada del colectivo. Quien escribe no elige artista: el sello apunta a quién manda en `assigned_artist`. No hay enlace del evento: si contratan al colectivo, la fiesta aún no tiene web. Obligatorio: nombre, email, teléfono, club o promotora, nombre de la fiesta, fecha, minutos de set, ciudad, país, sala, oferta (texto libre) y mensaje. No hay tipo de evento, tipo de local ni tramos de presupuesto: la oferta va en `fee_offer`. Estado interno: `new`, `reviewing`, `offered`, `confirmed`, `declined`, más `admin_note`. La inserta la server action con la service role. La clave anónima no lee ni escribe: RLS activo y sin políticas, como `track_play_events`. Migración: `supabase/migrations/004_booking_requests.sql`. También hay enlace en la barra, en El sello y en `/links`. Esta web no tiene servidor de correo: la petición queda en la tabla.

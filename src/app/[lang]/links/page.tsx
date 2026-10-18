@@ -69,6 +69,14 @@ export default async function LinksPage({ params }: Props) {
           <span>{d.nav.releases}</span>
           <span aria-hidden="true">→</span>
         </Link>
+        <Link href={`/${lang}/booking`}>
+          <span>
+            {d.nav.booking}
+            <br />
+            <small>{d.booking.linksSub}</small>
+          </span>
+          <span aria-hidden="true">→</span>
+        </Link>
         {ext.map((l) => (
           <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
             <span>

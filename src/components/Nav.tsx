@@ -11,6 +11,7 @@ interface NavLabels {
   artists: string
   shop: string
   demos: string
+  booking: string
   about: string
   channels: string
   listen: string
@@ -107,6 +108,7 @@ export default function Nav({ lang, t }: { lang: Lang; t: NavLabels }) {
     { href: `/${lang}/artists`, label: t.artists },
     { href: `/${lang}/shop`, label: t.shop },
     { href: `/${lang}/demos`, label: t.demos },
+    { href: `/${lang}/booking`, label: t.booking },
     { href: `/${lang}/channels`, label: t.channels },
     { href: `/${lang}/about`, label: t.about },
   ]

@@ -91,6 +91,7 @@ export default async function LangLayout({
               artists: d.nav.artists,
               shop: d.nav.shop,
               demos: d.nav.demos,
+              booking: d.nav.booking,
               about: d.nav.about,
               channels: d.nav.channels,
               listen: d.nav.listen,

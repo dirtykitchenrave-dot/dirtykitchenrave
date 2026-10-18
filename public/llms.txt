@@ -12,6 +12,7 @@ The website is bilingual. English lives under /en and Spanish under /es. English
 - /en/genres — genres, each with its own catalogue page
 - /en/shop — official clothing, vinyl and the digital catalogue
 - /en/demos — demo submissions, received only through LabelRadar
+- /en/booking — request a set from the collective (the label chooses who plays)
 - /en/about — the label
 - /en/channels — podcast, SoundCloud and YouTube
 - /en/links — link-in-bio (Beatport, Bandcamp, socials, merch)

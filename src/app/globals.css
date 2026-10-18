@@ -1802,8 +1802,8 @@ h2.big {
 }
 
 /* ------------------------------------------------------------------ RESPONSIVE */
-/* Six links in Spanish meet the logo before the old 960px menu. Collapse the bar first. */
-@media (max-width: 1100px) {
+/* Seven links in Spanish meet the logo. Collapse the bar before they collide. */
+@media (max-width: 1320px) {
   .nav {
     grid-template-columns: auto 1fr;
   }
@@ -2961,5 +2961,124 @@ h2.big {
 @media (max-width: 720px) {
   .yt-rail button {
     flex-basis: calc(50% - 0.4rem);
+  }
+}
+
+/* ------------------------------------------------------------------ BOOKING */
+.book-form {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 42rem;
+}
+.book-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+.book-form input,
+.book-form select,
+.book-form textarea {
+  font: inherit;
+  font-weight: 600;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-transform: none;
+  border: var(--borde);
+  background: var(--blanco);
+  color: var(--tinta);
+  padding: 0.75rem 0.85rem;
+  width: 100%;
+  border-radius: 0;
+}
+.book-form textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+.book-form .cap {
+  display: block;
+  min-height: 2.6em;
+  line-height: 1.25;
+}
+.book-form .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem 1.5rem;
+  align-items: end;
+}
+.book-form .opt {
+  font-weight: 600;
+  font-stretch: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--gris);
+}
+.book-form label.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-weight: 600;
+  font-stretch: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.book-form label.check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.15rem;
+  padding: 0;
+  accent-color: var(--naranja);
+}
+.book-form .hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.book-error {
+  background: var(--tinta);
+  color: var(--naranja);
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+}
+.book-send {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: start;
+}
+.book-send p {
+  max-width: 42ch;
+  font-weight: 600;
+  color: var(--gris);
+}
+.book-send .btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.book-done h2 {
+  font-stretch: 125%;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 0.9;
+  margin-bottom: 0.8rem;
+}
+.book-done p {
+  max-width: 36ch;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+@media (max-width: 860px) {
+  .book-form .pair {
+    grid-template-columns: 1fr;
+  }
+  .book-form .cap {
+    min-height: 0;
   }
 }
