@@ -175,9 +175,9 @@ const en = {
   },
   booking: {
     title: 'Booking',
-    lead: 'Book the collective. You do not pick a DJ: the label decides who plays.',
+    lead: 'DIRTY KITCHEN RAVE Label Nights — we can take over room two for you, or you can book us for the main, any stage we can handle, the choice is yours. Get in touch and let us know the basics and then our team will be in touch to discuss taking it forward.',
     metaDescription:
-      'Request a Dirty Kitchen Rave booking. The London collective plays the set: place, date and an offer. The label chooses who plays.',
+      'Book a DIRTY KITCHEN RAVE label night: room two or the main stage. Tell us the basics and the team will be in touch.',
     name: 'Your name',
     email: 'Email',
     phone: 'Phone',
@@ -579,9 +579,9 @@ const es: Dictionary = {
   },
   booking: {
     title: 'Booking',
-    lead: 'Reserva una pinchada del colectivo. No eliges artista: el sello decide quién pincha.',
+    lead: 'Noches del sello DIRTY KITCHEN RAVE: podemos hacerte la sala 2, o puedes reservarnos para la principal. Cualquier escenario lo llevamos, la elección es tuya. Cuéntanos lo básico y el equipo te escribe para seguir adelante.',
     metaDescription:
-      'Pide una pinchada del colectivo Dirty Kitchen Rave. Lugar, fecha y oferta. El sello elige quién pincha.',
+      'Reserva una noche del sello DIRTY KITCHEN RAVE: sala 2 o escenario principal. Cuéntanos lo básico y el equipo te escribe.',
     name: 'Tu nombre',
     email: 'Email',
     phone: 'Teléfono',

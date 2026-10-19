@@ -1,5 +1,5 @@
 import '@fontsource-variable/archivo/wdth.css'
-import '../globals.css'
+import '../../globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'

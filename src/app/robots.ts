@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { SITE } from '@/lib/site'
 
 /** Short links and the API are not pages. Legal pages stay crawlable and carry noindex. */
-const PRIVATE = ['/api/', '/en/r/', '/es/r/']
+const PRIVATE = ['/api/', '/en/r/', '/es/r/', '/administrator', '/en/administrator', '/es/administrator']
 
 /** Named so a later disallow on `*` cannot hide the site from answer engines. OAI-SearchBot is the one that cites. */
 const AI_CRAWLERS = [

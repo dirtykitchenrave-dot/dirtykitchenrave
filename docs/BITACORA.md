@@ -345,4 +345,20 @@ Los tres artistas nuevos: Serpnt, Loopcrashing, Ivan Oaks. Los 36 temas tienen p
 
 ## Booking (18 oct 2026)
 
-`/{lang}/booking` (y `/booking`, que el proxy manda al idioma) es el formulario para pedir una pinchada del colectivo. Quien escribe no elige artista: el sello apunta a quién manda en `assigned_artist`. No hay enlace del evento: si contratan al colectivo, la fiesta aún no tiene web. Obligatorio: nombre, email, teléfono, club o promotora, nombre de la fiesta, fecha, minutos de set, ciudad, país, sala, oferta (texto libre) y mensaje. No hay tipo de evento, tipo de local ni tramos de presupuesto: la oferta va en `fee_offer`. Estado interno: `new`, `reviewing`, `offered`, `confirmed`, `declined`, más `admin_note`. La inserta la server action con la service role. La clave anónima no lee ni escribe: RLS activo y sin políticas, como `track_play_events`. Migración: `supabase/migrations/004_booking_requests.sql`. También hay enlace en la barra, en El sello y en `/links`. Esta web no tiene servidor de correo: la petición queda en la tabla.
+`/{lang}/booking` (y `/booking`, que el proxy manda al idioma) es el formulario para pedir una pinchada del colectivo. Quien escribe no elige artista: el sello apunta a quién manda en `assigned_artist`. No hay enlace del evento: si contratan al colectivo, la fiesta aún no tiene web. Obligatorio: nombre, email, teléfono, club o promotora, nombre de la fiesta, fecha, minutos de set, ciudad, país, sala, oferta (texto libre) y mensaje. No hay tipo de evento, tipo de local ni tramos de presupuesto: la oferta va en `fee_offer`. Estado interno: `new`, `reviewing`, `offered`, `confirmed`, `declined`, más `admin_note`. La inserta la server action con la service role. La clave anónima no lee ni escribe: RLS activo y sin políticas, como `track_play_events`. Migración: `supabase/migrations/004_booking_requests.sql`. También hay enlace en la barra, en El sello y en `/links`. Esta web no tiene servidor de correo: la petición queda en la tabla. El texto de arriba es el de Jason (18 oct): Label Nights, sala 2 o principal; en español, la misma idea.
+
+## Admin (18 oct 2026, noche)
+
+`/administrator` es el panel. No lleva idioma: `/en/administrator` y `/es/administrator` redirigen ahí. `robots.txt` lo deja fuera. La web pública sigue en `(site)/[lang]` con su caché de una hora; el panel está en otro layout para no volver dinámicas las páginas del catálogo.
+
+Entra con Supabase Auth. Solo cuenta una sesión cuyo `app_metadata.role` es `admin` (no vale `user_metadata`, el usuario puede editarlo). La primera cuenta es `contacto@acttax.es`. No hay tabla de usuarios.
+
+Qué se gestiona, que es lo que el sync de Beatport no pisa:
+
+- Reservas: estado, artista asignado y nota interna.
+- Artistas: bio ES/EN, país, roster, foto y enlaces (Bandcamp, Spotify, SoundCloud, Instagram).
+- Lanzamientos: nota ES/EN, hero (solo uno) y enlaces de tienda.
+- Temas: enlace de Spotify, buscándolos por título. TIDAL se editará cuando la columna `tidal_url` esté en la base (la migración `002` sigue sin aplicar; el MCP no ve este proyecto).
+- Escuchas: solo lectura, el top de previews.
+
+Al guardar catálogo se llama `revalidatePath` de `/en`, `/es` y el feed, así la web no espera a la hora de caché. Las escuchas y los créditos no se editan: el sync reescribe los créditos.

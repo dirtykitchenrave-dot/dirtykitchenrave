@@ -25,7 +25,7 @@ export default async function BookingPage({ params }: Props) {
     <>
       <header className="page-head orange">
         <h1 className="page-title">{d.booking.title}</h1>
-        <p className="lead">{d.booking.lead}</p>
+        <p className="lead book-lead">{d.booking.lead}</p>
       </header>
       <section className="pad">
         <BookingForm lang={lang} t={d.booking} today={today} latest={addMonths(today, 18)} />

@@ -1,2111 +1,251 @@
 {
-  "updatedAt": "2026-09-30T13:39:06.579Z",
-  "artists": [
-    {
-      "id": 1176911,
-      "slug": "andrewfx",
-      "name": "AndrewFx",
-      "image": "https://geo-media.beatport.com/image_size/590x404/3c1b6353-8405-471a-9cb3-2c39aee0ef92.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/andrewfx/1176911"
-      },
-      "roster": false
-    },
-    {
-      "id": 1112774,
-      "slug": "ale-darknoise",
-      "name": "Ale-DarkNoise",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ale-darknoise/1112774"
-      },
-      "roster": false
-    },
-    {
-      "id": 14839,
-      "slug": "phrenetic",
-      "name": "Phrenetic",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/68243995-8518-468e-8793-191d8704b9d4.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/phrenetic/14839"
-      },
-      "roster": false
-    },
-    {
-      "id": 544330,
-      "slug": "d-region-code",
-      "name": "D-Region & Code",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/98bb7939-cd33-4ce5-ac41-8c2e409af71c.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/d-region-code/544330"
-      },
-      "roster": false
-    },
-    {
-      "id": 1384671,
-      "slug": "mixedup-mike",
-      "name": "Mixedup-Mike",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/36c81e01-2bf5-4366-aaa9-e6129ec77357.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mixedup-mike/1384671"
-      },
-      "roster": false
-    },
-    {
-      "id": 1409510,
-      "slug": "ricky-b-mixin",
-      "name": "Ricky B Mixin",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7cd69db4-9f22-4109-a3aa-d70cd90abff1.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ricky-b-mixin/1409510"
-      },
-      "roster": false
-    },
-    {
-      "id": 998525,
-      "slug": "slug-fl",
-      "name": "SluG (FL)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0012caeb-efb5-4e14-bdbb-85571b8f81d1.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/slug-fl/998525"
-      },
-      "roster": false
-    },
-    {
-      "id": 1206672,
-      "slug": "kid-ellipsis",
-      "name": "Kid Ellipsis",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6b7afddc-3b54-4284-af0e-cfdbab53fae5.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/kid-ellipsis/1206672"
-      },
-      "roster": false
-    },
-    {
-      "id": 1499500,
-      "slug": "jack-mono",
-      "name": "Jack Mono",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/924c71b6-bd1d-4af4-ad25-5f30258b8421.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jack-mono/1499500"
-      },
-      "roster": false
-    },
-    {
-      "id": 1255603,
-      "slug": "devis-hard",
-      "name": "Devis Hard",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f2ac7a85-3639-4e48-baaf-c7e3b1c804a5.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/devis-hard/1255603"
-      },
-      "roster": false
-    },
-    {
-      "id": 1233230,
-      "slug": "danny-phr3ntic",
-      "name": "Danny Phr3ntic",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/danny-phr3ntic/1233230"
-      },
-      "roster": false
-    },
-    {
-      "id": 674005,
-      "slug": "wez-whatevr",
-      "name": "WeZ WhaTevR",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ca5893be-fe24-4e13-afb1-711a21997ef3.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/wez-whatevr/674005"
-      },
-      "roster": false
-    },
-    {
-      "id": 85445,
-      "slug": "xana",
-      "name": "Xana",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/9fe6609d-09f3-47b4-b331-5852d10a6950.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/xana/85445"
-      },
-      "roster": false
-    },
-    {
-      "id": 30700,
-      "slug": "afghan-headspin",
-      "name": "Afghan Headspin",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/45cf9f2a-be93-402c-8068-8a62b02723db.jpg",
-      "country": null,
-      "bio": {
-        "en": "Label manager of Dirty Kitchen Rave and one of its most prolific producers, with releases such as Romero, Justice, In The Jungle and We Are Breakbeat.",
-        "es": "Label manager de Dirty Kitchen Rave y uno de sus productores más prolíficos, con lanzamientos como Romero, Justice, In The Jungle y We Are Breakbeat."
-      },
-      "links": {
-        "beatport": "https://www.beatport.com/artist/afghan-headspin/30700"
-      },
-      "roster": true
-    },
-    {
-      "id": 1315368,
-      "slug": "dj-kos-us",
-      "name": "DJ Kos (US)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/92fa2371-c391-4c72-ab31-5f7e416d3bfb.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dj-kos-us/1315368"
-      },
-      "roster": false
-    },
-    {
-      "id": 1244925,
-      "slug": "dexterbeat",
-      "name": "DexterBeat",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f33fbb03-2a55-4c46-b4d1-07fe5b8357ec.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dexterbeat/1244925"
-      },
-      "roster": false
-    },
-    {
-      "id": 355093,
-      "slug": "dj-brownie",
-      "name": "DJ Brownie",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2b439ef3-94e1-45b1-b9ff-fdfd8cdf3767.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dj-brownie/355093"
-      },
-      "roster": false
-    },
-    {
-      "id": 996078,
-      "slug": "bosketta",
-      "name": "Bosketta",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/bosketta/996078"
-      },
-      "roster": false
-    },
-    {
-      "id": 1258568,
-      "slug": "blow-sp",
-      "name": "BLOW (SP)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7f0ddf6f-1e5e-476b-a5ba-2f2a65fa8fe9.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/blow-sp/1258568"
-      },
-      "roster": false
-    },
-    {
-      "id": 2463416,
-      "slug": "brob-sp",
-      "name": "Brob (SP)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/brob-sp/2463416"
-      },
-      "roster": false
-    },
-    {
-      "id": 1092455,
-      "slug": "percybass",
-      "name": "PERCYBASS",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/percybass/1092455"
-      },
-      "roster": false
-    },
-    {
-      "id": 1266331,
-      "slug": "hollo-uk",
-      "name": "HOLLO (UK)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hollo-uk/1266331"
-      },
-      "roster": false
-    },
-    {
-      "id": 1188805,
-      "slug": "zero-dark",
-      "name": "Zero Dark",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/zero-dark/1188805"
-      },
-      "roster": false
-    },
-    {
-      "id": 1237777,
-      "slug": "vkyng",
-      "name": "Vkyng",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/78dc4fa0-e1e5-427d-9a7f-0199cce065d8.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/vkyng/1237777"
-      },
-      "roster": false
-    },
-    {
-      "id": 17875,
-      "slug": "shodan",
-      "name": "Shodan",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/shodan/17875"
-      },
-      "roster": false
-    },
-    {
-      "id": 1144386,
-      "slug": "mint-uk",
-      "name": "Mint (UK)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mint-uk/1144386"
-      },
-      "roster": false
-    },
-    {
-      "id": 1211504,
-      "slug": "baktrax",
-      "name": "Baktrax",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1768c16b-eb27-41f3-80f2-96e00bc48682.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/baktrax/1211504"
-      },
-      "roster": false
-    },
-    {
-      "id": 1255565,
-      "slug": "mackie-uk",
-      "name": "MACKIE (UK)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mackie-uk/1255565"
-      },
-      "roster": false
-    },
-    {
-      "id": 2444459,
-      "slug": "pocket-full-of-sunshine",
-      "name": "Pocket Full Of Sunshine",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/pocket-full-of-sunshine/2444459"
-      },
-      "roster": false
-    },
-    {
-      "id": 910445,
-      "slug": "obsidian-wave",
-      "name": "Obsidian Wave",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/337d0d1e-9b8b-47cb-a320-90f4f92ab997.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/obsidian-wave/910445"
-      },
-      "roster": false
-    },
-    {
-      "id": 2361727,
-      "slug": "pull-the-trigga",
-      "name": "PULL THE TRIGGA",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/pull-the-trigga/2361727"
-      },
-      "roster": false
-    },
-    {
-      "id": 1205597,
-      "slug": "acenoise",
-      "name": "AceNoise",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c556904a-63ad-472d-a1f9-c53caff0b072.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/acenoise/1205597"
-      },
-      "roster": false
-    },
-    {
-      "id": 871993,
-      "slug": "fran-break",
-      "name": "Fran Break",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/515cae63-4a04-4d79-8bc8-4cd7df85779c.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/fran-break/871993"
-      },
-      "roster": false
-    },
-    {
-      "id": 782089,
-      "slug": "skin-teeth",
-      "name": "Skin Teeth",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/skin-teeth/782089"
-      },
-      "roster": false
-    },
-    {
-      "id": 105853,
-      "slug": "paul-bassrock",
-      "name": "Paul Bassrock",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1e7b10b4-ddc0-47af-a474-a142cd993b0e.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/paul-bassrock/105853"
-      },
-      "roster": false
-    },
-    {
-      "id": 3234,
-      "slug": "j-break",
-      "name": "J-Break",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b5c3881d-e9ae-4994-9d2a-c2e0964b3d9c.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/j-break/3234"
-      },
-      "roster": false
-    },
-    {
-      "id": 18427,
-      "slug": "jan-b",
-      "name": "Jan-B",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jan-b/18427"
-      },
-      "roster": false
-    },
-    {
-      "id": 4092,
-      "slug": "lucas",
-      "name": "Lucas",
-      "image": "/images/artists/lucas.webp",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/lucas/4092"
-      },
-      "roster": false
-    },
-    {
-      "id": 378900,
-      "slug": "timonk-pumbass",
-      "name": "Timonk & Pumbass",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/timonk-pumbass/378900"
-      },
-      "roster": false
-    },
-    {
-      "id": 1280587,
-      "slug": "godino",
-      "name": "GODINO",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/27e1b973-27dc-4bd2-ba5e-a5fd208bd6af.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/godino/1280587"
-      },
-      "roster": false
-    },
-    {
-      "id": 1207167,
-      "slug": "blackdryft",
-      "name": "Blackdryft",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/blackdryft/1207167"
-      },
-      "roster": false
-    },
-    {
-      "id": 866338,
-      "slug": "wallmaster",
-      "name": "Wallmaster",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/64155092-a385-4845-8d99-6399d9f683ac.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/wallmaster/866338"
-      },
-      "roster": false
-    },
-    {
-      "id": 1162066,
-      "slug": "evil-crew",
-      "name": "Evil Crew",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/evil-crew/1162066"
-      },
-      "roster": false
-    },
-    {
-      "id": 1048007,
-      "slug": "gruv42",
-      "name": "Gruv42",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d7f1c01c-c09b-4d6b-928b-9a92fb253eb5.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/gruv42/1048007"
-      },
-      "roster": false
-    },
-    {
-      "id": 729197,
-      "slug": "inner-realms",
-      "name": "Inner Realms",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0d79dcc2-2997-4bda-9abb-8af25b197cf7.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/inner-realms/729197"
-      },
-      "roster": false
-    },
-    {
-      "id": 1303115,
-      "slug": "sl-83",
-      "name": "SL 83",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/5ce1bdb5-d8b3-49c5-99ca-22ef5edfc5a7.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/sl-83/1303115"
-      },
-      "roster": false
-    },
-    {
-      "id": 217064,
-      "slug": "contagion",
-      "name": "Contagion",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/contagion/217064"
-      },
-      "roster": false
-    },
-    {
-      "id": 2434533,
-      "slug": "meeme",
-      "name": "Meeme",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/meeme/2434533"
-      },
-      "roster": false
-    },
-    {
-      "id": 865875,
-      "slug": "urbano",
-      "name": "-Urbano-",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/77845944-6abb-4273-8ff2-24a0e9209717.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/urbano/865875"
-      },
-      "roster": false
-    },
-    {
-      "id": 402033,
-      "slug": "fm-3",
-      "name": "FM-3",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/3c3bb3e7-35d4-4af9-a310-568f5ce9aa35.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/fm-3/402033"
-      },
-      "roster": false
-    },
-    {
-      "id": 1298577,
-      "slug": "datafunk",
-      "name": "DataFunk",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7ec17f6a-464f-4df1-b63b-1f13207efd42.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/datafunk/1298577"
-      },
-      "roster": false
-    },
-    {
-      "id": 209843,
-      "slug": "visible-sound",
-      "name": "Visible Sound",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/visible-sound/209843"
-      },
-      "roster": false
-    },
-    {
-      "id": 1185557,
-      "slug": "q-club",
-      "name": "Q Club",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/q-club/1185557"
-      },
-      "roster": false
-    },
-    {
-      "id": 1286389,
-      "slug": "drill-rocks",
-      "name": "Drill Rocks",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/drill-rocks/1286389"
-      },
-      "roster": false
-    },
-    {
-      "id": 88378,
-      "slug": "jem-haynes",
-      "name": "Jem Haynes",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7d39d2f6-bd1f-4ffb-837a-a029fe8e4ec8.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jem-haynes/88378"
-      },
-      "roster": false
-    },
-    {
-      "id": 57581,
-      "slug": "the-push",
-      "name": "The Push",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d6a45eb4-dbc7-4be2-b507-83fe79fed0c7.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/the-push/57581"
-      },
-      "roster": false
-    },
-    {
-      "id": 1261175,
-      "slug": "jacky-bang",
-      "name": "Jacky Bang",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jacky-bang/1261175"
-      },
-      "roster": false
-    },
-    {
-      "id": 476713,
-      "slug": "delzie",
-      "name": "Delzie",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/delzie/476713"
-      },
-      "roster": false
-    },
-    {
-      "id": 1220529,
-      "slug": "dom-dolby",
-      "name": "Dom Dolby",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dom-dolby/1220529"
-      },
-      "roster": false
-    },
-    {
-      "id": 956125,
-      "slug": "jormek",
-      "name": "Jormek",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/3018ab82-e1f7-45da-8838-c8c215e661e9.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jormek/956125"
-      },
-      "roster": false
-    },
-    {
-      "id": 1223621,
-      "slug": "eskila",
-      "name": "Eskila",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a9b5de00-81e9-4db4-a077-6a9834af1200.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/eskila/1223621"
-      },
-      "roster": false
-    },
-    {
-      "id": 72360,
-      "slug": "prato",
-      "name": "Prato",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2bf1597a-692f-4fec-87ff-e910ff35afdc.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/prato/72360"
-      },
-      "roster": false
-    },
-    {
-      "id": 676436,
-      "slug": "fiasco-nicely",
-      "name": "Fiasco & Nicely",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/fiasco-nicely/676436"
-      },
-      "roster": false
-    },
-    {
-      "id": 2958,
-      "slug": "brothers-bud",
-      "name": "Brothers Bud",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/brothers-bud/2958"
-      },
-      "roster": false
-    },
-    {
-      "id": 1283708,
-      "slug": "manxito",
-      "name": "Manxito",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f326f4fe-a939-4cc2-811a-c7481e565b66.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/manxito/1283708"
-      },
-      "roster": false
-    },
-    {
-      "id": 1085328,
-      "slug": "squat-party",
-      "name": "Squat Party",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/57927be0-288e-44ca-8a18-a29b139af4b3.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/squat-party/1085328"
-      },
-      "roster": false
-    },
-    {
-      "id": 1026058,
-      "slug": "dead-bonsai",
-      "name": "Dead Bonsai",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0adccfc0-0078-44dd-9412-3063d7524d9a.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dead-bonsai/1026058"
-      },
-      "roster": false
-    },
-    {
-      "id": 36771,
-      "slug": "pook",
-      "name": "Pook",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/e45c1e26-5774-4c79-98ff-eedbd3ab9fca.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/pook/36771"
-      },
-      "roster": false
-    },
-    {
-      "id": 1116273,
-      "slug": "yure-rd",
-      "name": "Yure Rd",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/yure-rd/1116273"
-      },
-      "roster": false
-    },
-    {
-      "id": 36682,
-      "slug": "specimen-a",
-      "name": "Specimen A",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/32ea8616-a6d9-49e8-8cb1-900826cc5e1c.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/specimen-a/36682"
-      },
-      "roster": false
-    },
-    {
-      "id": 1115490,
-      "slug": "pablo-lazers",
-      "name": "PABLO LAZERS",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/pablo-lazers/1115490"
-      },
-      "roster": false
-    },
-    {
-      "id": 34223,
-      "slug": "hex",
-      "name": "Hex",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/fec02c12-bf7e-4a63-81e0-a1d2dd47552e.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hex/34223"
-      },
-      "roster": false
-    },
-    {
-      "id": 911241,
-      "slug": "skitzoid",
-      "name": "Skitzoid",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ffb3ae13-93f9-40c7-9954-ca6401ea7e3b.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/skitzoid/911241"
-      },
-      "roster": false
-    },
-    {
-      "id": 1086500,
-      "slug": "curly-ch",
-      "name": "CURLY (CH)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/9f59021b-4e19-49bf-8603-d8bda472448a.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/curly-ch/1086500"
-      },
-      "roster": false
-    },
-    {
-      "id": 1357365,
-      "slug": "barrerabreaks",
-      "name": "Barrera.Breaks",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/barrerabreaks/1357365"
-      },
-      "roster": false
-    },
-    {
-      "id": 1134019,
-      "slug": "k-n-x-b-x-d-y",
-      "name": "K N X B X D Y",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/k-n-x-b-x-d-y/1134019"
-      },
-      "roster": false
-    },
-    {
-      "id": 2286980,
-      "slug": "katie-cartel",
-      "name": "KATIE cARTel",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/katie-cartel/2286980"
-      },
-      "roster": false
-    },
-    {
-      "id": 1436101,
-      "slug": "droideface",
-      "name": "DROIDEFACE",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/droideface/1436101"
-      },
-      "roster": false
-    },
-    {
-      "id": 1002973,
-      "slug": "distillat",
-      "name": "Distillat",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/distillat/1002973"
-      },
-      "roster": false
-    },
-    {
-      "id": 227121,
-      "slug": "vazteria-x",
-      "name": "Vazteria X",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/313622c0-9831-4b41-ba6a-fe8369dd6791.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/vazteria-x/227121"
-      },
-      "roster": false
-    },
-    {
-      "id": 613048,
-      "slug": "hatstandy",
-      "name": "HatStandy",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b0b562c7-8a75-4d6d-9de4-cac899bdf8e0.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hatstandy/613048"
-      },
-      "roster": false
-    },
-    {
-      "id": 410128,
-      "slug": "miss-mants",
-      "name": "Miss Mants",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/bfc27320-988f-4eaf-ba4b-1cbfff3155fe.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/miss-mants/410128"
-      },
-      "roster": false
-    },
-    {
-      "id": 503314,
-      "slug": "citybox",
-      "name": "Citybox",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d6be26f4-a0c7-4557-a405-8f68ec1777d1.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/citybox/503314"
-      },
-      "roster": false
-    },
-    {
-      "id": 951986,
-      "slug": "casa-pariah",
-      "name": "Casa Pariah",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/casa-pariah/951986"
-      },
-      "roster": false
-    },
-    {
-      "id": 1320982,
-      "slug": "prey4m3",
-      "name": "Prey4m3!",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/prey4m3/1320982"
-      },
-      "roster": false
-    },
-    {
-      "id": 78247,
-      "slug": "manx",
-      "name": "Manx",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/manx/78247"
-      },
-      "roster": false
-    },
-    {
-      "id": 1256028,
-      "slug": "dj-guanxe",
-      "name": "Dj Guanxe",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/720d289a-020e-4720-8210-81bff53f5dcc.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dj-guanxe/1256028"
-      },
-      "roster": false
-    },
-    {
-      "id": 561762,
-      "slug": "dustin-funkman",
-      "name": "Dustin Funkman",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/70ec694e-130d-446a-9d10-03a65bf68cc4.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dustin-funkman/561762"
-      },
-      "roster": false
-    },
-    {
-      "id": 928392,
-      "slug": "bartek-industries",
-      "name": "Bartek Industries",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/8794e379-0fe6-4996-b677-817f81ec4ecd.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/bartek-industries/928392"
-      },
-      "roster": false
-    },
-    {
-      "id": 17803,
-      "slug": "jfb",
-      "name": "JFB",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c9888c96-40d4-4ebe-8128-43b68e06bee3.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/jfb/17803"
-      },
-      "roster": false
-    },
-    {
-      "id": 156165,
-      "slug": "mc-shureshock",
-      "name": "MC Shureshock",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/40b19f08-d160-4fc1-9cf3-60b2f2b3e319.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mc-shureshock/156165"
-      },
-      "roster": false
-    },
-    {
-      "id": 329028,
-      "slug": "money-p",
-      "name": "Money P",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/money-p/329028"
-      },
-      "roster": false
-    },
-    {
-      "id": 92843,
-      "slug": "flo-rida",
-      "name": "Flo Rida",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/flo-rida/92843"
-      },
-      "roster": false
-    },
-    {
-      "id": 406734,
-      "slug": "sunsha",
-      "name": "Sunsha",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1e2899f1-1e89-4594-95f0-9f2fe19ea2b4.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/sunsha/406734"
-      },
-      "roster": false
-    },
-    {
-      "id": 201484,
-      "slug": "ondamike",
-      "name": "Ondamike",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f38f844c-6dcf-41be-888f-3825b8d50bfe.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ondamike/201484"
-      },
-      "roster": false
-    },
-    {
-      "id": 1176044,
-      "slug": "maser",
-      "name": "MASER",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d4aa6935-f92a-4fec-8e33-d45a97f4771b.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/maser/1176044"
-      },
-      "roster": false
-    },
-    {
-      "id": 446,
-      "slug": "huda-hudia",
-      "name": "Huda Hudia",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b816ca16-1056-47c0-aa4e-458c1a772517.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/huda-hudia/446"
-      },
-      "roster": false
-    },
-    {
-      "id": 964545,
-      "slug": "menges",
-      "name": "Menges",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a680e7e4-c405-4815-9374-cdfce7ab25f1.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/menges/964545"
-      },
-      "roster": false
-    },
-    {
-      "id": 605037,
-      "slug": "mizzo",
-      "name": "Mizzo",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ad2ad1a5-a31f-4c08-9bf7-81f876e1fe1a.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mizzo/605037"
-      },
-      "roster": false
-    },
-    {
-      "id": 543065,
-      "slug": "playbass",
-      "name": "Playbass",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/playbass/543065"
-      },
-      "roster": false
-    },
-    {
-      "id": 1255395,
-      "slug": "tt-beats",
-      "name": "TT Beats",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2be93832-cdfd-4d5c-b632-fb1b27cd8416.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/tt-beats/1255395"
-      },
-      "roster": false
-    },
-    {
-      "id": 1258986,
-      "slug": "ryan-blake",
-      "name": "Ryan Blake",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/51d58e43-8b89-442f-8cd1-85d56792c901.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ryan-blake/1258986"
-      },
-      "roster": false
-    },
-    {
-      "id": 82039,
-      "slug": "sporty-o",
-      "name": "Sporty-O",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/73945a5e-83af-4772-a1ae-8928ab41cce2.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/sporty-o/82039"
-      },
-      "roster": false
-    },
-    {
-      "id": 8953,
-      "slug": "tiburon",
-      "name": "Tiburon",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/tiburon/8953"
-      },
-      "roster": false
-    },
-    {
-      "id": 37690,
-      "slug": "mr-no-hands",
-      "name": "Mr. No Hands",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c8da6e41-6af4-40cb-b4e0-41b4c07d4aef.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mr-no-hands/37690"
-      },
-      "roster": false
-    },
-    {
-      "id": 998604,
-      "slug": "blaze-dj",
-      "name": "Blaze DJ",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d8cbc9e2-2b2f-4f6b-b8cc-7b56f992ca2b.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/blaze-dj/998604"
-      },
-      "roster": false
-    },
-    {
-      "id": 676516,
-      "slug": "javo-scratch",
-      "name": "Javo Scratch",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/74f33018-20d2-4354-8d07-ea147f190565.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/javo-scratch/676516"
-      },
-      "roster": false
-    },
-    {
-      "id": 957912,
-      "slug": "dj-uncle-noah",
-      "name": "DJ Uncle Noah",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/5b411607-c515-4189-9579-fa5a7b982818.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dj-uncle-noah/957912"
-      },
-      "roster": false
-    },
-    {
-      "id": 1439097,
-      "slug": "devilbass",
-      "name": "Devilbass",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/devilbass/1439097"
-      },
-      "roster": false
-    },
-    {
-      "id": 1291789,
-      "slug": "telemob",
-      "name": "Telemob",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/telemob/1291789"
-      },
-      "roster": false
-    },
-    {
-      "id": 1120834,
-      "slug": "mute-es",
-      "name": "Mute (ES)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0b86acaf-9903-446d-a21d-4f2b38f1d40b.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mute-es/1120834"
-      },
-      "roster": false
-    },
-    {
-      "id": 1282111,
-      "slug": "nimeim",
-      "name": "Nimeim",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0ffefd16-9c66-4a28-90ec-2d11493c51a5.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/nimeim/1282111"
-      },
-      "roster": false
-    },
-    {
-      "id": 596421,
-      "slug": "madam-bliss",
-      "name": "Madam Bliss",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/madam-bliss/596421"
-      },
-      "roster": false
-    },
-    {
-      "id": 710863,
-      "slug": "k2t",
-      "name": "K2T",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/37e553fc-6cf7-4b7f-a2d0-6a851462a681.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/k2t/710863"
-      },
-      "roster": false
-    },
-    {
-      "id": 310684,
-      "slug": "woter",
-      "name": "Woter",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/adce7e73-9650-4144-a71e-314bf579fc91.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/woter/310684"
-      },
-      "roster": false
-    },
-    {
-      "id": 395511,
-      "slug": "hankook",
-      "name": "Hankook",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/365c54dd-6344-44dc-b375-954845ae28bc.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hankook/395511"
-      },
-      "roster": false
-    },
-    {
-      "id": 672775,
-      "slug": "seekflow",
-      "name": "SeekFlow",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/4c98cf3a-fdb5-42e3-8aab-3a3a87c413f8.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/seekflow/672775"
-      },
-      "roster": false
-    },
-    {
-      "id": 62317,
-      "slug": "rockets",
-      "name": "Rockets",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1ca1d852-56c1-45c2-b54d-6ebaeb6355e6.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/rockets/62317"
-      },
-      "roster": false
-    },
-    {
-      "id": 1289852,
-      "slug": "dulcet-palette",
-      "name": "Dulcet Palette",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0ab47a94-d613-40b9-a0e8-77416771d799.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dulcet-palette/1289852"
-      },
-      "roster": false
-    },
-    {
-      "id": 1261176,
-      "slug": "box-beats-uk",
-      "name": "Box Beats (UK)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/box-beats-uk/1261176"
-      },
-      "roster": false
-    },
-    {
-      "id": 1252808,
-      "slug": "the-mixdown-crew",
-      "name": "The Mixdown Crew",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/the-mixdown-crew/1252808"
-      },
-      "roster": false
-    },
-    {
-      "id": 132977,
-      "slug": "bassis",
-      "name": "Bassis",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/bassis/132977"
-      },
-      "roster": false
-    },
-    {
-      "id": 22742,
-      "slug": "mike-balance",
-      "name": "Mike Balance",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2d79025-bd44-4fcc-aef7-01b84c0ca278.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mike-balance/22742"
-      },
-      "roster": false
-    },
-    {
-      "id": 1243281,
-      "slug": "keyz-shinji",
-      "name": "Keyz Shinji",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/keyz-shinji/1243281"
-      },
-      "roster": false
-    },
-    {
-      "id": 1269572,
-      "slug": "loudmath",
-      "name": "Loudmath",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/loudmath/1269572"
-      },
-      "roster": false
-    },
-    {
-      "id": 1114540,
-      "slug": "khaine",
-      "name": "Khaine",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f9c07d3c-a063-43f2-abd2-9093ea97bb2b.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/khaine/1114540"
-      },
-      "roster": false
-    },
-    {
-      "id": 1197824,
-      "slug": "ismabreakz",
-      "name": "IsmaBreakz",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/21afcf5a-8235-498d-88a9-f6695f7f0c77.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ismabreakz/1197824"
-      },
-      "roster": false
-    },
-    {
-      "id": 838579,
-      "slug": "cude",
-      "name": "Cude",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a60d4510-fbcc-43bf-af8f-02261f3289b2.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/cude/838579"
-      },
-      "roster": false
-    },
-    {
-      "id": 1199926,
-      "slug": "syndkt",
-      "name": "SYNDKT",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/syndkt/1199926"
-      },
-      "roster": false
-    },
-    {
-      "id": 1184424,
-      "slug": "alex-physalis",
-      "name": "Alex Physalis",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6d4b27d3-54e6-4f71-9624-3b439780b4e6.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/alex-physalis/1184424"
-      },
-      "roster": false
-    },
-    {
-      "id": 282301,
-      "slug": "joyce-brooke",
-      "name": "Joyce Brooke",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/54ec32d6-effc-4b4a-afb4-6cdc72faba84.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/joyce-brooke/282301"
-      },
-      "roster": false
-    },
-    {
-      "id": 1174082,
-      "slug": "alt-shift",
-      "name": "ALT SHIFT",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/alt-shift/1174082"
-      },
-      "roster": false
-    },
-    {
-      "id": 1279472,
-      "slug": "mrrabbeat",
-      "name": "Mr.Rabbeat",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a4fc7285-2aec-4722-af99-2ac691b2f6db.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mrrabbeat/1279472"
-      },
-      "roster": false
-    },
-    {
-      "id": 1145235,
-      "slug": "dilos",
-      "name": "DILOS",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/fcc02571-dac6-45ba-b2af-ea2d31733b81.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dilos/1145235"
-      },
-      "roster": false
-    },
-    {
-      "id": 158512,
-      "slug": "ragga-twins",
-      "name": "Ragga Twins",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ragga-twins/158512"
-      },
-      "roster": false
-    },
-    {
-      "id": 1035102,
-      "slug": "nitro-esp",
-      "name": "Nitro (ESP)",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/39d2675c-8543-4158-9598-a57b201d2420.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/nitro-esp/1035102"
-      },
-      "roster": false
-    },
-    {
-      "id": 1211927,
-      "slug": "danny-phrentic",
-      "name": "Danny Phrentic",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/danny-phrentic/1211927"
-      },
-      "roster": false
-    },
-    {
-      "id": 1982,
-      "slug": "rennie-pilgrem",
-      "name": "Rennie Pilgrem",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/84330ecb-227b-4dbb-a2e4-5c67d87f62b9.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/rennie-pilgrem/1982"
-      },
-      "roster": false
-    },
-    {
-      "id": 812878,
-      "slug": "komainu",
-      "name": "Komainu",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2aa8231-f080-444a-9320-2daf36215aff.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/komainu/812878"
-      },
-      "roster": false
-    },
-    {
-      "id": 770998,
-      "slug": "barrera",
-      "name": "barrera.",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/barrera/770998"
-      },
-      "roster": false
-    },
-    {
-      "id": 305792,
-      "slug": "mr-no-hands-305792",
-      "name": "Mr No Hands",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/51e4d004-a9c8-4a7d-b305-b2fd48dac95c.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mr-no-hands/305792"
-      },
-      "roster": false
-    },
-    {
-      "id": 1130710,
-      "slug": "periko",
-      "name": "Periko",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d1eb1d1a-91df-40cf-8952-e976d9d451c9.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/periko/1130710"
-      },
-      "roster": false
-    },
-    {
-      "id": 485077,
-      "slug": "olivo",
-      "name": "Olivo",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7fa03573-217f-4abb-8cfe-1aee4dbefa20.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/olivo/485077"
-      },
-      "roster": false
-    },
-    {
-      "id": 22564,
-      "slug": "hexadecimal",
-      "name": "Hexadecimal",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b867af09-7eee-483a-816f-0fcaf6c06e2a.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hexadecimal/22564"
-      },
-      "roster": false
-    },
-    {
-      "id": 1067252,
-      "slug": "busspass",
-      "name": "BUSSPASS",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/busspass/1067252"
-      },
-      "roster": false
-    },
-    {
-      "id": 142625,
-      "slug": "ral",
-      "name": "RAL",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ral/142625"
-      },
-      "roster": false
-    },
-    {
-      "id": 94997,
-      "slug": "dub-elements",
-      "name": "Dub Elements",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6b558db4-d858-4d22-b0a6-cd9587de664e.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dub-elements/94997"
-      },
-      "roster": false
-    },
-    {
-      "id": 29480,
-      "slug": "dj-justin-johnson",
-      "name": "DJ Justin Johnson",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2cd8b56-9ef8-4034-aba0-48e1a4c50d4d.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dj-justin-johnson/29480"
-      },
-      "roster": false
-    },
-    {
-      "id": 254398,
-      "slug": "sans",
-      "name": "Sans",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b923c08f-a9d5-45d5-b471-5a734b03cd6d.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/sans/254398"
-      },
-      "roster": false
-    },
-    {
-      "id": 1257655,
-      "slug": "kvbik",
-      "name": "KVBIK",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d374f771-486b-4872-83e4-8e3f3388964f.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/kvbik/1257655"
-      },
-      "roster": false
-    },
-    {
-      "id": 386044,
-      "slug": "paket",
-      "name": "Paket",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/68cb3aa3-c580-4857-9713-f24b6dbdc1cc.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/paket/386044"
-      },
-      "roster": false
-    },
-    {
-      "id": 1223174,
-      "slug": "johnwalls",
-      "name": "JohnWalls",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/johnwalls/1223174"
-      },
-      "roster": false
-    },
-    {
-      "id": 323367,
-      "slug": "anuschka",
-      "name": "Anuschka",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/anuschka/323367"
-      },
-      "roster": false
-    },
-    {
-      "id": 1175101,
-      "slug": "ard-breaks",
-      "name": "ARD Breaks",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ard-breaks/1175101"
-      },
-      "roster": false
-    },
-    {
-      "id": 1272004,
-      "slug": "shane-dee",
-      "name": "SHANE DEE",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/100726b6-7858-4db6-a646-e3e1449ad5bc.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/shane-dee/1272004"
-      },
-      "roster": false
-    },
-    {
-      "id": 1052215,
-      "slug": "ksn",
-      "name": "KSN",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7ae9542c-3dfc-4778-9c7f-c307ef28db16.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/ksn/1052215"
-      },
-      "roster": false
-    },
-    {
-      "id": 1269666,
-      "slug": "i-eka",
-      "name": "I-Eka",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/i-eka/1269666"
-      },
-      "roster": false
-    },
-    {
-      "id": 422526,
-      "slug": "swankout",
-      "name": "Swankout",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/swankout/422526"
-      },
-      "roster": false
-    },
-    {
-      "id": 915641,
-      "slug": "swarov",
-      "name": "Swarov",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/swarov/915641"
-      },
-      "roster": false
-    },
-    {
-      "id": 1095130,
-      "slug": "brukoutca",
-      "name": "BRUKOUT[ca]",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/brukoutca/1095130"
-      },
-      "roster": false
-    },
-    {
-      "id": 718392,
-      "slug": "twin-mono",
-      "name": "Twin Mono",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/twin-mono/718392"
-      },
-      "roster": false
-    },
-    {
-      "id": 1237069,
-      "slug": "mike-goward",
-      "name": "Mike Goward",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mike-goward/1237069"
-      },
-      "roster": false
-    },
-    {
-      "id": 820973,
-      "slug": "maintain",
-      "name": "Maintain",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/maintain/820973"
-      },
-      "roster": false
-    },
-    {
-      "id": 629017,
-      "slug": "doc-zee",
-      "name": "Doc Zee",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/doc-zee/629017"
-      },
-      "roster": false
-    },
-    {
-      "id": 1134018,
-      "slug": "cop-tropical-phd",
-      "name": "Cop Tropical PhD",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/cop-tropical-phd/1134018"
-      },
-      "roster": false
-    },
-    {
-      "id": 1131560,
-      "slug": "phrentic",
-      "name": "Phrentic",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/phrentic/1131560"
-      },
-      "roster": false
-    },
-    {
-      "id": 1126302,
-      "slug": "tommy-lee-bones",
-      "name": "Tommy Lee Bones",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/tommy-lee-bones/1126302"
-      },
-      "roster": false
-    },
-    {
-      "id": 121440,
-      "slug": "pixel-fist",
-      "name": "Pixel Fist",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/92b06a7e-9dc9-4fbd-8955-98597020ecb5.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/pixel-fist/121440"
-      },
-      "roster": false
-    },
-    {
-      "id": 1127469,
-      "slug": "bassbross",
-      "name": "BassBross",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/bassbross/1127469"
-      },
-      "roster": false
-    },
-    {
-      "id": 820657,
-      "slug": "habitfromthelot",
-      "name": "Habitfromthelot",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/habitfromthelot/820657"
-      },
-      "roster": false
-    },
-    {
-      "id": 1169960,
-      "slug": "sara-delirio",
-      "name": "Sara Delirio",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/sara-delirio/1169960"
-      },
-      "roster": false
-    },
-    {
-      "id": 1192113,
-      "slug": "dubinci-sound",
-      "name": "Dubinci Sound",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/dubinci-sound/1192113"
-      },
-      "roster": false
-    },
-    {
-      "id": 3207,
-      "slug": "mint",
-      "name": "MINT",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/mint/3207"
-      },
-      "roster": false
-    },
-    {
-      "id": 1162433,
-      "slug": "natva",
-      "name": "NATVA",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/natva/1162433"
-      },
-      "roster": false
-    },
-    {
-      "id": 1146194,
-      "slug": "hybrid-panda",
-      "name": "Hybrid Panda",
-      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
-      "country": null,
-      "bio": null,
-      "links": {
-        "beatport": "https://www.beatport.com/artist/hybrid-panda/1146194"
-      },
-      "roster": false
-    }
-  ],
+  "updatedAt": "2026-10-18T19:38:40.700Z",
   "releases": [
+    {
+      "id": 7610388,
+      "slug": "dkr0370-out-of-time",
+      "catalog": "DKR0370",
+      "title": "Out Of Time",
+      "type": "single",
+      "releaseDate": "2026-11-11",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/bddde6e1-f885-4348-8a38-e52140b5753f.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass",
+        "Drum & Bass"
+      ],
+      "artistIds": [
+        1303115
+      ],
+      "remixerIds": [
+        1050563
+      ],
+      "upc": "5054290325751",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/out-of-time/7610388"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7599596,
+      "slug": "dkr0369-we-get-bun-2-raw",
+      "catalog": "DKR0369",
+      "title": "We Get Bun / 2 Raw",
+      "type": "single",
+      "releaseDate": "2026-11-06",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/56240497-8f79-42fd-b382-0f0d6169dd2c.jpg",
+      "genres": [
+        "Drum & Bass"
+      ],
+      "artistIds": [
+        1266331
+      ],
+      "remixerIds": [],
+      "upc": "5054290318203",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/we-get-bun-2-raw/7599596"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7599652,
+      "slug": "dkrlp056-universal-breaks-vol-17",
+      "catalog": "DKRLP056",
+      "title": "UNIVERSAL BREAKS Vol 17",
+      "type": "compilation",
+      "releaseDate": "2026-11-06",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/e7b4c89d-603b-423a-9afd-d1b794f905cb.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass",
+        "Electro (Classic / Detroit / Modern)"
+      ],
+      "artistIds": [],
+      "remixerIds": [
+        88378,
+        503314,
+        402033,
+        217064
+      ],
+      "upc": "5054290318074",
+      "series": "Universal Breaks",
+      "links": {
+        "beatport": "https://www.beatport.com/release/universal-breaks-vol-17/7599652"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7560440,
+      "slug": "dkr0367-right-now",
+      "catalog": "DKR0367",
+      "title": "Right Now",
+      "type": "single",
+      "releaseDate": "2026-11-05",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/b0f47c98-9bec-4e8d-9633-0e1112e17f82.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass"
+      ],
+      "artistIds": [
+        1280587
+      ],
+      "remixerIds": [],
+      "upc": "5054290281170",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/right-now/7560440"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7537935,
+      "slug": "dkr0366-on-repeat-ep",
+      "catalog": "DKR0366",
+      "title": "On Repeat EP",
+      "type": "ep",
+      "releaseDate": "2026-11-04",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/f8d153a1-093c-4b0d-a358-a71ef5b47e9e.jpg",
+      "genres": [
+        "UK Garage / Bassline"
+      ],
+      "artistIds": [
+        1048007
+      ],
+      "remixerIds": [],
+      "upc": "5054290269772",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/on-repeat-ep/7537935"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7588578,
+      "slug": "dkr0368-frogger",
+      "catalog": "DKR0368",
+      "title": "Frogger",
+      "type": "single",
+      "releaseDate": "2026-11-03",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/7e3ef343-4158-4f5b-95a2-eb3f9a99a09f.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass",
+        "Electro (Classic / Detroit / Modern)"
+      ],
+      "artistIds": [
+        72360
+      ],
+      "remixerIds": [
+        613048
+      ],
+      "upc": "5054290307191",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/frogger/7588578"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7554780,
+      "slug": "dkr0364-futc",
+      "catalog": "DKR0364",
+      "title": "FUTC",
+      "type": "single",
+      "releaseDate": "2026-10-30",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/3f3b170b-1a3b-4812-bb2e-f1dc1c66c3b7.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass"
+      ],
+      "artistIds": [
+        30700,
+        355093
+      ],
+      "remixerIds": [],
+      "upc": "5054290281125",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/futc/7554780"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7544652,
+      "slug": "dkr0359-shadow",
+      "catalog": "DKR0359",
+      "title": "Shadow",
+      "type": "single",
+      "releaseDate": "2026-10-29",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/429da081-18f7-4b24-8ab4-2ca38dd50143.jpg",
+      "genres": [
+        "140 / Deep Dubstep / Grime",
+        "Drum & Bass"
+      ],
+      "artistIds": [
+        1255603
+      ],
+      "remixerIds": [
+        1206672
+      ],
+      "upc": "5054290281132",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/shadow/7544652"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7584213,
+      "slug": "dkr0362-i-bet-you-know-me",
+      "catalog": "DKR0362",
+      "title": "I Bet You Know Me",
+      "type": "single",
+      "releaseDate": "2026-10-28",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/47f2e009-320a-4b3a-9bd0-f5de0ee50790.jpg",
+      "genres": [
+        "Breaks / Breakbeat / UK Bass"
+      ],
+      "artistIds": [
+        854454,
+        1237777
+      ],
+      "remixerIds": [],
+      "upc": "5054290304633",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/i-bet-you-know-me/7584213"
+      },
+      "note": null,
+      "featured": false
+    },
+    {
+      "id": 7559623,
+      "slug": "dkr0361-a-friend-indeed",
+      "catalog": "DKR0361",
+      "title": "A Friend Indeed",
+      "type": "single",
+      "releaseDate": "2026-10-27",
+      "artwork": "https://geo-media.beatport.com/image_size/{w}x{h}/528e3e0e-e337-4453-8f04-e8b0b6ffd63b.jpg",
+      "genres": [
+        "Electro (Classic / Detroit / Modern)"
+      ],
+      "artistIds": [
+        1255494
+      ],
+      "remixerIds": [],
+      "upc": "5054290281101",
+      "series": null,
+      "links": {
+        "beatport": "https://www.beatport.com/release/a-friend-indeed/7559623"
+      },
+      "note": null,
+      "featured": false
+    },
     {
       "id": 7544654,
       "slug": "dkr0360-slam",
@@ -12129,6 +10269,707 @@
     }
   ],
   "tracks": [
+    {
+      "id": 31032013,
+      "releaseId": 7610388,
+      "position": 1,
+      "title": "Out Of Time ",
+      "mix": "Original Mix",
+      "bpm": 134,
+      "key": "C Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "5:50",
+      "isrc": "GBLV62614130",
+      "sampleUrl": "https://geo-samples.beatport.com/track/bb2af290-8264-4a85-bdba-f5c60f123d86.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/out-of-time/31032013",
+      "spotifyUrl": null,
+      "artistIds": [
+        1303115
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31032012,
+      "releaseId": 7610388,
+      "position": 2,
+      "title": "Out Of Time ",
+      "mix": "Serpnt Remix",
+      "bpm": 107,
+      "key": "C Minor",
+      "genre": "Drum & Bass",
+      "length": "4:33",
+      "isrc": "GBLV62614129",
+      "sampleUrl": "https://geo-samples.beatport.com/track/9ac818bc-6cc2-4974-b6c3-4ff90fffce48.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/out-of-time/31032012",
+      "spotifyUrl": null,
+      "artistIds": [
+        1303115
+      ],
+      "remixerIds": [
+        1050563
+      ]
+    },
+    {
+      "id": 31003315,
+      "releaseId": 7599596,
+      "position": 1,
+      "title": "2 Raw ",
+      "mix": "Original Mix",
+      "bpm": 87,
+      "key": "Gb Major",
+      "genre": "Drum & Bass",
+      "length": "3:25",
+      "isrc": "GBLV62612886",
+      "sampleUrl": "https://geo-samples.beatport.com/track/88b4a267-6991-4c89-9f95-8b0c9d00300d.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/2-raw/31003315",
+      "spotifyUrl": null,
+      "artistIds": [
+        1266331
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003314,
+      "releaseId": 7599596,
+      "position": 2,
+      "title": "We Get Bun ",
+      "mix": "Original Mix",
+      "bpm": 87,
+      "key": "G Major",
+      "genre": "Drum & Bass",
+      "length": "3:22",
+      "isrc": "GBLV62612885",
+      "sampleUrl": "https://geo-samples.beatport.com/track/1d370627-4bb9-44e1-9133-d0612f47070e.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/we-get-bun/31003314",
+      "spotifyUrl": null,
+      "artistIds": [
+        1266331
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003556,
+      "releaseId": 7599652,
+      "position": 1,
+      "title": "Morningside ",
+      "mix": "Original Mix",
+      "bpm": 134,
+      "key": "D Minor",
+      "genre": "Electro (Classic / Detroit / Modern)",
+      "length": "4:18",
+      "isrc": "GBKQU2636949",
+      "sampleUrl": "https://geo-samples.beatport.com/track/14f59b94-2ad8-4f03-a554-a97697a766a4.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/morningside/31003556",
+      "spotifyUrl": null,
+      "artistIds": [
+        72360
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003555,
+      "releaseId": 7599652,
+      "position": 2,
+      "title": "Mad World ",
+      "mix": "Original Mix",
+      "bpm": 140,
+      "key": "F Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "5:25",
+      "isrc": "GBKQU2647792",
+      "sampleUrl": "https://geo-samples.beatport.com/track/20f3c01c-448f-476e-b256-1bbbbc2fd001.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/mad-world/31003555",
+      "spotifyUrl": null,
+      "artistIds": [
+        674005
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003554,
+      "releaseId": 7599652,
+      "position": 3,
+      "title": "Bodies Moving ",
+      "mix": "Original Mix",
+      "bpm": 134,
+      "key": "D Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:22",
+      "isrc": "GBLV62409695",
+      "sampleUrl": "https://geo-samples.beatport.com/track/61cd4364-dca0-46fb-b7a9-83b81df6a5fb.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/bodies-moving/31003554",
+      "spotifyUrl": null,
+      "artistIds": [
+        998525
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003553,
+      "releaseId": 7599652,
+      "position": 4,
+      "title": "Counting Cash ",
+      "mix": "Original Mix",
+      "bpm": 135,
+      "key": "A Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:07",
+      "isrc": "GBKQU2682781",
+      "sampleUrl": "https://geo-samples.beatport.com/track/b7b937cb-3b09-4292-8928-af85b41b5777.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/counting-cash/31003553",
+      "spotifyUrl": null,
+      "artistIds": [
+        1384671
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003552,
+      "releaseId": 7599652,
+      "position": 5,
+      "title": "IN THE CLVB ",
+      "mix": "Original Mix",
+      "bpm": 135,
+      "key": "Eb Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:05",
+      "isrc": "GBKQU2611585",
+      "sampleUrl": "https://geo-samples.beatport.com/track/66f44b3f-ad01-4485-a8c6-d875041eaa92.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/in-the-clvb/31003552",
+      "spotifyUrl": null,
+      "artistIds": [
+        1283708
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003551,
+      "releaseId": 7599652,
+      "position": 6,
+      "title": "Morrigan ",
+      "mix": "Original Mix",
+      "bpm": 133,
+      "key": "Db Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:21",
+      "isrc": "GBKQU2651079",
+      "sampleUrl": "https://geo-samples.beatport.com/track/c0109877-5adb-46d8-a2c8-e44d1050e9d3.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/morrigan/31003551",
+      "spotifyUrl": null,
+      "artistIds": [
+        996078
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003550,
+      "releaseId": 7599652,
+      "position": 7,
+      "title": "Falling (Contagion (UK) Remix)",
+      "mix": "Contagion (UK) Remix",
+      "bpm": 138,
+      "key": "E Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:41",
+      "isrc": "GBKQU2681692",
+      "sampleUrl": "https://geo-samples.beatport.com/track/8d61ad5f-e3cc-4a18-942f-5e54ae17111d.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/falling-contagion-uk-remix/31003550",
+      "spotifyUrl": null,
+      "artistIds": [
+        1303115
+      ],
+      "remixerIds": [
+        217064
+      ]
+    },
+    {
+      "id": 31003549,
+      "releaseId": 7599652,
+      "position": 8,
+      "title": "Keeps On Runnin ",
+      "mix": "Original Mix",
+      "bpm": 145,
+      "key": "D Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "6:10",
+      "isrc": "GBKQU2672958",
+      "sampleUrl": "https://geo-samples.beatport.com/track/7d1ede71-d001-46fe-9eb1-0690f1522c06.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/keeps-on-runnin/31003549",
+      "spotifyUrl": null,
+      "artistIds": [
+        4092
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003548,
+      "releaseId": 7599652,
+      "position": 9,
+      "title": "Egypt Mess ",
+      "mix": "Original Mix",
+      "bpm": 145,
+      "key": "G Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:11",
+      "isrc": "GBKQU2647802",
+      "sampleUrl": "https://geo-samples.beatport.com/track/f6e91f7c-8fbd-4bbd-8343-11d02c738f4d.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/egypt-mess/31003548",
+      "spotifyUrl": null,
+      "artistIds": [
+        1092455
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003547,
+      "releaseId": 7599652,
+      "position": 10,
+      "title": "Waiting For ",
+      "mix": "Original Mix",
+      "bpm": 136,
+      "key": "F Major",
+      "genre": "Electro (Classic / Detroit / Modern)",
+      "length": "6:06",
+      "isrc": "GBKQU2686337",
+      "sampleUrl": "https://geo-samples.beatport.com/track/8b22488c-0a98-4284-8f25-1d2b53840f7b.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/waiting-for/31003547",
+      "spotifyUrl": null,
+      "artistIds": [
+        1409510
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003546,
+      "releaseId": 7599652,
+      "position": 11,
+      "title": "Infinity (Breaks)",
+      "mix": "Breaks",
+      "bpm": 140,
+      "key": "A Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "5:11",
+      "isrc": "GBKQU2648678",
+      "sampleUrl": "https://geo-samples.beatport.com/track/b4123d91-f78c-49dd-9972-8493f7eec38f.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/infinity-breaks/31003546",
+      "spotifyUrl": null,
+      "artistIds": [
+        1176911
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003545,
+      "releaseId": 7599652,
+      "position": 12,
+      "title": "Empower Yourself ",
+      "mix": "Original Mix",
+      "bpm": 135,
+      "key": "G Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:51",
+      "isrc": "GBKQU2665879",
+      "sampleUrl": "https://geo-samples.beatport.com/track/56a357c2-09c8-412b-b496-4089e4690079.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/empower-yourself/31003545",
+      "spotifyUrl": null,
+      "artistIds": [
+        1286389
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003544,
+      "releaseId": 7599652,
+      "position": 13,
+      "title": "Khaya ",
+      "mix": "Original Mix",
+      "bpm": 138,
+      "key": "A Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:12",
+      "isrc": "GBKQU2623111",
+      "sampleUrl": "https://geo-samples.beatport.com/track/5752a88e-f623-406d-965f-018f84d71648.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/khaya/31003544",
+      "spotifyUrl": null,
+      "artistIds": [
+        30700
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003543,
+      "releaseId": 7599652,
+      "position": 14,
+      "title": "All You Got ",
+      "mix": "Original Mix",
+      "bpm": 138,
+      "key": "D Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:25",
+      "isrc": "GBKQU2666153",
+      "sampleUrl": "https://geo-samples.beatport.com/track/8acb60fe-ef41-4758-862a-4f491db90880.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/all-you-got/31003543",
+      "spotifyUrl": null,
+      "artistIds": [
+        1205597
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003542,
+      "releaseId": 7599652,
+      "position": 15,
+      "title": "Deep State ",
+      "mix": "Original Mix",
+      "bpm": 139,
+      "key": "F Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:49",
+      "isrc": "GBKQU2649782",
+      "sampleUrl": "https://geo-samples.beatport.com/track/851e4424-8977-4ae5-ada2-468c6f6a766a.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/deep-state/31003542",
+      "spotifyUrl": null,
+      "artistIds": [
+        57581
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003541,
+      "releaseId": 7599652,
+      "position": 16,
+      "title": "Alliance ",
+      "mix": "Original Mix",
+      "bpm": 102,
+      "key": "G Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:33",
+      "isrc": "GBKQU2687177",
+      "sampleUrl": "https://geo-samples.beatport.com/track/a7da0c7d-f0e5-47d7-a36f-a7cddc046167.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/alliance/31003541",
+      "spotifyUrl": null,
+      "artistIds": [
+        1237777,
+        1244925
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003540,
+      "releaseId": 7599652,
+      "position": 17,
+      "title": "Mistika ",
+      "mix": "Original Mix",
+      "bpm": 140,
+      "key": "F Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:12",
+      "isrc": "GBKQU2684919",
+      "sampleUrl": "https://geo-samples.beatport.com/track/da84bcb7-8a7e-467c-bb39-74c1cb8d2b24.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/mistika/31003540",
+      "spotifyUrl": null,
+      "artistIds": [
+        871993
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 31003539,
+      "releaseId": 7599652,
+      "position": 18,
+      "title": "Ease The Pressure ",
+      "mix": "FM-3 Remix",
+      "bpm": 135,
+      "key": "F Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:01",
+      "isrc": "GBKQU2676553",
+      "sampleUrl": "https://geo-samples.beatport.com/track/0623364a-95ac-4090-8ce5-5f473c826ce4.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/ease-the-pressure/31003539",
+      "spotifyUrl": null,
+      "artistIds": [
+        3234
+      ],
+      "remixerIds": [
+        402033
+      ]
+    },
+    {
+      "id": 31003538,
+      "releaseId": 7599652,
+      "position": 19,
+      "title": "Sound System ",
+      "mix": "Citybox Remix",
+      "bpm": 136,
+      "key": "D Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:35",
+      "isrc": "GBKQU2603660",
+      "sampleUrl": "https://geo-samples.beatport.com/track/00488d5d-4f74-4ec6-9182-7736650601e9.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/sound-system/31003538",
+      "spotifyUrl": null,
+      "artistIds": [
+        355093
+      ],
+      "remixerIds": [
+        503314
+      ]
+    },
+    {
+      "id": 31003537,
+      "releaseId": 7599652,
+      "position": 20,
+      "title": "I WANNA ",
+      "mix": "Jem Haynes Remix",
+      "bpm": 132,
+      "key": "Gb Major",
+      "genre": "Electro (Classic / Detroit / Modern)",
+      "length": "4:39",
+      "isrc": "GBKQU2659275",
+      "sampleUrl": "https://geo-samples.beatport.com/track/37db04e8-f860-4fa1-8129-d06ce980bd04.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/i-wanna/31003537",
+      "spotifyUrl": null,
+      "artistIds": [
+        674005
+      ],
+      "remixerIds": [
+        88378
+      ]
+    },
+    {
+      "id": 30898566,
+      "releaseId": 7560440,
+      "position": 1,
+      "title": "Right Now ",
+      "mix": "Original Mix",
+      "bpm": 138,
+      "key": "G Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:06",
+      "isrc": "GBLV62607784",
+      "sampleUrl": "https://geo-samples.beatport.com/track/4cfdc073-a1bf-44e8-958b-081a2329e4ce.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/right-now/30898566",
+      "spotifyUrl": null,
+      "artistIds": [
+        1280587
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30845144,
+      "releaseId": 7537935,
+      "position": 1,
+      "title": "Found My Way (2026 VIP) ",
+      "mix": "Original Mix",
+      "bpm": 136,
+      "key": "D Minor",
+      "genre": "UK Garage / Bassline",
+      "length": "3:31",
+      "isrc": "GBLV62606120",
+      "sampleUrl": "https://geo-samples.beatport.com/track/3e1d780d-0c6c-453e-8f62-a3274cd30a98.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/found-my-way-2026-vip/30845144",
+      "spotifyUrl": null,
+      "artistIds": [
+        1048007
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30845143,
+      "releaseId": 7537935,
+      "position": 2,
+      "title": "The Top One (UKG VIP) ",
+      "mix": "Original Mix",
+      "bpm": 140,
+      "key": "F Minor",
+      "genre": "UK Garage / Bassline",
+      "length": "3:18",
+      "isrc": "GBLV62606119",
+      "sampleUrl": "https://geo-samples.beatport.com/track/dd947e55-c646-4ebd-b866-89eab8fb51e7.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/the-top-one-ukg-vip/30845143",
+      "spotifyUrl": null,
+      "artistIds": [
+        1048007
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30845142,
+      "releaseId": 7537935,
+      "position": 3,
+      "title": "What I Need (2026 VIP) ",
+      "mix": "Original Mix",
+      "bpm": 140,
+      "key": "C Minor",
+      "genre": "UK Garage / Bassline",
+      "length": "3:12",
+      "isrc": "GBLV62606118",
+      "sampleUrl": "https://geo-samples.beatport.com/track/f4c4a433-3c8d-421b-905d-002a5e77b59d.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/what-i-need-2026-vip/30845142",
+      "spotifyUrl": null,
+      "artistIds": [
+        1048007
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30845141,
+      "releaseId": 7537935,
+      "position": 4,
+      "title": "On Repeat ",
+      "mix": "Original Mix",
+      "bpm": 86,
+      "key": "F Major",
+      "genre": "UK Garage / Bassline",
+      "length": "3:45",
+      "isrc": "GBKQU2669949",
+      "sampleUrl": "https://geo-samples.beatport.com/track/81ef3efd-ae75-4ee2-84f2-1b170fcd5fe2.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/on-repeat/30845141",
+      "spotifyUrl": null,
+      "artistIds": [
+        1048007
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30973421,
+      "releaseId": 7588578,
+      "position": 1,
+      "title": "Frogger ",
+      "mix": "HatStandy Remix",
+      "bpm": 134,
+      "key": "C Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:25",
+      "isrc": "GBLV62611544",
+      "sampleUrl": "https://geo-samples.beatport.com/track/33700c96-664a-4a91-b51c-8e787c1af6de.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/frogger/30973421",
+      "spotifyUrl": null,
+      "artistIds": [
+        72360
+      ],
+      "remixerIds": [
+        613048
+      ]
+    },
+    {
+      "id": 30973420,
+      "releaseId": 7588578,
+      "position": 2,
+      "title": "Frogger ",
+      "mix": "Original Mix",
+      "bpm": 134,
+      "key": "C Minor",
+      "genre": "Electro (Classic / Detroit / Modern)",
+      "length": "3:45",
+      "isrc": "GBLV62611543",
+      "sampleUrl": "https://geo-samples.beatport.com/track/6836e9d9-5609-470f-92f7-0118b1398b63.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/frogger/30973420",
+      "spotifyUrl": null,
+      "artistIds": [
+        72360
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30884365,
+      "releaseId": 7554780,
+      "position": 1,
+      "title": "FUTC ",
+      "mix": "Original Mix",
+      "bpm": 141,
+      "key": "Gb Major",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "3:53",
+      "isrc": "GBLV62607779",
+      "sampleUrl": "https://geo-samples.beatport.com/track/53bac4b2-476e-4640-9bc5-405d0740d3b2.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/futc/30884365",
+      "spotifyUrl": null,
+      "artistIds": [
+        30700,
+        355093
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30859856,
+      "releaseId": 7544652,
+      "position": 1,
+      "title": "Shadow ",
+      "mix": "Get Your Money Back Remix",
+      "bpm": 138,
+      "key": "F Major",
+      "genre": "140 / Deep Dubstep / Grime",
+      "length": "3:07",
+      "isrc": "GBLV62607781",
+      "sampleUrl": "https://geo-samples.beatport.com/track/8eb3d903-2a56-44d2-9e43-018b55f7069a.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/shadow/30859856",
+      "spotifyUrl": null,
+      "artistIds": [
+        1255603
+      ],
+      "remixerIds": [
+        1206672
+      ]
+    },
+    {
+      "id": 30859855,
+      "releaseId": 7544652,
+      "position": 2,
+      "title": "Shadow ",
+      "mix": "Original Mix",
+      "bpm": 87,
+      "key": "Eb Major",
+      "genre": "Drum & Bass",
+      "length": "3:54",
+      "isrc": "GBLV62607780",
+      "sampleUrl": "https://geo-samples.beatport.com/track/9f86599b-7c82-4be4-b397-b5a6b7206f56.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/shadow/30859855",
+      "spotifyUrl": null,
+      "artistIds": [
+        1255603
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30960016,
+      "releaseId": 7584213,
+      "position": 1,
+      "title": "I Bet You Know Me ",
+      "mix": "Original Mix",
+      "bpm": 138,
+      "key": "Bb Minor",
+      "genre": "Breaks / Breakbeat / UK Bass",
+      "length": "4:17",
+      "isrc": "GBLV62611125",
+      "sampleUrl": "https://geo-samples.beatport.com/track/15dd62a7-2963-4113-a03e-441b3d65ace7.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/i-bet-you-know-me/30960016",
+      "spotifyUrl": null,
+      "artistIds": [
+        854454,
+        1237777
+      ],
+      "remixerIds": []
+    },
+    {
+      "id": 30895734,
+      "releaseId": 7559623,
+      "position": 1,
+      "title": "A Friend Indeed ",
+      "mix": "Original Mix",
+      "bpm": 138,
+      "key": "A Minor",
+      "genre": "Electro (Classic / Detroit / Modern)",
+      "length": "4:03",
+      "isrc": "GBLV62607774",
+      "sampleUrl": "https://geo-samples.beatport.com/track/ca100f0a-e173-4d7c-8bb2-5ef15bb85aee.LOFI.mp3",
+      "beatportUrl": "https://www.beatport.com/track/a-friend-indeed/30895734",
+      "spotifyUrl": null,
+      "artistIds": [
+        1255494
+      ],
+      "remixerIds": []
+    },
     {
       "id": 30859858,
       "releaseId": 7544654,
@@ -44155,6 +42996,2147 @@
         310684
       ],
       "remixerIds": []
+    }
+  ],
+  "artists": [
+    {
+      "id": 1112774,
+      "slug": "ale-darknoise",
+      "name": "Ale-DarkNoise",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ale-darknoise/1112774"
+      },
+      "roster": false
+    },
+    {
+      "id": 14839,
+      "slug": "phrenetic",
+      "name": "Phrenetic",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/68243995-8518-468e-8793-191d8704b9d4.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/phrenetic/14839"
+      },
+      "roster": false
+    },
+    {
+      "id": 544330,
+      "slug": "d-region-code",
+      "name": "D-Region & Code",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/98bb7939-cd33-4ce5-ac41-8c2e409af71c.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/d-region-code/544330"
+      },
+      "roster": false
+    },
+    {
+      "id": 1499500,
+      "slug": "jack-mono",
+      "name": "Jack Mono",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/924c71b6-bd1d-4af4-ad25-5f30258b8421.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jack-mono/1499500"
+      },
+      "roster": false
+    },
+    {
+      "id": 1233230,
+      "slug": "danny-phr3ntic",
+      "name": "Danny Phr3ntic",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/danny-phr3ntic/1233230"
+      },
+      "roster": false
+    },
+    {
+      "id": 85445,
+      "slug": "xana",
+      "name": "Xana",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/9fe6609d-09f3-47b4-b331-5852d10a6950.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/xana/85445"
+      },
+      "roster": false
+    },
+    {
+      "id": 1315368,
+      "slug": "dj-kos-us",
+      "name": "DJ Kos (US)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/92fa2371-c391-4c72-ab31-5f7e416d3bfb.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dj-kos-us/1315368"
+      },
+      "roster": false
+    },
+    {
+      "id": 1258568,
+      "slug": "blow-sp",
+      "name": "BLOW (SP)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7f0ddf6f-1e5e-476b-a5ba-2f2a65fa8fe9.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/blow-sp/1258568"
+      },
+      "roster": false
+    },
+    {
+      "id": 2463416,
+      "slug": "brob-sp",
+      "name": "Brob (SP)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/brob-sp/2463416"
+      },
+      "roster": false
+    },
+    {
+      "id": 1188805,
+      "slug": "zero-dark",
+      "name": "Zero Dark",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/zero-dark/1188805"
+      },
+      "roster": false
+    },
+    {
+      "id": 17875,
+      "slug": "shodan",
+      "name": "Shodan",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/shodan/17875"
+      },
+      "roster": false
+    },
+    {
+      "id": 1144386,
+      "slug": "mint-uk",
+      "name": "Mint (UK)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mint-uk/1144386"
+      },
+      "roster": false
+    },
+    {
+      "id": 1211504,
+      "slug": "baktrax",
+      "name": "Baktrax",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1768c16b-eb27-41f3-80f2-96e00bc48682.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/baktrax/1211504"
+      },
+      "roster": false
+    },
+    {
+      "id": 1255565,
+      "slug": "mackie-uk",
+      "name": "MACKIE (UK)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mackie-uk/1255565"
+      },
+      "roster": false
+    },
+    {
+      "id": 2444459,
+      "slug": "pocket-full-of-sunshine",
+      "name": "Pocket Full Of Sunshine",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/pocket-full-of-sunshine/2444459"
+      },
+      "roster": false
+    },
+    {
+      "id": 910445,
+      "slug": "obsidian-wave",
+      "name": "Obsidian Wave",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/337d0d1e-9b8b-47cb-a320-90f4f92ab997.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/obsidian-wave/910445"
+      },
+      "roster": false
+    },
+    {
+      "id": 2361727,
+      "slug": "pull-the-trigga",
+      "name": "PULL THE TRIGGA",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/pull-the-trigga/2361727"
+      },
+      "roster": false
+    },
+    {
+      "id": 782089,
+      "slug": "skin-teeth",
+      "name": "Skin Teeth",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/skin-teeth/782089"
+      },
+      "roster": false
+    },
+    {
+      "id": 105853,
+      "slug": "paul-bassrock",
+      "name": "Paul Bassrock",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1e7b10b4-ddc0-47af-a474-a142cd993b0e.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/paul-bassrock/105853"
+      },
+      "roster": false
+    },
+    {
+      "id": 18427,
+      "slug": "jan-b",
+      "name": "Jan-B",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jan-b/18427"
+      },
+      "roster": false
+    },
+    {
+      "id": 378900,
+      "slug": "timonk-pumbass",
+      "name": "Timonk & Pumbass",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/timonk-pumbass/378900"
+      },
+      "roster": false
+    },
+    {
+      "id": 1207167,
+      "slug": "blackdryft",
+      "name": "Blackdryft",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/blackdryft/1207167"
+      },
+      "roster": false
+    },
+    {
+      "id": 866338,
+      "slug": "wallmaster",
+      "name": "Wallmaster",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/64155092-a385-4845-8d99-6399d9f683ac.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/wallmaster/866338"
+      },
+      "roster": false
+    },
+    {
+      "id": 1162066,
+      "slug": "evil-crew",
+      "name": "Evil Crew",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/evil-crew/1162066"
+      },
+      "roster": false
+    },
+    {
+      "id": 729197,
+      "slug": "inner-realms",
+      "name": "Inner Realms",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0d79dcc2-2997-4bda-9abb-8af25b197cf7.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/inner-realms/729197"
+      },
+      "roster": false
+    },
+    {
+      "id": 2434533,
+      "slug": "meeme",
+      "name": "Meeme",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/meeme/2434533"
+      },
+      "roster": false
+    },
+    {
+      "id": 865875,
+      "slug": "urbano",
+      "name": "-Urbano-",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/77845944-6abb-4273-8ff2-24a0e9209717.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/urbano/865875"
+      },
+      "roster": false
+    },
+    {
+      "id": 1298577,
+      "slug": "datafunk",
+      "name": "DataFunk",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7ec17f6a-464f-4df1-b63b-1f13207efd42.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/datafunk/1298577"
+      },
+      "roster": false
+    },
+    {
+      "id": 209843,
+      "slug": "visible-sound",
+      "name": "Visible Sound",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/visible-sound/209843"
+      },
+      "roster": false
+    },
+    {
+      "id": 1185557,
+      "slug": "q-club",
+      "name": "Q Club",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/q-club/1185557"
+      },
+      "roster": false
+    },
+    {
+      "id": 1261175,
+      "slug": "jacky-bang",
+      "name": "Jacky Bang",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jacky-bang/1261175"
+      },
+      "roster": false
+    },
+    {
+      "id": 476713,
+      "slug": "delzie",
+      "name": "Delzie",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/delzie/476713"
+      },
+      "roster": false
+    },
+    {
+      "id": 1220529,
+      "slug": "dom-dolby",
+      "name": "Dom Dolby",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dom-dolby/1220529"
+      },
+      "roster": false
+    },
+    {
+      "id": 956125,
+      "slug": "jormek",
+      "name": "Jormek",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/3018ab82-e1f7-45da-8838-c8c215e661e9.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jormek/956125"
+      },
+      "roster": false
+    },
+    {
+      "id": 1223621,
+      "slug": "eskila",
+      "name": "Eskila",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a9b5de00-81e9-4db4-a077-6a9834af1200.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/eskila/1223621"
+      },
+      "roster": false
+    },
+    {
+      "id": 676436,
+      "slug": "fiasco-nicely",
+      "name": "Fiasco & Nicely",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/fiasco-nicely/676436"
+      },
+      "roster": false
+    },
+    {
+      "id": 2958,
+      "slug": "brothers-bud",
+      "name": "Brothers Bud",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/brothers-bud/2958"
+      },
+      "roster": false
+    },
+    {
+      "id": 1085328,
+      "slug": "squat-party",
+      "name": "Squat Party",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/57927be0-288e-44ca-8a18-a29b139af4b3.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/squat-party/1085328"
+      },
+      "roster": false
+    },
+    {
+      "id": 1026058,
+      "slug": "dead-bonsai",
+      "name": "Dead Bonsai",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0adccfc0-0078-44dd-9412-3063d7524d9a.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dead-bonsai/1026058"
+      },
+      "roster": false
+    },
+    {
+      "id": 36771,
+      "slug": "pook",
+      "name": "Pook",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/e45c1e26-5774-4c79-98ff-eedbd3ab9fca.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/pook/36771"
+      },
+      "roster": false
+    },
+    {
+      "id": 1116273,
+      "slug": "yure-rd",
+      "name": "Yure Rd",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/yure-rd/1116273"
+      },
+      "roster": false
+    },
+    {
+      "id": 36682,
+      "slug": "specimen-a",
+      "name": "Specimen A",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/32ea8616-a6d9-49e8-8cb1-900826cc5e1c.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/specimen-a/36682"
+      },
+      "roster": false
+    },
+    {
+      "id": 1115490,
+      "slug": "pablo-lazers",
+      "name": "PABLO LAZERS",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/pablo-lazers/1115490"
+      },
+      "roster": false
+    },
+    {
+      "id": 34223,
+      "slug": "hex",
+      "name": "Hex",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/fec02c12-bf7e-4a63-81e0-a1d2dd47552e.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hex/34223"
+      },
+      "roster": false
+    },
+    {
+      "id": 911241,
+      "slug": "skitzoid",
+      "name": "Skitzoid",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ffb3ae13-93f9-40c7-9954-ca6401ea7e3b.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/skitzoid/911241"
+      },
+      "roster": false
+    },
+    {
+      "id": 1086500,
+      "slug": "curly-ch",
+      "name": "CURLY (CH)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/9f59021b-4e19-49bf-8603-d8bda472448a.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/curly-ch/1086500"
+      },
+      "roster": false
+    },
+    {
+      "id": 1357365,
+      "slug": "barrerabreaks",
+      "name": "Barrera.Breaks",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/barrerabreaks/1357365"
+      },
+      "roster": false
+    },
+    {
+      "id": 1134019,
+      "slug": "k-n-x-b-x-d-y",
+      "name": "K N X B X D Y",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/k-n-x-b-x-d-y/1134019"
+      },
+      "roster": false
+    },
+    {
+      "id": 2286980,
+      "slug": "katie-cartel",
+      "name": "KATIE cARTel",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/katie-cartel/2286980"
+      },
+      "roster": false
+    },
+    {
+      "id": 1436101,
+      "slug": "droideface",
+      "name": "DROIDEFACE",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/droideface/1436101"
+      },
+      "roster": false
+    },
+    {
+      "id": 1002973,
+      "slug": "distillat",
+      "name": "Distillat",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/distillat/1002973"
+      },
+      "roster": false
+    },
+    {
+      "id": 227121,
+      "slug": "vazteria-x",
+      "name": "Vazteria X",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/313622c0-9831-4b41-ba6a-fe8369dd6791.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/vazteria-x/227121"
+      },
+      "roster": false
+    },
+    {
+      "id": 410128,
+      "slug": "miss-mants",
+      "name": "Miss Mants",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/bfc27320-988f-4eaf-ba4b-1cbfff3155fe.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/miss-mants/410128"
+      },
+      "roster": false
+    },
+    {
+      "id": 951986,
+      "slug": "casa-pariah",
+      "name": "Casa Pariah",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/casa-pariah/951986"
+      },
+      "roster": false
+    },
+    {
+      "id": 1320982,
+      "slug": "prey4m3",
+      "name": "Prey4m3!",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/prey4m3/1320982"
+      },
+      "roster": false
+    },
+    {
+      "id": 78247,
+      "slug": "manx",
+      "name": "Manx",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/manx/78247"
+      },
+      "roster": false
+    },
+    {
+      "id": 1256028,
+      "slug": "dj-guanxe",
+      "name": "Dj Guanxe",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/720d289a-020e-4720-8210-81bff53f5dcc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dj-guanxe/1256028"
+      },
+      "roster": false
+    },
+    {
+      "id": 561762,
+      "slug": "dustin-funkman",
+      "name": "Dustin Funkman",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/70ec694e-130d-446a-9d10-03a65bf68cc4.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dustin-funkman/561762"
+      },
+      "roster": false
+    },
+    {
+      "id": 928392,
+      "slug": "bartek-industries",
+      "name": "Bartek Industries",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/8794e379-0fe6-4996-b677-817f81ec4ecd.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/bartek-industries/928392"
+      },
+      "roster": false
+    },
+    {
+      "id": 17803,
+      "slug": "jfb",
+      "name": "JFB",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c9888c96-40d4-4ebe-8128-43b68e06bee3.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jfb/17803"
+      },
+      "roster": false
+    },
+    {
+      "id": 156165,
+      "slug": "mc-shureshock",
+      "name": "MC Shureshock",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/40b19f08-d160-4fc1-9cf3-60b2f2b3e319.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mc-shureshock/156165"
+      },
+      "roster": false
+    },
+    {
+      "id": 329028,
+      "slug": "money-p",
+      "name": "Money P",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/money-p/329028"
+      },
+      "roster": false
+    },
+    {
+      "id": 92843,
+      "slug": "flo-rida",
+      "name": "Flo Rida",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/flo-rida/92843"
+      },
+      "roster": false
+    },
+    {
+      "id": 406734,
+      "slug": "sunsha",
+      "name": "Sunsha",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1e2899f1-1e89-4594-95f0-9f2fe19ea2b4.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/sunsha/406734"
+      },
+      "roster": false
+    },
+    {
+      "id": 201484,
+      "slug": "ondamike",
+      "name": "Ondamike",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f38f844c-6dcf-41be-888f-3825b8d50bfe.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ondamike/201484"
+      },
+      "roster": false
+    },
+    {
+      "id": 1176044,
+      "slug": "maser",
+      "name": "MASER",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d4aa6935-f92a-4fec-8e33-d45a97f4771b.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/maser/1176044"
+      },
+      "roster": false
+    },
+    {
+      "id": 446,
+      "slug": "huda-hudia",
+      "name": "Huda Hudia",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b816ca16-1056-47c0-aa4e-458c1a772517.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/huda-hudia/446"
+      },
+      "roster": false
+    },
+    {
+      "id": 964545,
+      "slug": "menges",
+      "name": "Menges",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a680e7e4-c405-4815-9374-cdfce7ab25f1.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/menges/964545"
+      },
+      "roster": false
+    },
+    {
+      "id": 605037,
+      "slug": "mizzo",
+      "name": "Mizzo",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ad2ad1a5-a31f-4c08-9bf7-81f876e1fe1a.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mizzo/605037"
+      },
+      "roster": false
+    },
+    {
+      "id": 543065,
+      "slug": "playbass",
+      "name": "Playbass",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/playbass/543065"
+      },
+      "roster": false
+    },
+    {
+      "id": 1255395,
+      "slug": "tt-beats",
+      "name": "TT Beats",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2be93832-cdfd-4d5c-b632-fb1b27cd8416.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/tt-beats/1255395"
+      },
+      "roster": false
+    },
+    {
+      "id": 1258986,
+      "slug": "ryan-blake",
+      "name": "Ryan Blake",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/51d58e43-8b89-442f-8cd1-85d56792c901.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ryan-blake/1258986"
+      },
+      "roster": false
+    },
+    {
+      "id": 82039,
+      "slug": "sporty-o",
+      "name": "Sporty-O",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/73945a5e-83af-4772-a1ae-8928ab41cce2.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/sporty-o/82039"
+      },
+      "roster": false
+    },
+    {
+      "id": 8953,
+      "slug": "tiburon",
+      "name": "Tiburon",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/tiburon/8953"
+      },
+      "roster": false
+    },
+    {
+      "id": 37690,
+      "slug": "mr-no-hands",
+      "name": "Mr. No Hands",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c8da6e41-6af4-40cb-b4e0-41b4c07d4aef.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mr-no-hands/37690"
+      },
+      "roster": false
+    },
+    {
+      "id": 998604,
+      "slug": "blaze-dj",
+      "name": "Blaze DJ",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d8cbc9e2-2b2f-4f6b-b8cc-7b56f992ca2b.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/blaze-dj/998604"
+      },
+      "roster": false
+    },
+    {
+      "id": 676516,
+      "slug": "javo-scratch",
+      "name": "Javo Scratch",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/74f33018-20d2-4354-8d07-ea147f190565.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/javo-scratch/676516"
+      },
+      "roster": false
+    },
+    {
+      "id": 957912,
+      "slug": "dj-uncle-noah",
+      "name": "DJ Uncle Noah",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/5b411607-c515-4189-9579-fa5a7b982818.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dj-uncle-noah/957912"
+      },
+      "roster": false
+    },
+    {
+      "id": 1439097,
+      "slug": "devilbass",
+      "name": "Devilbass",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/devilbass/1439097"
+      },
+      "roster": false
+    },
+    {
+      "id": 1291789,
+      "slug": "telemob",
+      "name": "Telemob",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/telemob/1291789"
+      },
+      "roster": false
+    },
+    {
+      "id": 1120834,
+      "slug": "mute-es",
+      "name": "Mute (ES)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0b86acaf-9903-446d-a21d-4f2b38f1d40b.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mute-es/1120834"
+      },
+      "roster": false
+    },
+    {
+      "id": 1282111,
+      "slug": "nimeim",
+      "name": "Nimeim",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0ffefd16-9c66-4a28-90ec-2d11493c51a5.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/nimeim/1282111"
+      },
+      "roster": false
+    },
+    {
+      "id": 596421,
+      "slug": "madam-bliss",
+      "name": "Madam Bliss",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/madam-bliss/596421"
+      },
+      "roster": false
+    },
+    {
+      "id": 710863,
+      "slug": "k2t",
+      "name": "K2T",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/37e553fc-6cf7-4b7f-a2d0-6a851462a681.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/k2t/710863"
+      },
+      "roster": false
+    },
+    {
+      "id": 310684,
+      "slug": "woter",
+      "name": "Woter",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/adce7e73-9650-4144-a71e-314bf579fc91.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/woter/310684"
+      },
+      "roster": false
+    },
+    {
+      "id": 395511,
+      "slug": "hankook",
+      "name": "Hankook",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/365c54dd-6344-44dc-b375-954845ae28bc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hankook/395511"
+      },
+      "roster": false
+    },
+    {
+      "id": 672775,
+      "slug": "seekflow",
+      "name": "SeekFlow",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/4c98cf3a-fdb5-42e3-8aab-3a3a87c413f8.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/seekflow/672775"
+      },
+      "roster": false
+    },
+    {
+      "id": 62317,
+      "slug": "rockets",
+      "name": "Rockets",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/1ca1d852-56c1-45c2-b54d-6ebaeb6355e6.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/rockets/62317"
+      },
+      "roster": false
+    },
+    {
+      "id": 1289852,
+      "slug": "dulcet-palette",
+      "name": "Dulcet Palette",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0ab47a94-d613-40b9-a0e8-77416771d799.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dulcet-palette/1289852"
+      },
+      "roster": false
+    },
+    {
+      "id": 1261176,
+      "slug": "box-beats-uk",
+      "name": "Box Beats (UK)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/box-beats-uk/1261176"
+      },
+      "roster": false
+    },
+    {
+      "id": 1252808,
+      "slug": "the-mixdown-crew",
+      "name": "The Mixdown Crew",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/the-mixdown-crew/1252808"
+      },
+      "roster": false
+    },
+    {
+      "id": 132977,
+      "slug": "bassis",
+      "name": "Bassis",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/bassis/132977"
+      },
+      "roster": false
+    },
+    {
+      "id": 22742,
+      "slug": "mike-balance",
+      "name": "Mike Balance",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2d79025-bd44-4fcc-aef7-01b84c0ca278.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mike-balance/22742"
+      },
+      "roster": false
+    },
+    {
+      "id": 1243281,
+      "slug": "keyz-shinji",
+      "name": "Keyz Shinji",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/keyz-shinji/1243281"
+      },
+      "roster": false
+    },
+    {
+      "id": 1269572,
+      "slug": "loudmath",
+      "name": "Loudmath",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/loudmath/1269572"
+      },
+      "roster": false
+    },
+    {
+      "id": 1114540,
+      "slug": "khaine",
+      "name": "Khaine",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f9c07d3c-a063-43f2-abd2-9093ea97bb2b.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/khaine/1114540"
+      },
+      "roster": false
+    },
+    {
+      "id": 1197824,
+      "slug": "ismabreakz",
+      "name": "IsmaBreakz",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/21afcf5a-8235-498d-88a9-f6695f7f0c77.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ismabreakz/1197824"
+      },
+      "roster": false
+    },
+    {
+      "id": 838579,
+      "slug": "cude",
+      "name": "Cude",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a60d4510-fbcc-43bf-af8f-02261f3289b2.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/cude/838579"
+      },
+      "roster": false
+    },
+    {
+      "id": 1199926,
+      "slug": "syndkt",
+      "name": "SYNDKT",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/syndkt/1199926"
+      },
+      "roster": false
+    },
+    {
+      "id": 1184424,
+      "slug": "alex-physalis",
+      "name": "Alex Physalis",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6d4b27d3-54e6-4f71-9624-3b439780b4e6.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/alex-physalis/1184424"
+      },
+      "roster": false
+    },
+    {
+      "id": 282301,
+      "slug": "joyce-brooke",
+      "name": "Joyce Brooke",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/54ec32d6-effc-4b4a-afb4-6cdc72faba84.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/joyce-brooke/282301"
+      },
+      "roster": false
+    },
+    {
+      "id": 1174082,
+      "slug": "alt-shift",
+      "name": "ALT SHIFT",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/alt-shift/1174082"
+      },
+      "roster": false
+    },
+    {
+      "id": 1279472,
+      "slug": "mrrabbeat",
+      "name": "Mr.Rabbeat",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/a4fc7285-2aec-4722-af99-2ac691b2f6db.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mrrabbeat/1279472"
+      },
+      "roster": false
+    },
+    {
+      "id": 1145235,
+      "slug": "dilos",
+      "name": "DILOS",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/fcc02571-dac6-45ba-b2af-ea2d31733b81.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dilos/1145235"
+      },
+      "roster": false
+    },
+    {
+      "id": 158512,
+      "slug": "ragga-twins",
+      "name": "Ragga Twins",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ragga-twins/158512"
+      },
+      "roster": false
+    },
+    {
+      "id": 1035102,
+      "slug": "nitro-esp",
+      "name": "Nitro (ESP)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/39d2675c-8543-4158-9598-a57b201d2420.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/nitro-esp/1035102"
+      },
+      "roster": false
+    },
+    {
+      "id": 1211927,
+      "slug": "danny-phrentic",
+      "name": "Danny Phrentic",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/danny-phrentic/1211927"
+      },
+      "roster": false
+    },
+    {
+      "id": 1982,
+      "slug": "rennie-pilgrem",
+      "name": "Rennie Pilgrem",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/84330ecb-227b-4dbb-a2e4-5c67d87f62b9.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/rennie-pilgrem/1982"
+      },
+      "roster": false
+    },
+    {
+      "id": 812878,
+      "slug": "komainu",
+      "name": "Komainu",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2aa8231-f080-444a-9320-2daf36215aff.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/komainu/812878"
+      },
+      "roster": false
+    },
+    {
+      "id": 770998,
+      "slug": "barrera",
+      "name": "barrera.",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/barrera/770998"
+      },
+      "roster": false
+    },
+    {
+      "id": 305792,
+      "slug": "mr-no-hands-305792",
+      "name": "Mr No Hands",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/51e4d004-a9c8-4a7d-b305-b2fd48dac95c.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mr-no-hands/305792"
+      },
+      "roster": false
+    },
+    {
+      "id": 1130710,
+      "slug": "periko",
+      "name": "Periko",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d1eb1d1a-91df-40cf-8952-e976d9d451c9.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/periko/1130710"
+      },
+      "roster": false
+    },
+    {
+      "id": 485077,
+      "slug": "olivo",
+      "name": "Olivo",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7fa03573-217f-4abb-8cfe-1aee4dbefa20.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/olivo/485077"
+      },
+      "roster": false
+    },
+    {
+      "id": 22564,
+      "slug": "hexadecimal",
+      "name": "Hexadecimal",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b867af09-7eee-483a-816f-0fcaf6c06e2a.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hexadecimal/22564"
+      },
+      "roster": false
+    },
+    {
+      "id": 1067252,
+      "slug": "busspass",
+      "name": "BUSSPASS",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/busspass/1067252"
+      },
+      "roster": false
+    },
+    {
+      "id": 142625,
+      "slug": "ral",
+      "name": "RAL",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ral/142625"
+      },
+      "roster": false
+    },
+    {
+      "id": 94997,
+      "slug": "dub-elements",
+      "name": "Dub Elements",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6b558db4-d858-4d22-b0a6-cd9587de664e.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dub-elements/94997"
+      },
+      "roster": false
+    },
+    {
+      "id": 29480,
+      "slug": "dj-justin-johnson",
+      "name": "DJ Justin Johnson",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c2cd8b56-9ef8-4034-aba0-48e1a4c50d4d.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dj-justin-johnson/29480"
+      },
+      "roster": false
+    },
+    {
+      "id": 254398,
+      "slug": "sans",
+      "name": "Sans",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b923c08f-a9d5-45d5-b471-5a734b03cd6d.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/sans/254398"
+      },
+      "roster": false
+    },
+    {
+      "id": 1257655,
+      "slug": "kvbik",
+      "name": "KVBIK",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d374f771-486b-4872-83e4-8e3f3388964f.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/kvbik/1257655"
+      },
+      "roster": false
+    },
+    {
+      "id": 386044,
+      "slug": "paket",
+      "name": "Paket",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/68cb3aa3-c580-4857-9713-f24b6dbdc1cc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/paket/386044"
+      },
+      "roster": false
+    },
+    {
+      "id": 1223174,
+      "slug": "johnwalls",
+      "name": "JohnWalls",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/johnwalls/1223174"
+      },
+      "roster": false
+    },
+    {
+      "id": 323367,
+      "slug": "anuschka",
+      "name": "Anuschka",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/anuschka/323367"
+      },
+      "roster": false
+    },
+    {
+      "id": 1175101,
+      "slug": "ard-breaks",
+      "name": "ARD Breaks",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ard-breaks/1175101"
+      },
+      "roster": false
+    },
+    {
+      "id": 1272004,
+      "slug": "shane-dee",
+      "name": "SHANE DEE",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/100726b6-7858-4db6-a646-e3e1449ad5bc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/shane-dee/1272004"
+      },
+      "roster": false
+    },
+    {
+      "id": 1052215,
+      "slug": "ksn",
+      "name": "KSN",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7ae9542c-3dfc-4778-9c7f-c307ef28db16.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ksn/1052215"
+      },
+      "roster": false
+    },
+    {
+      "id": 1269666,
+      "slug": "i-eka",
+      "name": "I-Eka",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/i-eka/1269666"
+      },
+      "roster": false
+    },
+    {
+      "id": 422526,
+      "slug": "swankout",
+      "name": "Swankout",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/swankout/422526"
+      },
+      "roster": false
+    },
+    {
+      "id": 915641,
+      "slug": "swarov",
+      "name": "Swarov",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/swarov/915641"
+      },
+      "roster": false
+    },
+    {
+      "id": 1095130,
+      "slug": "brukoutca",
+      "name": "BRUKOUT[ca]",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/brukoutca/1095130"
+      },
+      "roster": false
+    },
+    {
+      "id": 718392,
+      "slug": "twin-mono",
+      "name": "Twin Mono",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/twin-mono/718392"
+      },
+      "roster": false
+    },
+    {
+      "id": 1237069,
+      "slug": "mike-goward",
+      "name": "Mike Goward",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mike-goward/1237069"
+      },
+      "roster": false
+    },
+    {
+      "id": 820973,
+      "slug": "maintain",
+      "name": "Maintain",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/maintain/820973"
+      },
+      "roster": false
+    },
+    {
+      "id": 629017,
+      "slug": "doc-zee",
+      "name": "Doc Zee",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/doc-zee/629017"
+      },
+      "roster": false
+    },
+    {
+      "id": 1134018,
+      "slug": "cop-tropical-phd",
+      "name": "Cop Tropical PhD",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/cop-tropical-phd/1134018"
+      },
+      "roster": false
+    },
+    {
+      "id": 1131560,
+      "slug": "phrentic",
+      "name": "Phrentic",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/phrentic/1131560"
+      },
+      "roster": false
+    },
+    {
+      "id": 1126302,
+      "slug": "tommy-lee-bones",
+      "name": "Tommy Lee Bones",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/tommy-lee-bones/1126302"
+      },
+      "roster": false
+    },
+    {
+      "id": 121440,
+      "slug": "pixel-fist",
+      "name": "Pixel Fist",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/92b06a7e-9dc9-4fbd-8955-98597020ecb5.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/pixel-fist/121440"
+      },
+      "roster": false
+    },
+    {
+      "id": 1127469,
+      "slug": "bassbross",
+      "name": "BassBross",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/bassbross/1127469"
+      },
+      "roster": false
+    },
+    {
+      "id": 820657,
+      "slug": "habitfromthelot",
+      "name": "Habitfromthelot",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/habitfromthelot/820657"
+      },
+      "roster": false
+    },
+    {
+      "id": 1169960,
+      "slug": "sara-delirio",
+      "name": "Sara Delirio",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/sara-delirio/1169960"
+      },
+      "roster": false
+    },
+    {
+      "id": 1192113,
+      "slug": "dubinci-sound",
+      "name": "Dubinci Sound",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dubinci-sound/1192113"
+      },
+      "roster": false
+    },
+    {
+      "id": 3207,
+      "slug": "mint",
+      "name": "MINT",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mint/3207"
+      },
+      "roster": false
+    },
+    {
+      "id": 1162433,
+      "slug": "natva",
+      "name": "NATVA",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/natva/1162433"
+      },
+      "roster": false
+    },
+    {
+      "id": 1146194,
+      "slug": "hybrid-panda",
+      "name": "Hybrid Panda",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hybrid-panda/1146194"
+      },
+      "roster": false
+    },
+    {
+      "id": 1303115,
+      "slug": "sl-83",
+      "name": "SL 83",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/5ce1bdb5-d8b3-49c5-99ca-22ef5edfc5a7.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/sl-83/1303115"
+      },
+      "roster": false
+    },
+    {
+      "id": 1050563,
+      "slug": "serpnt",
+      "name": "Serpnt",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/5d03c98d-4885-47af-a4f4-5f767db69e26.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/serpnt/1050563"
+      },
+      "roster": false
+    },
+    {
+      "id": 1266331,
+      "slug": "hollo-uk",
+      "name": "HOLLO (UK)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hollo-uk/1266331"
+      },
+      "roster": false
+    },
+    {
+      "id": 674005,
+      "slug": "wez-whatevr",
+      "name": "WeZ WhaTevR",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/ca5893be-fe24-4e13-afb1-711a21997ef3.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/wez-whatevr/674005"
+      },
+      "roster": false
+    },
+    {
+      "id": 355093,
+      "slug": "dj-brownie",
+      "name": "DJ Brownie",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2b439ef3-94e1-45b1-b9ff-fdfd8cdf3767.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dj-brownie/355093"
+      },
+      "roster": false
+    },
+    {
+      "id": 3234,
+      "slug": "j-break",
+      "name": "J-Break",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b5c3881d-e9ae-4994-9d2a-c2e0964b3d9c.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/j-break/3234"
+      },
+      "roster": false
+    },
+    {
+      "id": 871993,
+      "slug": "fran-break",
+      "name": "Fran Break",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/515cae63-4a04-4d79-8bc8-4cd7df85779c.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/fran-break/871993"
+      },
+      "roster": false
+    },
+    {
+      "id": 1237777,
+      "slug": "vkyng",
+      "name": "Vkyng",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/78dc4fa0-e1e5-427d-9a7f-0199cce065d8.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/vkyng/1237777"
+      },
+      "roster": false
+    },
+    {
+      "id": 1244925,
+      "slug": "dexterbeat",
+      "name": "DexterBeat",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f33fbb03-2a55-4c46-b4d1-07fe5b8357ec.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/dexterbeat/1244925"
+      },
+      "roster": false
+    },
+    {
+      "id": 57581,
+      "slug": "the-push",
+      "name": "The Push",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d6a45eb4-dbc7-4be2-b507-83fe79fed0c7.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/the-push/57581"
+      },
+      "roster": false
+    },
+    {
+      "id": 1205597,
+      "slug": "acenoise",
+      "name": "AceNoise",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/c556904a-63ad-472d-a1f9-c53caff0b072.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/acenoise/1205597"
+      },
+      "roster": false
+    },
+    {
+      "id": 30700,
+      "slug": "afghan-headspin",
+      "name": "Afghan Headspin",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/45cf9f2a-be93-402c-8068-8a62b02723db.jpg",
+      "country": null,
+      "bio": {
+        "en": "Label manager of Dirty Kitchen Rave and one of its most prolific producers, with releases such as Romero, Justice, In The Jungle and We Are Breakbeat.",
+        "es": "Label manager de Dirty Kitchen Rave y uno de sus productores más prolíficos, con lanzamientos como Romero, Justice, In The Jungle y We Are Breakbeat."
+      },
+      "links": {
+        "beatport": "https://www.beatport.com/artist/afghan-headspin/30700"
+      },
+      "roster": true
+    },
+    {
+      "id": 1286389,
+      "slug": "drill-rocks",
+      "name": "Drill Rocks",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/drill-rocks/1286389"
+      },
+      "roster": false
+    },
+    {
+      "id": 1176911,
+      "slug": "andrewfx",
+      "name": "AndrewFx",
+      "image": "https://geo-media.beatport.com/image_size/590x404/3c1b6353-8405-471a-9cb3-2c39aee0ef92.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/andrewfx/1176911"
+      },
+      "roster": false
+    },
+    {
+      "id": 1409510,
+      "slug": "ricky-b-mixin",
+      "name": "Ricky B Mixin",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7cd69db4-9f22-4109-a3aa-d70cd90abff1.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ricky-b-mixin/1409510"
+      },
+      "roster": false
+    },
+    {
+      "id": 1092455,
+      "slug": "percybass",
+      "name": "PERCYBASS",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/percybass/1092455"
+      },
+      "roster": false
+    },
+    {
+      "id": 4092,
+      "slug": "lucas",
+      "name": "Lucas",
+      "image": "/images/artists/lucas.webp",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/lucas/4092"
+      },
+      "roster": false
+    },
+    {
+      "id": 996078,
+      "slug": "bosketta",
+      "name": "Bosketta",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/bosketta/996078"
+      },
+      "roster": false
+    },
+    {
+      "id": 1283708,
+      "slug": "manxito",
+      "name": "Manxito",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f326f4fe-a939-4cc2-811a-c7481e565b66.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/manxito/1283708"
+      },
+      "roster": false
+    },
+    {
+      "id": 1384671,
+      "slug": "mixedup-mike",
+      "name": "Mixedup-Mike",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/36c81e01-2bf5-4366-aaa9-e6129ec77357.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/mixedup-mike/1384671"
+      },
+      "roster": false
+    },
+    {
+      "id": 998525,
+      "slug": "slug-fl",
+      "name": "SluG (FL)",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0012caeb-efb5-4e14-bdbb-85571b8f81d1.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/slug-fl/998525"
+      },
+      "roster": false
+    },
+    {
+      "id": 72360,
+      "slug": "prato",
+      "name": "Prato",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/2bf1597a-692f-4fec-87ff-e910ff35afdc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/prato/72360"
+      },
+      "roster": false
+    },
+    {
+      "id": 88378,
+      "slug": "jem-haynes",
+      "name": "Jem Haynes",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/7d39d2f6-bd1f-4ffb-837a-a029fe8e4ec8.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/jem-haynes/88378"
+      },
+      "roster": false
+    },
+    {
+      "id": 503314,
+      "slug": "citybox",
+      "name": "Citybox",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d6be26f4-a0c7-4557-a405-8f68ec1777d1.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/citybox/503314"
+      },
+      "roster": false
+    },
+    {
+      "id": 402033,
+      "slug": "fm-3",
+      "name": "FM-3",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/3c3bb3e7-35d4-4af9-a310-568f5ce9aa35.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/fm-3/402033"
+      },
+      "roster": false
+    },
+    {
+      "id": 217064,
+      "slug": "contagion",
+      "name": "Contagion",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/0dc61986-bccf-49d4-8fad-6b147ea8f327.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/contagion/217064"
+      },
+      "roster": false
+    },
+    {
+      "id": 1280587,
+      "slug": "godino",
+      "name": "GODINO",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/27e1b973-27dc-4bd2-ba5e-a5fd208bd6af.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/godino/1280587"
+      },
+      "roster": false
+    },
+    {
+      "id": 1048007,
+      "slug": "gruv42",
+      "name": "Gruv42",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/d7f1c01c-c09b-4d6b-928b-9a92fb253eb5.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/gruv42/1048007"
+      },
+      "roster": false
+    },
+    {
+      "id": 613048,
+      "slug": "hatstandy",
+      "name": "HatStandy",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/b0b562c7-8a75-4d6d-9de4-cac899bdf8e0.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/hatstandy/613048"
+      },
+      "roster": false
+    },
+    {
+      "id": 1255603,
+      "slug": "devis-hard",
+      "name": "Devis Hard",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/f2ac7a85-3639-4e48-baaf-c7e3b1c804a5.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/devis-hard/1255603"
+      },
+      "roster": false
+    },
+    {
+      "id": 1206672,
+      "slug": "kid-ellipsis",
+      "name": "Kid Ellipsis",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/6b7afddc-3b54-4284-af0e-cfdbab53fae5.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/kid-ellipsis/1206672"
+      },
+      "roster": false
+    },
+    {
+      "id": 854454,
+      "slug": "loopcrashing",
+      "name": "Loopcrashing",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/92e20db8-27a6-4f9f-a913-69e2e48674cc.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/loopcrashing/854454"
+      },
+      "roster": false
+    },
+    {
+      "id": 1255494,
+      "slug": "ivan-oaks",
+      "name": "Ivan Oaks",
+      "image": "https://geo-media.beatport.com/image_size/{w}x{h}/15355963-afe8-4207-afe1-303f4b5aebd0.jpg",
+      "country": null,
+      "bio": null,
+      "links": {
+        "beatport": "https://www.beatport.com/artist/ivan-oaks/1255494"
+      },
+      "roster": false
     }
   ]
 }
