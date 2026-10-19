@@ -7,7 +7,7 @@ import { getArtist } from '@/lib/admin-data'
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const artist = await getArtist(Number(id))
-  return { title: artist?.name || 'Artista' }
+  return { title: artist?.name || 'Artist' }
 }
 
 export default async function ArtistEditPage({
@@ -27,7 +27,7 @@ export default async function ArtistEditPage({
   return (
     <div className="adm-wrap adm-narrow">
       <p className="adm-back">
-        <Link href="/administrator/artists">← Artistas</Link>
+        <Link href="/administrator/artists">← Artists</Link>
       </p>
       <header className="adm-head">
         <div>
@@ -40,7 +40,7 @@ export default async function ArtistEditPage({
                 · <a href={artist.beatport_url}>Beatport</a>
               </>
             ) : null}{' '}
-            · <Link href={`/es/artists/${artist.slug}`}>Ver en la web</Link>
+            · <Link href={`/en/artists/${artist.slug}`}>View on site</Link>
           </p>
         </div>
       </header>
@@ -49,25 +49,25 @@ export default async function ArtistEditPage({
         <input type="hidden" name="id" value={artist.id} />
         <label className="adm-check">
           <input type="checkbox" name="is_roster" defaultChecked={artist.is_roster} />
-          En el roster
+          On the roster
         </label>
         <div className="adm-grid">
           <label>
-            País
+            Country
             <input name="country" defaultValue={artist.country || ''} maxLength={80} />
           </label>
           <label>
-            Foto (URL)
+            Photo (URL)
             <input name="image_url" defaultValue={artist.image_url || ''} maxLength={400} />
           </label>
         </div>
-        <p className="adm-hint">Si la foto no es de Beatport, el sync diario la deja. Si pegas una de Beatport, el sync puede sustituirla.</p>
+        <p className="adm-hint">A photo that is not from Beatport stays. A Beatport URL can be replaced by the daily sync.</p>
         <label>
-          Bio en español
+          Bio (Spanish)
           <textarea name="bio_es" rows={7} maxLength={8000} defaultValue={artist.bio_es || ''} />
         </label>
         <label>
-          Bio en inglés
+          Bio (English)
           <textarea name="bio_en" rows={7} maxLength={8000} defaultValue={artist.bio_en || ''} />
         </label>
         <div className="adm-grid">
@@ -89,7 +89,7 @@ export default async function ArtistEditPage({
           </label>
         </div>
         <button className="adm-btn" type="submit">
-          Guardar
+          Save
         </button>
       </form>
     </div>

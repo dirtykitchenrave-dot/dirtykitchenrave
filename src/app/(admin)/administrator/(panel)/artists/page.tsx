@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Flash, Pager } from '@/components/admin/Bits'
 import { listArtists } from '@/lib/admin-data'
 
-export const metadata = { title: 'Artistas' }
+export const metadata = { title: 'Artists' }
 
 export default async function ArtistsPage({
   searchParams,
@@ -18,31 +18,31 @@ export default async function ArtistsPage({
     <div className="adm-wrap">
       <header className="adm-head">
         <div>
-          <h1>Artistas</h1>
+          <h1>Artists</h1>
           <p>
-            {data.total.toLocaleString('es-ES')} fichas. Bio, roster, país y enlaces. Nombre y Beatport los sigue trayendo el sync.
+            {data.total.toLocaleString('en-GB')} records. Bio, roster, country and links. Name and Beatport still come from the sync.
           </p>
         </div>
       </header>
       <Flash error={sp.error} />
       <form className="adm-search" action="/administrator/artists">
         {roster ? <input type="hidden" name="roster" value="1" /> : null}
-        <input name="q" defaultValue={data.q} placeholder="Nombre" aria-label="Buscar artista" />
+        <input name="q" defaultValue={data.q} placeholder="Name" aria-label="Search artists" />
         <button className="adm-btn" type="submit">
-          Buscar
+          Search
         </button>
         <Link href={roster ? '/administrator/artists' : '/administrator/artists?roster=1'} className={roster ? 'on' : undefined}>
-          {roster ? 'Ver todos' : 'Solo roster'}
+          {roster ? 'All artists' : 'Roster only'}
         </Link>
       </form>
       {data.rows.length === 0 ? (
-        <p className="adm-muted">Nada con esa búsqueda.</p>
+        <p className="adm-muted">Nothing matches that search.</p>
       ) : (
         <table className="adm-table">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>País</th>
+              <th>Name</th>
+              <th>Country</th>
               <th>Roster</th>
               <th>Bio</th>
             </tr>
@@ -54,8 +54,8 @@ export default async function ArtistsPage({
                   <Link href={`/administrator/artists/${row.id}`}>{row.name}</Link>
                 </td>
                 <td>{row.country || '—'}</td>
-                <td>{row.is_roster ? 'Sí' : '—'}</td>
-                <td>{row.bio_es || row.bio_en ? 'Sí' : '—'}</td>
+                <td>{row.is_roster ? 'Yes' : '—'}</td>
+                <td>{row.bio_es || row.bio_en ? 'Yes' : '—'}</td>
               </tr>
             ))}
           </tbody>

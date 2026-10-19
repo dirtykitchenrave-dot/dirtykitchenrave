@@ -5,10 +5,10 @@ export default function AdminError({ reset }: { error: Error; reset: () => void 
     <main className="adm-login">
       <div className="adm-card">
         <span className="adm-stamp">Backstage</span>
-        <h1>No se ha podido cargar</h1>
-        <p>La base no ha respondido. Prueba otra vez en un momento.</p>
+        <h1>Could not load</h1>
+        <p>The database did not respond. Try again in a moment.</p>
         <button className="adm-btn" type="button" onClick={() => reset()}>
-          Reintentar
+          Try again
         </button>
       </div>
     </main>

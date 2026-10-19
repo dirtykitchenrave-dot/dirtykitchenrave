@@ -21,22 +21,22 @@ export function Pager({
 }) {
   if (pages <= 1) return null
   return (
-    <nav className="adm-pager" aria-label="Páginas">
-      {page > 1 ? <Link href={pagerHref(path, query, page - 1)}>Anterior</Link> : <span />}
+    <nav className="adm-pager" aria-label="Pages">
+      {page > 1 ? <Link href={pagerHref(path, query, page - 1)}>Previous</Link> : <span />}
       <span>
         {page} / {pages}
       </span>
-      {page < pages ? <Link href={pagerHref(path, query, page + 1)}>Siguiente</Link> : <span />}
+      {page < pages ? <Link href={pagerHref(path, query, page + 1)}>Next</Link> : <span />}
     </nav>
   )
 }
 
 export function Flash({ saved, error, catalog }: { saved?: string; error?: string; catalog?: boolean }) {
   if (saved) {
-    return <p className="adm-flash">{catalog ? 'Guardado. La web pública se actualiza al momento.' : 'Guardado.'}</p>
+    return <p className="adm-flash">{catalog ? 'Saved. The public site updates straight away.' : 'Saved.'}</p>
   }
-  if (error === 'url') return <p className="adm-flash bad">Revisa las URLs: tienen que empezar por http:// o https://.</p>
-  if (error === 'long') return <p className="adm-flash bad">Uno de los textos es demasiado largo.</p>
-  if (error) return <p className="adm-flash bad">No se ha podido guardar.</p>
+  if (error === 'url') return <p className="adm-flash bad">Check the URLs: they have to start with http:// or https://.</p>
+  if (error === 'long') return <p className="adm-flash bad">One of the texts is too long.</p>
+  if (error) return <p className="adm-flash bad">Could not save.</p>
   return null
 }

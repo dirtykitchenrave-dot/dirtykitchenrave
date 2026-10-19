@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Flash, Pager } from '@/components/admin/Bits'
 import { formatDay, listReleases } from '@/lib/admin-data'
 
-export const metadata = { title: 'Lanzamientos' }
+export const metadata = { title: 'Releases' }
 
 export default async function ReleasesPage({
   searchParams,
@@ -18,34 +18,34 @@ export default async function ReleasesPage({
     <div className="adm-wrap">
       <header className="adm-head">
         <div>
-          <h1>Lanzamientos</h1>
+          <h1>Releases</h1>
           <p>
-            {data.total.toLocaleString('es-ES')} discos. Nota, hero y enlaces de tienda. Título, fecha y carátula los trae Beatport.
+            {data.total.toLocaleString('en-GB')} releases. Note, hero and shop links. Title, date and artwork come from Beatport.
           </p>
         </div>
       </header>
       <Flash error={sp.error} />
       <form className="adm-search" action="/administrator/releases">
         {featured ? <input type="hidden" name="featured" value="1" /> : null}
-        <input name="q" defaultValue={data.q} placeholder="Título o número" aria-label="Buscar lanzamiento" />
+        <input name="q" defaultValue={data.q} placeholder="Title or catalogue number" aria-label="Search releases" />
         <button className="adm-btn" type="submit">
-          Buscar
+          Search
         </button>
         <Link href={featured ? '/administrator/releases' : '/administrator/releases?featured=1'} className={featured ? 'on' : undefined}>
-          {featured ? 'Ver todos' : 'Solo el hero'}
+          {featured ? 'All releases' : 'Hero only'}
         </Link>
       </form>
       {data.rows.length === 0 ? (
-        <p className="adm-muted">Nada con esa búsqueda.</p>
+        <p className="adm-muted">Nothing matches that search.</p>
       ) : (
         <table className="adm-table">
           <thead>
             <tr>
-              <th>Catálogo</th>
-              <th>Título</th>
-              <th>Fecha</th>
+              <th>Catalogue</th>
+              <th>Title</th>
+              <th>Date</th>
               <th>Hero</th>
-              <th>Nota</th>
+              <th>Note</th>
             </tr>
           </thead>
           <tbody>
@@ -56,8 +56,8 @@ export default async function ReleasesPage({
                   <Link href={`/administrator/releases/${row.id}`}>{row.title}</Link>
                 </td>
                 <td>{formatDay(String(row.release_date).slice(0, 10))}</td>
-                <td>{row.is_featured ? 'Sí' : '—'}</td>
-                <td>{row.note_es || row.note_en ? 'Sí' : '—'}</td>
+                <td>{row.is_featured ? 'Yes' : '—'}</td>
+                <td>{row.note_es || row.note_en ? 'Yes' : '—'}</td>
               </tr>
             ))}
           </tbody>

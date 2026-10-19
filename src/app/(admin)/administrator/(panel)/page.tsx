@@ -10,41 +10,41 @@ export default async function DashboardPage() {
   const cards = [
     {
       href: '/administrator/bookings',
-      label: 'Reservas',
+      label: 'Bookings',
       value: stats.bookings,
-      note: stats.bookingsNew ? `${stats.bookingsNew} nuevas` : 'Bandeja del sello',
+      note: stats.bookingsNew ? `${stats.bookingsNew} new` : 'Label inbox',
       icon: '✉',
       hot: stats.bookingsNew > 0,
     },
     {
       href: '/administrator/artists',
-      label: 'Artistas',
+      label: 'Artists',
       value: stats.artists,
-      note: `${stats.roster} en el roster`,
+      note: `${stats.roster} on the roster`,
       icon: '♫',
       hot: false,
     },
     {
       href: '/administrator/releases',
-      label: 'Lanzamientos',
+      label: 'Releases',
       value: stats.releases,
-      note: stats.featured ? `${stats.featured.catalog || 'Destacado'} en el hero` : 'Sin destacado',
+      note: stats.featured ? `${stats.featured.catalog || 'Pinned'} on the hero` : 'Nothing pinned',
       icon: '◈',
       hot: false,
     },
     {
       href: '/administrator/tracks',
-      label: 'Temas',
+      label: 'Tracks',
       value: stats.tracks,
-      note: 'Spotify y TIDAL',
+      note: 'Spotify and TIDAL',
       icon: '♪',
       hot: false,
     },
     {
       href: '/administrator/plays',
-      label: 'Escuchas',
+      label: 'Plays',
       value: stats.plays,
-      note: `${stats.playsMonth.toLocaleString('es-ES')} en 30 días`,
+      note: `${stats.playsMonth.toLocaleString('en-GB')} in 30 days`,
       icon: '▶',
       hot: false,
     },
@@ -56,27 +56,27 @@ export default async function DashboardPage() {
         <div>
           <span className="adm-stamp">Backstage</span>
           <h1>Dashboard</h1>
-          <p>Reservas, textos del catálogo y enlaces que el sync de Beatport no pisa.</p>
+          <p>Bookings, catalogue copy and links the Beatport sync does not overwrite.</p>
         </div>
         <div className="adm-head-actions">
           <Link className="adm-btn" href="/administrator/bookings">
-            Reservas
+            Bookings
           </Link>
-          <Link className="adm-btn ghost" href="/es">
-            Ver la web
+          <Link className="adm-btn ghost" href="/en">
+            View site
           </Link>
         </div>
       </header>
 
       <div className="adm-ribbon">
-        <span>Fichas de catálogo</span>
+        <span>Catalogue records</span>
         <strong>
           <CountUp target={catalog} />
         </strong>
         <span className="adm-ribbon-side">
           {stats.bookingsNew
-            ? `${stats.bookingsNew} reserva${stats.bookingsNew === 1 ? '' : 's'} sin mirar`
-            : 'Ninguna reserva nueva'}
+            ? `${stats.bookingsNew} new booking${stats.bookingsNew === 1 ? '' : 's'}`
+            : 'No new bookings'}
         </span>
       </div>
 
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
           <Link key={card.href} href={card.href} className={`adm-card${card.hot ? ' hot' : ''}`}>
             <span className="adm-card-top">
               <span aria-hidden="true">{card.icon}</span>
-              <span>Ver →</span>
+              <span>Open →</span>
             </span>
             <strong>
               <CountUp target={card.value} />
@@ -98,9 +98,9 @@ export default async function DashboardPage() {
 
       <div className="adm-split">
         <section className="adm-panel">
-          <h2>Últimas reservas</h2>
+          <h2>Latest bookings</h2>
           {stats.latest.length === 0 ? (
-            <p className="adm-muted">Todavía no ha entrado ninguna. Cuando alguien pida una noche, aparece aquí.</p>
+            <p className="adm-muted">None yet. When someone books a label night, it shows up here.</p>
           ) : (
             <ul className="adm-list">
               {stats.latest.map((row) => (
@@ -118,7 +118,7 @@ export default async function DashboardPage() {
           )}
         </section>
         <section className="adm-panel">
-          <h2>Accesos rápidos</h2>
+          <h2>Shortcuts</h2>
           <div className="adm-quick">
             {cards.map((card) => (
               <Link key={card.href} href={card.href}>

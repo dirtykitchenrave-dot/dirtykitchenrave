@@ -3,7 +3,7 @@ import { Flash } from '@/components/admin/Bits'
 import { saveBooking } from '@/lib/admin-actions'
 import { BOOKING_STATUS, bookingStatus, formatDay, formatStamp, listBookings, statusLabel } from '@/lib/admin-data'
 
-export const metadata = { title: 'Reservas' }
+export const metadata = { title: 'Bookings' }
 
 export default async function BookingsPage({
   searchParams,
@@ -18,14 +18,14 @@ export default async function BookingsPage({
     <div className="adm-wrap">
       <header className="adm-head">
         <div>
-          <h1>Reservas</h1>
-          <p>Peticiones de noche del sello. El estado, a quién se asigna y la nota no los ve quien escribió.</p>
+          <h1>Bookings</h1>
+          <p>Label night requests. Status, who it is assigned to and the note stay internal.</p>
         </div>
       </header>
       <Flash saved={sp.saved} error={sp.error} />
       <div className="adm-filters">
         <Link href="/administrator/bookings" className={!status ? 'on' : undefined}>
-          Todas
+          All
         </Link>
         {BOOKING_STATUS.map((item) => (
           <Link key={item.value} href={`/administrator/bookings?status=${item.value}`} className={status === item.value ? 'on' : undefined}>
@@ -34,7 +34,7 @@ export default async function BookingsPage({
         ))}
       </div>
       {rows.length === 0 ? (
-        <p className="adm-muted">No hay reservas{status ? ` en «${statusLabel(status)}»` : ''}.</p>
+        <p className="adm-muted">No bookings{status ? ` in “${statusLabel(status)}”` : ''}.</p>
       ) : (
         <div className="adm-stack">
           {rows.map((row) => (
@@ -50,7 +50,7 @@ export default async function BookingsPage({
               </div>
               <dl className="adm-dl">
                 <div>
-                  <dt>Contacto</dt>
+                  <dt>Contact</dt>
                   <dd>
                     {row.contact_name}
                     <br />
@@ -60,11 +60,11 @@ export default async function BookingsPage({
                   </dd>
                 </div>
                 <div>
-                  <dt>Oferta</dt>
+                  <dt>Fee</dt>
                   <dd>{row.fee_offer}</dd>
                 </div>
                 <div>
-                  <dt>Entró</dt>
+                  <dt>Received</dt>
                   <dd>
                     {formatStamp(row.created_at)} · {row.lang.toUpperCase()}
                   </dd>
@@ -75,7 +75,7 @@ export default async function BookingsPage({
                 <input type="hidden" name="id" value={row.id} />
                 <div className="adm-grid">
                   <label>
-                    Estado
+                    Status
                     <select name="status" defaultValue={row.status}>
                       {BOOKING_STATUS.map((item) => (
                         <option key={item.value} value={item.value}>
@@ -85,16 +85,16 @@ export default async function BookingsPage({
                     </select>
                   </label>
                   <label>
-                    Artista asignado
+                    Assigned artist
                     <input name="assigned_artist" defaultValue={row.assigned_artist || ''} maxLength={120} />
                   </label>
                 </div>
                 <label>
-                  Nota interna
+                  Internal note
                   <textarea name="admin_note" rows={3} maxLength={2000} defaultValue={row.admin_note || ''} />
                 </label>
                 <button className="adm-btn" type="submit">
-                  Guardar
+                  Save
                 </button>
               </form>
             </article>

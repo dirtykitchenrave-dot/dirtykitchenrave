@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { playSummary } from '@/lib/admin-data'
 
-export const metadata = { title: 'Escuchas' }
+export const metadata = { title: 'Plays' }
 
 export default async function PlaysPage() {
   const data = await playSummary()
@@ -10,17 +10,17 @@ export default async function PlaysPage() {
     <div className="adm-wrap">
       <header className="adm-head">
         <div>
-          <h1>Escuchas</h1>
+          <h1>Plays</h1>
           <p>
-            {`${data.total.toLocaleString('es-ES')} previews empezadas en la web${data.month ? `, ${data.month.toLocaleString('es-ES')} en los últimos 30 días` : ''}. Cada fila es un play, no se editan.`}
+            {`${data.total.toLocaleString('en-GB')} preview${data.total === 1 ? '' : 's'} started on the site${data.month ? `, ${data.month.toLocaleString('en-GB')} in the last 30 days` : ''}. Each row is a play and cannot be edited.`}
           </p>
         </div>
       </header>
       <div className="adm-split">
         <section className="adm-panel">
-          <h2>Temas</h2>
+          <h2>Tracks</h2>
           {data.tracks.length === 0 ? (
-            <p className="adm-muted">Todavía no hay plays.</p>
+            <p className="adm-muted">No plays yet.</p>
           ) : (
             <ol className="adm-rank">
               {data.tracks.map((track) => (
@@ -32,16 +32,16 @@ export default async function PlaysPage() {
                     </strong>
                     <span>{track.artistNames.join(', ') || '—'}</span>
                   </Link>
-                  <em>{track.plays.toLocaleString('es-ES')}</em>
+                  <em>{track.plays.toLocaleString('en-GB')}</em>
                 </li>
               ))}
             </ol>
           )}
         </section>
         <section className="adm-panel">
-          <h2>Artistas</h2>
+          <h2>Artists</h2>
           {data.artists.length === 0 ? (
-            <p className="adm-muted">Todavía no hay plays.</p>
+            <p className="adm-muted">No plays yet.</p>
           ) : (
             <ol className="adm-rank">
               {data.artists.map((artist) => (
@@ -49,7 +49,7 @@ export default async function PlaysPage() {
                   <Link href={`/administrator/artists/${artist.id}`}>
                     <strong>{artist.name}</strong>
                   </Link>
-                  <em>{artist.plays.toLocaleString('es-ES')}</em>
+                  <em>{artist.plays.toLocaleString('en-GB')}</em>
                 </li>
               ))}
             </ol>

@@ -349,9 +349,9 @@ Los tres artistas nuevos: Serpnt, Loopcrashing, Ivan Oaks. Los 36 temas tienen p
 
 ## Admin (18 oct 2026, noche)
 
-`/administrator` es el panel. No lleva idioma: `/en/administrator` y `/es/administrator` redirigen ahí. `robots.txt` lo deja fuera. La web pública sigue en `(site)/[lang]` con su caché de una hora; el panel está en otro layout para no volver dinámicas las páginas del catálogo.
+`/administrator` es el panel. No lleva idioma: `/en/administrator` y `/es/administrator` redirigen ahí. `robots.txt` lo deja fuera. Desde el 19 oct 2026 la interfaz del panel está solo en inglés (`html lang="en"`): el cliente que entra habla inglés. Las bios y las notas siguen siendo dos campos, español e inglés, porque la web pública es bilingüe. «View on site» abre `/en`. La web pública sigue en `(site)/[lang]` con su caché de una hora; el panel está en otro layout para no volver dinámicas las páginas del catálogo.
 
-Entra con Supabase Auth. Solo cuenta una sesión cuyo `app_metadata.role` es `admin` (no vale `user_metadata`, el usuario puede editarlo). La primera cuenta es `contacto@acttax.es`. No hay tabla de usuarios.
+Entra con Supabase Auth. Solo cuenta una sesión cuyo `app_metadata.role` es `admin` (no vale `user_metadata`, el usuario puede editarlo). Las cuentas son `contacto@acttax.es` y `dirtykitchenrave@gmail.com` (esta la creó Narciso el 19 oct; el rol se lo puse yo en `app_metadata`). No hay tabla de usuarios.
 
 Qué se gestiona, que es lo que el sync de Beatport no pisa:
 

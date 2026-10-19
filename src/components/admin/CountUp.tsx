@@ -21,5 +21,5 @@ export function CountUp({ target }: { target: number }) {
     }, 16)
     return () => window.clearInterval(id)
   }, [target])
-  return <>{value.toLocaleString('es-ES')}</>
+  return <>{value.toLocaleString('en-GB')}</>
 }

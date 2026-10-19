@@ -15,7 +15,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
       logout={
         <form action={signOutAdmin}>
           <button className="adm-logout" type="submit">
-            Salir
+            Log out
           </button>
         </form>
       }

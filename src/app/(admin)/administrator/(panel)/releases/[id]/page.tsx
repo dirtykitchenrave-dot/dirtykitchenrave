@@ -7,7 +7,7 @@ import { formatDay, getRelease, tidalColumn } from '@/lib/admin-data'
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const release = await getRelease(Number(id))
-  return { title: release?.title || 'Lanzamiento' }
+  return { title: release?.title || 'Release' }
 }
 
 export default async function ReleaseEditPage({
@@ -29,7 +29,7 @@ export default async function ReleaseEditPage({
   return (
     <div className="adm-wrap adm-narrow">
       <p className="adm-back">
-        <Link href="/administrator/releases">← Lanzamientos</Link>
+        <Link href="/administrator/releases">← Releases</Link>
       </p>
       <header className="adm-head">
         <div>
@@ -42,7 +42,7 @@ export default async function ReleaseEditPage({
                 · <a href={release.beatport_url}>Beatport</a>
               </>
             ) : null}{' '}
-            · <Link href={`/es/releases/${release.slug}`}>Ver en la web</Link>
+            · <Link href={`/en/releases/${release.slug}`}>View on site</Link>
           </p>
         </div>
       </header>
@@ -51,14 +51,14 @@ export default async function ReleaseEditPage({
         <input type="hidden" name="id" value={release.id} />
         <label className="adm-check">
           <input type="checkbox" name="is_featured" defaultChecked={release.is_featured} />
-          Fijar en el hero de la home. Solo puede haber uno: al guardar, el anterior se quita.
+          Pin to the home hero. Only one can be pinned: saving this one clears the previous.
         </label>
         <label>
-          Nota en español
+          Note (Spanish)
           <textarea name="note_es" rows={6} maxLength={8000} defaultValue={release.note_es || ''} />
         </label>
         <label>
-          Nota en inglés
+          Note (English)
           <textarea name="note_en" rows={6} maxLength={8000} defaultValue={release.note_en || ''} />
         </label>
         <div className="adm-grid">
@@ -82,7 +82,7 @@ export default async function ReleaseEditPage({
           </label>
         </div>
         <button className="adm-btn" type="submit">
-          Guardar
+          Save
         </button>
       </form>
     </div>

@@ -7,11 +7,11 @@ import { getAdminUser } from './admin-auth'
 export const PAGE_SIZE = 40
 
 export const BOOKING_STATUS = [
-  { value: 'new', label: 'Nueva' },
-  { value: 'reviewing', label: 'En revisión' },
-  { value: 'offered', label: 'Ofertada' },
-  { value: 'confirmed', label: 'Confirmada' },
-  { value: 'declined', label: 'Rechazada' },
+  { value: 'new', label: 'New' },
+  { value: 'reviewing', label: 'In review' },
+  { value: 'offered', label: 'Offered' },
+  { value: 'confirmed', label: 'Confirmed' },
+  { value: 'declined', label: 'Declined' },
 ] as const
 
 export type BookingStatus = (typeof BOOKING_STATUS)[number]['value']
@@ -43,7 +43,7 @@ export function term(raw: string | undefined) {
 
 export function formatDay(iso: string) {
   const d = new Date(iso.length <= 10 ? `${iso}T12:00:00Z` : iso)
-  return new Intl.DateTimeFormat('es-ES', {
+  return new Intl.DateTimeFormat('en-GB', {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
@@ -52,12 +52,12 @@ export function formatDay(iso: string) {
 }
 
 export function formatStamp(iso: string) {
-  return new Intl.DateTimeFormat('es-ES', {
+  return new Intl.DateTimeFormat('en-GB', {
     day: '2-digit',
     month: 'short',
     hour: '2-digit',
     minute: '2-digit',
-    timeZone: 'Europe/Madrid',
+    timeZone: 'Europe/London',
   }).format(new Date(iso))
 }
 

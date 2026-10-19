@@ -7,7 +7,7 @@ import { getTrack, tidalColumn } from '@/lib/admin-data'
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const track = await getTrack(Number(id))
-  return { title: track?.title || 'Tema' }
+  return { title: track?.title || 'Track' }
 }
 
 export default async function TrackEditPage({
@@ -29,7 +29,7 @@ export default async function TrackEditPage({
   return (
     <div className="adm-wrap adm-narrow">
       <p className="adm-back">
-        <Link href="/administrator/tracks">← Temas</Link>
+        <Link href="/administrator/tracks">← Tracks</Link>
       </p>
       <header className="adm-head">
         <div>
@@ -42,10 +42,10 @@ export default async function TrackEditPage({
               <>
                 {release.catalog_number || release.title} · <Link href={`/administrator/releases/${release.id}`}>{release.title}</Link>
                 {' · '}
-                <Link href={`/es/releases/${release.slug}`}>Ver en la web</Link>
+                <Link href={`/en/releases/${release.slug}`}>View on site</Link>
               </>
             ) : (
-              'Sin disco'
+              'No release'
             )}
             {track.isrc ? ` · ${track.isrc}` : ''}
             {track.beatport_url ? (
@@ -70,11 +70,11 @@ export default async function TrackEditPage({
             <input name="tidal_url" defaultValue={track.tidal_url || ''} maxLength={400} placeholder="https://tidal.com/browse/track/…" />
           </label>
         ) : (
-          <p className="adm-hint">TIDAL sigue en el catálogo de la web. La columna todavía no está en la base, así que desde aquí solo se guarda Spotify.</p>
+          <p className="adm-hint">TIDAL still comes from the site catalogue. The column is not in the database yet, so only Spotify can be saved here.</p>
         )}
-        <p className="adm-hint">Déjalo vacío para quitar el enlace. El sync de Beatport no escribe estas columnas.</p>
+        <p className="adm-hint">Leave it empty to remove the link. The Beatport sync does not write these columns.</p>
         <button className="adm-btn" type="submit">
-          Guardar
+          Save
         </button>
       </form>
     </div>

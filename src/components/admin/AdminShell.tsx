@@ -6,11 +6,11 @@ import { useEffect, useState, type ReactNode } from 'react'
 
 const NAV = [
   { href: '/administrator', label: 'Dashboard', icon: '◉' },
-  { href: '/administrator/bookings', label: 'Reservas', icon: '✉' },
-  { href: '/administrator/artists', label: 'Artistas', icon: '♫' },
-  { href: '/administrator/releases', label: 'Lanzamientos', icon: '◈' },
-  { href: '/administrator/tracks', label: 'Temas', icon: '♪' },
-  { href: '/administrator/plays', label: 'Escuchas', icon: '▶' },
+  { href: '/administrator/bookings', label: 'Bookings', icon: '✉' },
+  { href: '/administrator/artists', label: 'Artists', icon: '♫' },
+  { href: '/administrator/releases', label: 'Releases', icon: '◈' },
+  { href: '/administrator/tracks', label: 'Tracks', icon: '♪' },
+  { href: '/administrator/plays', label: 'Plays', icon: '▶' },
 ]
 
 function bare(pathname: string) {
@@ -52,7 +52,7 @@ export default function AdminShell({
       <button
         type="button"
         className={`adm-scrim${open ? ' on' : ''}`}
-        aria-label="Cerrar menú"
+        aria-label="Close menu"
         tabIndex={open ? 0 : -1}
         onClick={() => setOpen(false)}
       />
@@ -61,11 +61,11 @@ export default function AdminShell({
           <Link href="/administrator" className="adm-brand">
             DKR // ADMIN
           </Link>
-          <button type="button" className="adm-x" aria-label="Cerrar menú" onClick={() => setOpen(false)}>
+          <button type="button" className="adm-x" aria-label="Close menu" onClick={() => setOpen(false)}>
             ✕
           </button>
         </div>
-        <nav aria-label="Administración">
+        <nav aria-label="Administration">
           {NAV.map((item) => {
             const active = item.href === '/administrator' ? pathname === '/administrator' : pathname === item.href || pathname.startsWith(`${item.href}/`)
             return (
@@ -84,12 +84,12 @@ export default function AdminShell({
             className="adm-burger"
             aria-expanded={open}
             aria-controls="adm-nav"
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={open ? 'Close menu' : 'Open menu'}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? '✕' : '☰'}
           </button>
-          <span className="adm-top-title">Dirty Kitchen Rave // Panel</span>
+          <span className="adm-top-title">Dirty Kitchen Rave // Admin</span>
           <span className="adm-email">{email}</span>
           {logout}
         </header>
