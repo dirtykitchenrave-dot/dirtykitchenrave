@@ -11,7 +11,9 @@ export default async function PlaysPage() {
       <header className="adm-head">
         <div>
           <h1>Plays</h1>
-          <p>Preview counts used to live in Supabase. They are not recorded anymore, so this list stays empty.</p>
+          <p>
+            {`${data.total.toLocaleString('en-GB')} preview${data.total === 1 ? '' : 's'} started on the site${data.month ? `, ${data.month.toLocaleString('en-GB')} in the last 30 days` : ''}. Each row is a play and cannot be edited. The old Supabase history was not copied.`}
+          </p>
         </div>
       </header>
       <div className="adm-split">

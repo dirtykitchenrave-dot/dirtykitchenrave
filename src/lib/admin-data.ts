@@ -2,6 +2,7 @@ import { cache } from 'react'
 import { redirect } from 'next/navigation'
 import { getAdminUser } from './admin-auth'
 import { readBookingsFile, readCatalogFile } from './catalog-store'
+import { loadPlayedChart } from './plays'
 import type { Artist, Catalog, Release, Track } from './types'
 
 export const PAGE_SIZE = 40
@@ -111,10 +112,13 @@ export async function adminDashboard() {
   const catalog = await catalogFile()
   const bookings = [...(await bookingFile())].sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
   const featured = catalog.releases.find((r) => r.featured) || null
+  const plays = await loadPlayedChart(10)
   return {
     artists: catalog.artists.length,
     releases: catalog.releases.length,
     tracks: catalog.tracks.length,
+    plays: plays.total,
+    playsMonth: plays.month,
     bookings: bookings.length,
     bookingsNew: bookings.filter((b) => b.status === 'new').length,
     roster: catalog.artists.filter((a) => a.roster).length,
@@ -307,8 +311,8 @@ export async function getTrack(id: number) {
   } satisfies TrackEdit
 }
 
-/** Preview counts lived in Supabase. They are not recorded anymore. */
+/** Preview starts from data/plays.json. Each row is one play. */
 export async function playSummary() {
   await gate()
-  return { total: 0, month: 0, artists: [] as { id: number; name: string; plays: number }[], tracks: [] as { id: number; title: string; mix: string; artistNames: string[]; plays: number }[] }
+  return loadPlayedChart(10)
 }

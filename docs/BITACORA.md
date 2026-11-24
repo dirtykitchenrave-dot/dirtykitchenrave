@@ -464,4 +464,8 @@ La web pública deja de leer Postgres. `getCatalog()` sirve siempre `data/catalo
 
 `/administrator` entra con `ADMIN_PASSWORD` y una cookie firmada con `ADMIN_SESSION_SECRET`. Ya no hay cuentas de Supabase Auth. Bios, notas, hero y enlaces se guardan en el JSON. Las reservas van a `data/bookings.json`. En Vercel ese guardado hace un commit en GitHub (`GITHUB_TOKEN`, contents write) y el sitio lo publica en el deploy siguiente. En local, sin token, escribe el archivo en disco.
 
-El top de previews deja de contarse y sale de la portada del sello (`/about`). Las reservas viejas se quedan en el proyecto de Supabase, parado, sin borrar.
+Las reservas viejas se quedan en el proyecto de Supabase, parado, sin borrar. El historial de escuchas de esa base no se copió.
+
+## Escuchas otra vez (24 nov 2026)
+
+Cada preview vuelve a anotarse, una fila por play, en `data/plays.json` (tema y hora). En el PC el archivo está en disco y no entra en `main`. En Vercel se guarda en la rama Git `plays`, que no redespliega la web: un commit a `main` por cada play volvería a publicar el sitio entero. Hace falta `GITHUB_TOKEN` con permiso de contents. El top 10 sale otra vez en `/about` y en el panel. El histórico de Supabase no está.

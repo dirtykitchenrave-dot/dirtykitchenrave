@@ -10,6 +10,7 @@ const NAV = [
   { href: '/administrator/artists', label: 'Artists', icon: '♫' },
   { href: '/administrator/releases', label: 'Releases', icon: '◈' },
   { href: '/administrator/tracks', label: 'Tracks', icon: '♪' },
+  { href: '/administrator/plays', label: 'Plays', icon: '▶' },
 ]
 
 function bare(pathname: string) {

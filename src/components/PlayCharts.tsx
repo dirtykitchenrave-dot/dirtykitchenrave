@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import type { Lang } from '@/i18n/config'
 import { joinNames } from '@/lib/format'
-import type { ChartArtist, ChartTrack } from '@/lib/supabase'
+import type { ChartArtist, ChartTrack } from '@/lib/plays'
 
 interface Labels {
   topArtists: string

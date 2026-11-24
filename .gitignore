@@ -25,3 +25,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# Preview log. Written on disk locally. On Vercel it lives on the git branch `plays`, not on main.
+data/plays.json
