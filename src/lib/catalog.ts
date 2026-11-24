@@ -1,36 +1,13 @@
 import seed from '../../data/catalog.seed.json'
-import { isSupabaseEnabled, loadCatalogFromSupabase } from './supabase'
 import { isUpcoming, slugify } from './format'
 import type { Artist, Catalog, Genre, Release, Track } from './types'
 
 /**
- * Single entry point for data.
- * - No Supabase env vars  -> data/catalog.seed.json
- * - Supabase env vars set -> Postgres, with streaming links from the JSON
- *   filled in when the database cell is still empty.
+ * Public catalogue. Always data/catalog.seed.json, baked into the deploy.
+ * Admin edits commit that file; the live site picks them up on the next build.
  */
-function overlayStreaming(live: Catalog, file: Catalog): Catalog {
-  const tracks = new Map(file.tracks.map((t) => [t.id, t]))
-  const releases = new Map(file.releases.map((r) => [r.id, r]))
-  return {
-    ...live,
-    tracks: live.tracks.map((t) => {
-      const o = tracks.get(t.id)
-      if (!o) return t
-      return { ...t, spotifyUrl: t.spotifyUrl || o.spotifyUrl || null, tidalUrl: t.tidalUrl || o.tidalUrl || null }
-    }),
-    releases: live.releases.map((r) => {
-      const o = releases.get(r.id)
-      if (!o) return r
-      return { ...r, links: { ...r.links, spotify: r.links.spotify || o.links.spotify, tidal: r.links.tidal || o.links.tidal } }
-    }),
-  }
-}
-
 export async function getCatalog(): Promise<Catalog> {
-  const file = seed as unknown as Catalog
-  if (!isSupabaseEnabled()) return file
-  return overlayStreaming(await loadCatalogFromSupabase(), file)
+  return seed as unknown as Catalog
 }
 
 /* ---------------------------------------------------------------- releases */

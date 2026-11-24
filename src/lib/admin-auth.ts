@@ -1,45 +1,70 @@
-import { createServerClient } from '@supabase/ssr'
+import { createHmac, timingSafeEqual } from 'node:crypto'
 import { cookies } from 'next/headers'
 import { cache } from 'react'
 
-function relaxLocalTls() {
-  if (!process.env.VERCEL && process.env.NODE_ENV === 'development') {
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-  }
+const COOKIE = 'dkr_admin'
+const MAX_AGE_S = 60 * 60 * 24 * 14
+
+function secret() {
+  return process.env.ADMIN_SESSION_SECRET || ''
 }
 
-/** Cookie session for the admin. Null when Supabase is not configured. */
-export async function createSupabaseServer() {
-  relaxLocalTls()
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  if (!url || !key) return null
-  const cookieStore = await cookies()
-  return createServerClient(url, key, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll()
-      },
-      setAll(cookiesToSet) {
-        try {
-          cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options))
-        } catch {
-          /* A Server Component cannot write cookies. The proxy refreshes the session. */
-        }
-      },
-    },
-  })
+function sign(exp: number) {
+  const body = `v1.${exp}`
+  const mac = createHmac('sha256', secret()).update(body).digest('base64url')
+  return `${body}.${mac}`
+}
+
+function validToken(token: string) {
+  const key = secret()
+  if (!key) return false
+  const parts = token.split('.')
+  if (parts.length !== 3 || parts[0] !== 'v1') return false
+  const exp = Number(parts[1])
+  if (!Number.isFinite(exp) || exp < Date.now()) return false
+  const expected = createHmac('sha256', key).update(`${parts[0]}.${parts[1]}`).digest('base64url')
+  const a = Buffer.from(parts[2])
+  const b = Buffer.from(expected)
+  if (a.length !== b.length) return false
+  return timingSafeEqual(a, b)
 }
 
 export type AdminUser = { id: string; email: string }
 
-/** Signed-in user whose app_metadata.role is admin. user_metadata is not trusted. */
+export async function openAdminSession() {
+  const key = secret()
+  const password = process.env.ADMIN_PASSWORD || ''
+  if (!key || !password) return false
+  const exp = Date.now() + MAX_AGE_S * 1000
+  const jar = await cookies()
+  jar.set(COOKIE, sign(exp), {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    path: '/',
+    maxAge: MAX_AGE_S,
+  })
+  return true
+}
+
+export async function closeAdminSession() {
+  const jar = await cookies()
+  jar.set(COOKIE, '', { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/', maxAge: 0 })
+}
+
+/** Signed-in label session. The password lives in ADMIN_PASSWORD, not in a user table. */
 export const getAdminUser = cache(async (): Promise<AdminUser | null> => {
-  const supabase = await createSupabaseServer()
-  if (!supabase) return null
-  const { data, error } = await supabase.auth.getUser()
-  if (error || !data.user) return null
-  const role = (data.user.app_metadata as { role?: string }).role
-  if (role !== 'admin') return null
-  return { id: data.user.id, email: data.user.email || '' }
+  if (!secret() || !process.env.ADMIN_PASSWORD) return null
+  const token = (await cookies()).get(COOKIE)?.value || ''
+  if (!token || !validToken(token)) return null
+  return { id: 'label', email: 'Dirty Kitchen' }
 })
+
+export function passwordMatches(given: string) {
+  const expected = process.env.ADMIN_PASSWORD || ''
+  if (!expected || !given) return false
+  const a = Buffer.from(given)
+  const b = Buffer.from(expected)
+  if (a.length !== b.length) return false
+  return timingSafeEqual(a, b)
+}

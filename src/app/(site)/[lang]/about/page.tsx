@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Channels from '@/components/Channels'
-import PlayCharts from '@/components/PlayCharts'
 import { isLang } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { LABEL_MANAGER_SLUG, LINKS, SITE } from '@/lib/site'
@@ -43,12 +42,6 @@ export default async function AboutPage({ params }: Props) {
             <Link href={`/${lang}/channels`}>{d.nav.channels}</Link>
           </div>
         </div>
-      </section>
-      <section className="pad">
-        <PlayCharts
-          lang={lang}
-          labels={{ topArtists: d.about.topArtists, topTracks: d.about.topTracks, noPlays: d.about.noPlays }}
-        />
       </section>
       <section className="pad">
         <h2 className="big">{d.about.contact}</h2>

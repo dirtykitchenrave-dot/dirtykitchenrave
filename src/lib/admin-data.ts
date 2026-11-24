@@ -1,8 +1,8 @@
 import { cache } from 'react'
 import { redirect } from 'next/navigation'
-import { serviceClient } from './beatport/sinks'
-import { loadPlayedChart } from './supabase'
 import { getAdminUser } from './admin-auth'
+import { readBookingsFile, readCatalogFile } from './catalog-store'
+import type { Artist, Catalog, Release, Track } from './types'
 
 export const PAGE_SIZE = 40
 
@@ -61,30 +61,29 @@ export function formatStamp(iso: string) {
   }).format(new Date(iso))
 }
 
-async function db() {
+async function gate() {
   if (!(await getAdminUser())) redirect('/administrator/login')
-  return serviceClient()
 }
 
-/** Migration 002 is in the repo. The live database may not have the column yet. */
-export const tidalColumn = cache(async () => {
-  const client = await db()
-  const { error } = await client.from('releases').select('tidal_url').limit(1)
-  if (!error) return true
-  if (/tidal_url/.test(error.message)) return false
-  throw new Error(error.message)
+const catalogFile = cache(async () => {
+  await gate()
+  return readCatalogFile()
 })
 
-type Filter = { eq?: [string, string | boolean]; gte?: [string, string] }
+const bookingFile = cache(async () => {
+  await gate()
+  return readBookingsFile<BookingRow>()
+})
 
-async function count(table: string, filter?: Filter) {
-  const client = await db()
-  let q = client.from(table).select('*', { count: 'exact', head: true })
-  if (filter?.eq) q = q.eq(filter.eq[0], filter.eq[1])
-  if (filter?.gte) q = q.gte(filter.gte[0], filter.gte[1])
-  const { count: n, error } = await q
-  if (error) throw new Error(error.message)
-  return n || 0
+/** The JSON catalogue always has TIDAL fields. */
+export const tidalColumn = cache(async () => true)
+
+function loc(value: { en: string; es: string } | null | undefined) {
+  return { en: value?.en || null, es: value?.es || null }
+}
+
+function matches(hay: string, q: string) {
+  return hay.toLowerCase().includes(q.toLowerCase())
 }
 
 export type BookingRow = {
@@ -109,59 +108,26 @@ export type BookingRow = {
 }
 
 export async function adminDashboard() {
-  const client = await db()
-  const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
-  const [artists, releases, tracks, plays, playsMonth, bookings, bookingsNew, roster, featuredRows, latest] =
-    await Promise.all([
-      count('artists'),
-      count('releases'),
-      count('tracks'),
-      count('track_play_events'),
-      count('track_play_events', { gte: ['played_at', since] }),
-      count('booking_requests'),
-      count('booking_requests', { eq: ['status', 'new'] }),
-      count('artists', { eq: ['is_roster', true] }),
-      client
-        .from('releases')
-        .select('title, catalog_number, slug')
-        .eq('is_featured', true)
-        .order('release_date', { ascending: false })
-        .limit(1),
-      client
-        .from('booking_requests')
-        .select('id, contact_name, organisation, event_name, city, event_date, status, created_at')
-        .order('created_at', { ascending: false })
-        .limit(5),
-    ])
-  if (featuredRows.error) throw new Error(featuredRows.error.message)
-  if (latest.error) throw new Error(latest.error.message)
-  const featured = featuredRows.data?.[0] || null
+  const catalog = await catalogFile()
+  const bookings = [...(await bookingFile())].sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
+  const featured = catalog.releases.find((r) => r.featured) || null
   return {
-    artists,
-    releases,
-    tracks,
-    plays,
-    playsMonth,
-    bookings,
-    bookingsNew,
-    roster,
+    artists: catalog.artists.length,
+    releases: catalog.releases.length,
+    tracks: catalog.tracks.length,
+    bookings: bookings.length,
+    bookingsNew: bookings.filter((b) => b.status === 'new').length,
+    roster: catalog.artists.filter((a) => a.roster).length,
     featured: featured
-      ? { title: String(featured.title), catalog: featured.catalog_number ? String(featured.catalog_number) : '', slug: String(featured.slug) }
+      ? { title: featured.title, catalog: featured.catalog || '', slug: featured.slug }
       : null,
-    latest: (latest.data || []) as Pick<
-      BookingRow,
-      'id' | 'contact_name' | 'organisation' | 'event_name' | 'city' | 'event_date' | 'status' | 'created_at'
-    >[],
+    latest: bookings.slice(0, 5),
   }
 }
 
 export async function listBookings(status: BookingStatus | '') {
-  const client = await db()
-  let q = client.from('booking_requests').select('*').order('created_at', { ascending: false }).limit(200)
-  if (status) q = q.eq('status', status)
-  const { data, error } = await q
-  if (error) throw new Error(error.message)
-  return (data || []) as BookingRow[]
+  const rows = [...(await bookingFile())].sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
+  return (status ? rows.filter((row) => row.status === status) : rows).slice(0, 200)
 }
 
 export type ArtistListRow = {
@@ -174,21 +140,20 @@ export type ArtistListRow = {
   bio_es: string | null
 }
 
+function artistRow(a: Artist): ArtistListRow {
+  const bio = loc(a.bio)
+  return { id: a.id, name: a.name, slug: a.slug, country: a.country, is_roster: a.roster, bio_en: bio.en, bio_es: bio.es }
+}
+
 export async function listArtists(rawQ: string | undefined, rawPage: string | undefined, rosterOnly: boolean) {
-  const client = await db()
   const q = term(rawQ)
   const page = pageFrom(rawPage)
   const from = (page - 1) * PAGE_SIZE
-  let query = client
-    .from('artists')
-    .select('id, name, slug, country, is_roster, bio_en, bio_es', { count: 'exact' })
-    .order('name', { ascending: true })
-  if (q) query = query.ilike('name', `%${q}%`)
-  if (rosterOnly) query = query.eq('is_roster', true)
-  const { data, error, count: total } = await query.range(from, from + PAGE_SIZE - 1)
-  if (error) throw new Error(error.message)
-  const n = total || 0
-  return { q, page, pages: Math.max(1, Math.ceil(n / PAGE_SIZE)), total: n, rows: (data || []) as ArtistListRow[] }
+  let rows = (await catalogFile()).artists.map(artistRow).sort((a, b) => a.name.localeCompare(b.name))
+  if (q) rows = rows.filter((row) => matches(row.name, q))
+  if (rosterOnly) rows = rows.filter((row) => row.is_roster)
+  const n = rows.length
+  return { q, page, pages: Math.max(1, Math.ceil(n / PAGE_SIZE)), total: n, rows: rows.slice(from, from + PAGE_SIZE) }
 }
 
 export type ArtistEdit = ArtistListRow & {
@@ -201,14 +166,17 @@ export type ArtistEdit = ArtistListRow & {
 }
 
 export async function getArtist(id: number) {
-  const client = await db()
-  const { data, error } = await client
-    .from('artists')
-    .select('id, name, slug, country, is_roster, bio_en, bio_es, image_url, beatport_url, bandcamp_url, spotify_url, soundcloud_url, instagram_url')
-    .eq('id', id)
-    .maybeSingle()
-  if (error) throw new Error(error.message)
-  return (data as ArtistEdit | null) || null
+  const artist = (await catalogFile()).artists.find((a) => a.id === id)
+  if (!artist) return null
+  return {
+    ...artistRow(artist),
+    image_url: artist.image,
+    beatport_url: artist.links.beatport || null,
+    bandcamp_url: artist.links.bandcamp || null,
+    spotify_url: artist.links.spotify || null,
+    soundcloud_url: artist.links.soundcloud || null,
+    instagram_url: artist.links.instagram || null,
+  } satisfies ArtistEdit
 }
 
 export type ReleaseListRow = {
@@ -223,25 +191,32 @@ export type ReleaseListRow = {
   note_es: string | null
 }
 
+function releaseRow(r: Release): ReleaseListRow {
+  const note = loc(r.note)
+  return {
+    id: r.id,
+    slug: r.slug,
+    catalog_number: r.catalog,
+    title: r.title,
+    release_date: r.releaseDate,
+    type: r.type,
+    is_featured: r.featured,
+    note_en: note.en,
+    note_es: note.es,
+  }
+}
+
 export async function listReleases(rawQ: string | undefined, rawPage: string | undefined, featuredOnly: boolean) {
-  const client = await db()
   const q = term(rawQ)
   const page = pageFrom(rawPage)
   const from = (page - 1) * PAGE_SIZE
-  let query = client
-    .from('releases')
-    .select('id, slug, catalog_number, title, release_date, type, is_featured, note_en, note_es', { count: 'exact' })
-    .order('release_date', { ascending: false })
-    .order('id', { ascending: false })
-  if (q) {
-    const like = `"%${q.replace(/"/g, '')}%"`
-    query = query.or(`title.ilike.${like},catalog_number.ilike.${like}`)
-  }
-  if (featuredOnly) query = query.eq('is_featured', true)
-  const { data, error, count: total } = await query.range(from, from + PAGE_SIZE - 1)
-  if (error) throw new Error(error.message)
-  const n = total || 0
-  return { q, page, pages: Math.max(1, Math.ceil(n / PAGE_SIZE)), total: n, rows: (data || []) as ReleaseListRow[] }
+  let rows = [...(await catalogFile()).releases]
+    .sort((a, b) => (a.releaseDate === b.releaseDate ? b.id - a.id : a.releaseDate < b.releaseDate ? 1 : -1))
+    .map(releaseRow)
+  if (q) rows = rows.filter((row) => matches(row.title, q) || matches(row.catalog_number || '', q))
+  if (featuredOnly) rows = rows.filter((row) => row.is_featured)
+  const n = rows.length
+  return { q, page, pages: Math.max(1, Math.ceil(n / PAGE_SIZE)), total: n, rows: rows.slice(from, from + PAGE_SIZE) }
 }
 
 export type ReleaseEdit = ReleaseListRow & {
@@ -254,17 +229,17 @@ export type ReleaseEdit = ReleaseListRow & {
 }
 
 export async function getRelease(id: number) {
-  const client = await db()
-  const tidal = await tidalColumn()
-  const { data, error } = await client
-    .from('releases')
-    .select(
-      `id, slug, catalog_number, title, release_date, type, is_featured, note_en, note_es, artwork_url, beatport_url, bandcamp_url, spotify_url, apple_music_url${tidal ? ', tidal_url' : ''}`,
-    )
-    .eq('id', id)
-    .maybeSingle()
-  if (error) throw new Error(error.message)
-  return (data as ReleaseEdit | null) || null
+  const release = (await catalogFile()).releases.find((r) => r.id === id)
+  if (!release) return null
+  return {
+    ...releaseRow(release),
+    artwork_url: release.artwork,
+    beatport_url: release.links.beatport || null,
+    bandcamp_url: release.links.bandcamp || null,
+    spotify_url: release.links.spotify || null,
+    tidal_url: release.links.tidal || null,
+    apple_music_url: release.links.apple || null,
+  } satisfies ReleaseEdit
 }
 
 export type TrackHit = {
@@ -276,26 +251,30 @@ export type TrackHit = {
   releases: { catalog_number: string | null; title: string; slug: string } | null
 }
 
+function trackRelease(catalog: Catalog, track: Track): TrackHit['releases'] {
+  const release = catalog.releases.find((r) => r.id === track.releaseId)
+  return release ? { catalog_number: release.catalog, title: release.title, slug: release.slug } : null
+}
+
 export async function searchTracks(rawQ: string | undefined) {
   const q = term(rawQ)
-  if (q.length < 2) return { q, tidal: false, rows: [] as TrackHit[] }
-  const client = await db()
-  const tidal = await tidalColumn()
-  const { data, error } = await client
-    .from('tracks')
-    .select(`id, title, mix_name, spotify_url${tidal ? ', tidal_url' : ''}, releases(catalog_number, title, slug)`)
-    .ilike('title', `%${q}%`)
-    .order('title', { ascending: true })
-    .limit(40)
-  if (error) throw new Error(error.message)
-  return {
-    q,
-    tidal,
-    rows: ((data || []) as unknown as TrackHit[]).map((row) => ({
-      ...row,
-      releases: Array.isArray(row.releases) ? row.releases[0] || null : row.releases,
-    })),
-  }
+  if (q.length < 2) return { q, tidal: true, rows: [] as TrackHit[] }
+  const catalog = await catalogFile()
+  const rows = catalog.tracks
+    .filter((track) => matches(track.title, q))
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .slice(0, 40)
+    .map(
+      (track): TrackHit => ({
+        id: track.id,
+        title: track.title,
+        mix_name: track.mix || null,
+        spotify_url: track.spotifyUrl,
+        tidal_url: track.tidalUrl || null,
+        releases: trackRelease(catalog, track),
+      }),
+    )
+  return { q, tidal: true, rows }
 }
 
 export type TrackEdit = {
@@ -310,28 +289,26 @@ export type TrackEdit = {
 }
 
 export async function getTrack(id: number) {
-  const client = await db()
-  const tidal = await tidalColumn()
-  const { data, error } = await client
-    .from('tracks')
-    .select(
-      `id, title, mix_name, spotify_url, beatport_url, isrc${tidal ? ', tidal_url' : ''}, releases(id, catalog_number, title, slug)`,
-    )
-    .eq('id', id)
-    .maybeSingle()
-  if (error) throw new Error(error.message)
-  if (!data) return null
-  const row = data as unknown as TrackEdit
-  return { ...row, releases: Array.isArray(row.releases) ? row.releases[0] || null : row.releases }
+  const catalog = await catalogFile()
+  const track = catalog.tracks.find((t) => t.id === id)
+  if (!track) return null
+  const release = catalog.releases.find((r) => r.id === track.releaseId)
+  return {
+    id: track.id,
+    title: track.title,
+    mix_name: track.mix || null,
+    spotify_url: track.spotifyUrl,
+    tidal_url: track.tidalUrl || null,
+    beatport_url: track.beatportUrl,
+    isrc: track.isrc,
+    releases: release
+      ? { id: release.id, catalog_number: release.catalog, title: release.title, slug: release.slug }
+      : null,
+  } satisfies TrackEdit
 }
 
+/** Preview counts lived in Supabase. They are not recorded anymore. */
 export async function playSummary() {
-  if (!(await getAdminUser())) redirect('/administrator/login')
-  const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
-  const [total, month, chart] = await Promise.all([
-    count('track_play_events'),
-    count('track_play_events', { gte: ['played_at', since] }),
-    loadPlayedChart(10),
-  ])
-  return { total, month, artists: chart.artists, tracks: chart.tracks }
+  await gate()
+  return { total: 0, month: 0, artists: [] as { id: number; name: string; plays: number }[], tracks: [] as { id: number; title: string; mix: string; artistNames: string[]; plays: number }[] }
 }

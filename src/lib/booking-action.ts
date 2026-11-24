@@ -1,6 +1,7 @@
 'use server'
 
-import { serviceClient } from './beatport/sinks'
+import { readBookingsFile, writeBookingsFile } from './catalog-store'
+import type { BookingRow } from './admin-data'
 import { field, readBooking, type BookingState } from './booking'
 
 export async function submitBooking(_prev: BookingState, formData: FormData): Promise<BookingState> {
@@ -11,23 +12,23 @@ export async function submitBooking(_prev: BookingState, formData: FormData): Pr
   const row = parsed.row
 
   try {
-    const sb = serviceClient()
-    const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
-    const { data: existing, error: lookupError } = await sb
-      .from('booking_requests')
-      .select('id')
-      .eq('contact_email', row.email)
-      .ilike('event_name', row.eventName)
-      .ilike('city', row.city)
-      .gte('created_at', since)
-      .limit(1)
-    if (lookupError) {
-      console.error('booking lookup', lookupError.message)
-      return { status: 'error', code: 'unavailable' }
-    }
-    if (existing && existing.length) return { status: 'error', code: 'duplicate' }
+    const rows = await readBookingsFile<BookingRow>()
+    const since = Date.now() - 24 * 60 * 60 * 1000
+    const duplicate = rows.some((existing) => {
+      const created = new Date(existing.created_at).getTime()
+      return (
+        created >= since &&
+        existing.contact_email.toLowerCase() === row.email &&
+        existing.event_name.toLowerCase() === row.eventName.toLowerCase() &&
+        existing.city.toLowerCase() === row.city.toLowerCase()
+      )
+    })
+    if (duplicate) return { status: 'error', code: 'duplicate' }
 
-    const { error } = await sb.from('booking_requests').insert({
+    const nextId = rows.reduce((max, item) => Math.max(max, item.id), 0) + 1
+    rows.push({
+      id: nextId,
+      created_at: new Date().toISOString(),
       lang: row.lang,
       contact_name: row.name,
       contact_email: row.email,
@@ -41,11 +42,11 @@ export async function submitBooking(_prev: BookingState, formData: FormData): Pr
       set_minutes: row.setMinutes,
       fee_offer: row.fee,
       message: row.message,
+      status: 'new',
+      assigned_artist: null,
+      admin_note: null,
     })
-    if (error) {
-      console.error('booking insert', error.message)
-      return { status: 'error', code: 'unavailable' }
-    }
+    await writeBookingsFile(rows, `Booking: ${row.eventName} (${row.city})`)
   } catch (err) {
     console.error('booking', err instanceof Error ? err.message : err)
     return { status: 'error', code: 'unavailable' }

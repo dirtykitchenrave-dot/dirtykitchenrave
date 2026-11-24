@@ -40,14 +40,6 @@ export default async function DashboardPage() {
       icon: '♪',
       hot: false,
     },
-    {
-      href: '/administrator/plays',
-      label: 'Plays',
-      value: stats.plays,
-      note: `${stats.playsMonth.toLocaleString('en-GB')} in 30 days`,
-      icon: '▶',
-      hot: false,
-    },
   ]
 
   return (

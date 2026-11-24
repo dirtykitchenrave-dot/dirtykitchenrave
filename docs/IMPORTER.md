@@ -1,7 +1,7 @@
 # Beatport importer
 
 **Status: implemented** in `src/lib/beatport/` + `scripts/import-beatport.ts` + `src/app/api/cron/beatport-sync`.
-Full catalogue loaded 30 Sept 2026: **413 releases, 1,571 tracks**, all with catalogue number and preview.
+Full catalogue reloaded 24 Nov 2026: **446 releases, 1,668 tracks**, all with catalogue number and preview. The public site reads this JSON. Supabase is not in the request path.
 
 From this PC, `npm run import:beatport` does not get the HTML. First the Acttax proxy fails TLS
 (`UNABLE_TO_VERIFY_LEAF_SIGNATURE`; retry that one call with `NODE_TLS_REJECT_UNAUTHORIZED=0`).
@@ -10,9 +10,8 @@ A real browser on the same machine gets 200. The 30 Sept load was taken from tho
 (11 track pages + one request per release) and built with `CatalogBuilder`.
 
 Goal: fill the catalogue with the **whole** Dirty Kitchen Rave
-catalogue from Beatport, and keep it up to date as new releases come out. The website already reads
-from Supabase as soon as `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set
-(or from `data/catalog.seed.json` when they are not).
+catalogue from Beatport, and keep it up to date as new releases come out. The website reads
+`data/catalog.seed.json`. Supabase is not on the public path.
 
 Reference implementation to reuse: Optimal Breaks
 `E:\Acttax Dropbox\Narciso Pardo\Eskala IA\W - OPTIMAL BREAKS\weboptimalbreaks\src\lib\beatport-next-data-tracks.ts`
@@ -61,7 +60,7 @@ Label: `https://www.beatport.com/label/dirty-kitchen-rave/112835` (label id **11
 | Page (server-rendered `__NEXT_DATA__`) | What it contains |
 |---|---|
 | `/label/dirty-kitchen-rave/112835` | query `releases-label_id 112835 per_page 21 …` → **count 413 releases** (21 per page), plus label top 10 and top 20 |
-| `/label/dirty-kitchen-rave/112835/tracks?page=N&per_page=150` | query `tracks` → **count 1,571 tracks**, 150 per page, **full track objects** |
+| `/label/dirty-kitchen-rave/112835/tracks?page=N&per_page=100` | query `tracks` → full track objects. Nov 2026: Beatport serves **100 per page** even if you ask 150. `data.next` is often false before the last page — walk until a short page. 13 Nov 2026: **1,636 tracks**, 17 pages. |
 | `/label/dirty-kitchen-rave/112835/releases?per_page=150` | ⚠️ only the **pre-orders** are server-rendered (`preorder=true`, 11 results). The rest of the list is fetched client-side from `api.beatport.com/v4` with a session token. **Do not rely on this page.** |
 | `/release/<slug>/<id>` | release detail + its tracks |
 

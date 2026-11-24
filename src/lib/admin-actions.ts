@@ -2,9 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { createSupabaseServer, getAdminUser } from './admin-auth'
-import { bookingStatus, tidalColumn } from './admin-data'
-import { serviceClient } from './beatport/sinks'
+import { closeAdminSession, getAdminUser, openAdminSession, passwordMatches } from './admin-auth'
+import { bookingStatus, type BookingRow } from './admin-data'
+import { readBookingsFile, readCatalogFile, writeBookingsFile, writeCatalogFile } from './catalog-store'
 
 function refreshCatalog() {
   revalidatePath('/en', 'layout')
@@ -14,7 +14,11 @@ function refreshCatalog() {
 
 async function gate() {
   if (!(await getAdminUser())) redirect('/administrator/login')
-  return serviceClient()
+}
+
+function textOrNull(en: string, es: string) {
+  if (!en && !es) return null
+  return { en, es }
 }
 
 function numId(formData: FormData): number | null {
@@ -35,6 +39,7 @@ function optionalUrl(raw: string): string | null | 'bad' {
   const value = raw.trim()
   if (!value) return null
   if (value.length > 400) return 'bad'
+  if (value.startsWith('/') && !value.startsWith('//') && !value.includes('..')) return value
   try {
     const url = new URL(value)
     if (url.protocol !== 'https:' && url.protocol !== 'http:') return 'bad'
@@ -57,24 +62,15 @@ function urls(formData: FormData, names: string[]): Record<string, string | null
 }
 
 export async function signInAdmin(formData: FormData) {
-  const email = String(formData.get('email') ?? '')
-    .trim()
-    .toLowerCase()
   const password = String(formData.get('password') ?? '')
-  const supabase = await createSupabaseServer()
-  if (!supabase || !email || !password) redirect('/administrator/login?error=1')
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-  const role = (data.user?.app_metadata as { role?: string } | undefined)?.role
-  if (error || role !== 'admin') {
-    if (data.session) await supabase.auth.signOut()
-    redirect('/administrator/login?error=1')
-  }
+  if (!passwordMatches(password)) redirect('/administrator/login?error=1')
+  const opened = await openAdminSession()
+  if (!opened) redirect('/administrator/login?error=1')
   redirect('/administrator')
 }
 
 export async function signOutAdmin() {
-  const supabase = await createSupabaseServer()
-  if (supabase) await supabase.auth.signOut()
+  await closeAdminSession()
   redirect('/administrator/login')
 }
 
@@ -90,22 +86,27 @@ export async function saveArtist(formData: FormData) {
   if (links === 'bad') redirect(`${back}?error=url`)
   if (links === 'long') redirect(`${back}?error=long`)
 
-  const client = await gate()
-  const { error } = await client
-    .from('artists')
-    .update({
-      bio_en: bioEn || null,
-      bio_es: bioEs || null,
-      country: country || null,
-      image_url: links.image_url,
-      bandcamp_url: links.bandcamp_url,
-      spotify_url: links.spotify_url,
-      soundcloud_url: links.soundcloud_url,
-      instagram_url: links.instagram_url,
-      is_roster: formData.get('is_roster') === 'on',
-    })
-    .eq('id', id)
-  if (error) redirect(`${back}?error=save`)
+  await gate()
+  try {
+    const catalog = await readCatalogFile()
+    const artist = catalog.artists.find((a) => a.id === id)
+    if (!artist) redirect(`${back}?error=save`)
+    artist.bio = textOrNull(bioEn, bioEs)
+    artist.country = country || null
+    artist.image = links.image_url
+    artist.links = {
+      ...artist.links,
+      bandcamp: links.bandcamp_url,
+      spotify: links.spotify_url,
+      soundcloud: links.soundcloud_url,
+      instagram: links.instagram_url,
+    }
+    artist.roster = formData.get('is_roster') === 'on'
+    await writeCatalogFile(catalog, `Admin: artist ${artist.name}`)
+  } catch (err) {
+    console.error('save artist', err instanceof Error ? err.message : err)
+    redirect(`${back}?error=save`)
+  }
   refreshCatalog()
   redirect(`${back}?saved=1`)
 }
@@ -117,29 +118,35 @@ export async function saveRelease(formData: FormData) {
   const noteEn = bounded(formData, 'note_en', 8000)
   const noteEs = bounded(formData, 'note_es', 8000)
   if (noteEn === 'long' || noteEs === 'long') redirect(`${back}?error=long`)
-  const names = (await tidalColumn())
-    ? ['bandcamp_url', 'spotify_url', 'tidal_url', 'apple_music_url']
-    : ['bandcamp_url', 'spotify_url', 'apple_music_url']
-  const links = urls(formData, names)
+  const links = urls(formData, ['bandcamp_url', 'spotify_url', 'tidal_url', 'apple_music_url'])
   if (links === 'bad') redirect(`${back}?error=url`)
   if (links === 'long') redirect(`${back}?error=long`)
   const featured = formData.get('is_featured') === 'on'
 
-  const client = await gate()
-  if (featured) {
-    const { error } = await client.from('releases').update({ is_featured: false }).neq('id', id)
-    if (error) redirect(`${back}?error=save`)
+  await gate()
+  try {
+    const catalog = await readCatalogFile()
+    const release = catalog.releases.find((r) => r.id === id)
+    if (!release) redirect(`${back}?error=save`)
+    if (featured) {
+      for (const other of catalog.releases) {
+        if (other.id !== id) other.featured = false
+      }
+    }
+    release.note = textOrNull(noteEn, noteEs)
+    release.featured = featured
+    release.links = {
+      ...release.links,
+      bandcamp: links.bandcamp_url,
+      spotify: links.spotify_url,
+      tidal: links.tidal_url,
+      apple: links.apple_music_url,
+    }
+    await writeCatalogFile(catalog, `Admin: release ${release.catalog || release.title}`)
+  } catch (err) {
+    console.error('save release', err instanceof Error ? err.message : err)
+    redirect(`${back}?error=save`)
   }
-  const { error } = await client
-    .from('releases')
-    .update({
-      note_en: noteEn || null,
-      note_es: noteEs || null,
-      is_featured: featured,
-      ...links,
-    })
-    .eq('id', id)
-  if (error) redirect(`${back}?error=save`)
   refreshCatalog()
   redirect(`${back}?saved=1`)
 }
@@ -148,17 +155,22 @@ export async function saveTrack(formData: FormData) {
   const id = numId(formData)
   if (!id) redirect('/administrator/tracks?error=save')
   const back = `/administrator/tracks/${id}`
-  const tidal = await tidalColumn()
-  const links = urls(formData, tidal ? ['spotify_url', 'tidal_url'] : ['spotify_url'])
+  const links = urls(formData, ['spotify_url', 'tidal_url'])
   if (links === 'bad') redirect(`${back}?error=url`)
   if (links === 'long') redirect(`${back}?error=long`)
 
-  const client = await gate()
-  const { error } = await client
-    .from('tracks')
-    .update(tidal ? { spotify_url: links.spotify_url, tidal_url: links.tidal_url } : { spotify_url: links.spotify_url })
-    .eq('id', id)
-  if (error) redirect(`${back}?error=save`)
+  await gate()
+  try {
+    const catalog = await readCatalogFile()
+    const track = catalog.tracks.find((t) => t.id === id)
+    if (!track) redirect(`${back}?error=save`)
+    track.spotifyUrl = links.spotify_url
+    track.tidalUrl = links.tidal_url
+    await writeCatalogFile(catalog, `Admin: track ${track.title}`)
+  } catch (err) {
+    console.error('save track', err instanceof Error ? err.message : err)
+    redirect(`${back}?error=save`)
+  }
   refreshCatalog()
   redirect(`${back}?saved=1`)
 }
@@ -173,15 +185,18 @@ export async function saveBooking(formData: FormData) {
   const note = bounded(formData, 'admin_note', 2000)
   if (assigned === 'long' || note === 'long') redirect(`${back}?error=long`)
 
-  const client = await gate()
-  const { error } = await client
-    .from('booking_requests')
-    .update({
-      status,
-      assigned_artist: assigned || null,
-      admin_note: note || null,
-    })
-    .eq('id', id)
-  if (error) redirect(`${back}?error=save`)
+  await gate()
+  try {
+    const rows = await readBookingsFile<BookingRow>()
+    const row = rows.find((item) => item.id === id)
+    if (!row) redirect(`${back}?error=save`)
+    row.status = status
+    row.assigned_artist = assigned || null
+    row.admin_note = note || null
+    await writeBookingsFile(rows, `Admin: booking ${row.event_name}`)
+  } catch (err) {
+    console.error('save booking', err instanceof Error ? err.message : err)
+    redirect(`${back}?error=save`)
+  }
   redirect(`${back}?saved=1`)
 }

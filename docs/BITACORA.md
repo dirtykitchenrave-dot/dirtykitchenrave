@@ -362,3 +362,106 @@ Qué se gestiona, que es lo que el sync de Beatport no pisa:
 - Escuchas: solo lectura, el top de previews.
 
 Al guardar catálogo se llama `revalidatePath` de `/en`, `/es` y el feed, así la web no espera a la hora de caché. Las escuchas y los créditos no se editan: el sync reescribe los créditos.
+
+## Carga a mano (30 oct 2026)
+
+Beatport tenía **1.622 temas**. La web se había quedado en la carga del 18 oct (1.607 / 423). El cron sigue sin traerlos (Cloudflare al `fetch` de Node; `CRON_SECRET` vacío). Chrome headless también cae en «Un momento…». El listado `/tracks?per_page=150` se leyó en el navegador de Cursor (pasa Cloudflare) y se pasó por el mismo `CatalogBuilder`. Escrito en `data/catalog.seed.json` y en Supabase.
+
+| | Antes | Ahora |
+|---|---|---|
+| Lanzamientos | 423 | 431 |
+| Temas | 1.607 | 1.622 (cuadra con Beatport) |
+| Artistas | 178 | 179 |
+
+Los 15 temas tienen previa. Artista nuevo: **c0ntaX**. Afghan Headspin sigue en el roster. Números nuevos: DKR0371 Knocked Out / Loco, DKR0372 Head For The Green, DKR0373 Afrika / Make It Work, DKR0374 Feel Real Good / Fear, DKR0375 The Tsunami, DKR0376 JOKER / Air Max Bounce, DKR0377 Warp Speed EP, DKR0378 Mr Magic. Todos en preventa (12–25 nov). La web publicada lee Postgres con caché de una hora: no hace falta deploy para que salgan.
+
+## Carga a mano (3 nov 2026)
+
+Beatport, en la pestaña de lanzamientos, tenía **15 preventas**. Trece ya estaban (hasta DKR0378 Mr Magic, carga del 30 oct). El listado de temas da **1.626**, cuatro más que la base. Esos cuatro son dos discos nuevos, los dos del 27 nov:
+
+| Número | Título | Artista | Temas |
+|---|---|---|---|
+| DKR0381 | Who I Am | Kid Ellipsis (remix de Afghan Headspin) | 2 |
+| DKR0380 | Lost Control / Kaos Funk | Zenmonkey | 2 |
+
+No hay DKR0379 en el sello. Artista nuevo: **Zenmonkey**. Kid Ellipsis ya estaba. Afghan Headspin sigue en el roster. Los cuatro temas tienen previa. Escrito en `data/catalog.seed.json` y en Supabase. El cron sigue sin traerlos (Cloudflare al `fetch` de Node). La web publicada lee Postgres con caché de una hora.
+
+## Recarga completa (13 nov 2026)
+
+Pedido: no solo lo nuevo; también nombres que Beatport había corregido. Se bajaron las **17 páginas de temas** (Beatport ahora sirve 100 por página, no 150; el `next` del HTML miente y corta en la 12) y las **439 fichas** `/release`. Mismo `CatalogBuilder`. JSON y Supabase.
+
+| | Antes (3 nov) | Ahora |
+|---|---|---|
+| Lanzamientos | 433 | 439 |
+| Temas | 1.626 | 1.636 |
+| Artistas | 180 | 183 |
+
+Cuadra con Beatport: 1.636 temas, todos con previa y número de catálogo. Ningún disco se quedó sin tracklist.
+
+Seis discos nuevos:
+
+| Número | Fecha | Título |
+|---|---|---|
+| DKR0386 | 9 dic | One More Time |
+| DKR0385 | 8 dic | Cruising Round the Block |
+| DKR0384 | 4 dic | End Of Days |
+| DKR0383 | 3 dic | Bassline Lives |
+| DKR0382 | 2 dic | Spirited Rave / Bal |
+| DKR0379 | 26 nov | Time / Eschalon |
+
+Artistas nuevos: **Offkey**, **Lucuz** y **JimmyP UB8**. Afghan Headspin sigue en el roster. La foto de Lucas no es la de Beatport.
+
+Errata que sí estaba mal en la web: el tema de DKR0371 salía **Kocked Out**; en Beatport ya es **Knocked Out**. También se quitaron espacios de más en títulos (`Losing My Mind`, `Midnight Snack`). Los títulos de disco no habían cambiado.
+
+El cron sigue sin traerlos. La web publicada lee Postgres: salen como muy tarde en una hora.
+
+## Recarga completa (17 nov 2026)
+
+Beatport tenía **1.661 temas** y **441 lanzamientos**. La web iba en **1.636 / 439** (13 nov). Mismo circuito: 17 páginas de `/tracks` (100 por página) + 441 fichas `/release`. Escrito en `data/catalog.seed.json` y Supabase.
+
+| | Antes | Ahora |
+|---|---|---|
+| Lanzamientos | 439 | 441 |
+| Temas | 1.636 | 1.661 |
+| Artistas | 183 | 183 |
+
+Dos discos nuevos:
+
+| Número | Fecha | Título | Temas |
+|---|---|---|---|
+| DKRLP057 | 15 dic | ESSENTIAL DRUM & BASS VOL 1 | 24 |
+| DKR0387 | 10 dic | Popes Viper | 1 |
+
+Sin cambios de título respecto a la carga del 13 nov. Cron sigue parado.
+
+## Recarga completa (24 nov 2026)
+
+La web seguía en la foto del **17 nov** (**441 / 1.661**). Beatport ya llevaba **5 lanzamientos** y **7 temas** más; **I CAN FEEL IT** (**DKR0394**, release `7757074`, WeZ WhaTevR, 24 nov) no podía salir hasta otra pasada.
+
+Mismo circuito: **17 páginas** de `/tracks` (100) + **446** fichas `/release`. `data/catalog.seed.json` actualizado (`updatedAt` 24 nov, **446 / 1.668**, **185 artistas**).
+
+| | 17 nov | 24 nov |
+|---|---|---|
+| Lanzamientos | 441 | 446 |
+| Temas | 1.661 | 1.668 |
+| Artistas | 183 | 185 |
+
+Discos nuevos respecto a la carga del 17 nov:
+
+| Número | Fecha | Título | Temas |
+|---|---|---|---|
+| DKR0394 | 24 nov | I CAN FEEL IT | 1 |
+| DKR0388 | 16 dic | Aura / I'm A Raver | 2 |
+| DKR0389 | 17 dic | Drop | 1 |
+| DKR0390 | 18 dic | Elektrolopithecus | 1 |
+| DKR0391 | 22 dic | The System / Hardcore Tricks | 2 |
+
+**Supabase:** el upsert falló con `exceed_egress_quota` (proyecto `qsfynssmtuwufwqtbmra` restringido). El seed local ya incluye DKR0394.
+
+## Catálogo en el JSON y admin propio (24 nov 2026)
+
+La web pública deja de leer Postgres. `getCatalog()` sirve siempre `data/catalog.seed.json` (446 / 1.668, con DKR0394). El plan de pago de Supabase no hace falta para el catálogo.
+
+`/administrator` entra con `ADMIN_PASSWORD` y una cookie firmada con `ADMIN_SESSION_SECRET`. Ya no hay cuentas de Supabase Auth. Bios, notas, hero y enlaces se guardan en el JSON. Las reservas van a `data/bookings.json`. En Vercel ese guardado hace un commit en GitHub (`GITHUB_TOKEN`, contents write) y el sitio lo publica en el deploy siguiente. En local, sin token, escribe el archivo en disco.
+
+El top de previews deja de contarse y sale de la portada del sello (`/about`). Las reservas viejas se quedan en el proyecto de Supabase, parado, sin borrar.

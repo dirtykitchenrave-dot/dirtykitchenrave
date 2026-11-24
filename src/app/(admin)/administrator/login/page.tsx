@@ -13,12 +13,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <form className="adm-card" action={signInAdmin}>
         <span className="adm-stamp">Backstage</span>
         <h1>DKR Admin</h1>
-        <p>Sign in with the label account. Bookings, copy and links are managed from here.</p>
-        {error ? <p className="adm-flash bad">Wrong email or password, or this account is not an admin.</p> : null}
-        <label>
-          Email
-          <input name="email" type="email" autoComplete="username" required maxLength={160} />
-        </label>
+        <p>Sign in with the label password. Bookings, copy and links are managed from here.</p>
+        {error ? <p className="adm-flash bad">Wrong password.</p> : null}
         <label>
           Password
           <input name="password" type="password" autoComplete="current-password" required maxLength={200} />

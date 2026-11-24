@@ -39,13 +39,9 @@ npm run import:beatport -- --incremental
 The JSON import replaces the sample file but **keeps editorial fields** already in it
 (artist bios, roster flag, manual links, release notes, featured).
 
-### With Supabase
+### Admin
 
-1. Create a Supabase project and run `supabase/migrations/001_init.sql` in the SQL editor.
-2. In `.env.local` set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and `SUPABASE_SERVICE_ROLE_KEY`.
-3. `npm run import:beatport -- --supabase` (full) — the site now reads from the database.
-4. Edit bios, roster, notes, featured releases and Bandcamp/Spotify links directly in Supabase:
-   the importer never overwrites those columns.
+`/administrator` uses `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (see `.env.example`). Saves write `data/catalog.seed.json` and `data/bookings.json`. On Vercel that needs `GITHUB_TOKEN` so the save becomes a commit and the next deploy publishes it. The public site does not read Supabase.
 
 ### Daily sync (Vercel)
 
@@ -104,14 +100,14 @@ src/
   components/                Nav, Footer, Player, TrackList, ReleasesExplorer, HeroDrop, Marquee…
   i18n/                      Locales + EN/ES dictionaries (all UI copy)
   lib/
-    catalog.ts               Data entry point (seed JSON or Supabase) + selectors
+    catalog.ts               Data entry point (seed JSON) + selectors
     supabase.ts              Read adapter
     beatport/                Importer: scrape.ts (Beatport pages) · build.ts (→ Catalog) · sync.ts · sinks.ts (Supabase writes)
     types.ts view.ts format.ts site.ts
 scripts/import-beatport.ts   CLI for the importer
-data/catalog.seed.json       Catalogue used when Supabase is not configured
+data/catalog.seed.json       Catalogue the public site serves
 
-Published pages cache the catalogue for one hour (`revalidate = 3600`). A Supabase edit does not show on the live site until that hour passes, the daily Beatport cron calls `revalidatePath`, or a new deploy runs. Without the two `NEXT_PUBLIC_SUPABASE_*` vars on Vercel, the site keeps serving this JSON. Detail: `docs/BITACORA.md`, section «Un cambio en Supabase no sale al momento».
+Published pages cache the catalogue for one hour (`revalidate = 3600`). An admin save commits the JSON; the live site shows it after the deploy that follows that commit.
 supabase/migrations/         001_init.sql
 docs/IMPORTER.md             Beatport findings, field mapping, 30 Sept load
 docs/BITACORA.md             Session notes (catalogue, navbar, internal links, bios)
