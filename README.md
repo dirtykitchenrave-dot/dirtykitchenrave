@@ -41,14 +41,11 @@ The JSON import replaces the sample file but **keeps editorial fields** already 
 
 ### Admin
 
-`/administrator` uses `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (see `.env.example`). Saves write `data/catalog.seed.json` and `data/bookings.json`. On Vercel that needs `GITHUB_TOKEN` so the save becomes a commit and the next deploy publishes it. The public site does not read Supabase.
+`/administrator` signs in as `dirtykitchenrave@gmail.com` with `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (see `.env.example`). Confirmed on www.dirtykitchenrave.com on 24 Nov 2026, after the Supabase project was deleted. Saves write `data/catalog.seed.json` and `data/bookings.json`. On Vercel that needs `GITHUB_TOKEN` (contents write on `dirtykitchenrave-dot/dirtykitchenrave`) so the save becomes a commit and the next deploy publishes it. Preview plays go to `data/plays.json` on the git branch `plays`, which does not redeploy the site. The public catalogue is only the JSON.
 
 ### Daily sync (Vercel)
 
-`vercel.json` schedules `GET /api/cron/beatport-sync` every day at 06:00 UTC. It reads the newest tracks
-and the pre-orders, stores new releases in Supabase and revalidates the site.
-Set `CRON_SECRET` (and the Supabase vars) in Vercel → Project → Environment Variables.
-Manual run: `curl -H "Authorization: Bearer $CRON_SECRET" https://<site>/api/cron/beatport-sync`.
+`vercel.json` still schedules `GET /api/cron/beatport-sync` every day at 06:00 UTC. That route writes Supabase and is idle: the project was deleted on 24 Nov 2026 and Cloudflare already blocked the Node fetch. New releases are loaded by hand into `data/catalog.seed.json`.
 
 ## Listening (like Optimal Breaks)
 
@@ -100,9 +97,9 @@ src/
   components/                Nav, Footer, Player, TrackList, ReleasesExplorer, HeroDrop, Marquee…
   i18n/                      Locales + EN/ES dictionaries (all UI copy)
   lib/
-    catalog.ts               Data entry point (seed JSON) + selectors
-    supabase.ts              Read adapter
-    beatport/                Importer: scrape.ts (Beatport pages) · build.ts (→ Catalog) · sync.ts · sinks.ts (Supabase writes)
+    catalog.ts               Public catalogue (seed JSON)
+    plays.ts                 Preview log (file, or git branch `plays` on Vercel)
+    beatport/                Importer: scrape.ts · build.ts · sync.ts · sinks.ts (old Supabase writer, unused in production)
     types.ts view.ts format.ts site.ts
 scripts/import-beatport.ts   CLI for the importer
 data/catalog.seed.json       Catalogue the public site serves

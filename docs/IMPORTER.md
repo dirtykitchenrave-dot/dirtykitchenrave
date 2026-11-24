@@ -115,11 +115,11 @@ instagram_url, note_en, note_es, is_featured` (and `bandcamp_url` once set by ha
 - **Bandcamp**: no API. Scrape `https://dirtykitchenrave.bandcamp.com/music`, match by normalised
   title + artist. Leave unmatched ones for manual entry.
 
-## Env vars the importer needs
+## Env vars
+
+The live site (24 Nov 2026) does not use Supabase. The project `qsfynssmtuwufwqtbmra` was deleted. Catalogue, bookings and plays are files. Optional streaming match still uses:
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=
-SUPABASE_SERVICE_ROLE_KEY=      # server only
-SPOTIFY_CLIENT_ID=              # optional
-SPOTIFY_CLIENT_SECRET=          # optional
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
 ```
