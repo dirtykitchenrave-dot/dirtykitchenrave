@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { closeAdminSession, getAdminUser, openAdminSession, passwordMatches } from './admin-auth'
+import { closeAdminSession, credentialsMatch, getAdminUser, openAdminSession } from './admin-auth'
 import { bookingStatus, type BookingRow } from './admin-data'
 import { readBookingsFile, readCatalogFile, writeBookingsFile, writeCatalogFile } from './catalog-store'
 
@@ -62,8 +62,9 @@ function urls(formData: FormData, names: string[]): Record<string, string | null
 }
 
 export async function signInAdmin(formData: FormData) {
+  const email = String(formData.get('email') ?? '')
   const password = String(formData.get('password') ?? '')
-  if (!passwordMatches(password)) redirect('/administrator/login?error=1')
+  if (!credentialsMatch(email, password)) redirect('/administrator/login?error=1')
   const opened = await openAdminSession()
   if (!opened) redirect('/administrator/login?error=1')
   redirect('/administrator')

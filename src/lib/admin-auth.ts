@@ -29,7 +29,15 @@ function validToken(token: string) {
   return timingSafeEqual(a, b)
 }
 
+/** The only admin account. The password stays in ADMIN_PASSWORD. */
+export const ADMIN_EMAIL = 'dirtykitchenrave@gmail.com'
+
 export type AdminUser = { id: string; email: string }
+
+function same(given: string, expected: string) {
+  if (!expected || !given || given.length !== expected.length) return false
+  return timingSafeEqual(Buffer.from(given), Buffer.from(expected))
+}
 
 export async function openAdminSession() {
   const key = secret()
@@ -57,14 +65,11 @@ export const getAdminUser = cache(async (): Promise<AdminUser | null> => {
   if (!secret() || !process.env.ADMIN_PASSWORD) return null
   const token = (await cookies()).get(COOKIE)?.value || ''
   if (!token || !validToken(token)) return null
-  return { id: 'label', email: 'Dirty Kitchen' }
+  return { id: 'label', email: ADMIN_EMAIL }
 })
 
-export function passwordMatches(given: string) {
-  const expected = process.env.ADMIN_PASSWORD || ''
-  if (!expected || !given) return false
-  const a = Buffer.from(given)
-  const b = Buffer.from(expected)
-  if (a.length !== b.length) return false
-  return timingSafeEqual(a, b)
+export function credentialsMatch(email: string, password: string) {
+  const expectedEmail = (process.env.ADMIN_EMAIL || ADMIN_EMAIL).trim().toLowerCase()
+  const givenEmail = email.trim().toLowerCase()
+  return same(givenEmail, expectedEmail) && same(password, process.env.ADMIN_PASSWORD || '')
 }
