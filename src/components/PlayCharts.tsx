@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Lang } from '@/i18n/config'
 import { joinNames } from '@/lib/format'
 import type { ChartArtist, ChartTrack } from '@/lib/plays'
@@ -12,43 +12,29 @@ interface Labels {
   noPlays: string
 }
 
-/**
- * Asks /api/charts with no cache, the same idea as Optimal Breaks /top100.
- * Refreshes when a preview starts on this browser, and every few seconds while the tab is open.
- */
+/** One read of /api/charts. The response is cached for seven days. */
 export default function PlayCharts({ lang, labels }: { lang: Lang; labels: Labels }) {
   const [artists, setArtists] = useState<ChartArtist[] | null>(null)
   const [tracks, setTracks] = useState<ChartTrack[] | null>(null)
 
-  const load = useCallback(async () => {
-    try {
-      const res = await fetch('/api/charts', { cache: 'no-store' })
-      if (!res.ok) return
-      const json = (await res.json()) as { artists?: ChartArtist[]; tracks?: ChartTrack[] }
-      setArtists(json.artists || [])
-      setTracks(json.tracks || [])
-    } catch {
-      /* keep the last list */
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      try {
+        const res = await fetch('/api/charts')
+        if (!res.ok) return
+        const json = (await res.json()) as { artists?: ChartArtist[]; tracks?: ChartTrack[] }
+        if (cancelled) return
+        setArtists(json.artists || [])
+        setTracks(json.tracks || [])
+      } catch {
+        /* leave the empty state */
+      }
+    })()
+    return () => {
+      cancelled = true
     }
   }, [])
-
-  useEffect(() => {
-    void load()
-    const tick = window.setInterval(() => {
-      if (document.visibilityState === 'visible') void load()
-    }, 15000)
-    const onPlay = () => void load()
-    const onVisible = () => {
-      if (document.visibilityState === 'visible') void load()
-    }
-    window.addEventListener('dkr-play', onPlay)
-    document.addEventListener('visibilitychange', onVisible)
-    return () => {
-      window.clearInterval(tick)
-      window.removeEventListener('dkr-play', onPlay)
-      document.removeEventListener('visibilitychange', onVisible)
-    }
-  }, [load])
 
   return (
     <div className="charts">

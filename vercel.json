@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "ignoreCommand": "node -e \"process.exit(process.env.VERCEL_GIT_COMMIT_REF==='plays'?0:1)\"",
   "crons": [
     {
       "path": "/api/cron/beatport-sync",

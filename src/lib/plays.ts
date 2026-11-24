@@ -1,8 +1,9 @@
 /**
  * Preview starts. One row per play, same idea as the old track_play_events table.
  * The file is data/plays.json. On this PC it is written on disk.
- * On Vercel the disk does not last, so the same file is committed on the branch `plays`,
- * which does not deploy the site. A play must not commit to main.
+ * On Vercel the disk does not last, so the same file is committed on the branch `plays`.
+ * That branch is ignored in vercel.json, so a play never builds or deploys the site.
+ * The public top 10 is cached for seven days. A play must not commit to main.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
