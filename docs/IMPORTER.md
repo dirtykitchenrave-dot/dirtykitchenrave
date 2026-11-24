@@ -1,6 +1,6 @@
 # Beatport importer
 
-**Status: implemented** in `src/lib/beatport/` + `scripts/import-beatport.ts` + `src/app/api/cron/beatport-sync`.
+**Status: implemented** in `src/lib/beatport/` + `scripts/import-beatport.ts`. The daily run is GitHub Actions (`.github/workflows/beatport-daily.yml`, Chrome). The Vercel cron is retired.
 Full catalogue reloaded 24 Nov 2026: **446 releases, 1,668 tracks**, all with catalogue number and preview. The public site reads this JSON. Supabase is not in the request path.
 
 From this PC, `npm run import:beatport` does not get the HTML. First the Acttax proxy fails TLS

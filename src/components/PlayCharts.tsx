@@ -12,7 +12,7 @@ interface Labels {
   noPlays: string
 }
 
-/** One read of /api/charts. The response is cached for seven days. */
+/** One read of /api/charts. The list is the morning snapshot. */
 export default function PlayCharts({ lang, labels }: { lang: Lang; labels: Labels }) {
   const [artists, setArtists] = useState<ChartArtist[] | null>(null)
   const [tracks, setTracks] = useState<ChartTrack[] | null>(null)

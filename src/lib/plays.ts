@@ -3,7 +3,9 @@
  * The file is data/plays.json. On this PC it is written on disk.
  * On Vercel the disk does not last, so the same file is committed on the branch `plays`.
  * That branch is ignored in vercel.json, so a play never builds or deploys the site.
- * The public top 10 is cached for seven days. A play must not commit to main.
+ * Once a day the GitHub Action copies that file to data/plays.public.json on main.
+ * That commit is the deploy: new releases and the day's plays, together.
+ * The public top 10 reads the copy. The panel reads the branch. A play must not commit to main.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -132,7 +134,17 @@ export function knownTrack(trackId: number) {
   return (seed as unknown as Catalog).tracks.some((track) => track.id === trackId)
 }
 
-export async function readPlays(): Promise<PlayEvent[]> {
+function readPublished(): PlayEvent[] {
+  try {
+    return parseEvents(readFileSync(resolve(process.cwd(), 'data/plays.public.json'), 'utf8'))
+  } catch {
+    return []
+  }
+}
+
+/** `published` is the morning copy on main. `live` is the plays branch, for the panel. */
+export async function readPlays(source: 'live' | 'published' = 'published'): Promise<PlayEvent[]> {
+  if (source === 'published') return readPublished()
   if (token()) return (await remoteFile()).events
   return readLocal()
 }
@@ -156,14 +168,14 @@ export async function recordPlay(trackId: number): Promise<boolean> {
   return false
 }
 
-export async function loadPlayedChart(limit = 10): Promise<{
+export async function loadPlayedChart(limit = 10, source: 'live' | 'published' = 'published'): Promise<{
   artists: ChartArtist[]
   tracks: ChartTrack[]
   total: number
   month: number
 }> {
   const catalog = seed as unknown as Catalog
-  const events = await readPlays()
+  const events = await readPlays(source)
   const since = Date.now() - 30 * 24 * 60 * 60 * 1000
   const month = events.filter((event) => new Date(event.at).getTime() >= since).length
   const counts = new Map<number, number>()

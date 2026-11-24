@@ -41,11 +41,11 @@ The JSON import replaces the sample file but **keeps editorial fields** already 
 
 ### Admin
 
-`/administrator` signs in as `dirtykitchenrave@gmail.com` with `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (see `.env.example`). Confirmed on www.dirtykitchenrave.com on 24 Nov 2026, after the Supabase project was deleted. Saves write `data/catalog.seed.json` and `data/bookings.json`. On Vercel that needs `GITHUB_TOKEN` (contents write on `dirtykitchenrave-dot/dirtykitchenrave`) so the save becomes a commit and the next deploy publishes it. Preview plays go to `data/plays.json` on the git branch `plays`, which does not redeploy the site. The public catalogue is only the JSON.
+`/administrator` signs in as `dirtykitchenrave@gmail.com` with `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (see `.env.example`). Confirmed on www.dirtykitchenrave.com on 24 Nov 2026, after the Supabase project was deleted. Saves write `data/catalog.seed.json` and `data/bookings.json`. On Vercel that needs `GITHUB_TOKEN` (contents write on `dirtykitchenrave-dot/dirtykitchenrave`) so the save becomes a commit and the next deploy publishes it. Preview plays go to `data/plays.json` on the git branch `plays`. Vercel does not build that branch. The public catalogue is `data/catalog.seed.json`. The public top 10 is `data/plays.public.json`, copied from that branch once a day.
 
-### Daily sync (Vercel)
+### Daily sync (GitHub Actions)
 
-`vercel.json` still schedules `GET /api/cron/beatport-sync` every day at 06:00 UTC. That route writes Supabase and is idle: the project was deleted on 24 Nov 2026 and Cloudflare already blocked the Node fetch. New releases are loaded by hand into `data/catalog.seed.json`.
+`.github/workflows/beatport-daily.yml` runs at 11:05 UTC (12:05 in Madrid in winter, 13:05 in summer). Chrome reads new Beatport releases and copies the plays file onto `main`. A commit happens only when the catalogue or the plays changed, and that commit is the only deploy of the day. There is no Vercel cron. `/api/cron/beatport-sync` answers 410.
 
 ## Listening (like Optimal Breaks)
 
@@ -79,7 +79,7 @@ The JSON import replaces the sample file but **keeps editorial fields** already 
 | `/{lang}/legal/{notice,privacy,cookies}` | Legal (placeholder texts, noindex) |
 | `/dkr0237` | Short link by catalogue number → release page |
 | `/sitemap.xml` · `/robots.txt` · `/feed.xml` | SEO + RSS of new releases |
-| `/api/cron/beatport-sync` | Daily Beatport sync (protected) |
+| `/api/cron/beatport-sync` | Retired. The daily run is GitHub Actions |
 
 Track sharing: `/{lang}/releases/{slug}?play=beatport:{trackId}` highlights the track and asks to tap play
 (never autoplays). The player is global: previews keep playing while navigating.
@@ -92,7 +92,7 @@ src/
   app/
     globals.css icon.png     Design system from proposal 05; favicon is the logo
     [lang]/                  All pages + layout (root <html lang>), error, 404, OG image
-    api/cron/beatport-sync/  Daily incremental import
+    api/cron/beatport-sync/  Retired (410). Daily run is .github/workflows/beatport-daily.yml
     sitemap.ts robots.ts feed.xml/route.ts
   components/                Nav, Footer, Player, TrackList, ReleasesExplorer, HeroDrop, Marquee…
   i18n/                      Locales + EN/ES dictionaries (all UI copy)

@@ -468,10 +468,14 @@ El historial de escuchas y las reservas que solo estaban en Supabase no se copia
 
 ## Escuchas otra vez (24 nov 2026)
 
-Cada preview se anota en `data/plays.json` (tema y hora), en la rama Git `plays`, nunca en `main`. `vercel.json` ignora esa rama: un play no construye ni despliega la web. El top público (`/about`) se cachea **siete días**. El panel, al abrirlo, lee el archivo al momento. Hace falta `GITHUB_TOKEN`. El histórico de Supabase no está.
+Cada preview se anota en `data/plays.json` (tema y hora), en la rama Git `plays`, nunca en `main`. `vercel.json` ignora esa rama: un play no construye ni despliega la web. El pase de las 11:05 UTC copia ese archivo a `main` si ha cambiado. El histórico de Supabase no está.
 
 ## En producción (24 nov 2026, tarde)
 
 Narciso borró el proyecto Supabase `qsfynssmtuwufwqtbmra`. En Vercel (proyecto `dirtykitchenrave`, Production) quitó las cuatro variables de Supabase y dejó `GITHUB_TOKEN` (token fino de **dirtykitchenrave-dot**, solo el repo `dirtykitchenrave`, Contents read and write, sin caducidad). El panel entra con `dirtykitchenrave@gmail.com` y la contraseña de `ADMIN_PASSWORD`. Narciso redesplegó `main` y confirmó que el inicio de sesión funciona.
 
-La web pública sirve `data/catalog.seed.json` (185 artistas, 446 lanzamientos, 1.668 temas, con DKR0394). Un cambio del panel en bios, notas o reservas hace commit a `main` y sale en el deploy siguiente. Cada escucha se apunta en la rama `plays` y Vercel no construye esa rama. El top público se refresca cada siete días. El panel lo ve al abrirlo. Lo que había solo en Supabase (escuchas antiguas y reservas antiguas) no está.
+La web pública sirve `data/catalog.seed.json` (185 artistas, 446 lanzamientos, 1.668 temas, con DKR0394). Un cambio del panel en bios, notas o reservas hace commit a `main` y sale en el deploy siguiente. Cada escucha se apunta en la rama `plays` y Vercel no construye esa rama. El top público entra en el deploy de la mañana. El panel lo ve al abrirlo. Lo que había solo en Supabase (escuchas antiguas y reservas antiguas) no está.
+
+## Pase diario (24 nov 2026, tarde)
+
+El cron de Vercel (`/api/cron/beatport-sync`, 06:00 UTC) queda fuera de `vercel.json`. Esa ruta respondía contra Supabase y Cloudflare ya bloqueaba el `fetch`. El recambio es `.github/workflows/beatport-daily.yml`: Chrome, 11:05 UTC, incremental. Si hay discos nuevos o escuchas nuevas, un commit a `main`. Si no hay nada nuevo, no hay deploy. La ruta vieja responde 410.

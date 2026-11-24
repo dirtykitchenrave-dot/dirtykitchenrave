@@ -12,12 +12,14 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { mergeEditorial } from '../src/lib/beatport/build'
+import { closeBeatportBrowser } from '../src/lib/beatport/scrape'
 import { knownReleaseIds, serviceClient, writeCatalogToSupabase } from '../src/lib/beatport/sinks'
 import { scrapeBeatport } from '../src/lib/beatport/sync'
 import type { Catalog } from '../src/lib/types'
 
 const ROOT = resolve(__dirname, '..')
 const JSON_PATH = resolve(ROOT, 'data', 'catalog.seed.json')
+const PLAYS_PUBLIC = resolve(ROOT, 'data', 'plays.public.json')
 
 function loadEnv() {
   for (const f of ['.env', '.env.local']) {
@@ -36,6 +38,38 @@ function arg(name: string): string | undefined {
   const hit = process.argv.find((a) => a === `--${name}` || a.startsWith(`--${name}=`))
   if (!hit) return undefined
   return hit.includes('=') ? hit.split('=').slice(1).join('=') : 'true'
+}
+
+/** Copies data/plays.json from the plays branch into the file the public site ships. */
+async function publishPlaysSnapshot() {
+  const gh = process.env.GITHUB_TOKEN
+  if (!gh) {
+    console.log('[beatport] no GITHUB_TOKEN; plays snapshot skipped')
+    return
+  }
+  const repo = process.env.GITHUB_REPO || 'dirtykitchenrave-dot/dirtykitchenrave'
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/data/plays.json?ref=plays`, {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: `Bearer ${gh}`,
+      'User-Agent': 'dirtykitchenrave-daily',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  })
+  let text = '{"events":[]}\n'
+  if (res.status !== 404) {
+    if (!res.ok) throw new Error(`plays branch: ${res.status}`)
+    const meta = (await res.json()) as { content?: string }
+    text = Buffer.from((meta.content || '').replace(/\n/g, ''), 'base64').toString('utf8')
+    if (!text.endsWith('\n')) text += '\n'
+  }
+  const prev = existsSync(PLAYS_PUBLIC) ? readFileSync(PLAYS_PUBLIC, 'utf8') : ''
+  if (prev === text) {
+    console.log('[beatport] plays snapshot unchanged')
+    return
+  }
+  writeFileSync(PLAYS_PUBLIC, text, 'utf8')
+  console.log('[beatport] plays snapshot written')
 }
 
 async function main() {
@@ -63,7 +97,18 @@ async function main() {
   }
 
   log(`mode=${mode} target=${dryRun ? 'dry-run' : toSupabase ? 'supabase' : 'json'}`)
-  const res = await scrapeBeatport({ mode, knownReleaseIds: known, maxPages, log })
+  let res: Awaited<ReturnType<typeof scrapeBeatport>> | null = null
+  try {
+    res = await scrapeBeatport({ mode, knownReleaseIds: known, maxPages, log })
+  } catch (e) {
+    console.error('[beatport] scrape failed:', e)
+  } finally {
+    await closeBeatportBrowser()
+  }
+  if (!res) {
+    if (arg('publish-plays')) await publishPlaysSnapshot()
+    return
+  }
   if (res.errors.length) {
     console.warn(`[beatport] ${res.errors.length} errors:`)
     res.errors.slice(0, 20).forEach((e) => console.warn('  -', e))
@@ -79,6 +124,14 @@ async function main() {
   if (sb) {
     await writeCatalogToSupabase(sb, res.catalog, log)
     log('Supabase updated')
+    return
+  }
+
+  if (arg('publish-plays')) await publishPlaysSnapshot()
+
+  // Incremental with nothing new must not rewrite the file: a new updatedAt would deploy an empty day.
+  if (mode === 'incremental' && res.newReleaseIds.length === 0) {
+    log('no new releases; catalog file left as it is')
     return
   }
 
@@ -100,7 +153,9 @@ async function main() {
   log(`written ${JSON_PATH} (${out.releases.length} releases, ${out.tracks.length} tracks, ${out.artists.length} artists)`)
 }
 
-main().catch((e) => {
-  console.error('[beatport] FAILED:', e)
-  process.exit(1)
-})
+main()
+  .catch(async (e) => {
+    await closeBeatportBrowser()
+    console.error('[beatport] FAILED:', e)
+    process.exit(1)
+  })

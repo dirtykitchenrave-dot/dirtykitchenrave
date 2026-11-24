@@ -1,0 +1,56 @@
+# Pase diario del sello — sobre las 12:00 en Madrid (11:05 UTC, hora de invierno).
+# Chrome, porque el fetch de Vercel recibe 403 de Cloudflare y la función no
+# termina el catálogo. Si hay discos nuevos o escuchas nuevas, un commit a main.
+# Ese commit es el único deploy del día. La rama plays no se construye.
+name: Pase diario de Beatport
+
+on:
+  schedule:
+    - cron: '5 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beatport-daily
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Dependencias
+        run: npm ci --ignore-scripts
+
+      - name: Chrome
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.49.1
+          npx playwright install --with-deps chromium
+
+      - name: Lanzamientos nuevos y escuchas
+        env:
+          BEATPORT_BROWSER: '1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: dirtykitchenrave-dot/dirtykitchenrave
+        run: npx tsx scripts/import-beatport.ts --incremental --publish-plays
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data/catalog.seed.json data/plays.public.json
+          if git diff --cached --quiet; then
+            echo "Sin discos nuevos ni escuchas nuevas."
+            exit 0
+          fi
+          git commit -m "Pase diario: catálogo y escuchas."
+          git push

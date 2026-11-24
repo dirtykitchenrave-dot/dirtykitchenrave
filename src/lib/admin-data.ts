@@ -112,7 +112,7 @@ export async function adminDashboard() {
   const catalog = await catalogFile()
   const bookings = [...(await bookingFile())].sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
   const featured = catalog.releases.find((r) => r.featured) || null
-  const plays = await loadPlayedChart(10)
+  const plays = await loadPlayedChart(10, 'live')
   return {
     artists: catalog.artists.length,
     releases: catalog.releases.length,
@@ -314,5 +314,5 @@ export async function getTrack(id: number) {
 /** Preview starts from data/plays.json. Each row is one play. */
 export async function playSummary() {
   await gate()
-  return loadPlayedChart(10)
+  return loadPlayedChart(10, 'live')
 }

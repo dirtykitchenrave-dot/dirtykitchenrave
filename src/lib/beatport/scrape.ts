@@ -16,16 +16,71 @@ const UA =
 
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
+type BeatportBrowser = {
+  newContext: (opts: object) => Promise<{
+    newPage: () => Promise<{
+      goto: (url: string, opts: object) => Promise<unknown>
+      content: () => Promise<string>
+      evaluate: (fn: () => boolean) => Promise<boolean>
+      waitForTimeout: (ms: number) => Promise<void>
+    }>
+    close: () => Promise<void>
+  }>
+  close: () => Promise<void>
+}
+
+let browser: BeatportBrowser | null = null
+
+async function browserHtml(url: string): Promise<string> {
+  if (!browser) {
+    const load = new Function('m', 'return import(m)') as (m: string) => Promise<{
+      chromium: { launch: (opts: object) => Promise<BeatportBrowser> }
+    }>
+    const { chromium } = await load('playwright')
+    browser = await chromium.launch({
+      headless: true,
+      args: ['--disable-blink-features=AutomationControlled', '--disable-dev-shm-usage', '--no-sandbox'],
+    })
+  }
+  const ctx = await browser.newContext({ userAgent: UA, locale: 'en-US', viewport: { width: 1366, height: 800 } })
+  const page = await ctx.newPage()
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 })
+    const deadline = Date.now() + 20000
+    while (Date.now() < deadline) {
+      const has = await page.evaluate(() => !!document.querySelector('script#__NEXT_DATA__')).catch(() => false)
+      if (has) break
+      await page.waitForTimeout(1000)
+    }
+    return await page.content()
+  } finally {
+    await ctx.close()
+  }
+}
+
+/** GitHub Actions sets this. The site itself keeps using fetch. */
+export async function closeBeatportBrowser() {
+  if (!browser) return
+  await browser.close()
+  browser = null
+}
+
 export async function fetchHtml(url: string, tries = 3): Promise<string> {
   let lastErr: unknown
   for (let i = 0; i < tries; i++) {
     try {
-      const res = await fetch(url, {
-        headers: { 'User-Agent': UA, Accept: 'text/html', 'Accept-Language': 'en-US,en;q=0.9' },
-      })
-      if (res.ok) return await res.text()
-      if (res.status === 404) throw new Error(`Beatport 404: ${url}`)
-      lastErr = new Error(`Beatport HTTP ${res.status}: ${url}`)
+      if (process.env.BEATPORT_BROWSER === '1') {
+        const html = await browserHtml(url)
+        if (html.includes('__NEXT_DATA__')) return html
+        lastErr = new Error(`Beatport page had no catalogue data: ${url}`)
+      } else {
+        const res = await fetch(url, {
+          headers: { 'User-Agent': UA, Accept: 'text/html', 'Accept-Language': 'en-US,en;q=0.9' },
+        })
+        if (res.ok) return await res.text()
+        if (res.status === 404) throw new Error(`Beatport 404: ${url}`)
+        lastErr = new Error(`Beatport HTTP ${res.status}: ${url}`)
+      }
     } catch (e) {
       lastErr = e
       if (String(e).includes('404')) throw e
